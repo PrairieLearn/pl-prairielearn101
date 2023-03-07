@@ -1,17 +1,31 @@
 {
-    "uuid": "fe472cd2-4759-4c0d-9b19-7383ca9b2817",
-    "name": "TPL 101",
-    "title": "Template Course",
+    "uuid": "1a21691e-84f3-443e-9065-b3e805151033",
+    "name": "PRAIRIELEARN 101",
+    "title": "Introduction to PrairieLearn",
     "assessmentSets": [
-      {"abbreviation": "G", "name": "Gallery", "heading": "Gallery of questions using different PrairieLearn elements", "color": "orange1", "description": "Gallery of PL questions"}
+        {
+            "abbreviation": "G",
+            "name": "Gallery",
+            "heading": "Gallery of questions using different PrairieLearn elements",
+            "color": "orange1",
+            "description": "Gallery of PL questions"
+        }
     ],
     "options": {
         "useNewQuestionRenderer": true
     },
     "topics": [
-        {"name": "Gallery", "color": "orange1", "description": "Gallery of PL questions"}
+        {
+            "name": "Gallery",
+            "color": "orange1",
+            "description": "Gallery of PL questions"
+        }
     ],
     "tags": [
-        {"name": "mariana@prairielearn.com", "color": "gray1", "description": "Author of the original question"}
+        {
+            "name": "mariana@prairielearn.com",
+            "color": "gray1",
+            "description": "Author of the original question"
+        }
     ]
 }
