@@ -1,0 +1,40 @@
+{
+    "uuid": "13D012E5-9C66-4092-BA1A-0445919CB0C3",
+    "type": "Homework",
+    "title": "Question examples from https://www.prairielearn.com",
+    "set": "Homework",
+    "number": "1",
+    "allowAccess": [
+        {
+            "mode": "Public",
+	    "credit": 100,
+	    "startDate": "2021-02-02T00:00:01",
+	    "endDate": "2021-02-10T23:59:59"
+        }
+    ],
+    "zones": [
+        {
+            "title": "Checkbox Input (pl-checkbox)",
+            "questions": [
+                {"id": "Gallery/checkbox/simple","points": 1},
+                {"id": "Gallery/checkbox/complex","points": 1}
+            ]
+        },
+        {
+            "title": "Include Figure (pl-figure)",
+            "questions": [
+                {"id": "Gallery/includeFigure/simple","points": 1},
+                {"id": "Gallery/includeFigure/complex","points": 1}
+            ]
+        },
+        {
+            "title": "Multiple-choice Input (pl-multiple-choice)",
+            "questions": [
+                {"id": "Gallery/multipleChoice/simple","points": 1},
+                {"id": "Gallery/multipleChoice/complex","points": 1},
+                {"id": "Gallery/multipleChoice/advanced","points": 1}
+            ]
+        }
+    ],
+    "text": "<p><strong>Comments about this assessment:</strong> </p><p> This assessment includes examples from the question gallery at <a href=https://www.prairielearn.com/gallery>https://www.prairielearn.com</a>.</p>"
+}

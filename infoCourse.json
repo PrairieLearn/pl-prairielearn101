@@ -1,0 +1,17 @@
+{
+    "uuid": "fe472cd2-4759-4c0d-9b19-7383ca9b2817",
+    "name": "TPL 101",
+    "title": "Template Course",
+    "assessmentSets": [
+      {"abbreviation": "G", "name": "Gallery", "heading": "Gallery of questions using different PrairieLearn elements", "color": "orange1", "description": "Gallery of PL questions"}
+    ],
+    "options": {
+        "useNewQuestionRenderer": true
+    },
+    "topics": [
+        {"name": "Gallery", "color": "orange1", "description": "Gallery of PL questions"}
+    ],
+    "tags": [
+        {"name": "mariana@prairielearn.com", "color": "gray1", "description": "Author of the original question"}
+    ]
+}
