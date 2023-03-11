@@ -1,0 +1,40 @@
+{{#params}}
+<pl-question-panel>
+  <p>
+    In this problem, we'll interpret lists of <code>Bool</code>s as single 
+    <code>Bool</code>. Any list with at least one element will be interpreted
+    simply as the value of its first element. Any empty list will be interpreted
+    as a sort of "neutral" value, in a way that is described below.
+  </p>
+  <p>
+    Design a function <code>{{main}}</code> that takes two <code>[Bool]</code>s,
+    interprets them as above, and computes their logical <code>{{op}}</code>.
+    Remember that
+    <code>{{op}} a b</code> is <code>True</code> exactly when
+    {{{opABTrueExplanation}}}. However, in the special case that exactly one of the
+    values is an empty list (a "neutral") value, it should simply produce the other
+    list's <code>Bool</code> value. If <strong>both</strong> lists are empty,
+    it should produce <code>{{optiPessiMaybeVal}}</code>.
+  </p>
+  <p>Your code snippet should define the variable <code>{{names_from_user.name}}</code>, which {{names_from_user.name}} and {{names_from_user.description}}.
+  <p>
+    You may not use built-in logical operators like <code>&&</code> or
+    <code>||</code>. We strongly recommend using pattern-matching instead!
+  </p>
+
+  <pl-file-editor
+    file-name="Lib.hs"
+    ace-mode="ace/mode/haskell"
+    ace-theme="ace/theme/monokai"
+    min-lines="5"
+  >{{main}} :: [Bool] -> [Bool] -> Bool
+{{main}} _ _ = undefined
+</pl-file-editor>
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
+
+{{/params}}

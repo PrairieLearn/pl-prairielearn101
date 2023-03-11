@@ -1,0 +1,22 @@
+{{#params}}
+<pl-question-panel>
+  <p>
+    Design a recursive function {{name}} that takes a <code>[Int]</code> and finds the {{superlative}}
+    {{op}} of any value and the one after it in the list. Your function must evaluate to 0
+    for the empty list and to {{valOrZero}} for a list with a single element.
+  </p>
+  <pl-file-editor
+    file-name="Lib.hs"
+    ace-mode="ace/mode/haskell"
+    ace-theme="ace/theme/monokai"
+  >{{name}} :: [Int] -> Int
+{{name}} = undefined
+</pl-file-editor>
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
+
+{{/params}}

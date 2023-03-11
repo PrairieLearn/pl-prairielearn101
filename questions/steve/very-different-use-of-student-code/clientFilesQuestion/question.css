@@ -1,0 +1,4 @@
+span.wide {
+    display: inline-block;
+    min-width: 1em;
+}
