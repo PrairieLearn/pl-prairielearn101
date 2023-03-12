@@ -1,0 +1,241 @@
+<pl-question-panel>
+<markdown>
+
+Modern engineering requires a significant amount of **data analysis**, both to understand and summarize what we know about a process and to somehow deal with what we do not know about a process. 
+
+**Statistics** can help us quantify what we do know about a process and provide some measures of what we do not know -- the *uncertainity* that is a part of all engineering work. 
+
+<h4>Review: Min and Max</h4>
+
+We've previously seen two basic statistical measures of data, the minimum and maximum of a dataset. Recall that MATLAB has built-in functions for finding the maximum and minimum values in a dataset: `max` and `min`. Recall, also, that if you use a compound return when calling these functions, you can get both the minimum (or maximum) value and its location in the dataset:
+
+<pl-figure file-name="MaxCompoundReturn.png" directory="clientFilesQuestion" width="400px" alt=""></pl-figure>
+<br>
+
+
+<h4>Mean, Median, and Mode</h4>
+
+Three other common statistical measures of data are:
+
+- **mean** - the average of the dataset
+- **median** - the number that would appear in the middle if the numbers in the dataset were sorted in order
+- **mode** - the most common number in the dataset
+
+MATLAB has built-in functions to calculate each of these statistical measures:
+
+- `mean` 
+- `median` 
+- `mode`
+
+<hr>
+
+<h4>The <code>mean</code> Function</h4>
+
+The `mean` function returns the column-by-column mean of a matrix, similar to the `sum` function from Assignment 3. For example, if we had this matrix `A`:
+
+<pl-figure file-name="Mean_1.png" directory="clientFilesQuestion" width="300px" alt="A is initialized with A = [2,3,4,3;4,2,3,3];"></pl-figure>
+<br>
+
+And we called `mean(A)` in MATLAB, we would get a row vector that contains the mean values of each column of `A`:
+
+<pl-figure file-name="Mean_2.png" directory="clientFilesQuestion" width="300px" alt="The result of calling mean(A) is [3, 2.5, 4, 3]"></pl-figure>
+<br>
+
+If you would instead like to work row-by-row and find the means of each row in your matrix, you may specify an additional argument of `2` to specify the 2nd dimension (by rows). For example:
+
+<pl-figure file-name="Mean_3.png" directory="clientFilesQuestion" width="500px" alt="The result of calling mean(A, 2) is [3.25; 3]"></pl-figure>
+<br>
+
+<pl-info-box>For a row vector, `mean` returns the mean of that row (rather than the mean of each column, which would be just the vector itself and wouldn't be very useful). This means that if you start with a vector, functions like `mean` will *always* return a single result.</pl-info-box>
+
+
+If you want to get the mean of all the elements in a matrix, you have a few choices:
+
+- `mean(mean(A))` - call the mean function twice in succession (means of columns, then the mean of those means)
+- `mean(A(:))` - select all the elements in A which creates a column vector; then compute the mean value of the column vector, giving you the mean value of the entire matrix
+- `mean(A, 'all')` - the 'all' option tells MATLAB to override the column-by-column default behavior and get all of the elements in A. 
+
+<pl-figure file-name="Mean_4.png" directory="clientFilesQuestion" width="500px" alt="Three ways to compute the mean of all elements"></pl-figure>
+<br>
+
+
+
+<hr>
+
+<h4>The <code>median</code> Function</h4>
+
+The `median` function returns the median of a dataset, which is the value that would appear in the middle if the data were put into sorted order. If there is an even number of elements, the `median` function averages the two elements in the middle of the sorted elements. It works with arrays in the same way as the `mean` function (i.e. column-by-column, selecting dimensions, etc.).
+
+In the following example, the vector `B` has 10 elements (an even number of elements). After the vector `B` is sorted within the `median()` function, the middle element is found. Since `B` has an even number of elements, the function takes the two elements in the middle and finds the mean of those values (in this case, the mean of the values 5 and 6 is 5.5), and returns that mean value as the median value of vector `B`.
+
+<pl-figure file-name="Median_1.png" directory="clientFilesQuestion" width="500px" alt="The median of the dataset [5,0,8,9,6,7,7,3,5,1] is 5.5"></pl-figure>
+<br>
+
+<pl-info-box type="warning">
+
+If you want to take the median of all elements in a matrix `M`, don't use `median(median(M))` - that's not correct because the median of the column medians is not mathematically equivalent to the median of the whole dataset. Instead, use either of the other approaches, `median(M(:))` or `median(M, 'all')`.
+
+</pl-info-box>
+
+<br>
+
+<hr>
+
+<h4>The <code>mode</code> Function</h4>
+
+
+The `mode` function returns the value of the dataset that occurs most often. It works with arrays in the same way as the `mean` function (i.e. column-by-column, selecting dimensions, etc.).
+
+In the following example, the vector `X` has three elements with the value 8. The value 8 occurs the most times, so that is the mode for this vector:
+
+<pl-figure file-name="Mode_1.png" directory="clientFilesQuestion" width="500px" alt="The mode of the dataset [1,9,0,7,8,8,0,3,7,8] is 8."></pl-figure>
+<br>
+
+If you use a compound return, you can also get the frequency of the mode value; the frequency is how many times the mode value occurred. Using our vector `X`:
+
+<pl-figure file-name="Mode_2.png" directory="clientFilesQuestion" width="500px" alt="The mode of the dataset [1,9,0,7,8,8,0,3,7,8] is 8, which occurs 3 times."></pl-figure>
+<br>
+
+
+
+
+
+<pl-info-box type="warning">
+
+If you want to take the mode of all elements in a matrix `M`, don't use `mode(mode(M))` - that's not correct because the mode of the column modes is not mathematically equivalent to the mode of the whole dataset. Instead, use either of the other approaches, `mode(M(:))` or `mode(M, 'all')`.
+
+</pl-info-box>
+
+</markdown>
+
+</pl-question-panel>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+The `cities.xlsx` file contains information about the world's largest cities:
+
+<pl-figure file-name="cities_data.png" directory="clientFilesQuestion" width="500px" alt="A list of cities with population, latitude, and longitude."></pl-figure>
+
+
+<br>
+
+
+Download both the <code><pl-file-download file-name="cities.xlsx" directory="clientFilesQuestion"></pl-file-download></code> file and the <code><pl-file-download file-name="CityLatitudes.m" directory="clientFilesQuestion"></pl-file-download></code> file and place them in a folder on your computer. 
+
+Then, open `CityLatitudes.m` in MATLAB. We've provided an outline for your code, as well as initial code to read data from the Excel file, `cities.xlsx`, and extract the data into three parallel vectors `pop`, `lat`, and `lon` representing the cities' populations, latitudes, and longitudes, respectively. (Don't worry about how specifically the `xlsread` function works - we'll come back to this in a later assignment.)
+
+**Complete the `CityLatitudes.m` script** to generate some basic statistical measures of the latitudes of the world's largest cities. Answer the questions below based on your analysis.
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<br>
+<markdown>
+
+**What latitude (in degrees) is the most northern city?**
+
+<pl-number-input answers-name="ex1_1" comparison="sigfig" digits="4" label="latitude"> </pl-number-input>
+<br>
+<br>
+
+**What latitude (in degrees) is the most southern city?**
+
+<pl-number-input answers-name="ex1_2" comparison="sigfig" digits="4" label="latitude"> </pl-number-input>
+<br>
+<br>
+
+**What is the mean latitude (in degrees)?**
+
+<pl-number-input answers-name="ex1_3" comparison="sigfig" digits="4" label="latitude"> </pl-number-input>
+<br>
+<br>
+
+**What is the median latitude (in degrees)?**
+
+<pl-number-input answers-name="ex1_4" comparison="sigfig" digits="4" label="latitude"> </pl-number-input>
+<br>
+<br>
+
+**What is the mode latitude (in degrees)?**
+
+<pl-number-input answers-name="ex1_5" comparison="sigfig" digits="4" label="latitude"> </pl-number-input>
+
+</markdown>
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/GR0vdq7DWig" notes=""></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+  
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+  
+
+
+
+
+<pl-answer-panel>
+  
+<p></p>
+    
+<markdown>
+    
+    
+
+{{{params.answer-feedback}}}
+
+
+
+</markdown>
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+
+

@@ -1,0 +1,54 @@
+
+{{#collapsible}}
+  <button type="button" class="collapsible"><img src="{{course-files-path}}/img/crabster.jpg" style="height: 25px" /> 
+  &nbsp; Can't figure this exercise out? Click here to open a MatCrab workspace to help you.</button>
+  <div class="content">
+    <p> <br>
+    MatCrab can help you check your work, if you would like. 
+    {{#text-area}}(To get it to show the result, make sure to store your result in a variable, e.g. <code>{{text-area}}</code>.){{/text-area}}
+    {{^text-area}}{{/text-area}}
+  </p>
+{{/collapsible}}
+{{^collapsible}}
+  <p> MatCrab can help you check your work, if you would like. 
+    {{#text-area}}(To get it to show the result, make sure to store your result in a variable, e.g. <code>{{text-area}}</code>.){{/text-area}}
+    {{^text-area}}{{/text-area}}
+  </p>
+{{/collapsible}}
+
+<div class="container-fluid">
+  <div class="matcrab-example">
+    {{#setup-variables}}<div class="matcrab-setup">
+        {{setup-variables}}
+      </div>{{/setup-variables}}
+    {{^setup-variables}}<p></p>{{/setup-variables}}
+    <table><tbody>
+      <tr>
+        <td rowspan="2" style="text-align: center">
+          <img src="{{course-files-path}}/img/crabster.jpg" style="height: 35px" />
+          <br />
+          <a role="button" class="btn btn-success matcrab-run">Run</a>
+          <br />
+          <a role="button" class="btn btn-warning matcrab-reset">Reset</a>
+        </td>
+        <td rowspan="2">
+          <div class="matcrab-workspace list-group matlab-vars" style="resize: auto"></div>
+        </td>
+        <td>
+          <textarea class="form-control matcrab-entry" style="resize: auto">
+            {{#text-area}}{{text-area}}{{/text-area}}
+            {{^text-area}}{{/text-area}}
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="matcrab-vis">
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+

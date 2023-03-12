@@ -1,0 +1,124 @@
+<pl-question-panel>
+
+<markdown>
+
+Indexing into a vector of vectors is similar to indexing into vectors, we just have to be careful about whether we need to index into the **outer vector** or the **inner vector**. Let's see how this works:
+
+<pl-video-embed url="https://www.youtube.com/embed/QzSwWSD-Jqo"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+Indexing into a vector of vectors *selects a vector*. To select an element from that vector, *index again*. Like indexing into a single vector, you can use `.at()` to index, which checks that the index is valid but is slightly slower.
+
+</markdown>
+
+
+</pl-info-box>
+
+<br>
+
+</pl-question-panel>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+Here is a vector of vectors named `v2`:
+
+<pl-figure file-name="VectorOfVectors1.png" directory="clientFilesQuestion" width="600px" alt="A vector of vectors containing 3 vectors. The first inner vector contains 5, 2, 23, 8. The second inner vector contains 42, 42. The third inner vector contains 2, 3, 5, 7, 11, 13."></pl-figure>
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<markdown>
+<br>
+
+
+**What is the value of `v2.at(1)`?**
+<pl-string-input answers-name="ex1_1" label="v2.at(1) = " remove-leading-trailing="true"></pl-string-input>
+<br>
+
+**What is the value of `v2.at(0)`?**
+<pl-string-input answers-name="ex1_2" label="v2.at(0) = " remove-leading-trailing="true"></pl-string-input>
+<br>
+
+**What is the value of `v2.at(0).at(1)`?**
+<pl-string-input answers-name="ex1_3" label="v2.at(0).at(1) = " remove-leading-trailing="true"></pl-string-input>
+<br>
+
+**What is the value of `v2.at(2).at(5)`?**
+<pl-string-input answers-name="ex1_4" label="v2.at(2).at(5) = " remove-leading-trailing="true"></pl-string-input>
+<br>
+
+
+</markdown>
+
+
+</div>
+</div>
+<br>
+  
+
+
+
+  
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+
+
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+

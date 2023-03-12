@@ -1,0 +1,87 @@
+{
+    "uuid": "ab68322b-e123-421a-8444-b5ff36da5527",
+    "type": "Exam",
+    "title": "See How a \"Real\" Assessment Works",
+    "set": "Learn",
+    "number": "2",
+    "allowIssueReporting": false,
+    "allowRealTimeGrading": false,
+    "multipleInstance": false,
+    "text": "<b>Hello!</b> Welcome to PrairieLearn. This is the online platform we will use for our assessments in ENGR 101. <br> <br>This is an example of how an <b>actual assessment</b> will work in ENGR 101. You can take it at any time (the questions don't require any programming knowledge).<br> <br>On an actual assessment, you are able to save your answers, but you are not able to grade your answers as you go along. After you have finished your assessment, you can click the \"Finish Assessment\" button on the Assessment Overview page, and then PrairieLearn will grade your assessment. At that point, you will be able to see your total grade, but not the score broken down by question (unfortunately, that feature is still coming in PrairieLearn). If you would like to see your score breakdown or to see which answers you got incorrect, you can make a one-on-one office hours appointment and we will be happy to go through your assessment with you!<br> <br>To get started with this example assessment, click on a question below!<br> <br><i>(PS - Need us to reopen this example assessment so you can do it again to help you be more comfortable with the actual assessments? Sure thing! Please send an email to COURSE EMAIL ADDRESS and let us know.)</i>",
+    "allowAccess": [
+        {
+            "comment": "This is for all students",
+            "role": "Student",
+            "startDate": "2022-12-14T00:00:01", 
+            "endDate": "2050-04-30T23:59:59",
+            "timeLimitMin": 75,
+            "showClosedAssessment": false,
+            "credit": 100
+        }
+        ],
+    "shuffleQuestions": true,
+    "autoClose": true,
+    "zones": [
+        {
+            "title": "Multiple Choice Questions",
+            "comment": "These are multiple choice questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 3,
+                    "alternatives": [
+                        {"id":"learning_PL/movies_mc"},
+                        {"id":"learning_PL/mc_projects"}
+                    ]
+                    
+                }
+            ]
+        },
+        {
+            "title": "Checkbox Questions",
+            "comment": "These are write-a-function questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 3,
+                    "alternatives": [
+                        {"id": "learning_PL/movies_checkbox"},
+                        {"id": "learning_PL/checkbox_projects"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Dropdown Questions",
+            "comment": "These are dropdown questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 6,
+                    "alternatives": [
+                        {"id": "learning_PL/dropdown_example"},
+                        {"id": "learning_PL/dropdown_piazza"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Select a Statement Questions",
+            "comment": "These are write-a-function questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 12,
+                    "alternatives": [
+                        {"id": "learning_PL/sas-checkbox-example"},
+                        {"id": "learning_PL/sas-checkbox-make-tacos"}
+                    ]
+                }
+            ]
+        }
+
+    ]
+}
+
+
+

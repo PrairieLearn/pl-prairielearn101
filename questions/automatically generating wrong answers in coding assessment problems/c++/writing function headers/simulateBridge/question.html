@@ -1,0 +1,116 @@
+<pl-full-width></pl-full-width>
+
+<style>
+  #parameters {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+  }
+  
+  #parameters td, #parameters th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #parameters th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e6fcff;
+    color: black;
+  }
+  
+  
+  
+  table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+  }
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  table tr th:nth-child(1){
+       width: 100px;
+  }
+  table tr th:nth-child(2){
+       width: 130px;
+  }
+  table tr th:nth-child(4){
+       width: 120px;
+  }
+  table tr th:nth-child(5){
+       width: 100px;
+  }
+  
+  
+  
+</style>
+
+<pl-question-panel>
+<markdown>
+We want to write a function called <code>{{params.functionName}}</code> that {{params.topic}}. The function needs to have the following parameters, listed in the order that they should be passed into the function: 
+
+<table id="parameters">
+
+  <tr>
+    <th>Parameter Number</th>
+    <th>Parameter Name</th>
+    <th>Description</th>
+    <th>Example</th>
+    <th>Modified by the function?</th>
+  </tr>
+  {{{params.parameterList}}}
+</table>  
+
+<br>
+
+**The function should not return any values.** Instead, the function modifies the appropriate parameter variables as described in the table above such that the changes to the modified variables are accessible by the program that called the <code>{{params.functionName}}</code> function. 
+
+
+Which function definition below has a correct function header for <code>{{params.functionName}}</code>?
+
+</markdown>
+</pl-question-panel>
+
+<pl-hide-in-panel answer="true">
+<pl-multiple-choice answers-name="ans" hide-letter-keys = 'true'>
+  {{#params.line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}
+    // implementation omitted for brevity
+}</pl-code></pl-answer>
+  {{/params.line1}}
+</pl-multiple-choice>
+</pl-hide-in-panel>
+
+
+
+<pl-question-panel>
+<markdown>
+
+---  
+
+#### Reference Material
+
+This decision tree on how to pass parameters may be helpful in answering this question. This decision tree can also be found in the Homework assignment on *Vectors in C++*. 
+
+
+<pl-figure file-name="ParameterPassing.png" directory="clientFilesQuestion" width="600px"></pl-figure>
+
+
+</markdown>
+</pl-question-panel>
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* creating custom C++ functions
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>

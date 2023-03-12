@@ -1,0 +1,286 @@
+
+<pl-question-panel>
+
+<markdown>
+
+Let's practice simulating a process in MATLAB. 
+
+**Projectile motion** is a well-known process: you see projectile motion anytime you throw something through the air: 
+
+
+<pl-figure file-name="projectile_motion.png" directory="clientFilesQuestion" width="600px" alt="An illustration of projectile motion. "></pl-figure>
+
+
+In the real world, there are a lot of things going on when you throw an item through the air: 
+
+* the initial speed you give to the item 
+* the angle that you throw it at relative to the ground 
+* drag 
+* lift 
+* gravity 
+* cross winds
+* lots more things!
+
+Wow, that *is* a lot! Too much for what we want to practice with today, so we'll make some assumptions:
+
+1. We assume that only gravity is acting on this item; we will neglect drag, lift, cross-winds, ill-timed flying insects, etc.
+
+2. We assume that we are all excellent throwers, and we can throw an item with exactly the stated initial speed, $v_0$, and initial angle to the ground, $θ$.
+
+Given these assumptions, our thrown item's position over time is given by these equations:
+
+<p style="text-align: center;">$$\begin{aligned}
+x & = v_0 \cos(\theta) t \\
+y & = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+\end{aligned}$$</p>
+
+where $t$ is time, $x$ is the horizontal distance at time $t$, $y$ is the vertical distance at time $t$, $v_0$ is the initial speed of the item at time $t = 0$, $\theta$ is the initial angle of the item at time $t = 0$, and $g$ is the gravitational acceleration (we will assume $g = 9.8$ m/s$^2$).
+
+These are well-established equations governing this simplified projectile motion, but MATLAB can't understand these equations -- these are math equations! Before we can simulate our item's projectile motion, we need to translate these math equations into statements that MATLAB can execute: 
+
+<pl-code language="matlab">x = v0 .* cos(theta) .* t
+y = v0 .* sin(theta) .* t - 9.8 .* t.^2 ./ 2</pl-code>
+
+In these statements, `t` is a vector representing time values (with units of seconds), `x` is a vector representing horizontal distance (in meters) based on the values in the vector `t`, `y` is a vector representing vertical distance (in meters) based on the values in the vector `t`, `v0` is the initial speed (in m/s) of the item at time $t = 0$, `theta` is the initial angle (in radians) of the item at time $t = 0$, and the $g$ was replaced with `9.8` since we assume that the gravitational acceleration is constant and is in m/s$^2$.
+
+We can simulate the $(x,y)$ position of the item as a function of time once we **create a starter set of time values for `t`**. A starter set of data like we need here typically consists of equally spaced numbers created using either `linspace` or range notation.
+
+</markdown>
+
+</pl-question-panel>
+<br>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+You have thrown an item. Create a new MATLAB script called `ProjectileMotion.m` to calculate the item's $(x,y)$ position for an **initial speed of 40 m/s** and an **initial angle of pi/4 radians (45 degrees)** over the course of **15 seconds**.
+
+Follow this algorithm for the `ProjectileMotion.m` script:
+
+1. Create variables for the initial conditions (`v0` and `theta`) and give them the values for this simulation.
+
+2. Create a "starter set" of data for `t` consisting of equally spaced numbers using either `linspace` or range notation. 
+
+3. Simulate the horizontal and vertical motion by calculating `x` and `y` using the MATLAB statements above.
+
+4. Plot the vertical motion vs. the horizontal motion
+
+    * Only plot the $(x,y)$ pairs that correspond to when the item would be above the ground. *(Hint: use logical indexing to select the values in `x` and `y` that correspond to where `y > 0`!)*
+    * Use a line width of 3 for the line plot of the motion
+    * Use grid lines so we can easily understand the projectile motion
+    * Change the axes' font size to be 20 
+
+
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<p><b>Create</b> the <code>ProjectileMotion.m</code> script by <b>selecting the correct statements so that the script will create the plot described above.</b> Some statements listed may be <b>incorrect</b> or <b>unnecessary</b>; these statements should not be selected.</p>
+
+
+<pl-hide-in-panel answer="true">
+
+<pl-code language="matlab">   % set initial conditions </pl-code>
+
+<pl-checkbox answers-name='step1' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">v0 = 40; % initial speed in m/s</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">v0; % initial speed in m/s</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">theta = pi/4; % initial angle in radians</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">theta; % initial angle in radians</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">theta = 45; % initial angle in degrees</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="matlab">   % create starter data </pl-code>
+<pl-checkbox answers-name='step3' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">t = 0:0.1:15; % time in seconds</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">t = 0:15:0.1; % time in seconds</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">t = linspace(0,0.1,15); % time in seconds</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">t = linspace(0:0.1:15); % time in seconds</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="matlab">   % simulate horizontal and vertical motion </pl-code>
+
+<pl-checkbox answers-name='step4' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">x = v0 .* cos(theta) .* t;
+y = v0 .* sin(theta) .* t - 9.8 .* t.^2 ./ 2;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">x = v0 * cos(theta) * t;
+y = v0 * sin(theta) * t - 9.8 * t^2 / 2;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">y = v0 .* cos(theta) .* t;
+x = v0 .* sin(theta) .* t - 9.8 .* t.^2 ./ 2;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">y = v0 cos(theta) t;
+x = v0 sin(theta) t - 9.8 t^2 / 2;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="matlab">   % plot vertical motion vs. horizontal motion </pl-code>
+
+<pl-checkbox answers-name='step5_1' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">plot(x(y>=0), y(y>=0),'LineWidth',3);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">plot(x(y>=0), y(y>=0));</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">plot(x, y,'LineWidth',3);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">plot(x, y);</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step5_2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">grid on;</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='step5_3' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">ax = gca;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step5_4' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">ax.FontSize = 20;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">gca.FontSize = 20;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">size = '20';</pl-code></pl-answer>
+</pl-checkbox>
+
+
+
+</pl-hide-in-panel>
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/cteuB7_WmeI" notes=""></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+The script above creates a plot of the vertical motion vs. the horizontal motion of the thrown item. However, it's hard to tell what the $x$-position of the thrown item is when it hits the ground (where $y = 0$). The line stops before it gets to $y=0$ because we told MATLAB to only plot the $(x,y)$ pairs that correspond to where `y > 0`:
+
+<pl-figure file-name="ProjectileMotionOriginalPlotAnnotated.png" directory="clientFilesQuestion" width="500px" alt="The original plot. The line ends before it crosses the x-axis."></pl-figure>
+
+
+
+If we add markers to the plot, we can see that the *resolution* of our starter data means that the last data point that has `y > 0` isn't close to the x-axis; the line "ends" before it crosses the x-axis and the item "lands":
+
+<pl-figure file-name="ProjectileMotionWithMarkersAnnotated.png" directory="clientFilesQuestion" width="500px" alt="The original plot but with markers for the data. The line ends before it crosses the x-axis."></pl-figure>
+
+To fix this, we should *improve the resolution* of our starter data. This means that we should keep the same range for the starter data (0-15 seconds) but use **more elements** in the variable that represents the starter data. That way, we can get "closer" to the x-axis, like this: 
+
+<pl-figure file-name="ProjectileMotionWithBetterResolutionAnnotated.png" directory="clientFilesQuestion" width="500px" alt="The projectile motion position plot, but now the line gets close to the x-axis."></pl-figure>
+
+
+The original script used this MATLAB statement to create the starter data:
+
+<pl-code language="matlab">t = 0:0.1:15;</pl-code>
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<p>Which of these MATLAB statements would create starter data that has <b>the same range but more elements</b> than the original set of starter data for <code>t</code>?</p>
+
+
+
+<pl-checkbox answers-name="ex2" weight="1" hide-letter-keys="true" partial-credit="true" partial-credit-method="COV">
+<pl-answer correct='true'><pl-code language="matlab">t = 0:0.005:15;</pl-code></pl-answer>
+<pl-answer correct='true'><pl-code language="matlab">t = 0:0.01:15;</pl-code></pl-answer>
+<pl-answer correct='true'><pl-code language="matlab">t = linspace(0,15,1000);</pl-code></pl-answer>
+<pl-answer correct='true'><pl-code language="matlab">t = linspace(0,15,500);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">t = linspace(0,5000,100);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">t = linspace(0,15,100);</pl-code></pl-answer>
+
+
+</div>
+</div>
+<br>
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+    );
+  }
+</script>
+
+
+
+
+</pl-hide-in-panel>
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+
+Here is a copy of the <code><pl-file-download file-name="ProjectileMotion.m" directory="clientFilesQuestion"></pl-file-download></code> script that you just made. Download the file and you can run it in MATLAB and see it work. Don't forget to try *improving the resolution* of the starter data to get a better plot!
+
+
+
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+
+  
+
+<script>
+  // script to remove the red boxes that denote syntax errors in the Pygments-based syntax highlighting
+  let spans =
+    document.getElementsByTagName("span");
+
+  // Iterate over spans
+  for (let span of spans) {
+    if (span.style.borderColor == "rgb(255, 0, 0)") {
+      span.style.borderColor = "transparent";
+    }
+
+  }
+</script>

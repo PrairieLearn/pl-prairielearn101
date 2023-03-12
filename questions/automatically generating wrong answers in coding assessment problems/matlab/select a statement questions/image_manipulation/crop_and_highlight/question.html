@@ -1,0 +1,243 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+#### Introduction
+{{params.intro}}
+
+<pl-figure file-name="{{params.image_in}}" directory="clientFilesQuestion" width="600px"></pl-figure>
+*{{params.image_in_caption}}*
+
+&nbsp;  
+
+#### Tasks
+You are interning at a company called *{{params.company_name}}*, and you have been asked to take a closer look at the {{params.data_description}} for different locations. In particular, *{{params.company_name}}* would like you to **write a function that will {{params.func1shortdescription}}** and **write a function that will {{params.func2shortdescription}}**.
+
+In this question, you will write **two functions** to perform these tasks. The reference material for this question contains key details about each function you need to write. We recommend you skim it briefly and refer back to it as you compose your functions below. 
+
+
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Implementation
+
+Implement your functions by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, **the selected lines should form working functions** that correctly implement the tasks described in this question. Some lines contain **mistakes** or are **unnecessary** for the function - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.** 
+
+We have also provided several **comments** to help structure your script according to the task descriptions.
+
+</markdown>
+</pl-hide-in-panel>
+  
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function #1: `{{params.helper1functionname}}`
+
+</markdown>
+
+<pl-code language="matlab">   % {{params.func1step1description}} </pl-code>
+<pl-checkbox answers-name='func1step1' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line1}}
+</pl-checkbox>
+<br>
+  
+<pl-code language="matlab">       % {{params.func1step2description}} </pl-code>
+<pl-checkbox answers-name='func1step2' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.func1line2}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">    {{ans}}</pl-code></pl-answer>
+  {{/params.func1line2}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func1step3description}} </pl-code>
+<pl-checkbox answers-name='func1step3' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line3}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">    {{ans}}</pl-code></pl-answer>
+  {{/params.func1line3}}
+</pl-checkbox>
+<br>
+
+
+
+<pl-code language="matlab">end </pl-code>
+  
+</pl-hide-in-panel>
+
+
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function #2: `{{params.helper2functionname}}`
+
+</markdown>
+
+<pl-code language="matlab">   % {{params.func2step1description}} </pl-code>
+<pl-checkbox answers-name='func2step1' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line1}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func2step2description}} </pl-code>
+<pl-checkbox answers-name='func2step2' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line2}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line2}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func2step3description}} </pl-code>
+<pl-checkbox answers-name='func2step3' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line3}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line3}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func2step4description}} </pl-code>
+<pl-checkbox answers-name='func2step4' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line4}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line4}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func2step5description}} </pl-code>
+<pl-checkbox answers-name='func2step5' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line5}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line5}}
+</pl-checkbox>
+<br>
+
+<pl-code language="matlab">       % {{params.func2step6description}} </pl-code>
+<pl-checkbox answers-name='func2step6' partial-credit='false' number-answers='8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line6}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line6}}
+</pl-checkbox>
+<br>
+
+
+<pl-code language="matlab">end </pl-code>
+
+</pl-hide-in-panel>
+
+
+
+
+
+
+</pl-content>
+
+
+
+<pl-reference>
+
+<markdown>
+
+### `{{params.func1name}}()`
+    
+The `{{params.func1name}}()` function {{params.func1description}}.
+    
+#### Parameters & Return Values 
+    
+The `{{params.func1name}}()` function has the following parameter(s): 
+
+{{params.func1parameterList}}
+
+The `{{params.func1name}}()` function returns the following value(s): 
+
+{{params.func1returnVarList}}
+    
+#### Algorithm
+
+The algorithm for the `{{params.func1name}}()` function is:
+
+{{params.func1algorithm}}
+
+
+
+---
+
+### `{{params.func2name}}()`
+    
+The `{{params.func2name}}()` function {{params.func2description}}.
+    
+#### Parameters & Return Values 
+    
+The `{{params.func2name}}()` function has the following parameter(s): 
+
+{{params.func2parameterList}}
+
+The `{{params.func2name}}()` function returns the following value(s): 
+
+{{params.func2returnVarList}}
+    
+#### Algorithm
+
+The algorithm for the `{{params.func2name}}()` function is:
+
+{{params.func2algorithm}}
+
+
+---
+
+
+#### Example 
+
+Here is an example of using these two functions to "zoom in" on {{params.location}}.
+</markdown>
+<pl-code language="matlab">
+{{params.example_script}}
+</pl-code>
+<markdown>
+Running the above code produces the following image:
+
+<pl-figure file-name="{{params.image_out}}" directory="clientFilesQuestion" width="600px">
+</pl-figure>
+
+
+
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* using functions to create stable and efficient computer programs
+* working with individual channels for images
+* using logical indexing to select locations to modify
+* using row/column/layer indexing to select a portion of an image
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+

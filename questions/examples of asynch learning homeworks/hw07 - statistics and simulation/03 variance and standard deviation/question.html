@@ -1,0 +1,143 @@
+<pl-question-panel>
+<markdown>
+
+The mean, median, and mode of a dataset are useful starting points for understanding the characteristics of a dataset, but they are single numbers that describe the average, middle, and most common values (the central tendencies) of the dataset.
+
+**Variance** and **standard deviation** are measures that tell us how "spread out" a dataset is. The standard deviation is just the square root of the variance. 
+
+Here is a histogram (or **distribution**) of data that is more *narrow* - more of the data points are grouped around a central value (0 in this case):
+
+<pl-figure file-name="VarStdDev_1.png" directory="clientFilesQuestion" width="600px" alt="A histogram of a dataset. The variance is 0.5537 and the standard deviation is 0.7440."></pl-figure>
+
+Here is a histogram of data that is more *wide* - more of the data points are farther away from a central value (0 in this case): 
+
+<pl-figure file-name="VarStdDev_2.png" directory="clientFilesQuestion" width="600px" alt="A histogram of a dataset. The variance is 2.1975 and the standard deviation is 1.4824."></pl-figure>
+
+The more narrow distribution's variance is smaller than the wider distribution's variance. Similarly, the more narrow distribution's standard deviation is smaller than the wider distribution's standard deviation. *Therefore, the smaller the variance (or standard deviation), the more narrow the distribution will be.* 
+
+Important things to note when we compare these two figures:
+
+- The x-axes have the same limits, and the y-axes have the same limits. This allows us to directly compare the data visually.
+- These figures also have the same underlying "type" of data (normally-distributed random numbers), allowing us to directly compare the variance and standard deviation when we state, "This variance is smaller than that variance." (Comparing the variance of the height of a blade of grass to the variance of the top speed of cheetahs makes no sense.)
+- Variance and standard deviation only offer an aggregate measure of the spread of a dataset. It's often important to consider the shape of the distribution as well (e.g. is it a bell curve or a uniform distribution?).
+
+MATLAB has built-in functions to calculate the variance and standard deviation:
+
+- `var` - variance
+- `std` - standard deviation
+
+These functions work similarly to all the other built-in functions that calculate statistical measures of a data set (e.g. `max`, `mean`, etc.)
+
+
+<pl-info-box type="warning">
+
+If you want to take the variance (or standard deviation) of all elements in a matrix `M`, don't use `var(var(M))` - that's not correct because the variance of the column variances is not mathematically equivalent to the variance of the whole dataset. Instead, use either of the other approaches, `var(M(:))` or `var(M, 0, 'all')` (the `0` is a weighting value; you can look up the `var` function in the MATLAB documentation to learn more).
+  
+</pl-info-box>
+
+
+</markdown>
+
+</pl-question-panel>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+Add code to your `CityLatitudes.m` script to calculate the variance and standard deviation of the latitudes. Answer the questions below based on your analysis.
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<br>
+<markdown>
+
+**What is the variance (in degrees$^2$) of the latitudes?**
+
+<pl-number-input answers-name="ex1_1" comparison="sigfig" digits="4" label="variance = "> </pl-number-input>
+<br>
+<br>
+
+**What is the standard deviation (in degrees) of the latitudes?**
+
+<pl-number-input answers-name="ex1_2" comparison="sigfig" digits="4" label="standard deviation = "> </pl-number-input>
+
+
+</markdown>
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/1yqS1kCiQGc" notes=""></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+  
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+
+
+
+</markdown>
+
+
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+

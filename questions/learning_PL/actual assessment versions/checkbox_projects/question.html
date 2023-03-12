@@ -1,0 +1,43 @@
+<pl-question-panel>
+<markdown>
+Here is an example of a checkbox problem. You must select *all* of the correct answers and *none* of the incorrect answers to get full credit on this type of question. 
+
+&nbsp;  
+
+{{params.question}}
+
+</markdown>
+</pl-question-panel>
+
+
+
+<pl-checkbox answers-name='answer' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'>
+
+{{#params.answers}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+{{/params.answers}}
+
+</pl-checkbox>
+
+<pl-question-panel>
+<br>
+<markdown>
+After you have selected your answer(s), click the "Save" button below to save your answer. 
+</markdown>
+</pl-question-panel>
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+**On practice assessments...** 
+
+You can either scroll down to the "Submitted answer" panel to see if your answer was correct or scroll back up to the question panel and PrairieLearn will show you if your answer is correct or not. And yes, this means that you could just click every checkbox and get the answer, but that's not really helping you see if you know the answer, is it? If you would like to try a new version of this question, then you can start a new "instance" of the practice assessment.
+
+**On actual assessments...**
+
+You will be able to save your answer but you will not be able to grade your answer immediately. After you finish answering all of the questions, you can go to the "Assessment Overview" page and click "Finish Assessment" to grade your assessment. You will receive your total score immediately (or, relatively immediately, depending on if the servers are busy). However, a question-by-question breakdown of the score is not currently available in PrairieLearn. If you would like to see a breakdown of your score or to go over your answers on an actual assessment, you can make a one-on-one appointment in office hours and a staff member will go through your assessment and answer any questions that you have. 
+
+
+</markdown>
+</pl-answer-panel>

@@ -1,0 +1,345 @@
+.matlab-exp {
+    display: inline-block;
+    position: relative;
+}
+
+.matlab-table,
+.matlab-index,
+.matlab-range {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: monospace;
+    table-layout: fixed;
+}
+
+.matlab-matrix-cell {
+    border: 1px solid #555;
+    padding: 3px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.matlab-range {
+    text-align: center;
+}
+
+.matlab-range th {
+    text-align: center;
+}
+
+.matlab-range-header {
+    font-size: 1rem;
+}
+
+.matlab-range-result {
+    margin-top: 0.8em;
+}
+
+.matlab-index td {
+    color: #666;
+    position: relative;
+}
+
+.matlab-index td > .highlight {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.4);
+}
+
+.matlab-raw-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 2px;
+    font-size: 0.8em;
+}
+
+.matlab-index .matlab-matrix-cell.selected {
+    color: inherit;
+    /*background-color : red;*/
+}
+
+.matlab-index .matlab-matrix-cell.selected > .highlight {
+    background: none;
+}
+
+.matlab-column-index {
+    text-align: center;
+    font-size: 0.8em;
+    border: none;
+}
+
+.matlab-column-index.selected {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.matlab-row-index {
+    font-size: 0.8em;
+    padding-right: 0.3em;
+    border: none;
+}
+
+.matlab-row-index.selected {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.matlab-range {
+    position: relative;
+}
+
+/* .matlab-range svg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    bottom: -1px;
+    overflow: visible;
+} */
+
+.matlab-scalar {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.matlab-scalar > span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2em; /*must be same as container height*/
+    font-size: 1em;
+}
+
+.matlab-scalar.double > span {
+    font-size: 0.6em;
+}
+
+.matlab-table td.logical-1 {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.matlab-table td.logical-0 {
+    background-color: #dddddd;
+    color: black;
+}
+
+.matlab-vars li {
+    max-height: 10em;
+    overflow: auto;
+    color: black;
+}
+
+.matlab-var-badge {
+    position: absolute;
+    font-size: 0.8em;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 100px;
+}
+
+.matlab-vars .matlab-var-badge {
+    top: 3px;
+    left: 10px;
+}
+
+.matlab-var-holder {
+    display: inline-block;
+}
+
+.matlab-var-name {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+
+
+.matlab-assignment > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.matlab-assignment-result {
+    padding-top: 2em;
+}
+
+.matlab-assignment-result > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.matlab-exp-binaryOp,
+.matlab-exp-unaryOp,
+.matlab-assignment {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.matlab-exp-binaryOp > *,
+.matlab-exp-unaryOp > * {
+    display: inline-block;
+    vertical-align: middle;
+    /*zoom: 0.9;*/
+    /*-moz-transform: scale(0.9);*/
+    /*-webkit-transfor: scale(0.9);*/
+}
+
+svg.matlab-error-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+svg.matlab-range-svg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    bottom: -1px;
+    overflow: visible;
+}
+
+
+.matlab-exp-bottom {
+    padding-top: 2em;
+}
+
+.matlab-exp-bottom > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.matlab-exp-error {
+    max-width: 22em;
+    font-size: 0.66em;
+    text-align: center;
+}
+
+.matlab-exp-index {
+    display: inline-block;
+    position: relative;
+}
+
+.matlab-identifier {
+    display: inline-block;
+    position: relative;
+}
+
+.matlab-identifier-name {
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-family: monospace;
+}
+
+.matcrab-hide-indexing-text .matlab-indexing-text {
+    display: none;
+}
+
+#visualization {
+    margin-top: 10px;
+}
+
+#ansVisualization {
+    margin-top: 1.5em;
+}
+
+.matlab-entry {
+    font-size: inherit;
+    font-family: monospace;
+}
+
+.matlab-call-arg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.matcrab-visualization {
+    font-family: monospace;
+
+}
+
+.matcrab-variable-exercise-group > table {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.matcrab-variable-exercise-group .matlab-table {
+    margin: 0.5em;
+    color: black;
+}
+
+.matcrab-variable-exercise-status {
+    text-align: center;
+}
+
+.matcrab-complete-glyphicon {
+    color: #1acf1a;
+    font-size: large;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.matcrab-incomplete-glyphicon {
+    color: #c75f5f;
+    font-size: large;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+.matcrab-variable-target {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+
+
+.matcrab-setup,
+.matcrab-variable-target,
+.matcrab-exercise-complete {
+    display: none;
+}
+
+.matcrab-exercise-formatting {
+    display: block;
+    padding: 5px 5px;
+    color: rgb(69, 69, 69);
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+}

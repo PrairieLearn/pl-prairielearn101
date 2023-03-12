@@ -1,0 +1,26 @@
+{
+    "uuid": "987f0856-e1d2-4de6-85c2-4d6a16de639b",
+    "title": "Writing Helper Functions",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "analyzing data",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+      },
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-c",
+        "timeout": 100,
+        "entrypoint": "python3 /grade/tests/test.py"
+    }
+}

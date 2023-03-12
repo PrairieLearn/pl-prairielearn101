@@ -1,0 +1,246 @@
+<pl-question-panel>
+
+<markdown>
+
+Let's look at some more examples of creating and modifying vectors of vectors:
+
+<pl-video-embed url="https://www.youtube.com/embed/yes_uSOXt8I"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+We can build vectors of vectors using vector constructors or using the `push_back` and the `pop_back` functions. Again, be aware of whether you are working with the *outer vector* or the *inner vector*.
+
+</markdown>
+
+
+</pl-info-box>
+
+<br>
+
+</pl-question-panel>
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+Here is a code snippet:
+
+</markdown>
+
+<pl-code language="c++">
+vector&lt; vector&lt;int> > v2; // starts empty 
+vector&lt;int> v; // starts empty 
+
+for (int i = 1; i &lt; 4; ++i) {
+  v.push_back(i*i);
+  v2.push_back(v);
+}
+</pl-code>
+
+<markdown>
+
+And here are four diagrams of `v2`:
+
+<pl-figure file-name="v2Diagrams.png" directory="clientFilesQuestion" width="600px" alt=""></pl-figure>
+</markdown>
+
+</pl-hide-in-panel>
+
+<markdown>
+
+**Which diagram correctly shows the contents of `v2` after the code snippet is run?**
+
+</markdown>
+
+<pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true" fixed-order="true">
+<pl-answer correct="false">Diagram A</pl-answer>
+<pl-answer correct="false">Diagram B</pl-answer>
+<pl-answer correct="false">Diagram C</pl-answer>
+<pl-answer correct="true">Diagram D</pl-answer>
+</pl-multiple-choice>
+<br>
+
+</div>
+</div>
+<br>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+
+For the questions below, consider the vector `v2` shown in an initial state that we'll call "State 1":
+
+<pl-figure file-name="v2State1.png" directory="clientFilesQuestion" width="600px" alt=""></pl-figure>
+
+
+We would like to change the contents of `v2` to match "State 2":
+
+<pl-figure file-name="v2State2.png" directory="clientFilesQuestion" width="600px" alt=""></pl-figure>
+
+
+</markdown>
+</pl-hide-in-panel>
+
+<markdown>
+
+**Arrange the lines of code below such that they would change `v2` from "State 1" to "State 2".** Some statements listed may be **incorrect** or **unnecessary**; these statements should not be selected. 
+
+</markdown>
+
+<pl-hide-in-panel answer="true">
+
+<pl-order-blocks answers-name="ex2_1" solution-header="...To Here to Create the Function" source-header="Drag Statements from Here..." grading-method="dag" format="code" code-language="c++" solution-placement="right" >
+
+<pl-answer correct="true" tag="2">v2[0] = v2[2];</pl-answer>
+<pl-answer correct="true" tag="3" depends="2">v2.pop_back(); </pl-answer>
+<pl-answer correct="true" tag="4">v2[1].pop_back();</pl-answer>
+
+<pl-answer correct="false">v2[0] = v2[1];</pl-answer>
+<pl-answer correct="false">v2[1].push_back(4);</pl-answer>
+<pl-answer correct="false">vector&lt;int&gt; temp(2,0);</pl-answer>
+<pl-answer correct="false">v2.push_back(temp);</pl-answer>
+
+</pl-order-blocks>
+<br>
+
+</pl-hide-in-panel>
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+
+Now, we would like to go from `v2` in State 2:
+
+<pl-figure file-name="v2State2.png" directory="clientFilesQuestion" width="600px" alt=""></pl-figure>
+
+
+To `v2` in State 3:
+
+<pl-figure file-name="v2State3.png" directory="clientFilesQuestion" width="600px" alt=""></pl-figure>
+
+
+</markdown>
+</pl-hide-in-panel>
+
+<markdown>
+
+**Arrange the lines of code below such that they would change `v2` from "State 2" to "State 3".** Some statements listed may be **incorrect** or **unnecessary**; these statements should not be selected. 
+
+</markdown>
+
+<pl-hide-in-panel answer="true">
+
+<pl-order-blocks answers-name="ex2_2" solution-header="...To Here to Create the Function" source-header="Drag Statements from Here..." grading-method="dag" format="code" code-language="c++" solution-placement="right" >
+
+<pl-answer correct="true" tag="2">v2[0] = v2[1];</pl-answer>
+<pl-answer correct="true" tag="3" depends="2">v2[1].push_back(4); </pl-answer>
+<pl-answer correct="true" tag="4">vector&lt;int&gt; temp(2,0);</pl-answer>
+<pl-answer correct="true" tag="5" depends="4">v2.push_back(temp);</pl-answer>
+
+
+<pl-answer correct="false">v2[0] = v2[2];</pl-answer>
+<pl-answer correct="false">v2.pop_back();</pl-answer>
+<pl-answer correct="false">v2[1].pop_back();</pl-answer>
+
+
+</pl-order-blocks>
+<br>
+
+</pl-hide-in-panel>
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/RJXsP6Lz8ss" notes="This version of the exercise is slightly different than what you are doing, but it still covers the trickiest parts of this function."></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+  
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+
+
+</markdown>
+
+
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+
+  

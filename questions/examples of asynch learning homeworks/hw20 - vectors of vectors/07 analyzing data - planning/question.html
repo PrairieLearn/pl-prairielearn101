@@ -1,0 +1,171 @@
+<!-- <pl-full-width></pl-full-width> -->
+<pl-question-panel>
+<markdown>
+
+As we saw in MATLAB, a common computing task is analyzing data. Consider a file named `testData.txt` that has some sample test data in it: 
+
+<pl-file-editor file-name="testData.txt" source-file-name="clientFilesQuestion/testData.txt" min-lines="6" max-lines="6" auto-resize="true">
+</pl-file-editor>
+<br>
+
+Let's practice using the vector of vectors data structure by **writing a program to read in data to a matrix and then analyze the data**. The `testData.txt` file contains a small dataset so it's easier for us to work with here in this homework. But real datasets can have millions of data points, so we should write our program to be as reasonably flexible as possible. 
+
+
+<br>
+
+<h4>Planning How To Analyze Data</h4>
+
+Let's do some high-level planning for this program:
+
+<pl-video-embed url="https://www.youtube.com/embed/Z6NTlQmQyzk"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+We want to read in some data and then calculate the sum of each row, the sum of each column, and the sum of all the elements together. Here is the pseudocode for our `main` function:
+
+</markdown>
+
+<pl-code>
+int main() {
+  open the test data file
+
+  if it did not open correctly
+    display error message and end program
+
+  make vector of vectors with correct # of empty elements
+  loadData()
+
+  sumOfRows()
+  sumOfCols()
+  sum()
+
+  print out the results
+
+} 
+</pl-code>
+
+
+</pl-info-box>
+
+<markdown>
+
+<br>
+
+<h4>Planning the Helper Functions</h4>
+
+There are four helper functions that we need to write:
+
+- `loadData`
+- `sumOfRows`
+- `sumOfCols`
+- `sum`
+
+Let's write some pseudocode for the helper functions to help us implement these functions:
+
+<pl-video-embed url="https://www.youtube.com/embed/lv0NKmeWA00"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+We showed how to write **pseudocode** that we can use later to actually implement the helper functions we know we want to write.
+
+</markdown>
+
+</pl-info-box>
+<br>
+
+
+</pl-question-panel>
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<markdown>
+
+Match the helper function with its description:
+
+<br>
+
+
+<pl-matching answers-name="ex1">
+<pl-statement match="reads in values from an input stream and stores the values into a vector of vectors that represents a matrix"><code>loadData</code></pl-statement>
+<pl-statement match="calculates the sum of each row in the matrix and stores the sums in a vector"><code>sumOfRows</code></pl-statement>
+<pl-statement match="calculates the sum of each column in the matrix and stores the sums in a vector"><code>sumOfCols</code></pl-statement>
+<pl-statement match="returns the sum of all the elements in the matrix"><code>sum</code> </pl-statement>
+</pl-matching>
+
+</markdown>
+
+</div>
+</div>
+<br>
+
+
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+

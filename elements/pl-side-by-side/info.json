@@ -1,0 +1,11 @@
+{
+    "controller": "pl-side-by-side.py",
+    "dependencies": {
+      "elementScripts": [
+        "pl-side-by-side.js"
+      ],
+      "elementStyles": [
+        "pl-side-by-side.css"
+      ]
+    }
+}

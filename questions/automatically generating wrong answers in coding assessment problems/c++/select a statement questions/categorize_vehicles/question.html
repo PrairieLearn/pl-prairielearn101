@@ -1,0 +1,308 @@
+<head>
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: top;
+  }
+  
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: top;
+  }
+  
+  </style>
+</head>
+
+
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+#### Introduction
+You have been hired to work for *{{params.company_name}}* to help them {{params.company_task_description}}.
+
+The `{{params.input_filename}}` file stores information on {{params.struct_generic_type}}. The `{{params.input_filename}}` file contains data in the following order: {{params.input_order}}. 
+
+Here is an example of the contents of `{{params.input_filename}}`:
+```
+{{params.input_val1_3}} {{params.input_name1}} {{params.input_val1_1}} {{params.input_val1_2}} 
+{{params.input_val2_3}} {{params.input_name2}} {{params.input_val2_1}} {{params.input_val2_2}} 
+... more sets of data ...
+{{params.input_val3_3}} {{params.input_name3}} {{params.input_val3_1}} {{params.input_val3_2}} 
+
+```
+<br> 
+
+Your team is working together to write a program that works with this information. To make sure everyone can work with the information correctly, the team has created a `struct` to hold the {{params.struct_generic_type}} data. The `{{params.struct_name}}` struct is defined as: 
+```
+struct {{params.struct_name}} {
+    {{params.struct_type1}} {{params.struct_member1}};
+    {{params.struct_type2}} {{params.struct_member2}};
+    {{params.struct_type3}} {{params.struct_member3}};
+    {{params.struct_type4}} {{params.struct_member4}};
+};
+
+```
+
+&nbsp;  
+
+#### Tasks
+
+Your task on this team is to **write two helper functions** that will make it easier to work with the {{params.struct_generic_type}} data: 
+
+* `{{params.function_name1}}` - loads the data from `{{params.input_filename}}` and stores the data into a vector of `{{params.struct_name}}` structs. 
+
+* `{{params.function_name2}}` - prints the data from the vector of `{{params.struct_name}}` structs to an output stream (e.g. either to a file or to `cout`). 
+
+The helper functions are described in more detail below. We recommend you skim these descriptions briefly and then refer back to them as you compose your functions. 
+
+
+
+</markdown>
+
+<table>
+
+  <tr>
+    <td>
+<markdown>
+#### `{{params.function_name1}}()`
+
+---
+
+The `{{params.function_name1}}` helper function populates a vector of `{{params.struct_name}}` variables with the information in the
+`{{params.input_filename}}` file. 
+The function passes in two parameters:
+
+1. A vector of `{{params.struct_name}}` variables 
+2. An input stream; can possibly be connected to either a file or to `cin`
+
+
+You may assume `{{params.input_filename}}` exists and contains data in correct order. The function does not return anything.
+</markdown> 
+    </td>
+
+    <td>
+<markdown>
+#### `{{params.function_name2}}()`
+
+---
+
+The `{{params.function_name2}}()` function prints the contents of a vector of `{{params.struct_name}}` variables to an output stream. The function passes in two parameters:
+
+1. A vector of `{{params.struct_name}}` variables
+2. An output stream; can possibly be connected to either a file or to `cout`
+
+The function does not return anything. When printing to the output stream, the function should follow the format in the example below. 
+
+**Example of what is printed by this function:**
+```
+{{params.input_name1}}: 
+  {{params.input_status1}}
+  {{params.input_val1_1}}{{params.struct_desc2}}
+  {{params.input_val1_2}}{{params.struct_desc3}}
+
+{{params.input_name2}}: 
+  {{params.input_status2}}
+  {{params.input_val2_1}}{{params.struct_desc2}}
+  {{params.input_val2_2}}{{params.struct_desc3}}
+
+... more sets of data ...
+
+{{params.input_name3}}: 
+  {{params.input_status3}} 
+  {{params.input_val3_1}}{{params.struct_desc2}}
+  {{params.input_val3_2}}{{params.struct_desc3}}
+```
+</markdown>
+
+    </td>
+  </tr>
+</table>
+
+
+<br>
+<markdown>
+
+
+**In this problem, you will only implement these two helper functions.** You won't be writing the whole progam to {{params.company_task_description_short}}.
+
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Implementation
+
+Implement your functions by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, **the selected lines should form working functions** that correctly implement the tasks described in this question. Some lines contain **mistakes** or are **unnecessary** for the function - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.** 
+
+We have also provided several **comments** to help structure your script according to the task descriptions.
+
+</markdown>
+</pl-hide-in-panel>
+</pl-hide-in-panel>
+  
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function #1: `{{params.function_name1}}`
+
+</markdown>
+
+<pl-code language="c++">   // assume all #includes and using namespace std; are included </pl-code>
+<pl-code language="c++">   // {{params.func1description}} </pl-code>
+
+<pl-checkbox answers-name='func1step1' partial-credit='false' number-answers='5' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line1}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func1step2' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line2}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line2}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func1step3' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line3}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line3}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func1step4' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line4}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line4}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func1step5' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line5}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line5}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func1step6' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func1line6}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func1line6}}
+</pl-checkbox>
+
+<br>
+
+  
+</pl-hide-in-panel>
+
+
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function #2: `{{params.function_name2}}`
+
+</markdown>
+
+<pl-code language="c++">   // assume all #includes and using namespace std; are included </pl-code>
+<pl-code language="c++">   // {{params.func2description}} </pl-code>
+<pl-checkbox answers-name='func2step1' partial-credit='false' number-answers='5' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line1}}
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='func2step2' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line2}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line2}}
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='func2step3' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line3}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line3}}
+</pl-checkbox>
+
+
+
+<pl-checkbox answers-name='func2step4' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line4}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line4}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func2step5' partial-credit='false' number-answers='5' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line5}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line5}}
+</pl-checkbox>
+
+<pl-checkbox answers-name='func2step6' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line6}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line6}}
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='func2step7' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line7}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line7}}
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='func2step8' partial-credit='false' number-answers='4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.func2line8}}
+  <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+  {{/params.func2line8}}
+</pl-checkbox>
+
+
+
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* using functions to create stable and efficient computer programs
+* working with vectors of `struct` variables
+* using input and output streams to load and print data
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+A note on grading for this question: Partial credit is broken down by the various tasks/actions that need to be correctly implemented in these functions. Some parts of the code require one statement (such as using a correct function header) and some parts of the code may require multiple statements (such as correctly declaring or initializing necessary variables). For partial credit sections that require multiple statements, you must correctly select *all* the necesssary statements *without selecting any unnecessary statements* to earn full credit for that section of code. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+

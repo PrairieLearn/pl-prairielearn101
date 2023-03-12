@@ -1,0 +1,19 @@
+{
+    "uuid": "3d470651-bf60-4b1b-a988-ee72b640e722",
+    "title": "Simulating Data",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "simulation",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

@@ -1,0 +1,186 @@
+<pl-question-panel>
+
+<markdown>
+
+There's one more data structure need that we want to address in this course:
+
+<pl-video-embed url="https://www.youtube.com/embed/iTb9OlbTIkA"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+A lot of engineering data comes in the form of tables or matrices. We need a way to represent that data in C++. Vectors are a good start, but we need to take what we know now and expand it further.
+
+</markdown>
+
+
+</pl-info-box>
+
+
+<br>
+
+</pl-question-panel>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<markdown>
+
+You have a table of snowfall data (in inches) from Dome #41 on Proxima b in 2023 in the file `snowfall.csv`:
+
+<pl-hide-in-panel answer="true" submission="true">
+
+<table class="basic-table-lightlines">
+<thead>
+  <tr>
+    <th >hour</th>
+    <th >21-Feb-23</th>
+    <th >22-Feb-23</th>
+    <th >23-Feb-23</th>
+    <th >24-Feb-23</th>
+    <th >25-Feb-23</th>
+    <th >26-Feb-23</th>
+    <th >27-Feb-23</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td >1</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.05</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.00</td>
+  </tr>
+  <tr>
+    <td >2</td>
+    <td >0.00</td>
+    <td >1.10</td>
+    <td >0.00</td>
+    <td >0.05</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.00</td>
+  </tr>
+  <tr>
+    <td >3</td>
+    <td >0.00</td>
+    <td >0.75</td>
+    <td >0.00</td>
+    <td >0.05</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.05</td>
+  </tr>
+  <tr>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+    <td >...</td>
+  </tr>
+  <tr>
+    <td >26</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.05</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.00</td>
+    <td >0.00</td>
+  </tr>
+</tbody>
+</table>
+<br>
+
+</pl-hide-in-panel>
+
+You want to do some data analysis on the snowfall data. What would be the **best** way to represent this data in a C++ program?
+
+</markdown>
+
+<pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="false">Hardcode all these values in your program. </pl-answer>
+<pl-answer correct="false">Read in each value from the file and store it in its own <code>double</code> variable.</pl-answer>
+<pl-answer correct="false">Read in the values from the file into a series of vectors, one vector for each day.</pl-answer>
+<pl-answer correct="true">Read in the values from the file into something like a matrix, in whatever way C++ can create "something like a matrix".</pl-answer>
+</pl-multiple-choice>
+<br>
+
+
+
+</div>
+</div>
+<br>
+
+
+
+
+
+
+  
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+    );
+  }
+</script>
+</pl-hide-in-panel>
+
+
+
+<pl-answer-panel>
+  
+<p></p>
+    
+<markdown>
+    
+    
+
+{{{params.answer-feedback}}}
+
+
+
+
+</markdown>
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+
+

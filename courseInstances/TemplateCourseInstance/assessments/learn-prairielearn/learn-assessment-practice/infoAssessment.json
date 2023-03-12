@@ -1,0 +1,87 @@
+{
+    "uuid": "d0e0b2c0-470e-422d-9db7-4af246c91a77",
+    "type": "Exam",
+    "title": "See How a Practice Assessment Works",
+    "set": "Learn",
+    "number": "1",
+    "allowIssueReporting": false,
+    "allowRealTimeGrading": true,
+    "multipleInstance": true,
+    "text": "<b>Hello!</b> Welcome to PrairieLearn. This is the online platform we will use for our assessments in ENGR 101. <br> <br>This is an example of a <b>practice assessment</b> that just shows you how PrairieLearn works and the types of questions we will be using. You can take it at any time (the questions don't require any programming knowledge).<br> <br>PrairieLearn's strength is its ability to create randomized assessments by selecting questions from a question bank and then generating <i>variants</i> of that question. You'll be able to see how both of these randomizations work using this practice assessment. After you have completed this practice assessment, go back to the Assessments Page and click the \"New Instance\" button for this practice assessment. PrairieLearn will make you a new version of the exam with a different set of questions. The questions will be <i>similar</i> to what you saw before, but just a little bit <i>different</i>.<br> <br>On a practice assessment, you are able to save and grade your answers as you go along. You will also be able to access your full practice assessment at anytime after you submit the assessment, and, of course, to start new \"instances\" of the assessment.<br> <br>To get started exploring PrairieLearn, click on a question below!",
+    "allowAccess": [
+        {
+            "comment": "This is for everyone",
+            "role": "Student",
+            "startDate": "2022-12-14T00:00:01", 
+            "endDate": "2050-04-30T23:59:59",
+            "timeLimitMin": 75,
+            "showClosedAssessment": true,
+            "credit": 100
+        }
+        ],
+    "shuffleQuestions": true,
+    "autoClose": true,
+    "zones": [
+        {
+            "title": "Multiple Choice Questions",
+            "comment": "These are multiple choice questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 3,
+                    "alternatives": [
+                        {"id":"learning_PL/movies_mc"},
+                        {"id":"learning_PL/mc_projects"}
+                    ]
+                    
+                }
+            ]
+        },
+        {
+            "title": "Checkbox Questions",
+            "comment": "These are write-a-function questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 3,
+                    "alternatives": [
+                        {"id": "learning_PL/movies_checkbox"},
+                        {"id": "learning_PL/checkbox_projects"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Dropdown Questions",
+            "comment": "These are dropdown questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 6,
+                    "alternatives": [
+                        {"id": "learning_PL/dropdown_example"},
+                        {"id": "learning_PL/dropdown_piazza"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Select a Statement Questions",
+            "comment": "These are write-a-function questions for this assessment",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 12,
+                    "alternatives": [
+                        {"id": "learning_PL/sas-checkbox-example"},
+                        {"id": "learning_PL/sas-checkbox-make-tacos"}
+                    ]
+                }
+            ]
+        }
+
+    ]
+}
+
+
+

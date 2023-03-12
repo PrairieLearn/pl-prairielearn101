@@ -1,0 +1,20 @@
+{
+    "uuid": "0df484e1-33f8-4211-84a3-bf1de5d71ad6",
+    "title": "Error Bars",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "statistics",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+
+}

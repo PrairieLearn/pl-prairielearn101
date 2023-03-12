@@ -1,0 +1,248 @@
+<pl-question-panel>
+<markdown>
+
+A **histogram** is a visualization of the frequency of occurrences for certain values in a dataset. Below is a histogram of the latitude of the world's most populous cities. This histogram was generated from the data in the `cities.xlsx` file we used in the previous section:
+
+
+<pl-figure file-name="Histogram_1.png" directory="clientFilesQuestion" width="600px" alt="A histogram. It shows that most of the world's most populous cities have a latitude between 0 and 60 degrees (i.e. north of the equator)"></pl-figure>
+
+
+<pl-info-box type="note">
+
+This <a href="http://tinlizzie.org/histograms/" target="_blank">Exploring Histograms</a>  website is a spectacular guide to histograms and how they are created. We **highly recommend** you read this guide before continuing on with the rest of this section (it's also a beautiful example of data visualization!).
+
+</pl-info-box>
+
+
+
+
+Let's see how we can make histograms in MATLAB:
+
+<pl-video-embed url="https://www.youtube.com/embed/4qNXLOMGTTk"></pl-video-embed>
+
+
+<pl-info-box type="video-recap">
+
+  MATLAB has two very useful functions for working with histograms: 
+
+  - `histogram()` - creates a histogram of data by taking the dataset and sorting it into "bins"
+  - `histcounts()` - gives you the number of elements belonging to each histogram bin
+
+  Histograms are very sensitive to the size of the bins you use in your histograms. You can specify either the number of bins or the bins themselves in MATLAB.
+
+</pl-info-box>
+
+
+</markdown>
+
+</pl-question-panel>
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+The `MakeCityHistograms.m` script uses the data in the `cities.xlsx` file to create a histogram of the cities' latitude and a histogram of the cities' longitude:
+
+<pl-figure file-name="Histogram_1.png" directory="clientFilesQuestion" width="580px" alt="A histogram. It shows that most of the world's most populous cities have a latitude between 0 and 60 degrees (i.e. north of the equator)"></pl-figure>
+
+<pl-figure file-name="Histogram_2.png" directory="clientFilesQuestion" width="600px" alt="A histogram. It shows that most of the world's most populous cities have a longitude between 0 and 150 degrees (i.e. east of Greenwich, England)"></pl-figure>
+
+
+The `MakeCityHistograms.m` script already reads in the city data and creates the latitudes histogram. You need to complete the script so that it also creates the longitudes histogram in a similar style as the latitudes histogram. In other words, you want to **use the latitudes histogram as a template for the longitudes histogram**.
+
+To use the latitudes histogram as a template, you would "copy and paste" the code that makes the latitudes histogram and then revise the copied code to be appropriate for the longitudes histogram. The longitudes are a similar, but slightly different, dataset, so you need to change these things to get the longitudes histogram:
+
+* The bins should go from -180 to 180 with a step of 20
+* The histogram should plot the longitudes 
+* The x-axis label should be "Longitudes (degrees)"
+
+Everything else can stay the same, that way the two plots have a similar "look and feel" which helps reduce the "noise" in the plots (see the homework assignment section on "maximizing your signal to noise ratio" if you forgot what we mean by this). 
+
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<p><b>Complete</b> the <code>MakeCityHistograms.m</code> script by <b>selecting the correct statements so that the script will create the longitudes histogram described above.</b> Some statements listed may be <b>incorrect</b> or <b>unnecessary</b>; these statements should not be selected.</p>
+
+<pl-hide-in-panel answer="true">
+
+<pl-code language="matlab">   %% Clear old data and close figure windows
+
+   clear 
+   close all
+   
+   %% Obtain cities data
+   
+   % read in from file
+   [num, txt, raw] = xlsread('cities.xlsx');
+   
+   % extract parallel vectors
+   names = txt(2:end,1);
+   pop = num(:,1);
+   lat = num(:,2);
+   lon = num(:,3);
+   
+   
+   %% Make histogram of cities' latitude
+   
+   % create histogram
+   figure();
+   bins = -100:10:100;
+   h = histogram(lat,bins);
+   
+   % change the defaults so the plot is better for a presentation
+   h.LineWidth = 3;
+   ax = gca;
+   ax.FontSize = 20;
+   grid on;
+   
+   % add some labels
+   xlabel('Latitude (deg)');
+   ylabel('Number of Cities');
+   title('Distribution of the World''s Most Populous Cities');
+   
+   % once the figure is generated, you can resize it by grabbing a 
+   % corner of the window and resizing the window.
+</pl-code>
+
+<pl-code language="matlab">   %% Make histogram of cities' longitudes
+</pl-code>
+<pl-code language="matlab">   % create histogram</pl-code>
+<pl-checkbox answers-name='step1' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">figure();</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">bins = -180:20:180;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">bins = -100:10:100;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">bins = -180:10:180;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step3' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">h = histogram(lon,bins);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">h = histogram(lat,bins);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">h = histogram(lon);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">histogram(lon);</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="matlab">   % change the defaults so the plot is better for a presentation</pl-code>
+<pl-checkbox answers-name='step4' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">h.LineWidth = 3;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">LineWidth = 3;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step5' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">ax = gca;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">gca;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step6' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">ax.FontSize = 20;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">gca.FontSize = 20;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">all(FontSize) = 20;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step7' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">grid on;</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="matlab">   % add some labels</pl-code>
+<pl-checkbox answers-name='step8' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">xlabel('Longitude (deg)');</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">Xlabel('Latitude (deg)');</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">xlabel = 'Longitude (deg)';</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step9' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">ylabel('Number of Cities');</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">ylabel = 'Number of Cities';</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">Ylabel('Number of Cities');</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step10' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">title('Distribution of the World''s Most Populous Cities');</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">title = 'Distribution of the World''s Most Populous Cities';</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="matlab">   % once the figure is generated, you can resize it by grabbing a 
+   % corner of the window and resizing the window.</pl-code>
+
+
+</pl-hide-in-panel>
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/ZEN5PjRXrgE" notes="This walkthrough shows how to do the copy and paste method that you would do if you were doing this for real in MATLAB instead of in a homework assignment in PrairieLearn. :) "></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+  
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+
+Here is a copy of the <code><pl-file-download file-name="MakeCityHistograms.m" directory="clientFilesQuestion"></pl-file-download></code> script that you just made. Download the file and you can run it in MATLAB and see it work! 
+
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+

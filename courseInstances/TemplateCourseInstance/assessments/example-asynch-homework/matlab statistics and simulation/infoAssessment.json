@@ -1,0 +1,116 @@
+{
+    "uuid": "59c7164f-aa0d-436c-ab83-36237fc9c882",
+    "type": "Homework",
+    "title": "Sample Asynchronous Lesson on Statistics and Simulation in MATLAB",
+    "set": "Homework",
+    "number": "7",
+    "allowIssueReporting": false,
+    "allowRealTimeGrading": true,
+    "multipleInstance": false,
+    "text": "This homework assignment shows how to use MATLAB to <b>calculate descriptive statistics</b> and also how to <b>simulate data</b> to help solve engineering problems. You will learn how to use a variety of built-in MATLAB functions to quickly generate statistics, visuals, and simulations.",
+    "allowAccess": [
+        {
+            "comment": "Individual extension for someone",
+            "uids": [
+                ""
+                
+            ],
+            "startDate": "2023-01-01T00:00:01",
+            "endDate": "2023-02-20T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 100
+        },
+        {
+            "comment": "This is for everyone",
+            "role": "Student",
+            "startDate": "2023-01-01T00:00:01",
+            "endDate": "2050-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 100
+        },
+        {
+            "comment": "Late submission deadline",
+            "role": "Student",
+            "startDate": "2023-01-31T00:00:01",
+            "endDate": "2023-01-31T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 95
+        },
+        {
+            "comment": "No credit after late submission deadline",
+            "role": "Student",
+            "startDate": "2023-02-01T00:00:01",
+            "endDate": "2023-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 0
+        }
+        ],
+    "shuffleQuestions": false,
+    "autoClose": true,
+    "zones": [
+        {
+            "title": "Statistics",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 4,
+                    "points": 4,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/01 basic statistics"},
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/02 histograms"},
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/03 variance and standard deviation"},
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/04 error bars"}
+                    ]
+                    
+                }
+
+            ]
+        },
+        {
+            "title": "Simulation",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 2,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/05 simulation"},
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/06 random distributions"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Practice",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 2,
+                    "points": 5,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/07 projectile motion"},
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/08 rolling dice"}
+                    ]
+                    
+                }
+            ]
+        },
+        {
+            "title": "Summary",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw07 - statistics and simulation/10 summary"}
+                    ]
+                    
+                }
+            ]
+        }
+
+    ]
+}
+
+
+

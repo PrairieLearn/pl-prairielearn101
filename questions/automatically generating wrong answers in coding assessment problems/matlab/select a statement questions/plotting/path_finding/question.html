@@ -1,0 +1,301 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+
+You are interning at *{{params.company_name}}*, a local company that {{params.company_specialty}}. They want to prepare some plots to summarize their testing of two new {{params.company_sensors}} for the {{params.company_vehicle}} they are developing.
+
+**The `{{params.script_name}}` script** creates a figure that shows the path taken by the {{params.company_vehicleAbbr}} during testing, the obstacles encountered by the {{params.company_vehicleAbbr}}, and a comparison of the error of the two sensors. Here is what the figure should look like if the `{{params.script_name}}` script is implemented correctly: 
+
+
+|     |
+|:---:|
+|<pl-figure file-name="{{params.data_fileID}}" directory="clientFilesQuestion" width="600px"></pl-figure>|
+|*The figure created by this script.*|
+|     |
+
+&nbsp;
+
+
+The `{{params.script_name}}` script loads data from the `{{params.data_filename}}` file; the `{{params.data_filename}}` file contains 6 variables:
+
+
+1. `{{params.data_var1}}` -- a vector containing the x-coordinates of the {{params.company_vehicleAbbr}}'s path
+2. `{{params.data_var2}}` -- a vector containing the y-coordinates of the {{params.company_vehicleAbbr}}'s path
+3. `{{params.data_var3}}` -- a cell array containing strings that describe the types of obstacles the {{params.company_vehicleAbbr}} encountered (e.g. `{'{{params.data_obstacle1}}', '{{params.data_obstacle2}}', ... }`)
+4. `{{params.data_var4}}` -- a parallel vector to `{{params.data_var3}}` containing the number of each of these obstacles encountered during testing
+5. `{{params.data_var5}}` -- an Nx3 matrix containing the error for Sensor A
+    - column 1 is the ambient temperature during testing
+    - column 2 is the mean error for Sensor A 
+    - column 3 is the standard deviation of the error for Sensor A
+6. `{{params.data_var6}}` -- an Nx3 matrix containing the error for Sensor B
+    - column 1 is the ambient temperature during testing
+    - column 2 is the mean error for Sensor B 
+    - column 3 is the standard deviation of the error for Sensor B
+
+The script should then make a figure that shows three things:
+
+1. The path of the {{params.company_vehicleAbbr}} during testing 
+2. The types and numbers of the obstacles it encountered 
+3. The error for each sensor 
+
+**The reference material for this question contains specific details about the configurations of these plots.** Please read the reference material carefully, and we encourage you to refer back to the reference material as needed while you work.
+
+
+
+
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Implementation
+
+Implement your script by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, **the selected lines should form a working script** that correctly implements the tasks described in this question. Some lines contain **mistakes** or are **unnecessary** for the script - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.** 
+
+We have also provided several **comments** to help structure your functions according to the task descriptions.
+
+</markdown>
+</pl-hide-in-panel>
+  
+  
+  <pl-code language="matlab">   % {{params.comment1}} 
+   clear
+   close all
+  </pl-code>
+   
+  <pl-code language="matlab">   % {{params.comment2}} </pl-code>
+  <pl-checkbox answers-name='step2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line2}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line2}}
+  </pl-checkbox>
+  <br>
+  
+  <pl-code language="matlab">   % {{params.comment3}} </pl-code>
+  <pl-checkbox answers-name='step3a' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3a}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step3b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3b}}
+  </pl-checkbox>
+
+  <pl-code language="matlab">   % {{params.comment4}} </pl-code>
+
+  <pl-checkbox answers-name='step3c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3c}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step3d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3d}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step3e' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3e}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3e}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step3f' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3f}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3f}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step3g' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3g}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3g}}
+  </pl-checkbox>
+
+  <br>
+
+  <pl-code language="matlab">   % {{params.comment5}} </pl-code>
+
+  <pl-checkbox answers-name='step4a' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4a}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step4b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4b}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step4c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4c}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step4d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4d}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step4e' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4e}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4e}}
+  </pl-checkbox>
+
+  <br>
+
+  <pl-code language="matlab">   % {{params.comment6}} </pl-code>
+
+  <pl-checkbox answers-name='step5a' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5a}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5b}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5c}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5d}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5e' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5e}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5e}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5f' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5f}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5f}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5g' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5g}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5g}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5h' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5h}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5h}}
+  </pl-checkbox>
+
+  <pl-checkbox answers-name='step5i' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5i}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5i}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment7}} </pl-code>
+</pl-content>
+
+
+
+<pl-reference>
+
+<markdown>
+
+The figure created by the `{{params.script_name}}` script contains the following: 
+
+- The top 2/3 of the figure is a plot that shows the *Path of the {{params.company_vehicleAbbr}}*. This plot includes an image of the test area overlaid with the path taken by the {{params.company_vehicleAbbr}} 
+- The bottom 1/3 of the figure has two plots: the left plot is an *Obstacles Plot*  that uses a bar chart to show the obstacles encountered and the number of each obstacle encountered; the right plot is an *Error Plot* that uses an error bar plot to show the error for both sensors as a function of temperature
+
+Details for each of these individual plots are included below. **You may assume all default line widths, font sizes, locations, etc. are sufficient unless explicitly stated below.**
+ 
+&nbsp;
+
+
+*Path of the {{params.company_vehicleAbbr}}*
+
+- load the image of the testing area from `{{params.company_testArea}}` and include it in the plot (*this step is done for you*)
+- plot the path taken by the {{params.company_vehicleAbbr}} using a dotted line
+- the path should have a line width of 15
+- the path should be {{params.data_color}}
+- the title should be `Path Taken by {{params.company_vehicleAbbr}}`
+- the title should have a font size of 25
+
+
+*Obstacles Plot*
+
+- bar chart of the number of obstacles 
+- the grid should be on
+- labels for the xticks are the types of obstacles (e.g. `{{params.data_obstacle1}}`, `{{params.data_obstacle2}}`, etc.)
+- the y-axis should be labeled `number of obstacles`
+- there should be **NO** x-axis label because the xticks have their own labels
+
+
+
+*Error Plot*
+
+- two error bar plots on this same set of axes: Sensor A and Sensor B
+- for both sensors, the error bar plot should plot the mean value of the sensor's error vs. temperature, with the standard deviation as the value to use to draw the error bars for the plot ( *refer to the Battery Life example in the homework if you are unsure what we mean by this* ) 
+- the grid should be on
+- the legend should include the labels `Sensor A` and `Sensor B` in the correct order
+- the x-axis limits should be {{params.script_xaxis_min}} to {{params.script_xaxis_max}}
+- the y-axis limits should be {{params.script_yaxis_min}} to {{params.script_yaxis_max}}
+- the x-axis label should be `temperature (deg F)`
+- the y-axis label should be `{{params.script_yaxis_label}}`
+
+
+
+
+
+
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* using plots to convey information and trends in data
+* creating a figure with multiple plots
+* creating high quality plots through a variety of annotations (labels, font sizes, etc.)
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+

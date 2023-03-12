@@ -1,0 +1,75 @@
+
+
+
+
+
+@import "matlab.css";
+@import "theme-overrides.css";
+
+
+.collapsible {
+  background-color: #cccccc;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+
+.active, .collapsible:hover {
+  background-color: #b5b5b5;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:after {
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.figure-caption {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 0%;
+  padding-bottom: 5%;
+  text-align: center;
+}
+
+.figure-file-label {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 0%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+
+.basic-table {border-collapse:collapse;border-spacing:0;margin-left: auto;margin-right: auto;border-color:#eeeeee;}
+.basic-table td{border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; text-align: left; color:#000000;vertical-align:middle;  background-color: #ffffff;}
+.basic-table th{border-style:solid;border-width:1px;font-family:Arial, sans-serif; font-weight:bold; overflow:hidden; padding:10px 5px; word-break:normal;text-align: left; vertical-align:middle; background-color: #dddddd;color:#000000;}
+.basic-table .td-highlight{ background-color:#d9fffe; text-align: left; vertical-align:middle; border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; color:#000000;}
+
+.basic-table-lightlines {border-collapse:collapse;border-spacing:0;margin-left: auto;margin-right: auto;border-color:#cccccc;}
+.basic-table-lightlines td{border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; text-align: left; color:#000000;vertical-align:top;  background-color: #ffffff; border-color:#cccccc;}
+.basic-table-lightlines th{border-style:solid;border-width:1px;font-family:Arial, sans-serif; font-weight:bold; overflow:hidden; padding:10px 5px; word-break:normal;text-align: left; vertical-align:middle; background-color: #dddddd;color:#000000;border-color:#cccccc;}
+.basic-table-lightlines .th-centered{border-style:solid;border-width:1px;font-family:Arial, sans-serif; font-weight:bold; overflow:hidden; padding:10px 5px; word-break:normal;text-align: center; vertical-align:middle; background-color: #dddddd;color:#000000;border-color:#cccccc;}
+.basic-table-lightlines .td-centered{border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; text-align: center; color:#000000;vertical-align:top;  background-color: #ffffff; border-color:#cccccc;}
+.basic-table-lightlines .td-highlight{ background-color:#d9fffe; text-align: left; vertical-align:top; border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; color:#000000;border-color:#cccccc;}
+.basic-table-lightlines .td-centered-highlight{border-style:solid;border-width:1px;font-family:Arial, sans-serif; overflow:hidden;padding:10px 5px;word-break:normal; text-align: center; color:#000000;vertical-align:top;  background-color: #d9fffe; border-color:#cccccc;}
+
+.blockquote {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-style: italic;
+}

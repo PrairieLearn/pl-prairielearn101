@@ -1,0 +1,322 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+#### Introduction
+
+*{{params.company_name}}* is a shipping company specializing in {{params.specialty}}. *{{params.company_name}}* has three options for deliveries: via {{params.option1}}, via {{params.option2}}, and via {{params.option3}}. 
+
+*{{params.company_name}}* has delivery data from the past month. The data is organized by the distance the item was shipped (in {{params.plot_x_units}}), the time it took to deliver the item (in {{params.plot_y_units}}), and the cost for the delivery (in $PB -- Proxima b dollars). The delivery data is stored in a file named `{{params.data_in_filename}}`. Here is a snapshot of what this file could look like:  
+
+|     |
+|:---:|
+|<pl-figure file-name="{{params.data_in_image}}" directory="clientFilesQuestion" width="800px"></pl-figure>|
+|*{{params.data_in_caption}}*|
+|     |
+
+
+
+#### Tasks
+You are interning at *{{params.company_name}}*, and you have been asked to **write a "driver" script** that will {{params.task}}.  The script should produce two files:
+
+* `{{params.plot_out_image}}` - {{params.plot_out_caption}}
+* `{{params.data_out_filename}}` - {{params.data_out_caption}}
+
+
+Here is an example of the two files produced by this script:
+
+|     |     |     |
+|:---:|:---:|:---:|
+|<pl-figure file-name="{{params.plot_out_image}}" directory="clientFilesQuestion" ></pl-figure>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<pl-figure file-name="{{params.data_out_image}}" directory="clientFilesQuestion" ></pl-figure>|
+|*{{{params.plot_out_caption}}}*|                 |*{{params.data_out_caption}}*|
+|   |   |   |
+
+&nbsp;  
+
+&nbsp;  
+
+
+
+
+
+The driver script relies on several **helper functions**, whose interfaces and documentation are given in the **reference material**. Part of your task relies on understanding the connections between helper functions and the driver script, as well as a holistic understanding of the problem to be solved.  
+
+Your fellow interns have written the set of helper functions for you to use. Here are the functions they have written:  
+
+{{{params.helperFunctionList}}}  
+
+See the Reference Material for more information on these helper functions. You may assume all of these functions work as intended and there are no bugs in the helper functions.  
+
+
+**The reference material for this question contains key details about each step in the driver program you need to write.** We recommend you skim it briefly and refer back to it as you compose your script below. The reference material also includes information about the **data/image files** and **helper functions** used by the driver script.  
+
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Implementation
+
+Implement your script by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, **the selected lines should form a working script** that correctly implements the tasks described in this question. Some lines contain **mistakes** or are **unnecessary** for the script - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.** 
+
+We have also provided several **comments** to help structure your functions according to the task descriptions.
+
+</markdown>
+</pl-hide-in-panel>
+  
+  
+  <pl-code language="matlab">   % ----------- {{params.step1description}} ----------- </pl-code>
+  <pl-checkbox answers-name='step1' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line1a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line1a}}
+    {{#params.line1b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line1b}}
+  </pl-checkbox>
+  <br>
+   
+  <pl-code language="matlab">   % ----------- {{params.step2description}} ----------- </pl-code>
+  <pl-checkbox answers-name='step2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line2}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line2}}
+  </pl-checkbox>
+  <br>
+  
+  <pl-code language="matlab">   % ----------- {{params.step3description}} ----------- </pl-code>
+  <pl-checkbox answers-name='step3' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line3}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line3}}
+  </pl-checkbox>
+  <br>
+
+  <pl-code language="matlab">   % ----------- {{params.step4description}} ----------- </pl-code>
+  <pl-code language="matlab">   % {{params.comment1}} </pl-code>
+  <pl-checkbox answers-name='step4a' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4a}}
+  </pl-checkbox>
+  <pl-checkbox answers-name='step4b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4b}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment2}} </pl-code>
+  <pl-checkbox answers-name='step4c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4c}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment3}} </pl-code>
+  <pl-checkbox answers-name='step4d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4d}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment4}} </pl-code>
+  <pl-checkbox answers-name='step4e' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line4e}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line4e}}
+  </pl-checkbox>
+  <br>
+
+  <pl-code language="matlab">   % ----------- {{params.step5description}} ----------- </pl-code>
+  <pl-code language="matlab">   % {{params.comment5}} </pl-code>
+  <pl-checkbox answers-name='step5a' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5a}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment6}} </pl-code>
+  <pl-checkbox answers-name='step5b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5b}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment7}} </pl-code>
+  <pl-checkbox answers-name='step5c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5c}}
+  </pl-checkbox>
+  <pl-checkbox answers-name='step5d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5d}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment8}} </pl-code>
+  <pl-code language="matlab">   % {{params.comment9}} </pl-code>
+  <pl-checkbox answers-name='step5e' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line5e}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line5e}}
+  </pl-checkbox>
+  <br>
+
+  <pl-code language="matlab">   % ----------- {{params.step6description}} ----------- </pl-code>
+  <pl-code language="matlab">   % {{params.comment10}} </pl-code>
+  <pl-checkbox answers-name='step6a&b' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line6a}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line6a}}
+    {{#params.line6b}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line6b}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment11}} </pl-code>
+  <pl-code language="matlab">   % {{params.comment12}} </pl-code>
+  <pl-checkbox answers-name='step6c' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line6c}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line6c}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment13}} </pl-code>
+  <pl-checkbox answers-name='step6d' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.line6d}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.line6d}}
+  </pl-checkbox>
+  <pl-code language="matlab">   % {{params.comment14}} </pl-code>
+
+  
+</pl-content>
+
+
+
+<pl-reference>
+
+
+
+<markdown>
+
+### Input Files
+
+Here are the data files available for your script to read into MATLAB:
+
+{{{params.inputFilesList}}}
+
+
+---
+
+### Script Outline
+Here is an outline of how this script is be structured. 
+
+{{{params.script_algorithm}}}
+
+---
+### Helper Functions  
+
+These helper functions will be used in your script. Please scroll down to read about the parameters and return values for each helper function. You may assume all helper functions work correctly and as intended.
+
+---
+
+#### `{{params.func1name}}()`  
+    
+The `{{params.func1name}}()` function {{params.func1description}}.  
+    
+**Parameters & Return Values**   
+    
+The `{{params.func1name}}()` function has the following parameter(s):  
+
+{{{params.func1parameterList}}}  
+
+The `{{params.func1name}}()` function returns the following value(s):  
+
+{{{params.func1returnVarList}}}  
+
+**Example of Calling this Function**
+
+<pl-code language="matlab">
+{{{params.func1example}}}
+</pl-code>
+
+
+
+---
+
+#### `{{params.func2name}}()`  
+    
+The `{{params.func2name}}()` function {{params.func2description}}.  
+    
+**Parameters & Return Values**  
+    
+The `{{params.func2name}}()` function has the following parameter(s):  
+
+{{{params.func2parameterList}}}  
+
+The `{{params.func2name}}()` function returns the following value(s):  
+
+{{{params.func2returnVarList}}}  
+    
+
+**Example of Calling this Function**
+
+<pl-code language="matlab">
+{{{params.func2example}}}
+</pl-code>
+
+---
+
+#### `{{params.func3name}}()`  
+    
+The `{{params.func3name}}()` function {{params.func3description}}.  
+    
+**Parameters & Return Values**  
+    
+The `{{params.func3name}}()` function has the following parameter(s):  
+
+{{{params.func3parameterList}}}  
+
+The `{{params.func3name}}()` function returns the following value(s):  
+
+{{{params.func3returnVarList}}}
+
+**Example of Calling this Function**
+
+<pl-code language="matlab">
+{{{params.func3example}}}
+</pl-code>
+
+
+
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* using MATLAB tables to store data of different types
+* using functions to create stable and efficient computer programs
+* using plots to convey information and trends in data
+* assembling a driver program/script to perform a set of tasks using helper functions
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+
