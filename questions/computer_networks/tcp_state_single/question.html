@@ -1,0 +1,17 @@
+<pl-question-panel>
+<div class="alert alert-info"  role="alert">
+    To answer this question, you may use the <a href="https://ffund.github.io/tcp-ip-essentials/lab-tcp/StateTransitionDiagram.svg" class="alert-link">TCP state transition diagram</a>.
+</div>
+    <br>
+  <p>A TCP {{params.endpoint}} is in the {{params.starting}} state.</p>
+  <p>Then, it {{{params.next}}}</p>
+</pl-question-panel>
+
+
+<p>What state is the {{params.endpoint}} in now?</p>
+
+<pl-multiple-choice hide-letter-keys="true" answers-name="newstate" fixed-order="false">
+    {{#params.mc}}
+    <pl-answer correct="{{ans}}">{{tag}}</pl-answer>
+    {{/params.mc}}
+</pl-multiple-choice>

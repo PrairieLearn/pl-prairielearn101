@@ -1,0 +1,50 @@
+<pl-question-panel>
+{{#params.rx}}
+<p>Suppose you are a host at address {{params.ip}}, and you want to receive a message on UDP port {{params.port}}.</p>
+{{/params.rx}}
+{{#params.tx}}
+<p>Suppose you are a host at address {{params.bindip}}, and you want to send the message <b>{{params.msg}}</b> to a UDP service running on port {{params.port}} on the host at {{params.ip}}.</p>
+{{/params.tx}}
+</pl-question-panel>
+
+<p>Use these blocks to form the correct sequence of steps using the socket API. (Note: you do not necessarily need to use every block.)</p>
+
+<pl-order-blocks answers-name="udp-socket" solution-placement="bottom" grading-method="dag" feedback="first-wrong">
+    
+  <pl-answer correct="true" tag="1"><p>Create a UDP socket:</p>
+<pl-code language="python">import socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) </pl-code></pl-answer>
+  <pl-answer correct="{{params.rx}}" tag="2" depends="1"><p>Bind the socket to IP address {{params.ip}} and UDP port {{params.port}}:</p>
+<pl-code language="python">sock.bind(('{{params.ip}}', {{params.port}}))</pl-code></pl-answer>
+  <pl-answer correct="{{params.tx}}" tag="3" depends="1"><p>Pass a datagram to the operating system to send:</p>
+<pl-code language="python">sent = sock.sendto(b'{{params.msg}}', ('{{params.ip}}', {{params.port}})) </pl-code></pl-answer>
+  <pl-answer correct="{{params.rx}}" tag="4" depends="1,2"><p>Receive up to 1200 bytes from the socket buffer:</p>
+<pl-code language="python">data, addr = sock.recvfrom(1200)</pl-code></pl-answer>
+</pl-order-blocks>
+
+
+{{#params.tx}}
+<pl-answer-panel> <hr><p><span class="badge badge-primary">Comment</span> To ask the operating system to <i>send</i> data, an application should:
+
+<ol>
+    <li>Create a UDP socket</li>
+    <li>(Optional) <code>bind</code> to the <i>local</i> IP address and UDP port that the socket should use. In this case, none of the blocks is a <code>bind</code> call to the <i>local</i> address, {{params.bindip}}, so we do not call <code>bind</code>. If we do not call <code>bind</code>, the operating system will select a random large port number and bind to that port on all local addresses when we first send data on this socket.</li>
+    <li><code>send</code> data, by specifying the data to send (<code>{{params.msg}}</code>) and the destination IP address and port (<code>{{params.ip}}, {{params.port}}</code>).</li>
+</ol>
+</p>
+
+</pl-answer-panel>
+{{/params.tx}}
+
+{{#params.rx}}
+<pl-answer-panel> <hr><p><span class="badge badge-primary">Comment</span> To <i>receive</i> data, an application should:
+
+<ol>
+    <li>Create a UDP socket</li>
+    <li><code>bind</code> to the <i>local</i> IP address and UDP port that the socket should use  (<code>{{params.ip}}, {{params.port}}</code>).</li>
+    <li><code>recv</code> data from the socket <i>buffer</i>, where the operating system will have put any data for this UDP port.</li>
+</ol>
+</p>
+
+</pl-answer-panel>
+{{/params.rx}}

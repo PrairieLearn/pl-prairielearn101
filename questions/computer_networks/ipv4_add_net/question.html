@@ -1,0 +1,75 @@
+<pl-question-panel>
+  <p>Suppose a network interface is assigned the IPv4 address {{params.address}} with subnet mask {{params.netmask}}.</p>
+
+</pl-question-panel>
+
+<hr>
+
+<p>What is the prefix length for this subnet mask?</p>
+
+<pl-integer-input answers-name="prefix"></pl-integer-input>
+
+<pl-answer-panel><hr>
+<p><span class="badge badge-primary">Comment</span> The prefix length is the number of 1 bits in the subnet mask. This subnet mask, {{params.netmask}}, has the following binary equivalent:
+
+<pl-code language="text">{{params.netmask_bin}}</pl-code>
+
+which has {{params.prefix}} bits that are 1.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What is the network address for this subnet?</p>
+
+<pl-string-input answers-name="netaddr" remove-spaces="true"></pl-string-input>
+
+<pl-answer-panel><hr>
+<p><span class="badge badge-primary">Comment</span> To get the network address, apply the AND operation to the IP address and the netmask:
+
+<pl-code language="text">{{params.address_bin}}
+{{params.netmask_bin}}
+____________________________________
+
+{{params.netaddr_bin}}</pl-code>
+
+and then convert the result back to dotted decimal notation.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What is the broadcast address for this subnet?</p>
+
+<pl-string-input answers-name="bcast" remove-spaces="true"></pl-string-input>
+
+<pl-answer-panel><hr>
+<p><span class="badge badge-primary">Comment</span> To get the broadcast address, first find the inverse subnet mask by applying the NOT operation to the subnet mask (flip all its bits!):
+
+<pl-code language="text">{{params.maskinv_bin}}</pl-code>
+
+Then, apply the OR operation to the network address and the inverse subnet mask:
+
+<pl-code language="text">{{params.netaddr_bin}}
+{{params.maskinv_bin}}
+____________________________________
+
+{{params.bcast_bin}}</pl-code>
+
+and then convert the result back to dotted decimal notation.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>Describe this subnet using the network address/prefix length notation (e.g.: 192.168.1.0/24).</p>
+
+<pl-string-input answers-name="network" remove-spaces="true"></pl-string-input>
+
+<br><hr>
+
+<p>Which of the following addresses could belong to hosts in the same subnet as this interface? Select all that apply.</p>
+
+<pl-checkbox answers-name="add" partial-credit="true">
+  {{#params.choices}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.choices}}
+</pl-checkbox>
+
+<pl-answer-panel><hr>
+<p><span class="badge badge-primary">Comment</span> The range of addresses that can belong to hosts in this subnet is from the network address + 1, to the broadcast address -1, or in this case: <b>{{params.min_ip}}</b> to <b>{{params.max_ip}}</b>.</p></pl-answer-panel>
+

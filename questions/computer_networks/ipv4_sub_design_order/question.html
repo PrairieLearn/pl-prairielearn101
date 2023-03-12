@@ -1,0 +1,212 @@
+
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+<!--<p>Consider the following network of hosts (orange) and routers (green). -->
+<p>Your challenge is to design subnets for three LANs, with the following design constraints:
+<ul>
+    <li>The available IP address space is the range <b>{{params.rangemin}}-{{params.rangemax}}</b>.</li>
+    <li>LAN A must be able to support at least <b>{{params.nhosts.0}}</b> hosts.</li>
+    <li>LAN B must be able to support at least <b>{{params.nhosts.1}}</b> hosts.</li>
+    <li>LAN C must be able to support at least <b>{{params.nhosts.2}}</b> hosts.</li>
+</ul>
+</p>
+<!--
+<p>
+<pl-graph engine="dot">
+graph G {
+    rankdir="LR";
+    #overlap="scale";
+    graph [splines=ortho, nodesep=1]
+    edge  [weight=5]
+
+    {
+
+        node [colorscheme=accent3]
+
+        romeo      [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+        juliet     [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+        hamlet     [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+        ophelia    [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+        othello    [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+        desdemona  [width=1.35 shape=box3d fontname="courier" style="filled" fillcolor=3]
+
+       routera [width=1.35 shape=box3d label="router-a"  fontname="courier" style="filled" fillcolor=1]
+       routerb [width=1.35 shape=box3d label="router-b"  fontname="courier" style="filled" fillcolor=1]
+       routerc [width=1.35 shape=box3d label="router-c"  fontname="courier" style="filled" fillcolor=1]
+
+        ptD [shape=rect  width=1.5 label="WAN\n10.1.10.0\n255.255.255.0"  fontname="courier" style="filled"  fillcolor=2]
+        ptA [shape=rect  width=1 label="LAN A" fontname="courier" style="filled"  fillcolor=2]
+        ptB [shape=rect  width=1 label="LAN B" fontname="courier" style="filled"  fillcolor=2]
+        ptC [shape=rect  width=1 label="LAN C" fontname="courier" style="filled"  fillcolor=2]
+
+    }
+
+        romeo     --  ptA []
+        juliet    --  ptA []
+
+        hamlet    --  ptB []
+        ophelia   --  ptB []
+
+        othello   --  ptC []
+        desdemona --  ptC []
+         
+       routera -- ptD [taillabel="10.1.10.1" fontname="courier" minlen=3.75]
+       routerb -- ptD [taillabel="10.1.10.2" fontname="courier" minlen=3.75]
+       routerc -- ptD [taillabel="10.1.10.3" fontname="courier" minlen=3.75]
+       
+       routera -- ptA [taillabel="" fontname="courier" minlen=1]
+       routerb -- ptB [taillabel="" fontname="courier" minlen=1]
+       routerc -- ptC [taillabel="" fontname="courier" minlen=1]
+       
+      { rank=min; ptD; }
+      { rank=max; romeo; juliet; hamlet; ophelia; othello; desdemona; }
+
+
+    }
+
+
+</pl-graph>    
+    
+    
+</p>
+-->
+
+<p>For each subnet, you should identify:
+
+<ul>
+<li>the subnet mask.</li>
+<li>the network address. This will be the bitwise AND of the IP address of any host on the network, and the subnet mask.</li>
+<li>the broadcast address for the subnet. This is the bitwise OR of the network address and the inverse of the subnet mask.</li>
+<li>the smallest IP address that may be assigned to a network interface in the subnet (host number 1). This is the network address, plus 1.</li>
+<li>the highest IP address that may be assigned to a network interface in the subnet. This is the broadcast address, minus 1.</li>
+</ul>
+</p>
+
+<p>There is more than one correct solution - any solution that satisfies the requirements above is acceptable! Once you have made your design decisions, complete the following table:</p>
+
+</pl-question-panel>
+
+<br><hr><br>
+
+
+
+<pl-answer-panel><p><span class="badge badge-primary">Comment</span> There is more than one correct solution - this is just one example of a correct solution!</p></pl-answer-panel>
+
+
+<p>
+<table  class="table-with-border" width="100%">
+<thead>
+  <tr>
+    <th >LAN</th>
+    <th >Subnet    <br>Mask    </th>
+    <th >Network Address</th>
+    <th >Smallest Address</th>
+    <th >Highest Address</th>
+    <th >Broadcast Address</th>
+  </tr>
+</thead>
+<tbody>
+    <tr>
+     <td>LAN&nbsp;A <br>&ge; {{params.nhosts.0}} </td>
+     <td><pl-string-input display="block" answers-name="lana-netmask" allow-blank="true"  ignore-case="true" correct_answer="{{params.mask.0}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lana-network" allow-blank="true"  ignore-case="true" correct_answer="{{params.netaddr.0}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lana-small" allow-blank="true"  ignore-case="true" correct_answer="{{params.minaddr.0}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lana-large" allow-blank="true"  ignore-case="true" correct_answer="{{params.maxaddr.0}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lana-broadcast" allow-blank="true"  ignore-case="true" correct_answer="{{params.bcastaddr.0}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+ </tr>
+    <tr>
+     <td>LAN&nbsp;B <br>&ge; {{params.nhosts.1}} </td>
+     <td><pl-string-input display="block" answers-name="lanb-netmask" allow-blank="true"  ignore-case="true" correct_answer="{{params.mask.1}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanb-network" allow-blank="true"  ignore-case="true" correct_answer="{{params.netaddr.1}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanb-small" allow-blank="true"  ignore-case="true" correct_answer="{{params.minaddr.1}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanb-large" allow-blank="true"  ignore-case="true" correct_answer="{{params.maxaddr.1}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanb-broadcast" allow-blank="true"  ignore-case="true" correct_answer="{{params.bcastaddr.1}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+ </tr>
+    <tr>
+     <td>LAN&nbsp;C <br>&ge; {{params.nhosts.2}} </td>
+     <td><pl-string-input display="block" answers-name="lanc-netmask" allow-blank="true"  ignore-case="true" correct_answer="{{params.mask.2}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanc-network" allow-blank="true"  ignore-case="true" correct_answer="{{params.netaddr.2}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanc-small" allow-blank="true"  ignore-case="true" correct_answer="{{params.minaddr.2}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanc-large" allow-blank="true"  ignore-case="true" correct_answer="{{params.maxaddr.2}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+     <td><pl-string-input display="block" answers-name="lanc-broadcast" allow-blank="true"  ignore-case="true" correct_answer="{{params.bcastaddr.2}}" remove-spaces="true" show-help-text="false" size="12"></pl-string-input></td>
+ </tr>
+
+</tbody>
+</table>
+</p>
+
+
+<!--
+<br><hr><br>
+
+<h2>Configure LAN interface on each router</h2>
+
+<p>Next, you will configure the LAN-facing interface on each router. You will assign the lowest IP address in the subnet (host number 1) to the LAN-facing interface of the router (this is a common convention).</p>
+
+<p>On <b>router-a</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig <pl-string-input size="4" allow-blank="true"  remove-spaces="true" ignore-case	="true" show-help-text="false" answers-name="routera-iface" correct-answer=""></pl-string-input> <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routera-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routera-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>router-b</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig <pl-string-input size="4" allow-blank="true"  remove-spaces="true" ignore-case	="true" show-help-text="false" answers-name="routerb-iface" correct-answer=""></pl-string-input> <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routerb-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routerb-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>router-c</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig <pl-string-input size="4" allow-blank="true"  remove-spaces="true" ignore-case	="true" show-help-text="false" answers-name="routerc-iface" correct-answer=""></pl-string-input> <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routerc-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="routerc-netmask" correct-answer=""></pl-string-input></span></p>
+
+<br><hr><br>
+
+
+<h2>Configure LAN interface on each host</h2>
+
+<p>Now you will configure the LAN-facing interface on each host. (This will be easier, because the interface name is <code>eth1</code> on every host).</p>
+
+<p>Assign the highest IP address in the subnet to one host in each LAN, and any other unused IP address in the subnet to the other host.</p>
+
+<p>On <b>romeo</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="romeo-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="romeo-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>juliet</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="juliet-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="juliet-netmask" correct-answer=""></pl-string-input></span></p>
+
+
+<p>On <b>hamlet</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="hamlet-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="hamlet-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>ophelia</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="ophelia-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="ophelia-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>othello</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="othello-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="othello-netmask" correct-answer=""></pl-string-input></span></p>
+
+<p>On <b>desdemona</b>:</p>
+<p><span style="font-family: Courier New, Courier, monospace;">sudo ifconfig eth1 <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="desdemona-addr" correct-answer=""></pl-string-input> netmask <pl-string-input size="12" allow-blank="true" remove-spaces="true" ignore-case="true" show-help-text="false" answers-name="desdemona-netmask" correct-answer=""></pl-string-input></span></p>
+
+<br><hr><br>
+-->
+
+
+<pl-submission-panel>
+    <!-- check if feedback is empty -->
+    <ul>
+            {{#feedback.lana-netmask}}<li><b>LAN A Subnet Mask</b>: {{feedback.lana-netmask}}</li> {{/feedback.lana-netmask}}
+            {{#feedback.lana-network}}<li><b>LAN A Network Address</b>: {{feedback.lana-network}}</li> {{/feedback.lana-network}}
+            {{#feedback.lana-small}}<li><b>LAN A Smallest Address</b>: {{feedback.lana-small}}</li> {{/feedback.lana-small}}
+            {{#feedback.lana-large}}<li><b>LAN A Largest Address</b>: {{feedback.lana-large}}</li> {{/feedback.lana-large}}
+            {{#feedback.lana-broadcast}}<li><b>LAN A Broadcast Address</b>: {{feedback.lana-broadcast}}</li> {{/feedback.lana-broadcast}}
+
+            {{#feedback.lanb-netmask}}<li><b>LAN B Subnet Mask</b>: {{feedback.lanb-netmask}}</li> {{/feedback.lanb-netmask}}
+            {{#feedback.lanb-network}}<li><b>LAN B Network Address</b>: {{feedback.lanb-network}}</li> {{/feedback.lanb-network}}
+            {{#feedback.lanb-small}}<li><b>LAN B Smallest Address</b>: {{feedback.lanb-small}}</li> {{/feedback.lanb-small}}
+            {{#feedback.lanb-large}}<li><b>LAN B Largest Address</b>: {{feedback.lanb-large}}</li> {{/feedback.lanb-large}}
+            {{#feedback.lanb-broadcast}}<li><b>LAN B Broadcast Address</b>: {{feedback.lanb-broadcast}}</li> {{/feedback.lanb-broadcast}}
+
+            {{#feedback.lanc-netmask}}<li><b>LAN C Subnet Mask</b>: {{feedback.lanc-netmask}}</li> {{/feedback.lanc-netmask}}
+            {{#feedback.lanc-network}}<li><b>LAN C Network Address</b>: {{feedback.lanc-network}}</li> {{/feedback.lanc-network}}
+            {{#feedback.lanc-small}}<li><b>LAN C Smallest Address</b>: {{feedback.lanc-small}}</li> {{/feedback.lanc-small}}
+            {{#feedback.lanc-large}}<li><b>LAN C Largest Address</b>: {{feedback.lanc-large}}</li> {{/feedback.lanc-large}}
+            {{#feedback.lanc-broadcast}}<li><b>LAN C Broadcast Address</b>: {{feedback.lanc-broadcast}}</li> {{/feedback.lanc-broadcast}}
+
+    </ul>
+
+</pl-submission-panel>
+

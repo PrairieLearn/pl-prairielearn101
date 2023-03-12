@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+<p>A bridge is connected to several Ethernet segments, with one or more hosts on each. Initially, the forwarding table at the bridge looks like this:</p>
+<p>
+<table class="table-gray-no-border" width="100%">
+<thead>
+  <tr>
+    <td>port no</td>
+    <td>mac addr</td>
+    <td>is local?</td>
+    <td>ageing timer</td>
+  </tr>
+</thead>
+<tbody>
+{{#params.brmacs}}
+  <tr>
+    <td>{{portno}}</td>
+    <td>{{mac}}</td>
+    <td>yes</td>
+    <td>0.00</td>
+  </tr>
+{{/params.brmacs}}
+{{#params.knownhosts}}
+  <tr>
+    <td>{{port}}</td>
+    <td>{{mac}}</td>
+    <td>no</td>
+    <td>{{age}}</td>
+  </tr>
+{{/params.knownhosts}}
+</tbody>
+</table>
+</p>
+
+
+<p>Then, the following sequence of frames arrive at the bridge, at the indicated port, in the order given (and in a sufficiently short time interval that no forwarding table entries will age out).</p>
+
+<p>Next to each frame, indicate which bridge port(s) the frame will be forwarded to.</p>
+
+</pl-question-panel>
+
+
+
+<p>
+<table class="table-no-border" width="100%">
+<thead>
+  <tr>
+    <th>Port</th>
+    <th>Source MAC</th>
+    <th>Destination MAC</th>
+    <th>Forwarded to</th>
+  </tr>
+</thead>
+<tbody>
+{{#params.frames}}
+  <tr>
+    <td>{{port}}</td><td>{{src}}</td><td>{{dst}}</td>
+    <td><pl-checkbox inline="true" hide-letter-keys="true" hide-help-text="true" answers-name="{{k}}" fixed-order="true">
+        {{#ans}}
+        <pl-answer correct="{{a}}">{{p}}</pl-answer>
+        {{/ans}}
+    </pl-checkbox></td>
+  </tr>
+{{/params.frames}}
+</tbody>
+</table>
+</p>
+
+
+<pl-answer-panel><p>
+<span class="badge badge-primary">Comment</span> When a frame arrives at a switch or a bridge, the forwarding table is used to determine whether to forward, filter, or flood the frame, depending on its destination address:
+
+<ol>
+<li>When the switch receives a frame that is destined for an address that is not in the table (or for the broadcast address), the switch will flood the frame out of all ports other than the port on which it arrived.
+{{#params.exampleFlood.length}}<br>For example, frame {{params.exampleFlood.0.k}},  <code>{{params.exampleFlood.0.src}}&nbsp;&gt;&nbsp;{{params.exampleFlood.0.dst}}</code> is flooded on all ports except port {{params.exampleFlood.0.port}}, where it was received.{{/params.exampleFlood.length}}
+{{^params.exampleFlood}}(In this variant of the problem, this rule does not apply to any of the frames, but if you try a few more variants you may encounter this rule.){{/params.exampleFlood}}
+
+</li>
+<li>If the destination address is in the table, and is known to be reachable on the same port that the frame was received on, the switch will filter (drop) the frame. 
+{{#params.exampleNone.length}}<br>For example, frame {{params.exampleNone.0.k}},  <code>{{params.exampleNone.0.src}}&nbsp;&gt;&nbsp;{{params.exampleNone.0.dst}}</code> is not forwarded on any interface because it was received on port {{params.exampleNone.0.port}}, and the destination address <code>{{params.exampleNone.0.dst}}</code> was already in the forwarding table and known to be on port {{params.exampleNone.0.port}}. Note that this applies to addresses that were in the initial forwarding table, and also to addresses that were learned from earlier frames arriving at the bridge. {{/params.exampleNone.length}}
+{{^params.exampleNone}}(In this variant of the problem, this rule does not apply to any of the frames, but if you try a few more variants you may encounter this rule.){{/params.exampleNone}}
+</li>
+<li>Otherwise, the switch will forward the frame out of the port corresponding to its destination address in the forwarding table.
+{{#params.exampleFwd.length}}<br>For example, frame {{params.exampleFwd.0.k}},  <code>{{params.exampleFwd.0.src}}&nbsp;&gt;&nbsp;{{params.exampleFwd.0.dst}}</code> is received on port {{params.exampleFwd.0.port}}, and its destination address <code>{{params.exampleFwd.0.dst}}</code> was already in the forwarding table and known to be on a different port, so that's where it was forwarded.{{/params.exampleFwd.length}}
+{{^params.exampleFwd}}(In this variant of the problem, this rule does not apply to any of the frames, but if you try a few more variants you may encounter this rule.){{/params.exampleFwd}}
+</li>
+</ol>    
+</p></pl-answer-panel>

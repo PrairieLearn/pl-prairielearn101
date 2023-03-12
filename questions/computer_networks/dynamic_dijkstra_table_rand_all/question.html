@@ -1,0 +1,88 @@
+<pl-question-panel>
+<p>Consider the following network. With the indicated link costs, we can use Dijkstra’s shortest-path algorithm to
+compute the shortest path from <b>{{params.source}}</b> to all other network nodes.</p>
+
+  <pl-graph engine="dot">
+graph G {
+    rankdir="LR";
+    overlap = false;
+
+    {
+        node [colorscheme=accent3]
+    t [width=0.5 shape=cylinder label="t" fontname="courier" style="filled" fillcolor=1]
+    u [width=0.5 shape=cylinder label="u" fontname="courier" style="filled" fillcolor=1]
+    v [width=0.5 shape=cylinder label="v" fontname="courier" style="filled" fillcolor=1]
+    w [width=0.5 shape=cylinder label="w" fontname="courier" style="filled" fillcolor=1]
+    x [width=0.5 shape=cylinder label="x" fontname="courier" style="filled" fillcolor=1]
+    y [width=0.5 shape=cylinder label="y" fontname="courier" style="filled" fillcolor=1]
+    z [width=0.5 shape=cylinder label="z" fontname="courier" style="filled" fillcolor=1]
+
+    }
+
+    z -- y [label="{{params.n.11}}" fontname="courier"]
+    z -- x [label="{{params.n.10}}"  fontname="courier"]
+    x -- y [label="{{params.n.9}}"  fontname="courier"]
+    x -- v [label="{{params.n.6}}"  fontname="courier"]
+    x -- w [label="{{params.n.8}}"  fontname="courier"]
+    y -- t [label="{{params.n.2}}"  fontname="courier"]
+    y -- v [label="{{params.n.7}}"  fontname="courier"]
+    w -- u [label="{{params.n.4}}"  fontname="courier"]
+    w -- v [label="{{params.n.5}}"  fontname="courier"]
+    v -- t [label="{{params.n.1}}"  fontname="courier"]
+    v -- u [label="{{params.n.3}}"  fontname="courier"]
+    u -- t [label="{{params.n.0}}"  fontname="courier"]
+
+    }
+      
+  </pl-graph>
+   <p>Instructions for completing the table:</p>
+<ul>
+    <li>In the <b>N'</b> column, list the order in which nodes were visited, like this: <code>xzy</code></li>
+    <li>In the remaining columns, write the distance and previous hop, separated by a comma, like: <code>2,x</code></li>
+    <li>If the distance is infinity, just write: <code>inf</code></li>
+    <li>In case of a tie: if more than one node has the same (smallest) distance, use alphabetical order on node name to break the tie (smaller letter value wins).</li>
+</ul>
+
+<br>
+<p>The first row is completed for you.</p>
+
+</pl-question-panel>
+
+
+<p>
+<table width="100%">
+<thead>
+  <tr>
+    <th>Step</th>
+    <th>&nbsp;&nbsp;N'</th>
+    {{#params.lr}}
+    <th>D({{.}}), p({{.}})</th>
+    {{/params.lr}}
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0</td>
+    <td><pl-code language="text">{{params.path-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.1-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.2-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.3-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.4-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.5-0}}</pl-code></td>
+    <td><pl-code language="text">{{params.6-0}}</pl-code></td>
+  </tr>
+  {{#params.iter}}
+  <tr>
+    <td>{{.}}</td>
+    <td><pl-string-input answers-name="path-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+    <td><pl-string-input answers-name="1-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+    <td><pl-string-input answers-name="2-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+    <td><pl-string-input answers-name="3-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+    <td><pl-string-input answers-name="4-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+    <td><pl-string-input answers-name="5-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+    <td><pl-string-input answers-name="6-{{.}}" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="3"></pl-string-input></td>
+  </tr>
+  {{/params.iter}}
+</tbody>
+</table>
+</p>

@@ -1,0 +1,12 @@
+{
+    "uuid": "9b75696b-065e-4f4e-8cb0-d6b325a6a3c1",
+    "title": "Configuring a service behind a NAT",
+    "topic": "HTTP, DHCP, NTP, NAT",
+    "singleVariant": true,
+    "tags": [
+        "lecture",
+        "ffund",
+        "short answer"
+    ],
+    "type": "v3"
+}

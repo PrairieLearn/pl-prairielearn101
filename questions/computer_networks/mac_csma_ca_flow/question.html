@@ -1,0 +1,14 @@
+<pl-question-panel>
+  <p>A host is connected to a shared medium that uses CSMA/CA (without RTS/CTS) as its MAC protocol. Suppose {{params.desc.situation}}. What will it do next?</p>
+</pl-question-panel>
+<pl-multiple-choice answers-name="csma_ca" hide-letter-keys="true" number-answers="4" weight="1">
+  <pl-answer correct="{{params.ans.sense-busy}}">Wait for the end of the current transmission plus one DIFS, then begin the random backoff procedure.</pl-answer>
+  <pl-answer correct="{{params.ans.tx}}">Transmit data.</pl-answer>
+  <pl-answer correct="{{params.ans.waitack}}">Wait until it receives an ACK or there is an ACK timeout.</pl-answer>
+  <pl-answer correct="{{params.ans.freeze}}">Freeze the backoff timer until the transmission ends, then resume the backoff when the channel is idle again for one DIFS.</pl-answer>
+  <pl-answer correct="{{params.ans.ack}}">Sense the medium for one SIFS.</pl-answer>
+  <pl-answer correct="{{params.ans.retx}}">Consider the frame lost, enter random backoff and then re-attempt transmission.</pl-answer>
+  <pl-answer correct="{{params.ans.abort}}">Give up.</pl-answer>
+  <pl-answer correct="false">Continue the random backoff procedure, but without increasing the contention window in subsequent iterations.</pl-answer>
+  <pl-answer correct="{{params.ans.complete}}">The frame transmission is complete, so the host does not need to do anything else.</pl-answer>
+</pl-multiple-choice>

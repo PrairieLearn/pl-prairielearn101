@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+  <p>In the spanning tree protocol, when there are two "competing" configurations, four tiebreakers are applied to decide which one to adopt.</p>
+</pl-question-panel>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1: Tiebreaker on BPDU</div>
+  <div class="card-body">
+
+
+     <p>Suppose these BPDUs describe the intial configuration of two bridges on a network segment. Which one "wins" the tiebreaker?</p>
+    
+    <pl-multiple-choice answers-name="bpdu" hide-letter-keys="true">
+        <pl-answer correct="{{params.wins.0}}"><pl-code language="text">STP 802.1d, Config, Flags [none], bridge-id 8000.{{params.id1}}.{{params.port1}}, length 35
+    	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+    	root-id 8000.{{params.root1}}, root-pathcost {{params.rpc1}}</pl-code></pl-answer>
+        <pl-answer correct="{{params.wins.1}}"><pl-code language="text">STP 802.1d, Config, Flags [none], bridge-id 8000.{{params.id2}}.{{params.port2}}, length 35
+    	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+    	root-id 8000.{{params.root2}}, root-pathcost {{params.rpc2}}</pl-code></pl-answer>
+    </pl-multiple-choice>
+
+</div></div>
+<br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2: Tiebreaker criteria</div>
+  <div class="card-body">
+
+
+    <p>Which BPDU field was the tiebreaker in the example above?</p>
+    
+    <pl-multiple-choice answers-name="tb" hide-letter-keys="true" fixed-order="true">
+        <pl-answer correct="{{params.tags.0}}">Lowest root bridge ID</pl-answer>
+        <pl-answer correct="{{params.tags.1}}">Lowest root path cost</pl-answer>
+        <pl-answer correct="{{params.tags.2}}">Lowest sender bridge ID</pl-answer>
+        <pl-answer correct="{{params.tags.3}}">Lowest sender bridge port</pl-answer>
+    </pl-multiple-choice>
+</div></div>
+
+<br>
+
+<div class="card card-default">
+  <div class="card-header">Part 3: Root bridge</div>
+  <div class="card-body">
+
+
+    <p>After applying the "winning" BPDU, what will be the <b>root bridge</b> in the network? Give your answer using the same format shown in the BPDUs (e.g. <code>8000.ff:ff:ff:ff:ff:ff</code>.)</p>
+    
+    <p><pl-string-input answers-name="root" ignore-case="true" allow-blank="true" remove-spaces="true" show-help-text="false" size="20"></pl-string-input></p>
+
+    <pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The bridge ID from the <code>root-id</code> field in the "winning" BPDU will be the root bridge.</p></pl-answer-panel>
+</div></div>
+<br>
+
+<div class="card card-default">
+  <div class="card-header">Part 4: Designated bridge and port</div>
+  <div class="card-body">
+
+    
+    <p>After applying the "winning" BPDU, what will be the <b>designated bridge and port</b> for this network segment, on both bridges?</p>
+    
+    <pl-multiple-choice answers-name="db" hide-letter-keys="true" fixed-order="true">
+        <pl-answer correct="{{params.wins.0}}"><pl-code language="text">{{params.designated.0}}</pl-code></pl-answer>
+        <pl-answer correct="{{params.wins.1}}"><pl-code language="text">{{params.designated.1}}</pl-code></pl-answer>
+    </pl-multiple-choice>
+    
+        <pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The bridge port that sent the "winning" BPDU (as seen in the <code>bridge-id</code>  field) will be the designated bridge port on this network segment.</p></pl-answer-panel>
+
+</div></div>
+<br>
+
+
