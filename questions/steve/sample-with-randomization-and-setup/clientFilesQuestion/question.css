@@ -1,0 +1,10 @@
+table.memory th, table.memory td {
+    border: 1px solid #222;
+    padding: 0.25em;
+    text-align: center;
+}
+
+table.memory th {
+    background-color: #444;
+    color: white;
+}

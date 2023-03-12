@@ -1,0 +1,14 @@
+{
+  "uuid": "ac01acce-119e-47f0-b166-7426aa4e1a83",
+  "title": "A Small Sample Problem with Randomization",
+  "topic": "Haskell",
+  "tags": [],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "cswolf/haskell-prairielearn",
+    "serverFilesCourse": ["haskell-grader/"],
+    "entrypoint": "/grade/serverFilesCourse/haskell-grader/run-qc-lib.sh"
+  }
+}
