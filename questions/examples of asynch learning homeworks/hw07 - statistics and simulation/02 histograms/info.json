@@ -1,0 +1,20 @@
+{
+    "uuid": "04d86f2d-52cf-449b-a40d-88f879325063",
+    "title": "Histograms",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "statistics",
+        "histograms",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

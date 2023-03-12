@@ -1,0 +1,144 @@
+{
+    "uuid": "54f2ee75-30d3-4fef-9edb-5ff5c9e95287",
+    "type": "Homework",
+    "title": "Sample Asynchronous Lesson on Vectors of Vectors in C++",
+    "set": "Homework",
+    "number": "20",
+    "allowIssueReporting": false,
+    "allowRealTimeGrading": true,
+    "multipleInstance": false,
+    "text": "This homework introduces expands the vector data structure to <b>vectors of vectors</b>. Vectors of vectors are flexible data structures, but they are especially helpful in engineering because we can use them to represent <b>matrices</b>.",
+    "allowAccess": [
+        {
+            "comment": "Extensions for people ",
+            "uids": [
+                
+                
+            ],
+            "startDate": "2023-01-01T00:00:01",
+            "endDate": "2050-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 100
+        },
+        {
+            "comment": "This is for everyone",
+            "role": "Student",
+            "startDate": "2023-01-01T00:00:01",
+            "endDate": "2050-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 100
+        },
+        {
+            "comment": "Late submission deadline",
+            "role": "Student",
+            "startDate": "2023-03-28T00:00:01",
+            "endDate": "2023-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 95
+        },
+        {
+            "comment": "No credit after late submission deadline",
+            "role": "Student",
+            "startDate": "2023-03-29T00:00:01",
+            "endDate": "2023-04-30T23:59:59",
+            "showClosedAssessment": true,
+            "credit": 0
+        }
+        ],
+    "shuffleQuestions": false,
+    "autoClose": true,
+    "zones": [
+        {
+            "title": "Motivation",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/01 we need matrices"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Working with Vectors of Vectors",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 4,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/02 vectors of vectors"}
+                    ]
+                },
+                {
+                    "numberChoose": 1,
+                    "points": 4,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/03 indexing into a vector of vectors"}
+                    ]
+                },
+                {
+                    "numberChoose": 1,
+                    "points": 3,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/04 printing a vector of vectors"}
+                    ]
+                },
+                {
+                    "numberChoose": 1,
+                    "points": 4,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/05 building and modifying a vector of vectors"}
+                    ]
+                },
+                {
+                    "numberChoose": 1,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/06 uses for vectors of vectors"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Practice: Analyzing Data",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/07 analyzing data - planning"}
+                    ]
+                },
+                {
+                    "numberChoose": 1,
+                    "points": 9,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/08 analyzing data - helper functions"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Summary",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 2,
+                    "alternatives": [
+                        {"id":"examples of asynch learning homeworks/hw20 - vectors of vectors/10 summary"}
+                    ]
+                    
+                }
+            ]
+        }
+
+    ]
+}
+
+
+
+ 

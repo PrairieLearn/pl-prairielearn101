@@ -1,0 +1,19 @@
+{
+    "uuid": "fcd78d30-0974-4441-b655-63f2d8443a19",
+    "title": "Projectile Motion",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "simulation",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

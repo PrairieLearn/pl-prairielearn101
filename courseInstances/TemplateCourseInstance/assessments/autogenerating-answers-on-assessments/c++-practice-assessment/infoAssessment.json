@@ -1,0 +1,119 @@
+{
+    "uuid": "52279a2f-59ee-43e8-8fd4-e82c37356f6f",
+    "type": "Exam",
+    "title": "C++ Assessment Example Questions",
+    "set": "PracticeAssessment",
+    "number": "2",
+    "allowIssueReporting": false,
+    "allowRealTimeGrading": true,
+    "multipleInstance": true,
+    "text": "<b>Hello!</b> <br><br>This is the practice assessment for Assessment #2. You can take this practice assessment as many times as you want. Practice Assessment grades do not count towards your overall grade in the course. <br><br>To get started with the practice assessment, click on a question below!",
+    "allowAccess": [
+        {
+            "comment": "this is who needs time and a half for the assessment",
+            "uids": [
+                "email1@address.edu",
+                "email2@address.edu"
+            ],
+            "startDate": "2023-01-01T00:00:01", 
+            "endDate": "2050-04-30T23:59:59",
+            "timeLimitMin": 113,
+            "showClosedAssessment": true,
+            "credit": 100
+        },
+        {
+            "comment": "this is who needs double time for the assessment",
+            "uids": [
+                "email3@address.edu"
+            ],
+            "startDate": "2023-01-01T00:00:01", 
+            "endDate": "2050-04-30T23:59:59",
+            "timeLimitMin": 150,
+            "showClosedAssessment": true,
+            "credit": 100
+        },    
+        {
+            "comment": "this is for the general student",
+            "role": "Student",
+            "startDate": "2023-01-01T00:00:01", 
+            "endDate": "2050-04-30T23:59:59",
+            "timeLimitMin": 75,
+            "showClosedAssessment": true,
+            "credit": 100
+        }
+    ],
+    "shuffleQuestions": true,
+    "autoClose": true,
+    "zones": [
+        {
+            "title": "Calling Functions",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 8,
+                    "alternatives": [
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/calling functions/threeDprinting"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Writing a Function Header",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 8,
+                    "alternatives": [
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/writing function headers/simulateBridge"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Debugging Calling A Function",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 8,
+                    "alternatives": [
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/debugging function calling/ship_characteristics"},
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/debugging function calling/threeDprinting"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Writing Functions to Load and Print Data",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 28,
+                    "alternatives": [
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/select a statement questions/categorize_vehicles"}
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Programs With Multiple Files",
+            "comment": "",
+            "questions": [
+                {
+                    "numberChoose": 1,
+                    "points": 46,
+                    "alternatives": [
+                        {"id": "automatically generating wrong answers in coding assessment problems/c++/select a statement questions/market_analysis_clothing_boutique"}
+                    ]
+                }
+            ]
+        }
+
+    ]
+}
+
+
+

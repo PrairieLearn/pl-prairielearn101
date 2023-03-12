@@ -1,0 +1,133 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+We have a function about {{params.topic}} called <code>{{params.functionName}}</code> that has the following parameter(s): 
+
+{{params.parameterList}}
+
+The function does not return any values. 
+
+
+
+Here is the function definition:
+
+<pl-code language="c++">
+{{params.functionHeader}}
+    // implementation omitted for brevity
+}
+</pl-code>
+
+You may assume this function is written correctly and behaves as intended.
+
+Your colleagues are writing a program, and they have declared these variable(s):
+
+<pl-code language="c++">
+{{params.argumentList}}
+</pl-code>
+
+**Your colleagues are trying to use the <code>{{params.functionName}}</code> function in their code, but they've made some mistakes. Help them figure out what they've done wrong and how to fix it!**
+
+**For each attempt at calling the <code>{{params.functionName}}</code> function below, select the *best* description of the bug and the *best* description of how to fix the bug.**
+
+</markdown>
+</pl-question-panel>
+
+
+
+
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function Call #1  
+<br>  
+<pl-code language="c++">
+{{params.arguments}}{{params.call1}}
+</pl-code>
+<br>  
+Hmmm... here's the problem! This person has... 
+</markdown>
+
+<pl-dropdown answers-name="bug1answer" sort="ascend">
+
+    {{#params.bugs1}}
+        <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+    {{/params.bugs1}}
+
+</pl-dropdown> 
+
+<markdown>
+Instead, they should...
+</markdown>
+
+<pl-dropdown answers-name="fix1answer" sort="ascend">
+
+  {{#params.fixes1}}
+      <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.fixes1}}
+
+</pl-dropdown> 
+
+</pl-hide-in-panel>
+
+
+
+
+
+<pl-hide-in-panel answer="true">
+<markdown>
+---
+#### Function Call #2  
+<br>  
+<pl-code language="c++">
+{{params.arguments}}{{params.call2}}
+</pl-code>
+<br>  
+Hmmm... here's the problem! This person has... 
+</markdown>
+
+<pl-dropdown answers-name="bug2answer" sort="ascend">
+
+    {{#params.bugs2}}
+        <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+    {{/params.bugs2}}
+
+</pl-dropdown> 
+
+<markdown>
+Instead, they should...
+</markdown>
+
+<pl-dropdown answers-name="fix2answer" sort="ascend">
+
+  {{#params.fixes2}}
+      <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.fixes2}}
+
+</pl-dropdown> 
+
+</pl-hide-in-panel>
+
+
+
+
+
+
+
+
+
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* calling custom C++ functions
+* understanding common mistakes in calling custom C++ functions
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>

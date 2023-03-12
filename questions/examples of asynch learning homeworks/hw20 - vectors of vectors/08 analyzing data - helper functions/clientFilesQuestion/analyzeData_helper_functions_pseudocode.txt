@@ -1,0 +1,62 @@
+This is the pseudocode we wrote for the four helper functions we need to write for the analyzeData module.
+
+
+
+void loadData(vector of vectors, input stream from file) { 
+   
+  get number of rows from vector of vectors
+  get number of columns from vector of vectors
+  
+  make a temporary variable to store numbers in from >> operator
+
+  loop on outer vector
+    loop on inner vector
+      read a number from input stream
+      store that number in the correct element of the vec of vecs
+    end of loop on inner vector
+  end of loop on outer vector
+
+}
+
+
+
+void sumOfRows(vector of vectors, vector) { 
+   
+  traverse the outer vector to go through each row one by one
+    traverse the inner vector 
+      use the "accumulator" pattern to find the sum of each row
+    end of loop on inner vector
+  end of loop on outer vector
+  
+}
+
+
+
+
+
+void sumOfCols(vector of vectors, vector) { 
+   
+  traverse an inner vector to go through each column one by one
+    traverse the outer vector 
+      use the "accumulator" pattern to find the sum of each column
+    end of loop on outer vector
+  end of loop on inner vector
+
+}
+
+
+
+
+int sum(vector of vectors) { 
+   
+  traverse the outer vector to go through each row one by one
+    traverse the inner vector 
+      use the "accumulator" pattern to find the total sum
+    end of loop on inner vector
+  end of loop on outer vector
+  
+  return sum of all elements
+
+}
+
+

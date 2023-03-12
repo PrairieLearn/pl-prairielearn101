@@ -1,0 +1,208 @@
+<pl-question-panel>
+
+<markdown>
+
+Engineering data is often plotted with error bars included. Error bars can be used to convey a range of values for each point on the plot or uncertainty about a measured value. MATLAB's `errorbar` function will create a plot with "error bars" at each data point, like this:
+
+<pl-figure file-name="SampleErrorPlot.png" directory="clientFilesQuestion" width="500px" alt="A line plot with error bars."></pl-figure>
+<div class="figure-caption">
+Download the <code><pl-file-download file-name="SampleErrorbarPlot.m" directory="clientFilesQuestion"></pl-file-download></code> script and run it in MATLAB to create this plot on your computer. 
+</div>
+
+The `errorbar` function needs three parameters: 
+
+* the x-axis values of the data
+* the y-axis values of the data
+* the error associated with the data
+
+You call the `errorbar` function like this: 
+
+<pl-code language="matlab">errorbar(x,y,err);</pl-code>
+
+Error bar plots make a lot more sense when you are using real world data, though, so let's learn more about error bar plots with an example. 
+
+<br>
+<h4>Example: Battery Life</h4>
+
+Let's investigate error bar plots more with a hypothetical example: 
+
+We work for a company that produces smartphones. Our company wants to analyze battery lifetime throughout several years of use to see if we can make the following claims:
+
+1. Our phones have 3 hours battery life when new.
+2. After 2 years, our phones will still have 2 hours of battery life.
+
+A battery's lifetime is defined as the length of time the battery can go before needing to be charged. A sample set of our batteries have been put through several years of simulated smartphone use. Twice per "simulated year", the lifetimes of each battery were tested, and the mean and standard deviation of the set were recorded.
+
+We would like to visualize the degradation of battery lifetime throughout the years as well as the amount of variability in the dataset to confirm that the company can make the two claims stated above.
+
+The videos below show how an error bar plot is an effective tool for this analysis. Download the <code><pl-file-download file-name="batteryLife.mat" directory="clientFilesQuestion"></pl-file-download></code> and <code><pl-file-download file-name="AnalyzeBatteries.m" directory="clientFilesQuestion"></pl-file-download></code> files to follow along.
+
+
+First, let's just make the plot.
+
+<pl-video-embed url="https://www.youtube.com/embed/PRHb4vL7tuo"></pl-video-embed>
+
+<pl-info-box type="video-recap">
+
+We can use `errorbar` to create an error bar plot. We looked at how to customize our plot.
+
+</pl-info-box>
+
+
+Now, how can we interpret these results?
+
+<pl-video-embed url="https://www.youtube.com/embed/P6YAvL3-gLM"></pl-video-embed>
+
+<pl-info-box type="video-recap">
+
+Using our error bar plot, we discussed whether the company could make the original two claims that they wanted to make. Based on our data analysis, these batteries are not as good as the company claimed. 
+
+</pl-info-box>
+
+
+
+<pl-info-box>
+
+Putting products through simulated use to test reliability is serious business, and analyses like this example are often used in industry to drive marketing. For example, some of the first phones with foldable screens were put through tens of thousands of flips to help alleviate customer fears about the durability of the screen. Check it out:
+
+<pl-video-embed url="https://www.youtube.com/embed/NvUi_-1wHFA"></pl-video-embed>
+
+</pl-info-box>
+
+
+
+
+
+
+
+
+
+</markdown>
+
+</pl-question-panel>
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+Our company has manufactured *new* batteries that we hope will have better performance. Let's re-run our battery analysis on the *new* battery data to see if we can make the following claims for the new batteries:
+
+1. Our phones have 3 hours battery life when new.
+2. After 2 years, our phones will still have 2 hours of battery life.
+
+Follow these steps to analyze the new battery data:
+
+* Download the data on the new batteries: <code><pl-file-download file-name="newBatteryLife.mat" directory="clientFilesQuestion"></pl-file-download></code>
+* Make a copy of your `AnalyzeBatteries.m` file and name it `AnalyzeNewBatteries.m`
+* Make appropriate changes to the code in `AnalyzeNewBatteries.m` to implement the following algorithm:
+  1. Clear old data and close figures
+  2. Load the MATLAB workspace variables from the `newBatteryLife.mat` file
+  3. Create an error bar plot with the new battery data
+* Customize the plot so that it looks better:
+  - Set the line width to be 3 for the graphics object (the graphics object is the error bar plot)
+  - Add the title "Battery Lifetime Performance" 
+  - Add the x-axis label "Years of Use"
+  - Add the y-axis label "Full-Charge Battery Life (hours)"
+  - Use `gca` to improve the plot:
+    - font size = 20
+    - x-axis limits of 0 to 7
+    - y-axis limits of 0 to 5
+    - line width = 2
+  - Turn the grid on
+
+<pl-info-box type="info">
+
+You just have to change a few things in the `AnalyzeNewBatteries.m` file. Most of the code to implement the algorithm is already there because we already wrote the code when we analyzed the original set of batteries. We're doing the same analysis, just on a different set of data, so we shouldn't have to change too much.
+
+</pl-info-box>
+
+When you have completed revising your `AnalyzeNewBatteries.m` script, run it and check to see if your plot matches this one:
+
+<pl-figure file-name="NewBatteryPerformance.png" directory="clientFilesQuestion" width="500px" alt="Another line plot with error bars."></pl-figure>
+
+Based on your analysis of the new batteries, report whether each claim by the company is true or false.
+
+</pl-hide-in-panel>
+
+**Our phones have 3 hours battery life when new.**
+
+<pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true" fixed-order="true">
+<pl-answer correct="true">True</pl-answer>
+<pl-answer correct="false">False</pl-answer>
+</pl-multiple-choice>
+
+<br>
+
+**After 2 years, our phones will still have 2 hours of battery life.**
+
+<pl-multiple-choice answers-name="ex2" weight="1" hide-letter-keys="true" fixed-order="true">
+<pl-answer correct="true">True</pl-answer>
+<pl-answer correct="false">False</pl-answer>
+</pl-multiple-choice>
+
+</markdown>
+
+</div>
+</div>
+<br>
+
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+   
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+
+
+</markdown>
+
+
+
+</pl-answer-panel>
+
+<pl-submission-panel>
+   
+<p></p>
+   
+<markdown>
+   
+   
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+
+

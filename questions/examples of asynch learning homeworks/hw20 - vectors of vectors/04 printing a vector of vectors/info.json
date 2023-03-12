@@ -1,0 +1,19 @@
+{
+    "uuid": "8a2d9d9e-1ad0-4884-8664-ae9a151b7804",
+    "title": "Printing a Vector of Vectors",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

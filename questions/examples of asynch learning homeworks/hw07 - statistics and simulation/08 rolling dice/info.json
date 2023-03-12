@@ -1,0 +1,19 @@
+{
+    "uuid": "2520515f-dc04-45e3-8eba-8c0555626740",
+    "title": "Rolling Two Dice",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "simulation",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": [],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

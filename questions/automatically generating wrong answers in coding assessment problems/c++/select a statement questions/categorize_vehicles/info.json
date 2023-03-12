@@ -1,0 +1,15 @@
+{
+    "uuid": "c3352b0a-070d-44c5-a678-3c083b0e61c6",
+    "title": "Load and Print Data",
+    "topic": "load_print_functions",
+    "comment": "This is a two part question that has students write functions for loading data into a vector of structs and then printing a vector of structs. This is from the W21 C++ exam.",
+    "tags": [
+        "lslavice",
+        "engr101",
+        "v3",
+        "c++",
+        "sas",
+        "PA4","load from file","print vector of structs","load vector of structs"
+    ],
+    "type": "v3"
+}

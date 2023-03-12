@@ -1,0 +1,526 @@
+<pl-full-width></pl-full-width>
+
+
+
+<pl-question-panel>
+
+<markdown>
+### Introduction
+
+You have been hired by *{{params.theme_company}}*, a company that sells {{params.theme_goods}}, to analyze whether they should open a new store in downtown Ann Arbor. 
+
+
+<pl-figure file-name="sales_flyer.png" directory="clientFilesQuestion" width="800px"></pl-figure>
+
+<br>
+
+In this question, you will **design a program** to analyze data on existing competitors to determine if the Ann Arbor market will support another store selling {{params.theme_goods}}. To design the program, you will need to perform the following tasks:
+
+1. Define a `{{params.part_struct_name}}` struct to represent basic data about the types of {{params.part_struct_english_name_plural}} sold by each existing store 
+2. Create a library module's `{{params.library_name}}.h` header file
+3. Create a library module's `{{params.library_name}}.cpp` implementation file - this file will contain the implementations of several *helper functions* that will be called by the driver program
+4. Implement a `main()` function in `{{params.driver_name}}.cpp` for the driver program (including data input from a file, calling helper functions, and printing a report)
+
+**Important!** You should briefly skim the reference material before answering each of the questions below, and refer back to the reference material as needed while you work.
+
+
+#### File Structure and Compilation
+
+The code for this project is split into three files:
+- `{{params.library_name}}.h` - The header file for the *{{params.library_name}}* module.
+- `{{params.library_name}}.cpp` - The implementation file for the *{{params.library_name}}* module.
+- `{{params.driver_name}}.cpp` - The driver program.
+
+The program will be compiled and run with:
+
+```console
+g++ {{params.driver_name}}.cpp {{params.library_name}}.cpp -o {{params.driver_name}}
+./{{params.driver_name}}
+
+```
+
+---
+
+
+
+
+
+
+</markdown>
+
+
+</pl-question-panel>
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+
+<markdown>
+
+### Task 1: Define a `{{params.part_struct_name}}` `struct`
+
+Create a `struct` to represent a {{params.part_struct_english_name}}. The `{{params.part_struct_name}}` `struct` has three member variables:
+
+1. `{{params.part_struct_mem1_name}}` - {{params.part_struct_mem1_description}} (Examples: {{{params.part_struct_mem1_examples}}})
+2. `{{params.part_struct_mem2_name}}` - {{params.part_struct_mem2_description}} (Examples: {{{params.part_struct_mem2_examples}}})
+3. `{{params.part_struct_mem3_name}}` - {{params.part_struct_mem3_description}} (must be true or false) 
+
+Select the appropriate types for each of these member variables.
+<br>
+</markdown>
+
+
+
+<code style="color: rgb(70, 70, 70); font-size: larger; ">
+
+struct {{params.part_struct_name}} { 
+
+<br>
+&nbsp;&nbsp;
+<pl-dropdown answers-name="struct_type1" sort="ascend">
+    {{#params.struct1_types}}
+    <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+    {{/params.struct1_types}}
+</pl-dropdown> <code>    {{{params.part_struct_mem1_name}}};</code>
+
+<br>
+&nbsp;&nbsp;
+<pl-dropdown answers-name="struct_type2" sort="ascend">
+    {{#params.struct2_types}}
+    <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+    {{/params.struct2_types}}
+</pl-dropdown> <code>    {{{params.part_struct_mem2_name}}};</code>
+
+<br>
+&nbsp;&nbsp;
+<pl-dropdown answers-name="struct_type3" sort="ascend">
+    {{#params.struct3_types}}
+    <pl-answer correct="{{tag}}"><pl-code language="c++">{{ans}}</pl-code></pl-answer>
+    {{/params.struct3_types}}
+</pl-dropdown> <code>    {{{params.part_struct_mem3_name}}};</code>
+
+<br>
+};
+
+</code>
+
+
+
+
+
+
+
+
+
+
+
+<markdown>
+---
+### Task 2: Create the `{{{params.library_name}}}.h` Header File
+
+
+The `{{{params.library_name}}}` library module consists of both a `.cpp` and a `.h` header file. **In this task, you will implement the `{{{params.library_name}}}.h` file.** In the next task, you will implement the `{{{params.library_name}}}.cpp` file. 
+
+Implement the `{{{params.library_name}}}.h` file (the header file for the {{{params.library_english_name}}} module) by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, make sure to **read back through your finished solution** for `{{{params.library_name}}}.h`. Some lines contain **mistakes**, are **unnecessary**, or **belong in a different file** - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.**
+
+</markdown>
+
+
+
+
+
+<pl-code language="c++">   // BEGINNING OF {{{params.library_name}}}.h HEADER FILE</pl-code>
+<pl-checkbox answers-name='header_file_part1' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">#include &lt;vector>
+#include &lt;string>
+#include &lt;iostream></pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.library_name}}}.h";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.library_name}}}.cpp";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.driver_name}}}.cpp";</pl-code></pl-answer>
+<pl-answer correct="false"><br><pl-code language="c++">using namespace std;</pl-code><br></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="c++">   // Information about the struct(s) that will be used in this program</pl-code>
+<pl-checkbox answers-name='header_file_part2' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="false"><pl-code language="c++">struct {{{params.part_struct_name}}};
+struct {{{params.group_struct_name}}};</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">struct {{{params.part_struct_name}}} {
+    // Member declarations you finished in part 1
+};
+  
+struct {{{params.group_struct_name}}} {
+    {{{params.group_struct_mem_name_type}}} {{{params.group_struct_mem_name_name}}};
+    {{{params.group_struct_mem_address_type}}} {{{params.group_struct_mem_address_name}}};
+    {{{params.group_struct_mem_revenue_type}}} {{{params.group_struct_mem_revenue_name}}};
+    std::vector&lt;{{{params.part_struct_name}}}> {{{params.group_struct_mem_vector_name}}};
+};</pl-code></pl-answer>
+</pl-checkbox>
+
+<br>
+<pl-code language="c++">   // Information about the function(s) that will be used in this program</pl-code>
+<pl-checkbox answers-name='header_file_part3' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}});
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}});
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}});</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="c++">   // END OF HEADER FILE</pl-code>
+
+
+
+
+
+
+
+
+
+
+
+<markdown>
+---
+### Task 3: Create the `{{{params.library_name}}}.cpp` Implementation File
+
+The `{{{params.library_name}}}` library module consists of both a `.cpp` and an `.h` header file. **In this question, you will implement the `{{{params.library_name}}}.cpp` file.** The `{{{params.library_name}}}.h` file is defined in the previous question. 
+
+Implement the `{{{params.library_name}}}.cpp` file (the implementation file for the {{{params.library_english_name}}} module) by selecting from the lines of code given below for each part. Click all lines that should be included. 
+
+As you work, a preview of your selected code is shown. You are not able to change the relative ordering of the lines. When finished, make sure to **read back through your finished solution** for `{{{params.library_name}}}.cpp`. Some lines contain **mistakes**, are **unnecessary**, or **belong in a different file** - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.**
+
+</markdown>
+
+
+
+
+
+<pl-code language="c++">   // BEGINNING OF {{{params.library_name}}}.cpp IMPLEMENTATION FILE</pl-code>
+<pl-checkbox answers-name='implementation_file_part1' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">#include &lt;vector>
+#include &lt;string>
+#include &lt;iostream></pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">#include "{{{params.library_name}}}.h";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.library_name}}}.cpp";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.driver_name}}}.cpp";</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='implementation_file_part2' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><br><pl-code language="c++">using namespace std;</pl-code><br></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">struct {{{params.part_struct_name}}};
+struct {{{params.group_struct_name}}};</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">struct {{{params.part_struct_name}}} {
+    // Member declarations you finished in part 1
+};
+  
+struct {{{params.group_struct_name}}} {
+    {{{params.group_struct_mem_name_type}}} {{{params.group_struct_mem_name_name}}};
+    {{{params.group_struct_mem_address_type}}} {{{params.group_struct_mem_address_name}}};
+    {{{params.group_struct_mem_revenue_type}}} {{{params.group_struct_mem_revenue_name}}};
+    std::vector&lt;{{{params.part_struct_name}}}> {{{params.group_struct_mem_vector_name}}};
+};</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<br>
+<pl-checkbox answers-name='implementation_file_part3' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true' >
+<pl-answer correct="false"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}});
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}});
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}});</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="c++">   // END OF IMPLEMENTATION FILE</pl-code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<markdown>
+---
+
+### Task 4: Implement the `{{params.driver_name}}.cpp` Driver Program
+
+The `{{params.driver_name}}.cpp` driver program relies on the *{{params.library_name}}* module that you implemented in Task 3. Part of this task (Task 4) relies on understanding the connections between helper functions and the driver program, as well as a holistic understanding of the problem to be solved.  
+
+
+**The reference material for this question contains key details about each step in the driver program you need to write.** We recommend you skim it briefly and refer back to it as you compose your script below. The reference material also includes information about the **data/image files** and **helper functions** used by the driver script.  
+
+
+Implement the `{{params.driver_name}}.cpp` file (the driver program containing the `main()` function) by selecting from the lines of code given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. When finished, make sure to **read back through your finished solution** for `{{params.driver_name}}.cpp`. Some lines contain **mistakes**, are **unnecessary**, or **belong in a different file** - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.**
+
+
+
+</markdown>
+
+
+
+
+<pl-code language="c++">   // BEGINNING OF {{{params.driver_name}}}.cpp DRIVER PROGRAM FILE</pl-code>
+<pl-checkbox answers-name='driver_file_c++_libraries' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">#include &lt;vector>
+#include &lt;string>
+#include &lt;iostream>
+#include &lt;fstream></pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_includes' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">#include "{{{params.library_name}}}.h";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.library_name}}}.cpp";</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">#include "{{{params.driver_name}}}.cpp";</pl-code></pl-answer>
+
+</pl-checkbox>
+
+
+<pl-checkbox answers-name='driver_file_part2' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><br><pl-code language="c++">using namespace std;</pl-code><br></pl-answer>
+<br>
+<pl-answer correct="false"><pl-code language="c++">struct {{{params.part_struct_name}}} {
+    // Member declarations you finished in part 1
+};
+  
+struct {{{params.group_struct_name}}} {
+    {{{params.group_struct_mem_name_type}}} {{{params.group_struct_mem_name_name}}};
+    {{{params.group_struct_mem_address_type}}} {{{params.group_struct_mem_address_name}}};
+    {{{params.group_struct_mem_revenue_type}}} {{{params.group_struct_mem_revenue_name}}};
+    std::vector&lt;{{{params.part_struct_name}}}> {{{params.group_struct_mem_vector_name}}};
+};</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">struct {{{params.part_struct_name}}};
+struct {{{params.group_struct_name}}};</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<br>
+<pl-checkbox answers-name='driver_file_part3' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'   fixed-order='true'>
+<pl-answer correct="false"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}});
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}});
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}});</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}}) {
+    // Implementation not shown (assume it's correct)
+}</pl-code><br></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">   // begin the main function</pl-code><pl-code language="c++">int main() {</pl-code><br></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="c++">       // load data from file</pl-code>
+<pl-checkbox answers-name='driver_file_part4' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><pl-code language="c++">    string filename;
+    cout &lt;&lt; "Please enter the input filename:" &lt;&lt; endl;
+    cin >> filename;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part5' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    ofstream {{params.group_struct_var_name}}_in(filename);</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">    ifstream {{params.group_struct_var_name}}_in("filename");</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    ifstream {{params.group_struct_var_name}}_in(filename);</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    if ({{params.group_struct_var_name}}_in.is_not_open()) {
+        cout &lt;&lt; "Error opening file: " &lt;&lt; filename &lt;&lt; endl;
+        return 1;
+    }</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    if (!{{params.group_struct_var_name}}_in.is_open()) {
+        cout &lt;&lt; "Error opening file: " &lt;&lt; filename &lt;&lt; endl;
+        return 1;
+    }</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part7' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    {{params.group_struct_var_name}}_in >> {{params.group_struct_vector}};</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">    {{params.group_struct_name}} {{params.group_struct_vector}};</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    vector&lt;{{params.group_struct_name}}> {{params.group_struct_vector}};</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">    {{params.group_struct_name}} {{params.group_struct_vector}} = load{{params.group_struct_name}}Data({{params.group_struct_var_name}}_in);</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part8' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    load{{params.group_struct_name}}Data(filename, {{params.group_struct_vector}});</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    load{{params.group_struct_name}}Data({{params.group_struct_var_name}}_in, {{params.group_struct_vector}});</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">    load{{params.group_struct_name}}Data(filename, {{params.group_struct_var_name}}_in);</pl-code></pl-answer>
+</pl-checkbox>
+
+<br>
+<pl-code language="c++">       // analyze data, print out summary, finish running the program</pl-code>
+<pl-checkbox answers-name='driver_file_part9' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'   fixed-order='false'>
+<pl-answer correct="true"><pl-code language="c++">    string {{params.library_analyze_function_output_name}};</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part10' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="true"><pl-code language="c++">    {{params.library_analyze_function_name}}({{params.group_struct_vector}}, {{params.library_analyze_function_output_name}});</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">    {{params.library_analyze_function_name}}({{params.library_analyze_function_output_name}});</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part11' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    {{params.library_summary_function_name}}({{params.group_struct_vector}}, {{params.library_analyze_function_output_name}});</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    {{params.library_summary_function_name}}({{params.library_analyze_function_output_name}});</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part12' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='false'>
+<pl-answer correct="false"><pl-code language="c++">    if ({{params.library_analyze_function_name}}({{params.library_analyze_function_output_name}}) == true) {
+        cout &lt;&lt; "{{params.driver_success_message}}" &lt;&lt; endl;
+    }
+    else {
+        cout &lt;&lt; "{{params.driver_failure_message}}" &lt;&lt; endl;
+    }</pl-code></pl-answer>
+<pl-answer correct="true"><pl-code language="c++">    cout &lt;&lt; "Program finished. Check {{params.driver_output_file}} for findings." &lt;&lt; endl;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='driver_file_part13' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  fixed-order='true'>
+<pl-answer correct="true"><br><pl-code language="c++">} // end of main function</pl-code><br></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">void load{{params.group_struct_name}}Data(std::istream &is, std::vector&lt;{{params.group_struct_name}}> &{{params.group_struct_vector}});
+void {{params.library_analyze_function_name}}(const std::vector&lt;{{params.group_struct_name}}> &{{params.group_struct_vector}}, string &{{params.library_analyze_function_output_name}});
+void {{params.library_summary_function_name}}(const string &{{params.library_analyze_function_output_name}});</pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">void load{{params.group_struct_name}}Data(std::istream &is, std::vector&lt;{{params.group_struct_name}}> &{{params.group_struct_vector}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{params.library_analyze_function_name}}(const std::vector&lt;{{params.group_struct_name}}> &{{params.group_struct_vector}}, string &{{params.library_analyze_function_output_name}}) {
+    // Implementation not shown (assume it's correct)
+}
+void {{params.library_summary_function_name}}(const string &{{params.library_analyze_function_output_name}}) {
+    // Implementation not shown (assume it's correct)
+}</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="c++">   // END OF DRIVER PROGRAM FILE</pl-code>
+
+
+
+
+  
+  
+
+   
+
+
+  
+</pl-content>
+
+
+
+<pl-reference>
+
+
+
+<markdown>
+
+#### Structs 
+
+There are two structs in this question:
+
+`{{{params.part_struct_name}}}`   
+Represents a single {{{params.part_struct_english_name}}}, including {{{params.part_struct_mem1_description}}}, {{{params.part_struct_mem2_description}}}, and {{{params.part_struct_mem3_description}}}. 
+
+`{{{params.group_struct_name}}}`   
+Represents a single store, including the store's name, address, yearly revenue in U.S. dollars, and a list of the {{{params.part_struct_english_name_plural}}} sold
+
+---
+#### Helper Functions in the `{{{params.library_name}}}` Module
+
+There are three helper functions provided by the *{{{params.library_name}}}* module:
+
+<!-- `void load{{{params.group_struct_name}}}Data(std::istream &is, std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}});`   
+Loads data from an input stream into the given vector of `{{{params.group_struct_name}}}` structs, setting values for all member variables.
+
+`void {{{params.library_analyze_function_name}}}(const std::vector&lt;{{{params.group_struct_name}}}> &{{{params.group_struct_vector}}}, string &{{{params.library_analyze_function_output_name}}});`   
+Takes in a vector of `{{{params.group_struct_name}}}` variables as a parameter, analyzes the data, and saves the results of the analysis in the string variable that is the second parameter.
+
+`void {{{params.library_summary_function_name}}}(const string &{{{params.library_analyze_function_output_name}}});`   
+Takes in a string parameter that contains the raw results of the analysis and prints a nicely formatted version to a file named `{{{params.driver_output_file}}}`. -->
+
+
+`load{{{params.group_struct_name}}}Data`   
+Loads data from an input stream into the given vector of `{{{params.group_struct_name}}}` structs, setting values for all member variables.
+
+`{{{params.library_analyze_function_name}}}`   
+Takes in a vector of `{{{params.group_struct_name}}}` variables as a parameter, analyzes the data, and saves the results of the analysis in the string variable that is the second parameter.
+
+`{{{params.library_summary_function_name}}}`   
+Takes in a string parameter that contains the raw results of the analysis and prints a nicely formatted version to a file named `{{{params.driver_output_file}}}`.
+
+
+You may assume that these three helper functions are implemented correctly. See the function headers/prototypes in the questions for the parameters for each function.
+
+---
+#### Input File Format
+You may assume the input file contains all relevant data for the problem and is properly formatted to be read by the `load{{{params.group_struct_name}}}Data` function. (You do not need to worry about the specific format beyond this.)
+
+---
+#### Driver Program Outline
+The driver program implemented in the `main` function should:
+
+- Prompt the user to enter the input filename and read the filename from `cin`.
+- Open the file for reading input and check to ensure it was opened successfully. If not, print an error message and exit the program with an error status.
+- Call a helper function to read information from the input file and store it in a vector of `{{{params.group_struct_name}}}` variables.
+- Call a helper function to analyze the data
+- Call a helper function to print out a report of the findings
+- Print an appropriate message to `cout` telling the user the program has finished and which file to look in to see the results of the analysis.
+
+
+
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* organizing helper functions into a custom library, including implementing a `.h` library header file
+* using multiple files in a program
+* writing a driver program that uses the helper functions to implement tasks
+* determining which parts of a program go in which file when using a custom library of helper functions
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+Some notes on grading for this question: 
+
+* Partial credit is broken down by the various tasks/actions that need to be correctly implemented in this program. Some parts of the code require one statement (such as correctly calling a function) and some parts of the code may require multiple statements (such as correctly declaring or initializing necessary variables). For partial credit sections that require multiple statements, you must correctly select *all* the necesssary statements *without selecting any unnecessary statements* to earn full credit for that section of code. 
+* As of when this question was written, PrairieLearn does not have an option to have a set of checkboxes for which *no* statements should be selected (for example when you should... and should *not*... include function definitions). Therefore, some of the "you should not select any of these statements" sections have to be lumped in with a statement that you *do* need to select. This behavior should be considered to be a work-around given the limitations of PrarieLearn at the time and not considered to be representive of tasks/actions that necessarily are related in a programmatic sense. 
+* The `using namespace std;` statement does not necessarily *have* to be included in `.cpp` files. If you instead use `std::` where needed, you don't have to include the standard namespace. PrairieLearn doesn't have an option to ignore (or give credit to) a selection regardless of whether it is selected, though. So, since we have typically been writing programs that have `using namespace std;`, we will select that statement for `.cpp` files in this program. The `.h` header file should NOT have the `using namespace std;` statement selected. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+

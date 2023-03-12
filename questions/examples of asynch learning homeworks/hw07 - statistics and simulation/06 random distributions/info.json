@@ -1,0 +1,19 @@
+{
+    "uuid": "5cdf5c88-c63e-44b0-b2d1-4bbcf7ca6ec3",
+    "title": "Sampling from Random Distributions",
+    "topic": "MATLAB",
+    "tags": [
+        "f22",
+        "lslavice",
+        "matlab",
+        "simulation",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

@@ -1,0 +1,142 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+Proxima b scientists are growing a new kind of plant, *{{params.plant-name}}*, which only grows between certain {{params.criteria1}}s. It grows best when the {{params.criteria2}} is as high as possible, as long as the {{params.criteria1}} is in the acceptable range. The scientists have identified a list of locations where they have space to grow {{params.plant-name}}, and they have measured the {{params.criteria1}} and the {{params.criteria2}} at each location. You will help them decide which location is best for growing {{params.plant-name}}.
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Implementation
+
+Implement the `{{params.function_name}}` function by selecting from the lines of code given below for each part. Click all lines that should be included. As you work, a preview of your selected implementation is shown. You are not able to change the relative ordering of the lines. When finished, **the selected lines should form a working function** that correctly implements the task(s) described in this question. Some lines contain **mistakes** or are **unnecessary** for the function - these lines should not be selected. **Points will be deducted if you select unnecessary lines of code.**   
+
+We have also provided several **comments** to help structure your function according to the task descriptions.
+
+</markdown>
+</pl-hide-in-panel>
+  
+  <pl-hide-in-panel answer="true">
+
+  <pl-code language="matlab">   % Create the function header </pl-code>
+  <pl-checkbox answers-name='function-header' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.funcline1}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.funcline1}}
+  </pl-checkbox>
+  
+  <pl-code language="matlab">      % Set certain elements of {{params.criteria2}} to 0 </pl-code>
+  <pl-checkbox answers-name='calc-min-max' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+    {{#params.funcline2}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.funcline2}}
+  </pl-checkbox>
+     
+  
+  <pl-code language="matlab">       % Get the maximum {{params.criteria2}} value and index </pl-code>
+  <pl-checkbox answers-name='first-criterion' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+    {{#params.funcline3}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.funcline3}}
+  </pl-checkbox>     
+  
+  
+   
+  
+  <pl-code language="matlab">       % Find the best {{params.criteria1}} value </pl-code>
+  <pl-checkbox answers-name='second-criterion' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+    {{#params.funcline4}}
+    <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+    {{/params.funcline4}}
+  </pl-checkbox>  
+  
+  <pl-code language="matlab">   end </pl-code> 
+  
+</pl-content>
+
+
+
+<pl-reference>
+
+<markdown>
+### `{{params.function_name}}()`
+    
+The `{{params.function_name}}()` function decides which sector of farmland is best for growing {{params.plant-name}}, based on the {{params.criteria1}} and {{params.criteria2}} of potential locations.
+    
+#### Parameters & Return Values 
+    
+The `{{{params.function_name}}}()` function has the following parameter(s): 
+
+{{{params.parameterList}}}
+        
+The `{{{params.function_name}}}()` function returns the following value(s): 
+
+{{{params.returnVarList}}}
+    
+#### Algorithm
+
+The algorithm for the `{{params.function_name}}()` function is:
+
+* Select all of the locations that correspond to a {{params.criteria1}} less than the lowest {{params.criteria1}} or greater than the highest {{params.criteria1}}. Set these elements equal to 0 in both the {{params.criteria1}} vector, and the {{params.criteria2}} vector (this ensures that they won’t be selected in step 2).
+* Get the maximum {{params.criteria2}} value. Save both the maximum value and the index where the maximum value is located.
+* Using the index from step 2, find the {{params.criteria1}} at the best location.
+    
+#### Examples
+
+Here is an example of calling the `{{params.function_name}}` function and what is returned by the function:
+
+```matlab
+
+% code to read in {{params.criteria1}} and 
+% {{params.criteria2}} information and store it in
+% variables {{params.param1}} = [40, 45, 60] 
+% and {{params.param2}} = [5.6, 7.8, 10]
+>> {{params.param3}} = 48;
+>> {{params.param4}} = 72;
+>> [{{params.rv1}}, {{params.rv2}}, {{params.rv3}}] = {{params.function_name}}({{params.param1}}, {{params.param2}}, {{params.param3}}, {{params.param4}})
+{{params.rv1}} =
+3
+{{params.rv2}} =
+60
+{{params.rv3}} =
+10
+
+
+```
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* using functions to create stable and efficient computer programs
+* using built-in MATLAB functions to generate parameters that describe the data (e.g. maximum, mean, any, all, etc.)
+* analyzing data using math and/or logic
+
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>
+
+
+
+
+

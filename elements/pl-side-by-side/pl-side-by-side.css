@@ -1,0 +1,11 @@
+.side-by-side-reference {
+  position: sticky;
+  top: 1em;
+  max-height: 85vh;
+  overflow: auto;
+}
+
+.side-by-side-reference > .card > .card-header {
+  position: sticky;
+  top: 0;
+}

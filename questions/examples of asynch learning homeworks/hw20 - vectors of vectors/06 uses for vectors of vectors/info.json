@@ -1,0 +1,19 @@
+{
+    "uuid": "d6e891d3-5663-4e17-93e3-c9fff30fdab7",
+    "title": "Uses for Vectors of Vectors",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

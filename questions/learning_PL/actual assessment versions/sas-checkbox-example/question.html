@@ -1,0 +1,101 @@
+<pl-full-width></pl-full-width>
+
+<pl-question-panel>
+<markdown>
+Here is an example of a "select a statement" problem. This type of problem guides you through assembling a solution by checking off the correct lines. Later in the course, we'll use this type of question to assemble a computer program. For now, we'll just do an example so you can see how this type of question works and how it is graded. 
+
+&nbsp;  
+
+---
+### Question Description
+
+{{params.description}}
+
+{{params.lyrics}}
+  
+
+
+---
+</markdown>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<pl-side-by-side>
+<pl-content>
+
+<pl-hide-in-panel submission="true">
+<markdown>
+
+### Answering the Question
+  
+Assemble your answer by selecting from the lines given below for each part. Click all lines that should be included. You are not able to change the relative ordering of the lines. Some lines contain **mistakes** or are **unnecessary** for the answer - these lines should not be selected. **Points will be deducted if you select unnecessary lines.**   
+
+</markdown>
+</pl-hide-in-panel>
+
+
+<i>list the first line in this portion of {{params.song}}</i>
+<pl-checkbox answers-name='firstline' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true'  >
+  {{#params.line1}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.line1}}
+</pl-checkbox>
+<br>
+
+
+<i>list the second line in this portion of {{params.song}}</i>
+<pl-checkbox answers-name='secondline' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+  {{#params.line2}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.line2}}
+</pl-checkbox>
+<br>
+
+
+<i>list the third line in this portion of {{params.song}}</i>
+<pl-checkbox answers-name='thirdline' partial-credit='false' number-answers='6' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+  {{#params.line3}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.line3}}
+</pl-checkbox>
+
+</pl-content>
+
+
+
+<pl-reference>
+
+<markdown>
+Some questions will have reference material in this box. For example, there might be examples of datasets, examples of calling functions, or a description of an algorithm for the computer program that you are assembling in this problem. 
+
+
+</markdown>
+
+</pl-reference>
+</pl-side-by-side>
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+**On practice assessments...** 
+
+You can either scroll down to the "Submitted answer" panel to see if your answer was correct or scroll back up to the question panel and PrairieLearn will show you if your answer is correct or not. And yes, this means that you could just click every checkbox and get the answer, but that's not really helping you see if you know the answer, is it? If you would like to try a new version of this question, then you can start a new "instance" of the practice assessment.
+
+**On actual assessments...**
+
+You will be able to save your answer but you will not be able to grade your answer immediately. After you finish answering all of the questions, you can go to the "Assessment Overview" page and click "Finish Assessment" to grade your assessment. You will receive your total score immediately (or, relatively immediately, depending on if the servers are busy). However, a question-by-question breakdown of the score is not currently available in PrairieLearn. If you would like to see a breakdown of your score or to go over your answers on an actual assessment, you can make a one-on-one appointment in office hours and a staff member will go through your assessment and answer any questions that you have. 
+
+
+</markdown>
+</pl-answer-panel>
+
+
+
+
+

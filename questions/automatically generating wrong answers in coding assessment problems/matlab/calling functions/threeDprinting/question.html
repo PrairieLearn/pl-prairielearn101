@@ -1,0 +1,53 @@
+<pl-question-panel>
+<markdown>
+We have a function called <code>{{params.functionName}}</code> that has the following parameter(s): 
+
+{{params.parameterList}}
+
+The function returns the following value(s): 
+
+{{params.returnVarList}}
+
+
+
+Here is the function definition:
+
+<pl-code language="matlab">
+{{params.functionHeader}}
+    % implementation omitted for brevity
+}
+</pl-code>
+
+You may assume this function is written correctly and behaves as intended.
+
+In a program, we declare these variable(s):
+
+<pl-code language="matlab">
+{{params.argumentList}}
+</pl-code>
+
+Which statement correctly calls <code>{{params.functionName}}</code> **and** captures all of the return value(s) from <code>{{params.functionName}}</code>?
+
+</markdown>
+</pl-question-panel>
+
+<pl-hide-in-panel answer="true">
+<pl-multiple-choice answers-name="ans" hide-letter-keys = 'true'>
+  {{#params.line1}}
+  <pl-answer correct="{{tag}}"><pl-code language="matlab">{{ans}}</pl-code></pl-answer>
+  {{/params.line1}}
+</pl-multiple-choice>
+</pl-hide-in-panel>
+
+<pl-answer-panel>
+<markdown>
+The correct answers are not shown in this panel for problems in this course. 
+
+This question uses the following skills: 
+
+* calling custom MATLAB functions
+
+If you did not get 100% on this question, review the course material for these skills, and then come in to office hours to make sure you feel comfortable with these skills before you take the actual assessment. 
+
+</markdown>
+</pl-submission-panel>

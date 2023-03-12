@@ -1,0 +1,262 @@
+
+<pl-question-panel>
+
+<markdown>
+
+Since there are a number of helper functions for this "analyzing some data" program, let's put them all into a **module** called `analyzeData`. The `analyzeData` module will have these helper functions: 
+
+
+<table class="basic-table-lightlines" align = "center">
+  <colgroup>
+    <col style="width: 150px">
+    <col style="width: 350px">
+    <col style="width: 100px">
+  </colgroup>
+  <thead>
+    <tr> 
+      <th class="th"><code>analyzeData</code> Helper Function</th>
+      <th class="th">Description</th>
+      <th class="th-centered">Completed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="td"><code>loadData</code></td>
+      <td class="td">loads <code>int</code> values from an input stream into a vector of vectors</td>
+      <td class="td-centered">🚫</td>
+    </tr>
+    <tr>
+      <td class="td"><code>sumOfRows</code></td>
+      <td class="td">adds up the total in each row and assigns the value to an element in a vector</td>
+      <td class="td-centered">🚫</td>
+    </tr>
+    <tr>
+      <td class="td"><code>sumOfCols</code></td>
+      <td class="td">adds up the total in each column and assigns the value to an element in a vector</td>
+      <td class="td-centered">🚫</td>
+    </tr>
+    <tr>
+      <td class="td"><code>sum</code></td>
+      <td class="td">adds up the total of <i>all</i> of the elements in the vector of vectors and returns that total</td>
+      <td class="td-centered">🚫</td>
+    </tr>
+    <tr>
+      <td class="td"><code>printVecOfInts</code></td>
+      <td class="td">prints a vector of <code>int</code> variables; helpful for debugging and verification</td>
+      <td class="td-centered">✔️</td>
+    </tr>
+    <tr>
+      <td class="td"><code>printVecOfVecs</code></td>
+      <td class="td">prints a vector of vectors of <code>int</code> variables using the <code>printVecOfInts</code> function; helpful for debugging and verification</td>
+      <td class="td-centered">✔️</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+You need to **complete the four helper functions that are still needed for the `AnalyzeData` module**. Download these files to begin:
+
+* The module's header file: <code><pl-file-download file-name="analyzeData.h"></pl-file-download></code>
+* Starter code for the module's implementation file: <code><pl-file-download file-name="analyzeData.cpp"></pl-file-download></code> 
+* A copy of the sample data file: <code><pl-file-download file-name="testData.txt"></pl-file-download></code>
+* A copy of the pseudocode that we wrote for the helper functions: <code><pl-file-download file-name="analyzeData_helper_functions_pseudocode.txt"></pl-file-download></code>
+* A test script that you can use to test your module: <code><pl-file-download file-name="Test_analyzeData.cpp"></pl-file-download></code>
+
+Make sure to place all of these files in the same location on your computer! Just so you know: the header file (the `.h` file) will show errors in VSCode until you get the actual functions written, but after that it should all work fine.
+
+<pl-info-box type="info">
+
+Look through the `Test_analyzeData.cpp` test script so that you understand how the different vectors are declared and/or initialized before they are passed to the different helper functions in the `analyzeData` module. This will help you understand what the functions are supposed to do with those vectors.
+
+</pl-info-box>
+
+When you are ready to test your `analyzeData` module, you can compile and run the test script at the terminal like this: 
+
+</markdown>
+
+<pl-code>
+% g++ -std=c++11 Test_analyzeData.cpp analyzeData.cpp -o testModule
+% ./testModule
+</pl-code>
+<br>
+
+<markdown>
+
+If your helper functions are working correctly, you will see this at the terminal:
+
+</markdown>
+
+
+<pl-code>
+Here is the input data: 
+{ 1 2 3 4 5 6 7 }
+{ 8 9 10 11 12 13 14 }
+{ 15 16 17 18 19 20 21 }
+{ 22 23 24 25 26 27 28 }
+{ 29 30 31 32 33 34 35 }
+
+row sums: 
+{ 28 77 126 175 224 }
+
+column sums: 
+{ 75 80 85 90 95 100 105 }
+
+The sum of all the elements is: 630
+</pl-code>
+  
+
+
+<br>
+
+
+
+</pl-question-panel>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<markdown>
+
+Submit your `analyzeData` module for verification by submitting both the `analyzeData.h` and `analyzeData.cpp` files. Your module will be checked against test cases to see if it is working correctly.
+
+</markdown>
+
+<pl-file-upload file-names="analyzeData.h"></pl-file-upload>
+<pl-file-upload file-names="analyzeData.cpp"></pl-file-upload>
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<pl-hint>
+
+<markdown>
+
+Is your program not compiling and/or not running? To debug your program, you need to find where in the code things are not working correctly. Here are some ways to find the place(s) where your code's behavior deviates from what you want it to do:
+
+1. Use the `printVecOfInts` and `printVecOfVecs` helper functions to print out the values in your vectors and vectors of vectors at different points in your code. There is an example of this in the main function: the `printVecOfVecs` helper function is used to print out the values of the "matrix" so that we can check if what we read in matches what is in the text file. 
+2. Use `cout` statements like, `"This is the start of the sumOfRows function"` to help you see how far your program gets before it crashes, throws an error, or otherwise stops working correctly.
+3. Use `cout` statements that print out the value of the index variable in a for loop to help debug loops, especially nested loops. 
+
+If your code compiles and runs but then gets to a point where it "doesn't seem to do anything", then you might have one of these situations: 
+
+* There is a stray `cin` statement somewhere and the program is "not doing anything" because it's waiting for you to type something and hit *enter*. (Note: this particular program does not require user input via `cin`, so `cin` should not be anywhere in your finished program.)
+* There is an infinite loop somewhere. In this case, fall back on method #3 above to help you debug the loop. 
+
+If you've tried all these tricks and your program still won't compile and/or run, please watch the walkthroughs!
+
+
+<hr>
+
+Walkthrough for `loadData` function:
+
+<pl-video-embed url="https://www.youtube.com/embed/uakxmBHRpcA"></pl-video-embed>
+
+<hr> 
+
+Walkthrough for `sumOfRows` function:
+
+<pl-video-embed url="https://www.youtube.com/embed/aUqrjYakr7U"></pl-video-embed>
+
+<hr>
+
+Walkthrough for `sumOfCols` function:
+
+<pl-video-embed url="https://www.youtube.com/embed/sf2ItguQdSQ"></pl-video-embed>
+
+<hr> 
+
+Walkthrough for `sum` function:
+
+<pl-video-embed url="https://www.youtube.com/embed/oDcirGsul0w"></pl-video-embed>
+
+Note: there is a typo in this video.
+
+<pl-code language="c++">for (int i=0; i < vecs/size(); ++i){</pl-code>
+
+should be 
+
+<pl-code language="c++">for (int i=0; i < vecs.size(); ++i){</pl-code>
+
+</markdown>
+
+</pl-hint>
+
+
+</pl-hide-in-panel>
+
+
+
+</div>
+</div>
+<br>
+
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+
+</markdown>
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+
+
+{{{params.submission-feedback}}}
+
+
+<pl-external-grader-results></pl-external-grader-results>
+<pl-file-preview></pl-file-preview>
+
+</markdown>
+</pl-submission-panel>
+
+  

@@ -1,0 +1,165 @@
+<pl-question-panel>
+<markdown>
+
+This image of `v2` is very helpful for understanding what is in `v2`:
+
+<pl-figure file-name="VectorOfVectors1.png" directory="clientFilesQuestion" width="600px" alt="A vector of vectors containing 3 vectors. The first inner vector contains 5, 2, 23, 8. The second inner vector contains 42, 42. The third inner vector contains 2, 3, 5, 7, 11, 13."></pl-figure>
+
+
+But C++ can't make this representation of `v2`. We need to figure out a different way to print out the contents of a vector of vectors. Something like this should work okay:
+
+</markdown>
+
+<pl-code>
+{ 5 2 23 8 }
+{ 42 42 }
+{ 2 3 4 5 11 13 }
+</pl-code>
+<br>
+
+<markdown>
+
+This isn't the prettiest representation of the data in `v2`, but we can still see all the values so it's fine for our purposes here. The first "row" in this representation corresponds to the vector in `v2.at(0)` (or `v2[0]` if you prefer to use the `[]` method), the second "row" corresponds to the vector in `v2.at(1)` (or `v2[1]` ), and so on until all the data is printed.
+
+The built-in `<<` operator won't work to directly print out a vector of vectors in this format, but that's okay. We can **write a function to print out the values of a vector of vectors**, like we did when we needed to print out a struct or a vector of structs. 
+
+
+</markdown>
+
+<br>
+
+</pl-question-panel>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+
+Write a function called `printVecOfVecsInts` that prints the values of a vector of vectors of `int` values in this format: 
+
+</markdown>
+
+<pl-code>
+{ 1 2 3 4 }
+{ 1 2 3 }
+{ 1 2 3 6 7 8 9 }
+{ }
+{ 0 }
+</pl-code>
+
+</pl-hide-in-panel>
+
+<markdown>
+
+Create the `printVecOfVecsInts` function by **selecting the correct statements and putting them in order so that the program will implement the algorithm described above.** Some statements listed may be **incorrect** or **unnecessary**; these statements should not be selected. You may assume that all necessary libraries will be included in the program.
+
+*This exercise also has you practice good programming style by **correctly indenting** the statements that make up the implementation of your program. Make sure you indent your code correctly!*
+
+</markdown>
+
+<pl-hide-in-panel answer="true">
+
+<pl-order-blocks answers-name="ex1" solution-header="...To Here to Create the Function" source-header="Drag Statements from Here..." grading-method="dag" format="code" code-language="c++" solution-placement="bottom" indentation="true">
+
+<pl-answer correct="true" tag="2" indent="0">void printVecOfVecsInts(const vector&lt;vector&lt;int>> &vecs2) {</pl-answer>
+<pl-answer correct="true" tag="3" depends="2" indent="1">for (size_t i = 0; i &lt; vecs2.size(); ++i){ </pl-answer>
+<pl-answer correct="true" tag="4" depends="3" indent="2">cout &lt;&lt; "{ ";</pl-answer>
+<pl-answer correct="true" tag="5" depends="4" indent="2">for (size_t k = 0; k &lt; vecs2.at(i).size(); ++k) {</pl-answer>
+<pl-answer correct="true" tag="6" depends="5" indent="3">cout &lt;&lt; vecs2.at(i).at(k) &lt;&lt; " ";</pl-answer>
+<pl-answer correct="true" tag="7" depends="6" indent="2">} // end loop on inner vector</pl-answer>
+<pl-answer correct="true" tag="8" depends="7" indent="2">cout &lt;&lt; "}" &lt;&lt; endl;</pl-answer>
+<pl-answer correct="true" tag="9" depends="8" indent="1">} // end loop on outer vector</pl-answer>
+<pl-answer correct="true" tag="10" depends="9" indent="0">} // end function</pl-answer>
+<pl-answer correct="false">for (size_t k = 0; k &lt; vecs2.at(0).size(); ++k) {</pl-answer>
+<pl-answer correct="false">for (size_t k = 0; k &lt; vecs2.at(k).size(); ++k) {</pl-answer>
+<pl-answer correct="false">cout &lt;&lt; vecs2.at(k).at(i) &lt;&lt; " ";</pl-answer>
+
+
+</pl-order-blocks>
+<br>
+
+</pl-hide-in-panel>
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/HfNT6RLoRLM" notes="This version of the exercise is slightly different than what you are doing, but it still covers the trickiest parts of this function."></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+  
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+**Correct!** Download the <code><pl-file-download file-name="printVectorOfVectors_example.cpp"></pl-file-download></code> file so that you have a copy of a version of this code that is correct. This file includes both the function you wrote and a `main` function to demonstrate how it is used. 
+
+You can compile and run this program from the terminal like this: 
+
+</markdown>
+
+<pl-code>
+% g++ -std=c++11 printVectorOfVectors_example.cpp -o printVectorOfVectors_example
+% ./printVectorOfVectors_example
+</pl-code>
+
+
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+
+  

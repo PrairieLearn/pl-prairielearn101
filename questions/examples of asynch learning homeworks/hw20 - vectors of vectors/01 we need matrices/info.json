@@ -1,0 +1,19 @@
+{
+    "uuid": "beb0f981-50a8-4ce8-8d88-f538f1ccfb2b",
+    "title": "Identifying a Need: Representing Matrices",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

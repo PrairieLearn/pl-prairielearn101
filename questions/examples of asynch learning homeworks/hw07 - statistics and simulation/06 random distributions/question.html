@@ -1,0 +1,233 @@
+<pl-question-panel>
+<markdown>
+
+Many engineering processes depend on **random variables**. A random variable is a variable that we know exists (like speed or mass), but don't know ahead of time what the value of the variable will be. We might know a range of potential values, such as with the battery example previously, or we might know some statistical measures, such as maximum, minimum, mean, mode, median, variance, and standard deviation. Not knowing the value of a variable creates uncertainty in the system, and we handle that *uncertainty* through *probabilities*.
+
+You may have heard of the *Normal Distribution* or "bell-curve". A **normally-distributed** set of data is characterized, in part, by a histogram that is symmetrical about the mean of the data set. Here is an example of a histogram of normally-distributed data:
+
+<pl-figure file-name="NarrowDistLargeN.png" directory="clientFilesQuestion" width="600px" alt="A histogram showing a normally-distributed data set that follows a 'bell curve' "></pl-figure>
+
+
+A normally-distributed set of data is fully defined by its mean and standard deviation. So, another way to create a starter set of data is to create random samples from a probability distribution.
+
+MATLAB provides functions for sampling from a variety of probability distributions. This allows us to run simulations of random variables if we know the parameters of their distributions. For example, to simulate a uniform discrete distribution, we use the `randi` function:
+
+<pl-video-embed url="https://www.youtube.com/embed/efmbjSc5OA8"></pl-video-embed>
+
+<pl-info-box type="video-recap">
+
+The `randi` function picks pseudo random numbers:
+
+<pl-figure file-name="RandiExplained.png" directory="clientFilesQuestion" width="500px" alt="A histogram showing a normally-distributed data set that follows a 'bell curve'. "></pl-figure>
+
+</pl-info-box>
+
+
+
+
+Here are two examples of using `randi` to simulate rolling a 6-sided die on the left and a 20-sided die on the right:
+
+<pl-figure file-name="RandiExamples.png" directory="clientFilesQuestion" width="500px" alt="A histogram showing a normally-distributed data set that follows a 'bell curve'. "></pl-figure>
+
+Feel free to try out other examples here:
+
+
+
+<div class="container-fluid">
+  <style>
+    .matcrab-wide-cells .matlab-scalar {
+      width: 3em;
+    }
+  </style>
+  <div class="matcrab-example matcrab-wide-cells" style="font-size: 10pt">
+    <!-- <div class="matcrab-setup">
+      x = [4,2,6,3;7,2,4,3;4,6,8,1];
+    </div> -->
+    <table><tbody>
+      <tr>
+        <td style="text-align: center">
+          <img src="{{ options.client_files_course_url }}/img/crabster.jpg" style="height: 35px" />
+          <br />
+          <a role="button" class="btn btn-success matcrab-run">Run</a>
+          <br />
+          <a role="button" class="btn btn-warning matcrab-reset">Reset</a>
+        </td>
+        <td>
+          <textarea class="form-control matcrab-entry" style="resize: none">
+            x = randi(5,2,4);
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="matcrab-vis" style="height: auto; width: auto">
+          </div>
+        </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr>
+        <td colspan="2">
+          <div style="background-color:lavender;">
+            <div style="text-align: center;">Workspace Variables</div>
+            <ul class="matcrab-workspace list-group matlab-vars" ></ul>
+          </div>
+        </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr>
+        <td colspan="2"><i style="font-size: 12pt"></i></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+MATLAB supports many different random distributions in addition to the distributions we've seen here. There are discrete random distributions for describing random sets of integers; some examples include the Binomial, Multinomial, Geometric, and Poisson distributions. There are continuous random distributions for describing random numbers that can be any value; some examples include the Beta, Gamma, Exponential, Chi-square distributions. As always, check the MATLAB documentation for more information. 
+
+<br>
+
+
+</markdown>
+</pl-question-panel>
+
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+
+<table><tbody>
+  <tr>
+    <td colspan="2">
+      <p>Which is the correct call to <code>randi</code> to create this vector?</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="matcrab-vis-exp">
+        x = [2, 1, 1, 2, 1];
+        x
+      </div>
+    </td>
+    <td>
+      <pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true">
+        <pl-answer correct="true"><code>x = randi(2,1,5);</code></pl-answer>
+        <pl-answer correct="false"><code>x = randi(1,5,2);</code></pl-answer>
+        <pl-answer correct="false"><code>x = randi(1,2,5);</code></pl-answer>
+        <pl-answer correct="false"><code>x = randi(5,1,2);</code></pl-answer>
+      </pl-multiple-choice>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<pl-hide-in-panel submission="true" answer="true">
+<pl-matcrab-workspace setup-variables="y = 2" text-area="x = randi(10,4,4)"></pl-matcrab-workspace>
+</pl-hide-in-panel>
+</div>
+</div>
+<br>
+  
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+
+<table><tbody>
+  <tr>
+    <td colspan="2">
+      <p>Which is the correct call to <code>randi</code> to create this matrix?</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="matcrab-vis-exp">
+        x = [2, 3, 3, 1, 1, 3;
+          5, 4, 2, 2, 2, 4;
+          4, 1, 3, 1, 2, 3];
+        x
+      </div>
+    </td>
+    <td>
+      <pl-multiple-choice answers-name="ex2" weight="1" hide-letter-keys="true">
+        <pl-answer correct="false"><code>x = randi(6,5,3);</code></pl-answer>
+        <pl-answer correct="false"><code>x = randi(3,6,4);</code></pl-answer>
+        <pl-answer correct="false"><code>x = randi(4,3,6);</code></pl-answer>
+        <pl-answer correct="true"><code>x = randi(5,3,6);</code></pl-answer>
+      </pl-multiple-choice>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<pl-hide-in-panel submission="true" answer="true">
+<pl-matcrab-workspace setup-variables="y = 2" text-area="x = randi(10,4,4)"></pl-matcrab-workspace>
+</pl-hide-in-panel>
+</div>
+</div>
+<br>
+
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+ 
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+

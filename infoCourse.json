@@ -9,7 +9,26 @@
             "heading": "Gallery of questions using different PrairieLearn elements",
             "color": "orange1",
             "description": "Gallery of PL questions"
+        },
+        {
+            "abbreviation": "L", 
+            "name": "Learn", 
+            "heading": "Samples of Assignments That Show Students How to Use PrairieLearn", 
+            "color": "green1"
+        },
+        {
+            "abbreviation": "HW", 
+            "name": "Homework", 
+            "heading": "Samples of Homeworks and Homework Questions", 
+            "color": "orange1"
+        },
+        {
+            "abbreviation": "PA", 
+            "name": "PracticeAssessment", 
+            "heading": "Samples of Practice Assessments", 
+            "color": "yellow1"
         }
+        
     ],
     "options": {
         "useNewQuestionRenderer": true

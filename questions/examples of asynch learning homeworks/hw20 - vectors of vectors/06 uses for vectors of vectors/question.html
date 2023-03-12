@@ -1,0 +1,142 @@
+<pl-question-panel>
+<markdown>
+
+Now, let's come back to the idea of representing a matrix in C++:
+
+<pl-video-embed url="https://www.youtube.com/embed/mUoX6wRvOCA"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+If we are representing a matrix with a vector of vector, each vector represents a row. Elements within represent different columns. Unlike matrices, vectors of vectors are not required to be "rectangular".
+
+</markdown>
+
+
+</pl-info-box>
+
+
+
+<br>
+
+
+</pl-question-panel>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<markdown>
+  
+Which statement is correct?
+
+</markdown>
+
+
+<pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="true">When using a vector of vectors to represent a matrix of data, the <b>outer vector</b> represents the rows of the matrix, and the <b>inner vectors</b> represent the columns of the matrix.</pl-answer>
+<pl-answer correct="false">When using a vector of vectors to represent a matrix of data, the <b>outer vector</b> represents the columns of the matrix, and the <b>inner vectors</b> represent the rows of the matrix.</pl-answer>
+</pl-multiple-choice>
+
+</div>
+</div>
+<br>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+<markdown>
+  
+You have the variable `data` that represents this vector of vectors: 
+
+</markdown>
+
+<pl-code>
+{  2   8  65  12 }
+{ -4   0  32  -5 }
+{  1 -23   9  35 }
+</pl-code>
+<br>
+
+<markdown>
+  
+Which statement correctly prints the value of the element in the third "row" and second "column" of `data`?
+
+</markdown>
+
+
+<pl-multiple-choice answers-name="ex2" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="true"><pl-code language="c++">cout &lt;&lt; data.at(2).at(1) &lt;&lt; endl; </pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">cout &lt;&lt; data.at(1).at(2) &lt;&lt; endl; </pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">cout &lt;&lt; data.at(3).at(2) &lt;&lt; endl; </pl-code></pl-answer>
+<pl-answer correct="false"><pl-code language="c++">cout &lt;&lt; data.at(2).at(3) &lt;&lt; endl; </pl-code></pl-answer>
+</pl-multiple-choice>
+
+</div>
+</div>
+<br>
+
+
+
+
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+    );
+  }
+</script>
+</pl-hide-in-panel>
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+

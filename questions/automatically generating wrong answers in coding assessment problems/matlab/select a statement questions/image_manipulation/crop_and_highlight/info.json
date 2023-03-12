@@ -1,0 +1,15 @@
+{
+    "uuid": "bec0738f-d6fb-424b-ad25-96fad7a2d0aa",
+    "title": "Crop and Highlight",
+    "topic": "image_manipulation",
+    "comment": "This is a two part question that has students write functions for cropping and highlighting. This is the RGB version",
+    "tags": [
+        "lslavice",
+        "engr101",
+        "v3",
+        "matlab",
+        "sas",
+        "image_manipulation","crop","rgb"
+    ],
+    "type": "v3"
+}

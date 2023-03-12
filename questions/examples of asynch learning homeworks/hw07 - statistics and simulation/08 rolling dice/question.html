@@ -1,0 +1,271 @@
+<pl-question-panel>
+<markdown>
+
+Probability distributions, such as the *Normal Distribution* we saw earlier, aren't too bad if there is only one. But if you are working with a system that has multiple random variables (which is true of many systems!), then trying to find a probability distribution that covers all the random variables quickly becomes impossible.
+
+So. **Probability is hard -- but vectorization is easy!** We can use MATLAB to pick values for each random variable individually and calculate the overall outcomes by combining them together. If we do this over and over, and we do it enough times, we can see how systems work for different ranges of input data, even if we can't figure out the math equation for the overall probabilities. Let's look at an example.
+
+<h4>Example: Rolling Dice</h4>
+
+If you roll one 6-sided die 10 times, you will get 10 different numbers that are in the range 1-6: 
+
+<pl-figure file-name="Dice1.png" directory="clientFilesQuestion" width="600px" alt="10 rolls of a die: 6, 4, 5, 3, 2, 1, 3, 4, 3, 6"></pl-figure>
+
+These rolls of the die can be represented by a vector in MATLAB: 
+
+<pl-figure file-name="Dice2.png" directory="clientFilesQuestion" width="600px" alt="10 rolls of a die: 6, 4, 5, 3, 2, 1, 3, 4, 3, 6. A vector with these same values is shown, representing the results of rolling the die."></pl-figure>
+
+Therefore, we can use the `randi` function to simulate rolling a die. For a 6-sided die,`imax` = 6 in the call to `randi`. Here are examples for rolling the die 10 times, 5 times, and 8 times: 
+
+<pl-figure file-name="Dice3.png" directory="clientFilesQuestion" width="600px" alt="Three calls to randi resulting in three different vectors of random numbers."></pl-figure>
+
+Say we have two 6-sided dice and we wanted to know the probability that the sum of the two dice is greater than 7. We could figure this out using math, but this isn't a math class. Let's use simulation instead!
+
+Here is an algorithm that we can use to solve this problem:
+
+1. Use `randi` to generate a row vector that represents 1,000 rolls of one die.
+2. Use `randi` to generate another row vector that represents 1,000 rolls of the other die.
+2. Add the row vectors together to get the sum of the dice for each of the 1,000 rolls.
+3. Use the "Counting Elements That Match" Common Pattern from the homework assignment on logical indexing to identify the locations of the sums that are greater than 7 and count them.
+4. Divide by 1,000 to get the percentage of sums that are greater than 7.
+5. Display the percentage - this is the probability that the sum will be greater than 7. (Note: we're displaying the percentage/probability in its decimal form here, so the values range from 0-1 instead of 0%-100%)
+
+And here is a MATLAB script that implements this algorithm: 
+
+<pl-file-editor file-name="RollingTwoRegularDice.m" ace-mode="ace/mode/matlab" source-file-name="RollingTwoRegularDice.m" directory="clientFilesQuestion" min-lines="7" max-lines="7">
+</pl-file-editor>
+<br>
+
+If you download the <code><pl-file-download file-name="RollingTwoRegularDice.m" directory="clientFilesQuestion"></pl-file-download></code> script and run it in MATLAB a few times, you'll see that you get different answers for the probability that the sum will be greater than 7: 
+
+<pl-code>
+>> RollingTwoRegularDice
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.415.
+>> RollingTwoRegularDice
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.423.
+>> RollingTwoRegularDice
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.431.
+>> RollingTwoRegularDice
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.382.
+>> RollingTwoRegularDice
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.397.
+</pl-code>
+
+Our MATLAB script is giving us answers anywhere from 0.3820 to 0.4310. If we're looking to get the same answer to at least three significant figures, then this range of answers isn't really good enough. What do we do now??
+
+Simulation has random processes/variables at its base; this means, by definition, that you get different answers from the randomness. Therefore, a key metric in simulation is **convergence** -- when you have simulated enough random data so that you get the same answer each time you run the simulation. 
+
+For this example of rolling the two dice, we just need to roll the dice so many times that we get the same probability each time, within a certain number of significant figures. If we increase the number of rolls to 5000 by changing the script (or creating a new version of the script, such as `RollingTwoRegularDiceMoreRolls.m`) and re-running the script, we can see if our answer starts to *converge*:
+
+<pl-code>
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.405.
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.4226.
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.4124.
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.415.
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.4242.
+>> RollingTwoRegularDiceMoreRolls
+The probability that the sum of the two dice
+rolls will be greater than 7 is: 0.4048.
+</pl-code>
+
+Now our answers have a range of 0.4050 to 0.4242. This is a **narrower range than before, so our answers are starting to converge**, yay! You would keep increasing the number of rolls until you got the same probabilities, out to whatever number of significant figures you need to have.
+
+</markdown>
+
+</pl-question-panel>
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+Revise your `RollingTwoRegularDice.m` script to use more rolls of the two dice. Save the script and re-run it, watching to see what probability each simulation estimates for the sum of the two dice being greater than 7. Try using 5,000 rolls, then 10,000 rolls, then 100,000 rolls. Do even more rolls if you want! Use the results of your simulations to answer this question:
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<br>
+<markdown>
+
+**What is the probability that the sum of two 6-sided dice will be greater than 7?**
+
+<pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="true">0.4167</pl-answer>
+<pl-answer correct="false">0.4191</pl-answer>
+<pl-answer correct="false">0.4110</pl-answer>
+<pl-answer correct="false">0.4200</pl-answer>
+</pl-multiple-choice>
+
+</markdown>
+
+
+</div>
+</div>
+<br>
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+
+<markdown>
+
+Create a MATLAB script called `RollingTwoDice.m` to estimate the probability that the sum of a 6-sided die and a 20-sided die is greater than 15. The script should implement this algorithm:
+
+1. Generate row vectors for 10,000 rolls of each kind of die using `randi`.
+2. Add the row vectors together to get the sum.
+3. Use logical indexing to select sums greater than 15 and count them.
+4. Divide by 10,000 to get the percentage of sums that are greater than 15.
+5. Display the percentage - this is the probability that the sum will be greater than 15.
+
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<p><b>Create</b> the <code>RollingTwoDice.m</code> script by <b>selecting the correct statements so that the script will implement the algorithm described above.</b> Some statements listed may be <b>incorrect</b> or <b>unnecessary</b>; these statements should not be selected.</p>
+
+
+<pl-hide-in-panel answer="true">
+
+<pl-code language="matlab">   % Generate row vectors for 10,000 rolls of each kind of die using randi </pl-code>
+
+<pl-checkbox answers-name='step1' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">sixSided = randi(6,1,10000);
+twentySided = randi(20,1,10000);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sixSided = randi(1,6,10000);
+twentySided = randi(1,20,10000);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sixSided = randi(6,10000);
+twentySided = randi(20,10000);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sixSided = randi(10,000; 6);
+twentySided = randi(10,000; 20);</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="matlab">   % Add the row vectors together </pl-code>
+<pl-checkbox answers-name='step2' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">sumVector = sixSided + twentySided;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sumVector = all(sixSided, twentySided);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sumVector = sum(sixSided,twentySided);</pl-code></pl-answer>
+</pl-checkbox>
+
+
+<pl-code language="matlab">   % Logically index to select sums > 15 and count these </pl-code>
+<pl-checkbox answers-name='step3' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">sumsOver15 = sumVector > 15;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sumsOver15 = any(sumVector > 15);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">sumsOver15 = sixSided > 15 & twentySided > 15;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-checkbox answers-name='step4' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">count = sum(sumsOver15);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">count = any(sumsOver15);</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">count = how_many(sumsOver15);</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="matlab">   % Divide by 10,000 to get percentage > 15 </pl-code>
+
+<pl-checkbox answers-name='step5' partial-credit='false' hide-help-text='true' detailed-help-text='false' hide-letter-keys = 'true' hide-answer-panel='true' >
+<pl-answer correct='true'><pl-code language="matlab">percentage = count/10000;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">percentage = sumVector/10000;</pl-code></pl-answer>
+<pl-answer correct='false'><pl-code language="matlab">percentage = sumsOver15/10000;</pl-code></pl-answer>
+</pl-checkbox>
+
+<pl-code language="matlab">   % Display probability sum > 15
+   disp(['The probability that the sum of the two dice']);
+   disp(['rolls will be greater than 15 is: ', num2str(percentage), '.']);
+</pl-code>
+
+
+</pl-hide-in-panel>
+
+<pl-hide-in-panel submission="true" answer="true">
+<pl-walkthrough-video url="https://www.youtube.com/embed/2b0ULygAisw" notes=""></pl-walkthrough-video>
+</pl-hide-in-panel>
+
+</div>
+</div>
+<br>
+
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+    );
+  }
+</script>
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+
+Here is a copy of the <code><pl-file-download file-name="RollingTwoDice.m" directory="clientFilesQuestion"></pl-file-download></code> script that you just made. Download the file and you can run it in MATLAB and see it work! 
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>
+

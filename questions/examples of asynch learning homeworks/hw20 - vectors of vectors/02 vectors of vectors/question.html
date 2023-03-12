@@ -1,0 +1,188 @@
+<pl-question-panel>
+
+<markdown>
+
+We need to be able to represent data in a data structure that we can treat somewhat like a matrix. Let's see how we can do that with **vectors of vectors**:
+
+<pl-video-embed url="https://www.youtube.com/embed/BJS9ZDUV800"></pl-video-embed>
+
+</markdown>
+
+<pl-info-box type="video-recap">
+
+<markdown>
+
+We can create nested vectors (or **vectors of vectors**). When working with vectors of vectors, it's important to keep track of whether you are working with the *outer vector* or *inner vector*. 
+
+The vector of vectors will have a **base type**, which is the data type of the individual elements that are stored in the vector. Base types can be `int`, `double`, structs such as the `Rover` struct we've been working with, and any other data type that has been defined.
+
+</markdown>
+
+
+</pl-info-box>
+
+<br>
+
+</pl-question-panel>
+
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+Here is a vector of vectors named `v2`:
+
+<pl-figure file-name="VectorOfVectors1.png" directory="clientFilesQuestion" width="600px" alt="A vector of vectors containing 3 vectors. The first inner vector contains 5, 2, 23, 8. The second inner vector contains 42, 42. The third inner vector contains 2, 3, 5, 7, 11, 13."></pl-figure>
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<markdown>
+<br>
+
+**What is the base type of this vector of vectors?**
+
+<pl-multiple-choice answers-name="ex1_1" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="true"><code>int</code></pl-answer>
+<pl-answer correct="false"><code>double</code></pl-answer>
+<pl-answer correct="false"><code>bool</code></pl-answer>
+<pl-answer correct="false"><code>char</code></pl-answer>
+<pl-answer correct="false"><code>string</code></pl-answer>
+</pl-multiple-choice>
+<br>
+
+**The outer vector in `v2` has how many elements?**
+
+<pl-integer-input answers-name="ex1_2" label="number of elements = " correct-answer="3"></pl-integer-input>
+
+<br>
+
+**The first inner vector in `v2` has how many elements?**
+
+<pl-integer-input answers-name="ex1_3" label="number of elements = " correct-answer="4"></pl-integer-input>
+
+</markdown>
+
+
+</div>
+</div>
+<br>
+  
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+<pl-hide-in-panel submission="true" answer="true">
+<markdown>
+
+Here is a vector of vectors named `c2`:
+
+<pl-figure file-name="VectorOfVectors2.png" directory="clientFilesQuestion" width="600px" alt="A vector of vectors containing 4 vectors. The inner vectors contain characters. The first inner vector contains H, a, i, l, !. The second inner vector contains T, o. The third inner vector contains t, h, e. The fourth inner vector contains V, i, c, t, o, r, s."></pl-figure>
+
+</markdown>
+
+</pl-hide-in-panel>
+
+<markdown>
+<br>
+
+**What is the base type of this vector of vectors?**
+
+<pl-multiple-choice answers-name="ex2_1" weight="1" hide-letter-keys="true" fixed-order="false">
+<pl-answer correct="false"><code>int</code></pl-answer>
+<pl-answer correct="false"><code>double</code></pl-answer>
+<pl-answer correct="false"><code>bool</code></pl-answer>
+<pl-answer correct="true"><code>char</code></pl-answer>
+<pl-answer correct="false"><code>string</code></pl-answer>
+</pl-multiple-choice>
+<br>
+
+**The outer vector in `c2` has how many elements?**
+
+<pl-integer-input answers-name="ex2_2" label="number of elements = " correct-answer="4"></pl-integer-input>
+
+<br>
+
+**The last inner vector in `c2` has how many elements?**
+
+<pl-integer-input answers-name="ex2_3" label="number of elements = " correct-answer="7"></pl-integer-input>
+
+</markdown>
+
+
+
+
+
+</div>
+</div>
+<br>
+  
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the collapsible buttons expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+
+
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+
+{{{params.answer-feedback}}}
+
+
+</markdown>
+
+
+</pl-answer-panel>
+
+
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+
+{{{params.submission-feedback}}}
+
+
+</markdown>
+</pl-submission-panel>

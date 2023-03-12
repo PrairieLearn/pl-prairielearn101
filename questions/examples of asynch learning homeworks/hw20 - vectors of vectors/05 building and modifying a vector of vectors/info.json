@@ -1,0 +1,20 @@
+{
+    "uuid": "f7b3faeb-bd3c-4074-9905-026cbe238272",
+    "title": "Building and Modifying a Vector of Vectors",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+
+}

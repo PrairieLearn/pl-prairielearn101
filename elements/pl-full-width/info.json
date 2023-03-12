@@ -1,0 +1,8 @@
+{
+    "controller": "pl-full-width.py",
+    "dependencies": {
+      "elementScripts": [
+        "pl-full-width.js"
+      ]
+    }
+}

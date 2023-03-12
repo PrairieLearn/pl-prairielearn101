@@ -1,0 +1,19 @@
+{
+    "uuid": "0e659139-2592-4820-86bd-e90362e56db8",
+    "title": "Basic Statistics",
+    "topic": "ENGR101",
+    "tags": [
+        "f22",
+        "lslavice",
+        "statistics",
+        "matlab",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/matcrab-exercises2.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}

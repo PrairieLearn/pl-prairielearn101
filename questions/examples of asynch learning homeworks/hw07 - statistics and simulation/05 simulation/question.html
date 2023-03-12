@@ -1,0 +1,239 @@
+<pl-question-panel>
+<markdown>
+
+The examples we've been working with have mostly been about analyzing existing data. We tend to follow a similar pattern each time:
+
+1. Read data in from a file
+2. Look for some characteristics/process the data
+3. Plot the data to see trends, patterns, extremes, etc.
+
+MATLAB is also widely used to **simulate data**. When we simulate data, we also tend to follow a similar pattern each time:
+
+1. Convert the math equations into a computer program
+2. Create a starter set of data and use the computer program from step 1 to generate predicted data
+3. Look for some things / process data / plot data to see trends, etc.
+
+Math equations tend to look something like this:
+
+<p style="text-align: center;">$$y = sin(x)$$</p>
+
+
+We know that this equation is really saying: $y$ is equal to the sine of $x$ for all possible values of $x$, no matter how big or small or precise those numbers are. You might be able to type
+
+<p style="text-align: center;">$$plot(sin)$$</p>
+
+into a graphing calculator and get a plot containing a sine wave because the graphing calculator knows that you probably mean: show me a plot of the values of the sine of $x$ vs. $x$ for all possible values of $x$, no matter how big or small or precise those numbers are. But if we type
+
+<p style="text-align: center;">$$plot(sin)$$</p>
+
+into MATLAB, we get an error message because MATLAB doesn't know that we mean `sin` to really mean $sin(x)$ and $x$ to be a variable with all possible values of $x$. So MATLAB says, *"¯\\_(ツ)_/¯ lol whatever"* and gives us an error message.
+
+To run a simulation in MATLAB, we first need to create a *starter set of data*. In Homework 2, we created vectors and matrices, and we saw that range notation (`start:step:last`) was quite convenient for creating a starter set of data. In our earlier attempt to plot $sin(x)$, we noted that the plot function requires a set of ordered pairs, e.g. $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3)$, etc. We can generate these easily using vectorized code!
+
+
+<div class="container-fluid">
+  <style>
+    .matcrab-wide-cells .matlab-scalar {
+      width: 3em;
+    }
+  </style>
+  <div class="matcrab-example matcrab-wide-cells" style="font-size: 10pt">
+    <!-- <div class="matcrab-setup">
+      x = [4,2,6,3;7,2,4,3;4,6,8,1];
+    </div> -->
+    <table><tbody>
+      <tr>
+        <td style="text-align: center">
+          <img src="{{ options.client_files_course_url }}/img/crabster.jpg" style="height: 35px" />
+          <br />
+          <a role="button" class="btn btn-success matcrab-run">Run</a>
+          <br />
+          <a role="button" class="btn btn-warning matcrab-reset">Reset</a>
+        </td>
+        <td>
+          <textarea class="form-control matcrab-entry" style="resize: none">
+            x = 1:10;
+            y = sin(x);
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="matcrab-vis" style="height: auto; width: auto">
+          </div>
+        </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr>
+        <td colspan="2">
+          <div style="background-color:lavender;">
+            <div style="text-align: center;">Workspace Variables</div>
+            <ul class="matcrab-workspace list-group matlab-vars" ></ul>
+          </div>
+        </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr>
+        <td colspan="2"><i style="font-size: 12pt">The <code>x</code> vector is your <b>starter data</b>. You can simulate new data using starter data. Try simulating $z = x^2$ by typing <code>z = x .^ 2</code> into MatCrab!</i></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<br>
+
+Now, that we have a set of data points for `x` and `y`, if we call `plot(x,y)`, we get a plot of `sin(x)` using these values of `x`.
+
+<pl-figure file-name="Sine_1.png" directory="clientFilesQuestion" width="500px" alt="A plot of sin(x) applied to the range x = 1:10."></pl-figure>
+
+To create a smoother plot of a math function, just use more data points. To do this with range notation, decrease the step size from the default of 1 to a new value, 0.1:
+
+<pl-code language="matlab">x = 1:0.1:10;
+y = sin(x);
+plot(x,y);
+</pl-code>
+
+<pl-figure file-name="Sine_2.png" directory="clientFilesQuestion" width="500px" alt="A plot of sin(x) applied to the range x = 1:0.1:10."></pl-figure>
+
+
+Another useful way to create a starter set of data is with the `linspace` function. The `linspace` function provides an alternate way to create evenly spaced vectors of numbers. Here is a comparison between `linspace` and range notation:
+
+<pl-figure file-name="RangeNotationVsLinspace.png" directory="clientFilesQuestion" width="500px" alt="A plot of sin(x) applied to the range x = 1:0.1:10."></pl-figure>
+
+We'll do some practice with simulating data later in this homework assignment, but first let's pause and practice with the `linspace` function.
+
+
+</markdown>
+
+</pl-question-panel>
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 1</h5>
+
+
+<table><tbody>
+  <tr>
+    <td colspan="2">
+      <p>Which is the correct call to <code>linspace</code> to create this vector?</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="matcrab-vis-exp">
+        x = linspace(0,20,6);
+        x
+      </div>
+    </td>
+    <td>
+      <pl-multiple-choice answers-name="ex1" weight="1" hide-letter-keys="true">
+        <pl-answer correct="true"><code>x = linspace(0,20,6);</code></pl-answer>
+        <pl-answer correct="false"><code>x = linspace(0,6,20);</code></pl-answer>
+        <pl-answer correct="false"><code>x = linspace(0,4,20);</code></pl-answer>
+        <pl-answer correct="false"><code>x = linspace(0,20,4);</code></pl-answer>
+      </pl-multiple-choice>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<pl-hide-in-panel submission="true" answer="true">
+<pl-matcrab-workspace setup-variables="y = 2" text-area="x = linspace(1,4,4)"></pl-matcrab-workspace>
+</pl-hide-in-panel>
+</div>
+</div>
+<br>
+  
+
+
+
+
+<div class="card">
+<div class="card-body">
+
+<h5>Exercise 2</h5>
+
+
+<table><tbody>
+  <tr>
+    <td colspan="2">
+      <p>Which is the correct call to <code>linspace</code> to create this vector?</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="matcrab-vis-exp">
+        x = linspace(5,-4,10);
+        x
+      </div>
+    </td>
+    <td>
+      <pl-multiple-choice answers-name="ex2" weight="1" hide-letter-keys="true">
+        <pl-answer correct="false"><code>x = linspace(5,10,-4);</code></pl-answer>
+        <pl-answer correct="false"><code>x = linspace(5,-1,10);</code></pl-answer>
+        <pl-answer correct="true"><code>x = linspace(5,-4,10);</code></pl-answer>
+        <pl-answer correct="false"><code>x = linspace(5,-4,-1);</code></pl-answer>
+      </pl-multiple-choice>
+    </td>
+  </tr>
+</tbody></table>
+<br>
+<pl-hide-in-panel submission="true" answer="true">
+<pl-matcrab-workspace setup-variables="y = 2" text-area="x = linspace(1,4,4)"></pl-matcrab-workspace>
+</pl-hide-in-panel>
+</div>
+</div>
+<br>
+
+
+
+  
+
+
+<pl-hide-in-panel submission="true" answer="true">
+<!-- Script to make the MatCrab workspaces expand/collapse correctly -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+  
+</pl-hide-in-panel>
+
+<pl-answer-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.answer-feedback}}}
+
+</markdown>
+</pl-answer-panel>
+
+<pl-submission-panel>
+    
+<p></p>
+    
+<markdown>
+    
+    
+{{{params.submission-feedback}}}
+
+</markdown>
+</pl-submission-panel>
+

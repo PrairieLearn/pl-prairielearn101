@@ -1,0 +1,19 @@
+{
+    "uuid": "72e2d598-a6c7-42f1-8df1-31ba72ab1c19",
+    "title": "Indexing Into a Vector of Vectors",
+    "topic": "C++",
+    "tags": [
+        "f22",
+        "lslavice",
+        "vectors of vectors",
+        "c++",
+        "core_content"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "dependencies": {
+        "clientFilesCourseScripts": ["js/lobster-exercises14.bundle.js"],
+        "clientFilesCourseStyles": ["css/engr101styles.css"]
+        
+      }
+}
