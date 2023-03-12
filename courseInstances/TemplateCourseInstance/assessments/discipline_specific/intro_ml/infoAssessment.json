@@ -77,7 +77,7 @@
         { "id": "intro_ml/neural_net_universal_approx", "points": 5 },
 	    {
 		"numberChoose": 1,
-		"autoPoints": [5],
+		"autoPoints": 5,
 		"alternatives": [
 		    {"id": "intro_ml/neural_net_problem_setup_alien_hostility"},
 		    {"id": "intro_ml/neural_net_problem_setup_bike"},
