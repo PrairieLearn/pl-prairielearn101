@@ -30,7 +30,7 @@
     {
       "title": "Hidden Hints",
       "questions": [
-        { "id": "element/hiddenHints", "points": 1 },
+        { "id": "element/hiddenHints", "points": 1 }
       ]
     },
     {
