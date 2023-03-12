@@ -1,0 +1,84 @@
+<pl-question-panel>
+  <p>For some types of models, we need to standardize data (center and scale to unit variance) before model fitting. Given some data <code>X</code>, training data indices <code>idx_tr</code>, and test data indices <code>idx_ts</code>, which of the following illustrates a correct way to standardize the data? Select all that apply.</p>
+</pl-question-panel>
+
+{{#params.use_sklearn}}
+<pl-checkbox answers-name="standardize" number-answers="4">
+    <pl-answer correct="true">
+        <pl-code language="python">
+scaler = StandardScaler().fit(X[idx_tr])
+Xtr_std = scaler.transform(X[idx_tr])
+Xts_std = scaler.transform(X[idx_ts]) </pl-code></pl-answer>
+    <pl-answer correct="true">
+        <pl-code language="python">
+scaler = StandardScaler()
+Xtr_std = scaler.fit_transform(X[idx_tr])
+Xts_std = scaler.transform(X[idx_ts]) </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option uses the entire data, including test set, to compute the mean and variance for standardization. This is incorrect - only the training set statistics should be used.">
+        <pl-code language="python">
+scaler = StandardScaler()
+X_std = scaler.fit_transform(X)
+Xtr_std = X_std[idx_tr]
+Xts_std = X_std[idx_ts] </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option uses the entire data, including test set, to compute the mean and variance for standardization. This is incorrect - only the training set statistics should be used.">
+        <pl-code language="python">
+scaler = StandardScaler().fit(X)
+Xtr_std = scaler.transform(X[idx_tr])
+Xts_std = scaler.transform(X[idx_ts]) </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option standardizes the training and test sets separately using the mean and variance for the training set, and the mean and variance for the test set, respectively. This is incorrect - both sets should be standardized using the mean and variance of the training set.">
+        <pl-code language="python">
+scaler = StandardScaler()
+Xtr_std = scaler.fit_transform(X[idx_tr])
+Xts_std = scaler.fit_transform(X[idx_ts]) </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option standardizes the training and test sets separately using the mean and variance for the training set, and the mean and variance for the test set, respectively. This is incorrect - both sets should be standardized using the mean and variance of the training set.">
+        <pl-code language="python">
+scaler_tr = StandardScaler().fit(X[idx_tr])
+Xtr_std = scaler_tr.transform(X[idx_tr])
+scaler_ts = StandardScaler().fit(X[idx_ts])
+Xts_std = scaler_ts.transform(X[idx_ts])</pl-code></pl-answer>
+</pl-checkbox>
+{{/params.use_sklearn}}
+
+{{^params.use_sklearn}}
+<pl-checkbox answers-name="standardize" number-answers="4">
+    <pl-answer correct="true">
+        <pl-code language="python">
+x_mean = np.mean(X[idx_tr], axis=0)
+x_std  = np.std(X[idx_tr], axis=0)
+Xtr_std = (X[idx_tr] - x_mean) / x_std
+Xts_std = (X[idx_ts] - x_mean) / x_std</pl-code></pl-answer>
+    <pl-answer correct="true">
+        <pl-code language="python">
+Xtr_std = (X[idx_tr] - np.mean(X[idx_tr], axis=0) ) / np.std(X[idx_tr], axis=0)
+Xts_std = (X[idx_ts] - np.mean(X[idx_tr], axis=0) ) / np.std(X[idx_tr], axis=0)  </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option uses the entire data, including test set, to compute the mean and variance for standardization. This is incorrect - only the training set statistics should be used.">
+        <pl-code language="python">
+X_std = (X - np.mean(X, axis=0) ) / np.std(X, axis=0)
+Xtr_std = X_std[idx_tr]
+Xts_std = X_std[idx_ts] </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option uses the entire data, including test set, to compute the mean and variance for standardization. This is incorrect - only the training set statistics should be used.">
+        <pl-code language="python">
+Xtr_std = (X[idx_tr] - np.mean(X, axis=0) ) / np.std(X, axis=0)
+Xts_std = (X[idx_ts] - np.mean(X, axis=0) ) / np.std(X, axis=0) </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option uses the entire data, including test set, to compute the mean and variance for standardization. This is incorrect - only the training set statistics should be used.">
+        <pl-code language="python">
+x_mean = np.mean(X, axis=0)
+x_std  = np.std(X, axis=0)
+Xtr_std = (X[idx_tr] - x_mean) / x_std
+Xts_std = (X[idx_ts] - x_mean) / x_std </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option standardizes the training and test sets separately using the mean and variance for the training set, and the mean and variance for the test set, respectively. This is incorrect - both sets should be standardized using the mean and variance of the training set.">
+        <pl-code language="python">
+x_mean_tr = np.mean(X[idx_tr], axis=0)
+x_std_tr  = np.std(X[idx_tr], axis=0)
+Xtr_std = (X[idx_tr] - x_mean_tr) / x_std_tr
+
+x_mean_ts = np.mean(X[idx_ts], axis=0)
+x_std_ts  = np.std(X[idx_ts], axis=0)
+Xts_std = (X[idx_ts] - x_mean_ts) / x_std_ts </pl-code></pl-answer>
+    <pl-answer correct="false" feedback="This option standardizes the training and test sets separately using the mean and variance for the training set, and the mean and variance for the test set, respectively. This is incorrect - both sets should be standardized using the mean and variance of the training set.">
+        <pl-code language="python">
+Xtr_std = (X[idx_tr] - np.mean(X[idx_tr], axis=0) )/np.std(X[idx_tr], axis=0)
+Xts_std = (X[idx_ts] - np.mean(X[idx_ts], axis=0) )/np.std(X[idx_ts], axis=0)  </pl-code></pl-answer>
+</pl-checkbox>
+
+{{/params.use_sklearn}}

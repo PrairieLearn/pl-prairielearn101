@@ -1,0 +1,72 @@
+<style>
+  th, td {
+    padding: 10px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+</style>
+
+
+<pl-question-panel>
+  <p>Given the following training data for a regression problem:</p>
+  <table class="center">
+    <thead>
+        <tr>
+      <th>$x_0$</th>
+      <th>$x_1$</th>
+      <th>$x_2$</th>
+      <th>$y$</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#params.samples}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }} 
+      </tr>
+      {{/params.samples}}
+    </tbody>
+  </table>
+  <p>what will be the predicted $y$ of a nearest neighbor model for a test point $[{{params.test.0}}, {{params.test.1}}, {{params.test.2}}  ]$? </p>
+  <p>Use $K = {{params.k}}$ neighbors and the {{params.metric}} distance metric, and use mean to aggregate the labels of the neighbors. In case of a tie, break the tie by sample order (first sample wins).</p>
+</pl-question-panel>
+
+
+<p><pl-number-input answers-name='y_pred' label='$\hat{y} = $' comparison='decdig' digits='2' display='block' show-help-text='true' allow-blank='false'></pl-number-input></p>
+<br>
+<pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span></p>
+
+<p>We would compute the distance and identify the nearest neighbors as follows:</p>
+
+<table class="center">
+  <thead>
+        <tr>
+    <th>$x_0$</th>
+    <th>$x_1$</th>
+    <th>$x_2$</th>
+    <th>$y$</th>
+    <th>Distance</th>
+    <th>Neighbor?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#params.compute}}
+    <tr>
+      <td>{{x.0}}</td>
+      <td>{{x.1}}</td>
+      <td>{{x.2}}</td>
+      <td>{{y}}</td>
+      <td>{{distance}}</td>
+      <td>{{#neighbor}}Yes{{/neighbor}}{{^neighbor}}No{{/neighbor}}</td>
+    </tr>
+    {{/params.compute}}
+  </tbody>
+</table>      
+
+</pl-answer-panel>

@@ -1,0 +1,16 @@
+<pl-question-panel>
+  <p>In our lesson on gradient descent, we discussed the runtime (in asymptotic big $O$ terms) of solving the OLS linear regression by various methods.</p> 
+  <p>Match each operation listed below to its runtime.</p>
+  <p>You may assume that $\mathbf{X}$ is an $n \times d$ matrix , $\mathbf{y}$ is an $n$-length vector, and $n \gg d$.</p>
+</pl-question-panel>
+
+<pl-matching answers-name="runtime">
+    <pl-statement match="$O(nd^2)$">Solving $\mathbf{w^*} = \left(\mathbf{X}^T \mathbf{X} \right)^{-1} \mathbf{X}^T \mathbf{y}$ directly</pl-statement>
+    <pl-statement match="$O(nd)$">Solving one iteration of $\mathbf{w}^{t+1} =  \mathbf{w}^t + \frac{\alpha^t}{n} \mathbf{X}^T (\mathbf{y} - \mathbf{X} \mathbf{w}^t )$</pl-statement>
+    <pl-statement match="$O(d)$">Solving one iteration of $\mathbf{w}^{t+1} =   \mathbf{w}^t + \alpha^t (y_i - \langle \mathbf{w}^t, \mathbf{x}_i \rangle ) \mathbf{x}_i$, using only one random sample $i$ of $\mathbf{X}, \mathbf{y}$ </pl-statement>
+    <pl-option>$O(d^3)$</pl-option>
+    <pl-option>$O(nd^3)$</pl-option>
+    <pl-option>$O(n^2d^2)$</pl-option>
+    <pl-option>$O(n^2d)$</pl-option>
+
+</pl-matching>

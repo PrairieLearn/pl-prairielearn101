@@ -1,0 +1,13 @@
+{
+    "uuid": "b83d15b3-86ec-4e97-96dd-569b9e82bbad",
+    "title": "Solving the maximal margin classifier",
+    "topic": "SVM",
+    "singleVariant": true,
+    "tags": [
+        "su22",
+        "ffund",
+        "numeric",
+        "symbolic"
+    ],
+    "type": "v3"
+}

@@ -1,0 +1,49 @@
+<pl-question-panel>
+  <p> Consider the following fully connected neural network, with one input unit, one output unit, and two hidden units. Weights are indicated on the edges. <b>xb</b> and <b>hb</b> represent bias inputs.</p>
+  <p>There is a <b>ReLU</b> activation at the hidden units, and a <b>linear</b> activation at the output unit.</p>
+  <div class="alert alert-info">
+  <p>Note: the ReLU activation function is $f(x) = \text{max}(0, x)$.</p>
+  </div>
+    <pl-figure file-name="figure.png" type="dynamic"></pl-figure>
+    
+<br>    
+
+</pl-question-panel>
+
+<br>
+
+
+<p>What is the output of the network when the input is x = {{params.input.x1}}? (Notice the negative sign.)</p>
+
+      <pl-number-input answers-name='fwd-o1' label='$u_{o_1} = $' comparison='decdig' digits='3' display='block' show-help-text='true' allow-blank='false'></pl-number-input><br>
+
+
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span></p>
+
+<p>First, we compute the input to the activation function at each of the hidden units:</p>
+
+$$z_{h1} = {{params.w.x1-h1}} \times {{params.input.x1}} + {{params.w.xb-h1}} = {{params.z1}}$$
+
+<p>and</p>
+
+$$z_{h2} = {{params.w.x1-h2}} \times {{params.input.x1}} + {{params.w.xb-h2}} = {{params.z2}}$$
+
+<p>Then, we compute the output of the activation function at each of the hidden units:</p>
+
+$$u_{h1} = \text{ReLU}({{params.z1}}) = {{params.u1}}$$
+
+<p>and</p>
+
+$$u_{h2} = \text{ReLU}({{params.z2}}) = {{params.u2}}$$
+
+<p>Finally, at the output unit, the input to the activation function will be</p>
+
+$$z_{o1} = {{params.w.h1-o1}} \times {{params.u1}} +  {{params.w.h2-o1}} \times {{params.u2}} +  {{params.w.hb-o1}} $$
+
+<p>and since the output unit uses a linear activation function, the output is</p>
+
+$$u_{o1} = {{params.o1}}$$
+
+</pl-answer-panel>

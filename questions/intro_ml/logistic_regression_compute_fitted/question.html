@@ -1,0 +1,18 @@
+<pl-question-panel>
+  <p> You have a fitted logistic regression for a binary classification problem, with the following weights (the first weight is the bias):</p>
+  <pl-python-variable params-name="w"></pl-python-variable>
+
+</pl-question-panel>
+
+<p>What is the output of the logstic regression model for the input:</p>
+<pl-python-variable params-name="x"></pl-python-variable>
+<br>
+<pl-number-input comparison='decdig' digits='3' answers-name="prob" label="$P(y = 1 | x) =$"></pl-number-input>
+
+<br><hr>
+<p>If the threshold for belonging to the positive ($1$) class is <b>{{params.threshold}}</b>, the classification for this sample is:</p>
+
+<pl-multiple-choice answers-name='mc' hide-letter-keys='true' fixed-order='true'>
+  <pl-answer correct="{{params.isPos}}">The sample belongs to the positive class ($1$)</pl-answer>
+  <pl-answer correct="{{params.isNeg}}">The sample belongs to the negative class ($0$)</pl-answer>
+</pl-multiple-choice>

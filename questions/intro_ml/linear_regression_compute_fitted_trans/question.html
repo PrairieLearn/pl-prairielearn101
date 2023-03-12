@@ -1,0 +1,13 @@
+<pl-question-panel>
+    <p>You train a linear regression model using a logarithmic transformation of the input $\mathbf{x}$ (all elements of which are guaranteed to be non-zero):</p>
+    $$\hat{y} = w_0 + \sum_{j=1}^{d} w_j \ln(x_j)$$
+  <p>The fitted weights (the first weight is the bias) are:</p>
+  <pl-python-variable params-name="w"></pl-python-variable>
+
+</pl-question-panel>
+
+<p>What is the prediction of the regression model for the input $\mathbf{x}$:</p>
+<pl-python-variable params-name="x"></pl-python-variable>
+<br>
+<pl-number-input comparison='decdig' digits='2'  answers-name="yhat" label="$\hat{y}=$"></pl-number-input>
+

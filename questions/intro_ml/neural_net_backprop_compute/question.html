@@ -1,0 +1,90 @@
+<pl-question-panel>
+<div class="alert alert-warning" role="alert">
+This is not a programming question - compute the answers with a calculator or in a basic spreadsheet, not by writing code.
+</div><br>
+  <p> Consider a neural network for classification with two features at the input, two hidden-layer nodes in a single hidden layer, and one output node. There is a sigmoid activation function at the hidden layer nodes and at the output layer node.</p>
+
+    <pl-figure file-name="figure.png" type="dynamic"></pl-figure>
+    
+<br>    
+<div class="alert alert-info" role="alert">
+  Because we are dealing with very small quantities - the weights in the network move just a little bit in each iteration! - this question requires answers that are correct to at least three decimal places.
+  But to avoid compounding rounding error, you should keep <i>extra</i> decimal places (e.g. six decimal places) throughout your computations.
+</div>
+
+</pl-question-panel>
+
+<br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 1: Forward pass</div>
+    <div class='card-body'>
+      <p>For the input  $x_1 = 0, x_2=1$, do a forward pass on the network and compute the outputs.</p>
+      <pl-number-input answers-name='fwd-h1' label='$u_{h_1} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+      <pl-number-input answers-name='fwd-h2' label='$u_{h_2} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+      <pl-number-input answers-name='fwd-o1' label='$u_{o_1} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+    </div>
+</div>
+<br><br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 2: Compute backpropagation errors</div>
+    <div class='card-body'>
+
+    <p>Suppose the true value is $y={{params.input.y}}$ when the input is $x_1 = {{params.input.x1}},  x_2={{params.input.x2}}$.</p>
+    <p>Compute the backpropagation error $\delta_j = \frac{\partial L}{\partial z_j}$ at each node.</p>
+
+
+      <p>Use the loss function</p>
+      
+          $$L(W) = \frac{1}{2}\sum_N (y - u_{O})^2$$
+    
+    <p>(We would usually use the binary cross entropy loss function for a classification problem, but the math is easier to work with for the L2 loss! So in this case, we'll use this L2 loss.)</p>
+
+    <p>Note that because of the sigmoid activation function at the output node, $u_O = \sigma(z_O)$, you will compute the backpropagation error at the output with </p>
+    
+    $$\delta_O =  \frac{\partial L}{\partial z_O} = \frac{\partial L}{\partial u_O} \frac{\partial u_O}{\partial z_O} $$
+
+
+      <pl-number-input answers-name='bp-o1' label='$\delta_{o_1} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+      <pl-number-input answers-name='bp-h1' label='$\delta_{h_1} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+      <pl-number-input answers-name='bp-h2' label='$\delta_{h_2} = $' comparison='decdig' digits='3' display='block' show-help-text='false' allow-blank='true'></pl-number-input><br>
+      
+    </div>
+</div>
+<br><br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 3: Compute gradients of loss function with respect to weights</div>
+    <div class='card-body'>
+
+    <p>Now, compute the gradient of the loss function with respect to the weights.</p>
+
+
+      <p>Each of the answers below should be a vector, which you can express using list notation e.g. <code>[1,2,3]</code>.</p>
+
+    <pl-matrix-input answers-name="grad-o" comparison='decdig' digits='3'  label="$\frac{\partial L}{\partial W_{o1}} = [\frac{\partial L}{\partial w_{h1,o1}}, \frac{\partial L}{\partial w_{h2,o1}}, \frac{\partial L}{\partial w_{hb,o1}}    ] = $"></pl-matrix-input><br>
+    <pl-matrix-input answers-name="grad-h1" comparison='decdig' digits='3'  label="$\frac{\partial L}{\partial W_{h1}} = [\frac{\partial L}{\partial w_{x1,h1}}, \frac{\partial L}{\partial w_{x2,h1}}, \frac{\partial L}{\partial w_{xb,h1}}    ] = $"></pl-matrix-input><br>
+    <pl-matrix-input answers-name="grad-h2" comparison='decdig' digits='3'  label="$\frac{\partial L}{\partial W_{h2}} = [\frac{\partial L}{\partial w_{x1,h2}}, \frac{\partial L}{\partial w_{x2,h2}}, \frac{\partial L}{\partial w_{xb,h2}}    ] = $"></pl-matrix-input><br>
+
+    </div>
+</div>
+<br><br>
+
+
+
+<div class='card card-default'>
+    <div class='card-header'>Part 4: Update weights</div>
+    <div class='card-body'>
+
+    <p>Compute the updated weights for both the hidden layer and the output layer by performing one step of gradient descent. Use  a learning rate of {{params.lr}}.</p>
+
+
+    <pl-matrix-input answers-name="new-o"  comparison='decdig' digits='3'  label="$W_{o1} = [w_{h1,o1}, w_{h2,o1}, w_{hb,o1} ] = $"></pl-matrix-input><br>
+    <pl-matrix-input answers-name="new-h1" comparison='decdig' digits='3'  label="$W_{h1} = [w_{x1,h1}, w_{x2,h1}, w_{xb,h1} ] = $"></pl-matrix-input><br>
+    <pl-matrix-input answers-name="new-h2" comparison='decdig' digits='3'  label="$W_{h2} = [w_{x1,h2}, w_{x2,h2}, w_{xb,h2} ] = $"></pl-matrix-input><br>
+
+    </div>
+</div>
+<br><br>
+

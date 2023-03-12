@@ -1,0 +1,45 @@
+<pl-question-panel>
+  <p>Consider the following binary classification problem with two features, $x_1$ and $x_2$, and class label indicated by color:</p>
+  <pl-figure file-name=figure.png type="dynamic"></pl-figure>
+  <p>Which of the following options can classify the data with <b>zero classification error on the training set</b>? Select all that apply.</p>
+</pl-question-panel>
+
+{{#params.checkerboard}}
+<pl-checkbox answers-name='mc' hide-letter-keys='true' number-answers='5'>
+  <pl-answer correct='false' feedback='Near the boundary between classes, some points would be misclassified because there are more nearby points of the opposite class than of the same class.'>K nearest neighbor with $K=9$</pl-answer>
+  <pl-answer correct='false' feedback='A logistic regression trained on these two features can only place one line as the decision boundary, but the data is not linearly separable. This will not be sufficient to classify the training data without error.'>A logistic regression trained on the features $x_1$ and $x_2$.</pl-answer>
+  <pl-answer correct='false' feedback='A tree with depth 1 (called a "decision stump") can only split once on a single feature - i.e. place one horizontal or vertical line as the decision boundary. This will not be sufficient to classify the training data without error.'>A decision tree with depth 1</pl-answer>
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, 1 nearest neighbor will always be able to classify the training data without error - it simply memorizes the training data.'>K nearest neighbor with $K=1$</pl-answer>
+  <pl-answer correct='true' feedback='Note that for one of the classes, the term $x1 x2$ is always positive, and for the other class, the term $x_1 x_2$ is always negative. Adding the interaction term projects the data into a dimension where it <i>is</i> linearly separable (can draw a hyperplane to perfectly separate the data).'>A logistic regression trained on the features $x_1$, $x_2$, and $x_1 x_2$.</pl-answer>
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, a decision tree with unconstrained depth will always be able to classify the training data without error - if it needs to, it can have as many leaf nodes as there are training samples!'>A decision tree with no constraint on depth</pl-answer>
+  <pl-answer correct='true' feedback='A tree with depth 2 can create up to four rectangular decision regions. This will be sufficient to classify the training data without error.'>A decision tree with depth 2</pl-answer>
+
+</pl-checkbox>
+{{/params.checkerboard}}
+
+{{#params.diagonal}}
+<pl-checkbox answers-name='mc' hide-letter-keys='true' number-answers='5'>
+  <pl-answer correct='false' feedback='Near the boundary between classes, some points would be misclassified because there are more nearby points of the opposite class than of the same class.'>K nearest neighbor with $K=9$</pl-answer>
+  <pl-answer correct='false' feedback='A tree with depth 1 (called a "decision stump") can only split once on a single feature - i.e. place one horizontal or vertical line as the decision boundary. This will not be sufficient to classify the training data without error.'>A decision tree with depth 1</pl-answer>
+  <pl-answer correct='false' feedback='A tree with depth 2 can create up to four rectangular decision regions. This will not be sufficient to classify the training data without error.'>A decision tree with depth 2</pl-answer>
+
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, 1 nearest neighbor will always be able to classify the training data without error - it simply memorizes the training data.'>K nearest neighbor with $K=1$</pl-answer>
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, a decision tree with unconstrained depth will always be able to classify the training data without error - if it needs to, it can have as many leaf nodes as there are training samples!'>A decision tree with no constraint on depth</pl-answer>
+  <pl-answer correct='true' feedback='A logistic regression trained on these two features can place one line as the decision boundary. The data is linearly separable, so this is sufficient to classify the training data without error.'>A logistic regression trained on the features $x_1$ and $x_2$.</pl-answer>
+
+</pl-checkbox>
+{{/params.diagonal}}
+
+{{#params.circle}}
+<pl-checkbox answers-name='mc' hide-letter-keys='true' number-answers='5'>
+  <pl-answer correct='false' feedback='Near the boundary between classes, some points would be misclassified because there are more nearby points of the opposite class than of the same class.'>K nearest neighbor with $K=9$</pl-answer>
+  <pl-answer correct='false' feedback='A logistic regression trained on these two features can only place one line as the decision boundary, but the data is not linearly separable. This will not be sufficient to classify the training data without error.'>A logistic regression trained on the features $x_1$ and $x_2$.</pl-answer>
+  <pl-answer correct='false' feedback='A tree with depth 2 can create up to four rectangular decision regions. This will not be sufficient to classify the training data without error.'>A decision tree with depth 2</pl-answer>
+  <pl-answer correct='false' feedback='A tree with depth 1 (called a "decision stump") can only split once on a single feature - i.e. place one horizontal or vertical line as the decision boundary. This will not be sufficient to classify the training data without error.'>A decision tree with depth 1</pl-answer>
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, 1 nearest neighbor will always be able to classify the training data without error - it simply memorizes the training data.'>K nearest neighbor with $K=1$</pl-answer>
+  <pl-answer correct='true' feedback='Adding the polynomial terms projects the data into a dimension where it <i>is</i> linearly separable (can draw a hyperplane to perfectly separate the data).'>A logistic regression trained on the features $x_1$, $x_2$, and $x_1^2$, and $x_2^2$.</pl-answer>
+  <pl-answer correct='true' feedback='As long as there are no two points that have the same values for $\mathbf{x}$ but different labels $y$, a decision tree with unconstrained depth will always be able to classify the training data without error - if it needs to, it can have as many leaf nodes as there are training samples!'>A decision tree with no constraint on depth</pl-answer>
+
+</pl-checkbox>
+{{/params.circle}}
+

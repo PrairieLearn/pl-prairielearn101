@@ -1,0 +1,146 @@
+<pl-question-panel>
+</pl-question-panel>
+
+
+
+<div class="card card-default">
+<div class="card-header">Part 1: Variance</div>
+<div class="card-body">
+
+<p>The variance of $y$ is 
+
+$$\sigma_y^2 =  \frac{1}{n} \sum_{i=1}^n (y_i - \bar{y})^2$$
+
+</p>
+
+
+<p>For the point highlighted in magenta, draw a line showing $y_i - \bar{y}$, i.e. the highlighted point's contribution to the variance. (The horizontal line is at $\bar{y}$.) </p>
+
+
+<pl-hide-in-panel answer="true">{{{feedback.var-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="var-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="false">
+          <pl-controlled-line x1="{{params.vl.x1}}" y1="{{params.vl.y1}}" x2="{{params.vl.x2}}" y2="{{params.vl.y2}}" color="{{params.colors.violet}}" stroke-width="2"  handle-radius="3"></pl-controlled-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base0}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.base01}}"></pl-point>
+    {{/params.data-dict}}
+    <pl-point x1="{{params.data-sel.x}}" y1="{{params.data-sel.y}}" radius="4" color="{{params.colors.magenta}}"></pl-point>
+    <pl-line x1="{{params.ml.x1}}" y1="{{params.ml.y1}}" x2="{{params.ml.x2}}" y2="{{params.ml.y2}}" stroke-color="{{params.colors.orange}}" stroke-width="2"></pl-line>
+    <!-- <pl-line x1="{{params.rl.x1}}" y1="{{params.rl.y1}}" x2="{{params.rl.x2}}" y2="{{params.rl.y2}}" stroke-color="{{params.colors.yellow}}" stroke-width="2"></pl-line> -->
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-controlled-line" stroke-width="2" color="{{params.colors.violet}}" handle-radius="3"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The vertical line from the magenta point to the horizontal line shows $y_i - \bar{y}$, i.e. the highlighted point's contribution to the variance.</p></pl-answer-panel>
+
+</div></div>
+
+<br><br>
+
+
+<div class="card card-default">
+<div class="card-header">Part 2: Mean squared error</div>
+<div class="card-body">
+
+<p>Now, the OLS regression line has been added to the drawing (yellow line). The mean squared error of this regression is
+
+$$MSE =  \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y_i})^2$$
+
+</p>
+
+
+<p>Add a point to the drawing showing the prediction of the mode $\hat{y_i}$ for the point highlighted in magenta. Then, draw a line showing $y_i - \hat{y_i}$, i.e. the highlighted point's contribution to the mean squared error. </p>
+
+
+<pl-hide-in-panel answer="true">{{{feedback.mse-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="mse-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="false">
+      <pl-point x1="{{params.data-sel.x}}" y1="{{params.el.y1}}" radius="4" color="{{params.colors.cyan}}"></pl-point>
+          <pl-controlled-line x1="{{params.el.x1}}" y1="{{params.el.y1}}" x2="{{params.el.x2}}" y2="{{params.el.y2}}" color="{{params.colors.violet}}" stroke-width="2"  handle-radius="3"></pl-controlled-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base0}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.base01}}"></pl-point>
+    {{/params.data-dict}}
+    <pl-point x1="{{params.data-sel.x}}" y1="{{params.data-sel.y}}" radius="4" color="{{params.colors.magenta}}"></pl-point>
+    <!-- <pl-line x1="{{params.ml.x1}}" y1="{{params.ml.y1}}" x2="{{params.ml.x2}}" y2="{{params.ml.y2}}" stroke-color="{{params.colors.base01}}" stroke-width="2"></pl-line> -->
+    <pl-line x1="{{params.rl.x1}}" y1="{{params.rl.y1}}" x2="{{params.rl.x2}}" y2="{{params.rl.y2}}" stroke-color="{{params.colors.yellow}}" stroke-width="2"></pl-line> 
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-point" radius="4" color="{{params.colors.cyan}}"></pl-drawing-button>
+      <pl-drawing-button type="pl-controlled-line" stroke-width="2" color="{{params.colors.violet}}" handle-radius="3"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The vertical line from the magenta point to the regression line shows $y_i - \hat{y_i}$, i.e. the highlighted point's contribution to the mean squared error.</p></pl-answer-panel>
+
+</div></div>
+
+<br><br>
+
+
+
+<div class="card card-default">
+<div class="card-header">Part 3: Fraction of variance explained/unexplained</div>
+<div class="card-body">
+
+
+
+<p>For the point highlighted in magenta, draw a line showing the portion of variance due to this point that <i>is explained</i> by the regression, and another line showing the portion of variance due to this point that is <i>unexplained</i>. </p>
+
+
+<pl-hide-in-panel answer="true">{{{feedback.expl-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="expl-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="false">
+          <pl-controlled-line x1="{{params.el.x1}}" y1="{{params.el.y1}}" x2="{{params.el.x2}}" y2="{{params.el.y2}}" color="{{params.colors.violet}}" stroke-width="2"  handle-radius="3"></pl-controlled-line>
+          <pl-controlled-line x1="{{params.expl.x1}}" y1="{{params.expl.y1}}" x2="{{params.expl.x2}}" y2="{{params.expl.y2}}" color="{{params.colors.violet}}" stroke-width="2"  handle-radius="3"></pl-controlled-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base0}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.base01}}"></pl-point>
+    {{/params.data-dict}}
+    <pl-point x1="{{params.data-sel.x}}" y1="{{params.data-sel.y}}" radius="4" color="{{params.colors.magenta}}"></pl-point>
+    <pl-line x1="{{params.ml.x1}}" y1="{{params.ml.y1}}" x2="{{params.ml.x2}}" y2="{{params.ml.y2}}" stroke-color="{{params.colors.orange}}" stroke-width="2"></pl-line>
+    <pl-line x1="{{params.rl.x1}}" y1="{{params.rl.y1}}" x2="{{params.rl.x2}}" y2="{{params.rl.y2}}" stroke-color="{{params.colors.yellow}}" stroke-width="2"></pl-line> 
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-controlled-line" stroke-width="2" color="{{params.colors.violet}}" handle-radius="3"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The vertical line from the horizontal (mean) line to the regression line is the part of the variance that <i>is explained</i> by the regression line, and the vertical line from the regression line to the point is the part of the variance that is <i>unexplained</i>.</p></pl-answer-panel>
+
+</div></div>
+
+<br><br>

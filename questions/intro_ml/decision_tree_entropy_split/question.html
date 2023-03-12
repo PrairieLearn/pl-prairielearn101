@@ -1,0 +1,97 @@
+<style>
+  th, td {
+    padding: 10px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pl-python-variable-table {
+     font-size: 1rem;
+  }  
+
+</style>
+
+
+<pl-question-panel>
+  <p>You are developing a decision tree to classify animals into categories (<b>{{params.name0}}</b> or <b>{{params.name1}}</b>), based on a set of binary features. Here is your training data (including the target variable, <tt>category</tt>, in the last column):</p>
+  <pl-dataframe show-python="false" params-name="dat"></pl-dataframe>
+    <p>You need to select a feature to split on so as to maximize information gain, the expected reduction in entropy due to splitting on that feature.</p>
+    <br>
+</pl-question-panel>
+
+<hr>
+<p>For each feature, compute the conditional entropy of the data given a split on that feature, and the information gain due to splitting on that feature:</p>
+  <table class="center">
+    <thead>
+        <tr>
+      <th>Feature</th>
+      <th>Conditional entropy</th>
+      <th>Information gain</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#params.feats}}
+      <tr>
+        <td>{{name}}</td>
+        <td><pl-number-input answers-name="{{j}}-cond-ent" label='$E(S|\text{ {{name}} }) = $' comparison='decdig' digits='3' show-help-text='false' allow-blank='true' correct-answer="{{cond_e}}" display="block"></pl-number-input></td>
+        <td><pl-number-input answers-name="{{j}}-gain" label='$G(S, \text{ {{name}} }) = $' comparison='decdig' digits='3' show-help-text='false' allow-blank='true' correct-answer="{{e_gain}}" display="block"></pl-number-input></td>
+      </tr>
+      {{/params.feats}}
+    </tbody>
+  </table>
+
+
+<br><hr>
+<p>Which feature should you split on? (If multiple features would give you the same maximum information gain, select the first one from left to right.)</p>
+<pl-multiple-choice answers_name="spl" hide-letter-keys="true" inline="false" fixed-order="true">
+    {{#params.split}}
+    <pl-answer correct="{{ans}}">{{tag}}</pl-answer>
+    {{/params.split}}
+</pl-multiple-choice>
+
+
+
+<pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span></p>
+
+<p>First, we compute the entropy for the entire set:</p>
+
+$$ S = \{ 5 \text{ {{params.name0}} }, 5 \text{ {{params.name1}} }     \}, |S| = 10 $$
+
+$$E(S) = -\frac{5}{10} \log_2{\frac{5}{10}}  -\frac{5}{10} \log_2{\frac{5}{10}} = {{params.e}} $$
+    
+<p>Note that entropy is maximized ($E=1$) when the data is evenly divided between the two classes.</p>
+
+<p>Now, we will compute the conditional entropy and the information gain for each of the features.</p>
+
+{{#params.feats}}
+<hr>
+<p><b>{{name}}</b>:</p>
+{{#isZero}}
+<div class="alert alert-primary">
+    <p>You can save yourself some time and computation by noticing that there are just as many  {{params.name0}} samples with <b>{{name}} = 1</b> as there are {{params.name1}} samples with <b>{{name}} = 1</b>. In this case, there is no benefit to splitting on <b>{{name}}</b> - the conditional entropy after splitting will be the same as the entropy before the split, and the information gain is $0$.</p>
+</div>
+{{/isZero}}
+
+{{#isOne}}
+<div class="alert alert-success">
+    <p>You can save yourself some time and computation by noticing that after splitting on <b>{{name}}</b>, both leaf nodes are "pure" - all of the {{params.name0}} samples end up in one leaf and all of the {{params.name1}} samples end up in the other leaf. In this case, the conditional entropy after splitting will be $0$.</p>
+</div>
+{{/isOne}}
+
+
+<p>Considering the $\text{ {{name}} } = 0$ branch:</p>
+$$S_0 =  \{ {{count_neg.0}} \text{ {{params.name0}} }, {{count_neg.1}} \text{ {{params.name1}} }     \}, |S_0| = |{{n_neg}}|$$
+$$E(S_0) = -\frac{ {{count_neg.0}} }{ {{n_neg}} } \log_2{\frac{ {{count_neg.0}} }{ {{n_neg}} }}  -\frac{ {{count_neg.1}} }{ {{n_neg}} } \log_2{\frac{ {{count_neg.1}} }{ {{n_neg}} }} = {{e_neg}} $$
+<p>Considering the $\text{ {{name}} } = 1$ branch:</p>
+$$S_1 =  \{ {{count_pos.0}} \text{ {{params.name0}} }, {{count_pos.1}} \text{ {{params.name1}} }     \}, |S_1| = |{{n_pos}}|$$
+$$E(S_1) = -\frac{ {{count_pos.0}} }{ {{n_pos}} } \log_2{\frac{ {{count_pos.0}} }{ {{n_pos}} }}  -\frac{ {{count_pos.1}} }{ {{n_pos}} } \log_2{\frac{ {{count_pos.1}} }{ {{n_pos}} }} = {{e_pos}} $$
+<p>Conditional entropy and information gain of splitting on {{name}}:</p>
+$$E(S | \text{ {{name}} } ) = -\frac{ {{n_neg}} }{ 10 } E(S_0) -\frac{ {{n_pos}} }{ 10 } E(S_1) = {{cond_e}} $$
+$$G(S, \text{ {{name}} } ) = E(S) - E(S | \text{ {{name}} } ) = {{params.e}} - {{cond_e}} = {{e_gain}} $$
+
+{{/params.feats}}
+
+</pl-answer-panel>

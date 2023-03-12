@@ -1,0 +1,88 @@
+<pl-question-panel>
+    
+<markdown>
+Everyone on Earth was shocked when contact with the first alien species occurred in 2025. But by now, we have had contact with thousands of others and we have grown used to sharing the universe.
+
+You are working for a government agency, developing a machine learning model to "score" each new alien species according to its risk of hostility to Earth. Every species will get a score on a scale from -100 (least hostility) to 100 (most hostility). 
+
+You have a spreadsheet with one row for each of the new alien species encountered since that first contact ({{params.rows}} rows) and the following columns:
+
+
+- species name (text)
+- distance from Earth: the distance from Earth in light years to the location where the alien species was observed (Useful for estimated risk to Earth)
+- known hostile species in area: whether known hostile alien species have been observed in the same area (0 or 1)
+- distance to nearest known hostile alien species: the distance in light years to the location of the nearest known hostile alien species
+- language: richness of the language used by this species, according to a linguist (0-5 range)
+- family: whether or not this species cares for young in a family-type unit (0 or 1)
+- education system: whether or not this species has a formal education framework for their youth (0 or 1)
+- weight: weight of average adult in this species, in kg (relative to Earth gravity)
+- human-estimated hostility risk (-100 to 100)
+
+You decide to use a fully connected neural network with a single hidden layer for your model.
+
+</markdown>
+
+
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='7'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The data has 7 features, so there will be 7 input units.</p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='1'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a regression problem with a single output. The network should have 1 output unit.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but that doesn't apply here.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="true">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a regression problem, we use a linear activation at the output units.</p></pl-answer-panel>

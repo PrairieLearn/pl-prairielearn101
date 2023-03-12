@@ -1,0 +1,88 @@
+<pl-question-panel>
+    
+<markdown>
+You are developing a machine learning model to automatically grade an open-ended short answer question on an Intro ML final exam. Your model will be trained using a dataset of {{params.n}} past student answers to this question.
+
+To represent the text samples in your training data as fixed-length numeric vectors, you are using a "bag of words" model, where the text samples are processed as follows:
+
+1.  Remove the "trivial" words that you want to ignore, such as "the", "an", "has", etc. from the text.
+2.  Compile a "vocabulary" - a list of all of the words in the dataset - with integer indices from 0 to $d-1$.
+3. Convert every sample into a $d$-dimensional vector $x$, by letting the $j$th coordinate of $x$ be the number of occurences of the $j$th words in the document. (This number is often called the "term frequency".)
+
+After you have completed this process, you have a numeric array that is {{params.n}} rows and {{params.d}} columns.
+
+Next, you encode the target variable. Each sample in the dataset has previously been manually graded according to a rubric, where the rubric options are:
+
+* Correct answer (full credit)
+* Answer is incorrect because of reason X (half credit)
+* Answer is incorrect because of reason Y (half credit)
+* Answer is incorrect because of reason Z (zero credit)
+* Answer is incorrect for another reason (zero credit)
+
+You use one-hot encoding to encode the target variable, so that each rubric option is represented as a column, and each sample has a "1" in exactly one of them (and "0" in the rest).
+
+You set aside 20% of the data for a test set, and use the rest as a training set for your model. Now, you are going to train a fully connected neural network on this data.
+</markdown>
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='{{params.d}}'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Each word in the vocabulary is a feature. </p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='5'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a multi-class classification problem with 5 classes (each rubric option is a class). The network should have 5 output units - one for each class.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but not at the hidden units.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="true">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a multi-class classification problem, we use a softmax activation at the output units, and the number of units should be the same as the number of classes.</p></pl-answer-panel>

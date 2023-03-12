@@ -1,0 +1,85 @@
+<pl-question-panel>
+    
+<markdown>
+You are hired by a travel agency that offers 10 unique vacation packages, and assists groups with choosing the best one for their needs and interests. The agency wants to use machine learning to select the best candidate options to show a new client family.
+
+They provide to you a spreadsheet of all bookings within the past year, with {{params.rows}} rows (each corresponding to one group and the vacation package they decided on). The spreadsheet has the following columns:
+
+* Record index (an auto-incrementing unique ID for each row in the spreadsheet)
+* Number of children (under 18)
+* Number of group members age 18-65
+* Number of group members over 65 years old
+* Pets (1 for bringing pets along, 0 otherwise)
+* Season of travel (0: Spring, 1: Summer, 2: Fall, 3: Winter)
+* Preferred location (1 for international, 0 for domestic)
+* Preferred activity level (0 for Low, 1 for Medium, 2 for High)
+* Selected vacation package (1 to 10)
+
+You decide to use a fully connected neural network with a single hidden layer to solve this problem. You will train the network using the features from the spreadsheet that are relevant for predicting the selected vacation package.
+
+</markdown>
+
+
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='7'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The data has 7 relevant features, so there will be 7 input units.</p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='10'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a multi-class classification problem with 10 classes. The network should have 10 output units - one for each class.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but that doesn't apply here.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="true">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a multi-class classification problem, we use a softmax activation at the output units.</p></pl-answer-panel>

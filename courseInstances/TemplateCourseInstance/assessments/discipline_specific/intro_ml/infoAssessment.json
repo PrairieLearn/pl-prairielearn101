@@ -1,0 +1,112 @@
+{
+  "uuid": "fbedad94-43e7-42a3-b7fd-c94f112436a6",
+  "type": "Homework",
+  "title": "Examples from Introduction to Machine Learning",
+  "set": "Homework",
+  "number": "0",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This 'homework' demonstrates a sample of questions from an Introduction to Machine Learning course at NYU. Contact: Fraida Fund ffund@nyu.edu",
+  "zones": [
+    {
+      "title": "Linear Regression",
+      "questions": [
+        { "id": "intro_ml/linear_regression_compute_fitted_rand", "points": 5 },
+        { "id": "intro_ml/linear_regression_compute_fitted_trans", "points": 5 },
+        { "id": "intro_ml/linear_regression_residual_graphical", "points": 5 },
+        { "id": "intro_ml/linear_regression_graphical_intuition", "points": 5 },
+        { "id": "intro_ml/linear_regression_linear_input_params", "points": 5 }
+      ]
+    },
+    {
+      "title": "Error decomposition and model selection",
+      "questions": [
+        { "id": "intro_ml/metrics_bounds", "points": 5 },
+        { "id": "intro_ml/model_selection_one_se", "points": 5 },
+        { "id": "intro_ml/model_selection_one_se_nfeatures", "points": 5 },
+        { "id": "intro_ml/model_selection_data_split_strategy", "points": 5 },
+        { "id": "intro_ml/model_selection_std_preprocess", "points": 5 }
+      ]
+    },
+    {
+      "title": "Gradient descent",
+      "questions": [
+        { "id": "intro_ml/gradient_descent_big_o_runtime", "points": 5 },
+        { "id": "intro_ml/gradient_descent_gd_update_rule", "points": 5 }
+      ]
+    },
+    {
+      "title": "Logistic Regression",
+      "questions": [
+        { "id": "intro_ml/logistic_regression_compute_fitted", "points": 5 },
+        { "id": "intro_ml/logistic_regression_compute_fitted_softmax", "points": 5 },
+        { "id": "intro_ml/logistic_regression_gd_step", "points": 5 },
+        { "id": "intro_ml/fairness_base_rate", "points": 5 }
+      ]
+    },
+    {
+      "title": "K nearest neighbor",
+      "questions": [
+        { "id": "intro_ml/knn_compute_clf_prediction", "points": 5 },
+        { "id": "intro_ml/knn_compute_reg_prediction", "points": 5 }
+      ]
+    },
+    {
+      "title": "Decision trees and ensembles",
+      "questions": [
+        { "id": "intro_ml/decision_tree_entropy_split", "points": 5 },
+        { "id": "intro_ml/decision_tree_no_error", "points": 5 },
+        { "id": "intro_ml/ensemble_adaboost_graphical", "points": 5 }
+      ]
+    },
+    {
+      "title": "Support vector machines",
+      "questions": [
+        { "id": "intro_ml/svm_mm_optimize", "points": 5 }
+      ]
+    },
+     {
+      "title": "Neural networks and convolutional neural networks",
+      "questions": [
+        { "id": "intro_ml/neural_net_forward_compute", "points": 5 },
+        { "id": "intro_ml/neural_net_backprop_compute", "points": 5 },
+        { "id": "intro_ml/neural_net_universal_approx", "points": 5 },
+	    {
+		"numberChoose": 1,
+		"autoPoints": [5],
+		"alternatives": [
+		    {"id": "intro_ml/neural_net_problem_setup_alien_hostility"},
+		    {"id": "intro_ml/neural_net_problem_setup_bike"},
+		    {"id": "intro_ml/neural_net_problem_setup_burnout"},
+		    {"id": "intro_ml/neural_net_problem_setup_grading"},
+		    {"id": "intro_ml/neural_net_problem_setup_plant_id"},
+		    {"id": "intro_ml/neural_net_problem_setup_ride_wait"},
+		    {"id": "intro_ml/neural_net_problem_setup_vacation"}
+		]
+	    }, 
+        { "id": "intro_ml/conv_conv_layer", "points": 5 },
+        { "id": "intro_ml/conv_pooling", "points": 5 }
+      ]
+    },
+    {
+      "title": "PCA",
+      "questions": [
+        { "id": "intro_ml/pca_graphical_intuition", "points": 5 }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
