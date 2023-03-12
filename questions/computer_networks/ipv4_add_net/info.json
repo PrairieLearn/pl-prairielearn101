@@ -1,0 +1,11 @@
+{
+    "uuid": "64d5c4de-adc2-4c83-8e19-77fafd416f81",
+    "title": "IPv4 subnets",
+    "topic": "Static routing",
+    "tags": [
+        "checkbox",
+        "short answer",
+        "lab"
+    ],
+    "type": "v3"
+}

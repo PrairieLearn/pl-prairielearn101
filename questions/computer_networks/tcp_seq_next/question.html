@@ -1,0 +1,46 @@
+<pl-question-panel>
+  <p>A TCP endpoint sends the following segments. (Note: the <code>length</code> field shown is the size of the TCP payload.)</p>
+  
+  
+{{#params.S}}
+<pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: Flags [S], 
+        seq {{params.sn1}}, win 64240, options [mss 1460,sackOK,wscale 7], length 0</pl-code>
+{{/params.S}}
+
+  
+{{#params.A}}
+<pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: Flags [.], 
+        seq {{params.sn1}}, ack {{params.sn2}}, win 502, length 0</pl-code>
+{{/params.A}}
+
+{{#params.F}}
+<pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: Flags [F.], 
+        seq {{params.sn1}}, ack {{params.sn2}}, win 502, length 0</pl-code>
+{{/params.F}}
+
+{{#params.D}}
+<pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: Flags [P.], 
+        seq {{params.sn1}}, ack {{params.sn2}}, win 502, length {{params.l1}}</pl-code>
+{{/params.D}}
+
+
+</pl-question-panel>
+
+
+<p>What will be the sequence number of the next segment it sends?</p>
+
+<pl-integer-input answers-name="seq"></pl-integer-input>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Sequence numbers are incremented as follows, depending on the type of segment that is sent. The one that applies to this example is marked with a check:</p>
+<p>
+<ul>
+    <li><b>SYN</b>: sender increments its sequence number by 1. {{#params.S}} &#9989; {{/params.S}}</li>
+    <li><b>FIN</b>: sender increments its sequence number by 1. {{#params.F}} &#9989; {{/params.F}}</li>
+    <li><b>Pure ACK</b> (no SYN or FIN, no data payload): sender does not change its sequence number. {{#params.A}} &#9989; {{/params.A}}</li>
+    <li><b>Data segment</b>: sender increments its sequence number by the size of the data payload. {{#params.D}} &#9989; {{/params.D}}</li>
+</ul>
+</p>
+</pl-answer-panel>
+
+

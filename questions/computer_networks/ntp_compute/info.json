@@ -1,0 +1,11 @@
+{
+    "uuid": "bf61944d-6978-4d92-8745-9746db7ff7a9",
+    "title": "NTP computation of delay and offset",
+    "topic": "HTTP, DHCP, NTP, NAT",
+    "tags": [
+        "lab",
+        "short answer",
+        "multiple choice"
+    ],
+    "type": "v3"
+}

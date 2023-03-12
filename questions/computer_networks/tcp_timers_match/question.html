@@ -1,0 +1,15 @@
+<pl-question-panel>
+  <p>For each objective, identify the TCP mechanism that is primarily responsible for it.</p>
+</pl-question-panel>
+
+<pl-matching answers-name="string_value">
+  <pl-statement match="Retransmission timer (RTO)">Determine how long to wait for an ACK before deciding the data segment is lost</pl-statement>
+  <pl-statement match="Delayed ACK">Reduce overhead by sending a smaller number of ACKs</pl-statement>
+  <pl-statement match="Nagle's algorithm">Reduce overhead by sending a smaller number of data segments</pl-statement>
+  <pl-statement match="Connection establishment timer">Determine when to give up on establishing a TCP connection, if no response is received for a SYN</pl-statement>
+  <pl-statement match="2MSL wait timer">Ensure delayed segments have a chance to be received before a socket is closed</pl-statement>
+  <pl-statement match="Keepalive timer">Confirm that a connection is still valid after it has been idle for a while</pl-statement>
+  <pl-option>Persist timer</pl-option>
+  <pl-option>Exponential backoff</pl-option>
+  <pl-option>RST flag</pl-option>
+</pl-matching>

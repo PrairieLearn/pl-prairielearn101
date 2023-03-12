@@ -1,0 +1,54 @@
+<pl-question-panel>
+<p>A bridge receives a frame on port {{params.ports.0}} with source address <code>{{params.macs.0}}</code> and destination address <code>{{params.dst.dst}}</code>.
+</p>
+</pl-question-panel>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1: Bridge action on source address</div>
+  <div class="card-body">
+
+<p>{{params.src.desc1}} <code>{{params.macs.0}}</code> {{params.src.desc2}}. The bridge will:</p>
+
+<pl-multiple-choice answers-name="bridge-src" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="{{params.src.tags.0}}">Make no changes to its forwarding table</pl-answer>
+    <pl-answer correct="{{params.src.tags.1}}">Add an entry to its forwarding table for <code>{{params.macs.0}}</code> on port {{params.ports.0}}</pl-answer>
+    <pl-answer correct="{{params.src.tags.2}}">Update the existing forwarding table entry for <code>{{params.macs.0}}</code> on port {{params.ports.0}} to reset the ageing timer</pl-answer>
+</pl-multiple-choice>
+
+</div>
+</div>
+
+<br>
+
+<div class="card card-default">
+  <div class="card-header">Part 2: Bridge action on destination address</div>
+  <div class="card-body">
+
+<p><code>{{params.dst.dst}}</code> {{params.dst.desc}}. The bridge will:</p>
+
+
+<pl-multiple-choice answers-name="bridge-dst" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="{{params.dst.tags.0}}">Drop the frame</pl-answer>
+    <pl-answer correct="{{params.dst.tags.1}}">Flood the frame on every port</pl-answer>
+    <pl-answer correct="{{params.dst.tags.2}}">Flood the frame on every port except port {{params.ports.0}}</pl-answer>
+    <pl-answer correct="{{params.dst.tags.3}}">Forward the frame on port {{params.ports.1}}</pl-answer>
+    <pl-answer correct="{{params.dst.tags.4}}">Forward the frame on port {{params.ports.0}}</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><hr><p>
+<span class="badge badge-primary">Comment</span> When a frame arrives at a switch or a bridge, the forwarding table is used to determine whether to forward, filter, or flood the frame, depending on its destination address:
+
+<ul>
+<li>When the switch receives a frame that is destined for an address that is not in the table (or for the broadcast address), the switch will flood the frame out of all ports other than the port on which it arrived.</li>
+<li>If the destination address is in the table, and is known to be reachable on the same port that the frame was received on, the switch will filter (drop) the frame.</li>
+<li>Otherwise, the switch will forward the frame out of the port corresponding to its destination address in the forwarding table.</li>
+</ul>    
+</p></pl-answer-panel>
+
+
+</div>
+</div>
+

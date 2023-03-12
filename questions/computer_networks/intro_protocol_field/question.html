@@ -1,0 +1,28 @@
+
+<p>In the <b>{{params.protocol}}</b> header, the </p>
+
+<pl-multiple-choice answers-name="field" hide-letter-keys="true">
+    <pl-answer correct="true">{{params.correctField}}</pl-answer>
+    {{#params.wrongField}}
+    <pl-answer correct="false">{{.}}</pl-answer>
+    {{/params.wrongField}}
+
+</pl-multiple-choice>
+
+<br>
+<p>field tells the {{params.protocol}} protocol what {{params.next}} at the </p>
+
+<pl-multiple-choice answers-name="proto" hide-letter-keys="true">
+    <pl-answer correct="true">{{params.nextProtocol}}</pl-answer>
+    {{#params.wrongProtocol}}
+    <pl-answer correct="false">{{.}}</pl-answer>
+    {{/params.wrongProtocol}}
+</pl-multiple-choice>
+
+<br>
+<p>layer to demultiplex the packet to.</p>
+
+
+<pl-answer-panel>
+    <br><hr><p><span class="badge badge-primary">Comment</span> When a packet is received at a host, it is passed "up" the network protocol stack. At each layer in the network protocol stack, there is a header field that tells the protocol what higher-layer protocol to pass the packet to.</p>
+</pl-answer-panel>

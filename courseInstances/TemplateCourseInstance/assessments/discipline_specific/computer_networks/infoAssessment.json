@@ -1,0 +1,99 @@
+{
+  "uuid": "fbedad94-43e7-42a3-b7fd-c94f112491f8",
+  "type": "Homework",
+  "title": "Examples from Computer Networks",
+  "set": "Homework",
+  "number": "0",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This 'homework' demonstrates a sample of questions from a Computer Networks course at NYU. Contact: Fraida Fund ffund@nyu.edu",
+  "zones": [
+    {
+      "title": "Intro",
+      "questions": [
+        { "id": "computer_networks/intro_identifiers", "points": 5 },
+        { "id": "computer_networks/intro_layer_order", "points": 5 },
+        { "id": "computer_networks/intro_protocol_field", "points": 5 },
+        { "id": "computer_networks/intro_encap_headers", "points": 5 },
+        { "id": "computer_networks/intro_encap_graphical", "points": 5 },
+        { "id": "computer_networks/intro_cross_net", "points": 5 }
+      ]
+    },
+    {
+      "title": "Data Link Layer",
+      "questions": [
+        { "id": "computer_networks/mac_csma_cd_flow", "points": 5 },
+        { "id": "computer_networks/mac_csma_ca_flow", "points": 5 },
+        { "id": "computer_networks/mac_csma_ca_match", "points": 5 },
+        { "id": "computer_networks/mac_backoff_time_draw", "points": 5 },
+        { "id": "computer_networks/mac_rts_cts", "points": 5 },
+        { "id": "computer_networks/bridge_frame_one", "points": 5 },
+        { "id": "computer_networks/bridge_frame_seq", "points": 5 },
+        { "id": "computer_networks/stp_tiebk_bpdu", "points": 5 },
+        { "id": "computer_networks/stp_bpdu_port_state", "points": 5 },        
+        { "id": "computer_networks/stp_bpdu_change", "points": 5 },
+        { "id": "computer_networks/stp_draw_tree_d", "points": 5 }
+      ]
+    },
+    {
+      "title": "Network Layer",
+      "questions": [
+        { "id": "computer_networks/ipv4_binary", "points": 5 },
+        { "id": "computer_networks/ipv4_add_net", "points": 5 },
+        { "id": "computer_networks/ipv4_sub_design", "points": 5 },
+        { "id": "computer_networks/ipv4_sub_design_order", "points": 5 },
+        { "id": "computer_networks/static_match_rule", "points": 5 },
+        { "id": "computer_networks/static_network_lpm", "points": 5 },
+        { "id": "computer_networks/ipv4_frags_header_fields", "points": 5 },
+        { "id": "computer_networks/dynamic_dijkstra_table_rand_all", "points": 5 },
+        { "id": "computer_networks/dynamic_dv_line_broken", "points": 5 }
+         ]
+    },                    
+    {
+      "title": "Transport Layer",
+      "questions": [
+        { "id": "computer_networks/udp_socket_blocks", "points": 5 },
+        { "id": "computer_networks/tcp_socket_blocks", "points": 5 },
+        { "id": "computer_networks/tcp_timers_match", "points": 5 },      
+        { "id": "computer_networks/tcp_mech_header", "points": 5 },
+        { "id": "computer_networks/tcp_state_single", "points": 5 },
+        { "id": "computer_networks/tcp_sliding_window", "points": 5 },
+        { "id": "computer_networks/tcp_seq_conn_establish", "points": 5 },
+        { "id": "computer_networks/tcp_seq_next", "points": 5 },
+        { "id": "computer_networks/tcp_ack_segs", "points": 5 },
+        { "id": "computer_networks/tcp_sack_segs", "points": 5 },
+        { "id": "computer_networks/tcp_sender_conditions", "points": 5 },
+        { "id": "computer_networks/tcp_cwnd_plot", "points": 5 }
+      ]
+    },
+    {
+      "title": "Application Layer",
+      "questions": [
+        { "id": "computer_networks/nat_service_behind_nat", "points": 5 },
+        { "id": "computer_networks/http_boot_get_sections", "points": 5 },
+        { "id": "computer_networks/ntp_compute", "points": 5 }
+      ]
+    },
+    {
+      "title": "Network Security",
+      "questions": [
+        { "id": "computer_networks/sec_key_variations", "points": 5 },
+        { "id": "computer_networks/seq_confidentiality", "points": 5 }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+

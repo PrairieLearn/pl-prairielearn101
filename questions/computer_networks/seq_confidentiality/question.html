@@ -1,0 +1,235 @@
+<pl-question-panel>
+<p>In the following network, <b>{{params.sender}}</b> {{params.desc}} <b>{{params.recv}}</b>.</p>
+
+<pl-graph engine="neato">
+graph topology {
+    rankdir="TB";
+      graph [splines=ortho, nodesep=1]
+      overlap=false;
+
+    {
+        node [colorscheme=accent3]
+
+
+
+    alice [width=0.5 shape=rect label="{{params.sender}}" fontname="courier" style="filled" fillcolor=1]
+    bob [width=0.5 shape=rect label="{{params.recv}}" fontname="courier" style="filled" fillcolor=1]
+    vpn [width=0.5 shape=rect label="vpn" fontname="courier" style="filled" fillcolor=1]
+
+    gwAlice [width=0.5 shape=rect  label="{{params.sender}}-rtr" fontname="courier" style="filled" fillcolor=3]
+    gwEve [width=0.5 shape=rect  label="{{params.names.1}}-rtr" fontname="courier" style="filled" fillcolor=3]
+    gwBob [width=0.5 shape=rect  label="{{params.recv}}-rtr" fontname="courier" style="filled" fillcolor=3]
+
+    m2 [width=0.5 shape=rect label="{{params.names.0}}" fontname="courier" style="filled" fillcolor="lightcoral"]
+    m3 [width=0.5 shape=rect label="{{params.names.1}}" fontname="courier" style="filled" fillcolor="lightcoral"]
+    m4 [width=0.5 shape=rect label="{{params.names.2}}" fontname="courier" style="filled" fillcolor="lightcoral"]
+    m5 [width=0.5 shape=rect label="{{params.names.3}}" fontname="courier" style="filled" fillcolor="lightcoral"]
+    m6 [width=0.5 shape=rect label="{{params.names.4}}" fontname="courier" style="filled" fillcolor="lightcoral"]
+
+    sw [width=1 shape=rect height=0.01  label=""]
+    internet [width=1 shape=rect label="Internet" fontname="courier" style="filled" fillcolor=2]
+
+
+
+    ispA [width=1 shape=rect label="ISP A" fontname="courier" style="filled" fillcolor=2]
+    ispB [width=1 shape=rect label="ISP B" fontname="courier" style="filled" fillcolor=2]
+    ispC [width=1 shape=rect label="ISP C" fontname="courier" style="filled" fillcolor=2]
+
+    }
+        m6 -- gwBob
+        bob -- gwBob -- ispB -- internet
+        vpn -- ispC --internet
+        alice -- sw -- gwAlice -- ispA -- internet
+        m2 -- sw
+        m3 -- gwEve -- ispA
+        m4 -- ispA
+        m5 -- ispB
+        
+
+    }       
+</pl-graph>
+<p>Unfortunately, there are some potential eavesdroppers on this exchange at various points in the network:</p>
+
+<ol type="a">
+    <li>{{params.names.0}} is connected to {{params.sender}}'s home Ethernet network, and uses <code>tcpdump</code> to capture packets on it.</li>
+    <li>{{params.names.1}} is {{params.sender}}'s neighbor, and uses the same Internet Service Provider as {{params.sender}}.</li>
+    <li>{{params.names.2}} works for {{params.sender}}'s Internet Service Provider, ISP A, and can capture any packets that traverse routers in the ISP A network.</li>
+    <li>{{params.names.3}} works for {{params.recv}}'s Internet Service Provider, ISP B, and can capture any packets that traverse routers in the ISP B network.</li>
+    <li>{{params.names.4}} is a network administrator for {{params.recv}}, and can capture network traffic on {{params.recv}}'s network.</li>
+    <li>{{params.names.5}} (not shown in the diagram) is the system administrator for {{params.recv}}, and has complete access to files, services, application logs, and network traffic on {{params.recv}}.</li>
+    <li>{{params.names.6}} (not shown in the diagram) is the system administrator for the VPN service in the diagram, and has complete access to files, services, application logs, and network traffic on it.</li>
+</ol>
+
+<p>None of these eavesdroppers will interact with network traffic or modify the behavior of any network protocols, but they may passively eavesdrop on networks or applications as described above.</p>
+
+</pl-question-panel>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1</div>
+  <div class="card-body">
+
+<p>Who will be able to see {{params.item}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-item" fixed-order="true">
+    <pl-answer correct="{{params.item-insecure.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.item-insecure.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<hr>
+
+<p>Who will be able to see that {{params.sender}}'s address exchanged data with {{params.recv}}'s address on {{params.connInsecure}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-conn" fixed-order="true">
+    <pl-answer correct="{{params.conn-insecure.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> {{params.names.1}} and {{params.names.6}} will not see any part of this exchange, because the packets exchanged between {{params.sender}} and {{params.recv}} will not traverse their networks.</p>
+<p>However, for all of the eavesdroppers located along the path between {{params.sender}} and {{params.recv}}, everything about this exchange - including data payload of every packet and connection information - will be visible.</p></pl-answer-panel>
+
+</div></div><br>
+
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2</div>
+  <div class="card-body">
+      
+<p>Suppose that instead, {{params.sender}} {{params.descS}} {{params.recv}}.</p>
+
+<hr>
+
+<p>Who will be able to see {{params.item}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-item-secure" fixed-order="true">
+    <pl-answer correct="{{params.item-secure.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<hr>
+
+<p>Who will be able to see that {{params.sender}}'s address exchanged data with {{params.recv}}'s address on {{params.connSecure}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-conn-insecure" fixed-order="true">
+    <pl-answer correct="{{params.conn-insecure.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.conn-insecure.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Since {{params.sender}} is now using a secure protocol that encrypts the packet payloads end-to-end, most of the eavesdroppers will not be able to see {{params.item}} or any other part of the packet payloads. However, any eavesdropper located <i>on</i> either end host (on {{params.sender}} or on {{params.recv}}) may still be able to see {{params.item}}, since the payloads exist in their un-encrypted state at the end hosts.</p>
+<p>The connection information is still visible to all of the eavesdroppers located along the path between {{params.sender}} and {{params.recv}} (i.e. everyone except {{params.names.1}} and {{params.names.6}}).</p></pl-answer-panel>
+
+</div></div><br>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 3</div>
+  <div class="card-body">
+      
+<p>Now suppose that {{params.sender}} {{params.desc}} {{params.recv}}, but 
+{{params.sender}} uses a VPN service (shown in the diagram) for all network connections.</p>
+
+<hr>
+
+<p>Who will be able to see {{params.item}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-item-vpn" fixed-order="true">
+    <pl-answer correct="{{params.item-vpn.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.item-vpn.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<hr>
+
+<p>Who will be able to see that {{params.sender}}'s address exchanged data with {{params.recv}}'s address on {{params.connInsecure}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-conn-vpn" fixed-order="true">
+    <pl-answer correct="{{params.conn-vpn.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> With a VPN, both the connection information (original packet headers) and payload (including {{params.item}}) will be encrypted between {{params.sender}} and the VPN service.</p>
+<p>The packet payloads are unencrypted by the VPN service before forwarding to {{params.recv}}, so everyone between the VPN service and {{params.recv}} can see {{params.item}}: {{params.names.6}}, {{params.names.3}}, {{params.names.4}}, {{params.names.5}}.</p>
+<p>Between {{params.sender}} and the VPN service, the packet headers will only reveal that {{params.sender}} is exchanging data with a VPN service. {{params.recv}}'s address and the {{params.connInsecure}}, are not visible to eavesdroppers. Between the VPN service and {{params.recv}}, the packet headers will include {{params.recv}}'s address and the {{params.connInsecure}}, but the source address will be an address associated with the VPN, not the address assigned to {{params.sender}} by her Internet service. Only the VPN service itself knows the address and port of both endpoints (so, only {{params.names.6}} has access to this information).</p></pl-answer-panel>
+
+</div></div><br>
+
+<div class="card card-default">
+  <div class="card-header">Part 4</div>
+  <div class="card-body">
+      
+<p>Finally, suppose an extremely security-concious {{params.sender}} {{params.descS}} {{params.recv}}, AND 
+{{params.sender}} uses an encrypted VPN tunnel (to the VPN server shown in the diagram) for all network connections.</p>
+
+<hr>
+
+<p>Who will be able to see {{params.item}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-item-secure-vpn" fixed-order="true">
+    <pl-answer correct="{{params.item-secure.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.item-secure.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<hr>
+
+<p>Who will be able to see that {{params.sender}}'s address exchanged data with {{params.recv}}'s address on {{params.connSecure}}? Select all that apply.</p>
+
+<pl-checkbox answers-name="check-conn-insecure-vpn" fixed-order="true">
+    <pl-answer correct="{{params.conn-vpn.0}}">{{params.names.0}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.1}}">{{params.names.1}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.2}}">{{params.names.2}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.3}}">{{params.names.3}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.4}}">{{params.names.4}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.5}}">{{params.names.5}}</pl-answer>
+    <pl-answer correct="{{params.conn-vpn.6}}">{{params.names.6}}</pl-answer>
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Since {{params.sender}} is now using a secure protocol that encrypts the packet payloads end-to-end, most of the eavesdroppers will not be able to see {{params.item}} or any other part of the packet payloads. However, any eavesdropper located <i>on</i> either end host (on {{params.sender}} or on {{params.recv}}) may still be able to see {{params.item}}, since the payloads exist in their un-encrypted state at the end hosts.</p>
+
+<p>Between {{params.sender}} and the VPN service, the packet headers will only reveal that {{params.sender}} is exchanging data with a VPN service. {{params.recv}}'s address and the {{params.connInsecure}}, are not visible to eavesdroppers. Between the VPN service and {{params.recv}}, the packet headers will include {{params.recv}}'s address and the {{params.connInsecure}}, but the source address will be an address associated with the VPN, not the address assigned to {{params.sender}} by her Internet service. Only the VPN service itself knows the address and port of both endpoints (so, only {{params.names.6}} has access to this information).</p></pl-answer-panel>
+
+</div></div><br>

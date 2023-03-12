@@ -1,0 +1,10 @@
+{
+    "uuid": "39f1f6db-821f-4a45-9e2c-14dc25039bad",
+    "title": "Longest prefix matching routing table",
+    "topic": "Static routing",
+    "tags": [
+        "lab",
+        "checkbox"
+    ],
+    "type": "v3"
+}

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+    <p>An application running on a host uses TCP to send data over an Ethernet network.</p>
+</pl-question-panel>
+<p>What is included in <b>{{params.desc.name}}</b> when it is passed to the next lower layer? Select all that apply.</p>
+
+<pl-checkbox hide-letter-keys="true" fixed-order="true" answers-name="pdu" weight="1">
+  <pl-answer correct="{{params.desc.ans.0}}">Ethernet header</pl-answer>
+  <pl-answer correct="{{params.desc.ans.1}}">IP header</pl-answer>
+  <pl-answer correct="{{params.desc.ans.2}}">TCP header</pl-answer>
+  <pl-answer correct="{{params.desc.ans.3}}">Application data</pl-answer>
+  <pl-answer correct="{{params.desc.ans.4}}">Ethernet trailer</pl-answer>
+  <pl-answer correct="{{params.desc.ans.5}}">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span> Here's a graphical representation of {{params.desc.name}} when it is passed to the next lower layer:</p>
+
+{{#params.desc.isTCP}}  <table class="table-arial-with-border"><tbody><tr><td>TCP header</td><td>Application data</td></tr></tbody></table>{{/params.desc.isTCP}}
+{{#params.desc.isIP}}  <table class="table-arial-with-border"><tbody><tr><td>IP header</td><td>TCP header</td><td>Application data</td></tr></tbody></table>{{/params.desc.isIP}}
+{{#params.desc.isEthernet}} <table class="table-arial-with-border"><tbody><tr><td>Ethernet header</td><td>IP header</td><td>TCP header</td><td>Application data</td><td>Ethernet trailer</td></tr></tbody></table>{{/params.desc.isEthernet}}
+
+</pl-answer-panel>

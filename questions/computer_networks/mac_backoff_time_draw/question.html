@@ -1,0 +1,116 @@
+ <pl-question-panel>
+     
+
+<p>In the following question, assume that:</p>
+<ul>
+    <li>the SIFS time is one grid square (one unit of time)</li>
+    <li>the DIFS time is two grid squares (two units of time)</li>
+    <li>an ACK lasts one grid square (one unit of time)</li>
+    <li>each backoff "time lot" is one grid square (one unit of time)</li>
+</ul>
+
+<p>At the beginning of the sequence shown in the diagram, three of the hosts are in middle of the CSMA/CA backoff procedure. Host {{params.setup.0.name}}'s backoff timer elapses first (as shown in the diagram, in red), and it sends a data frame (purple) to Host {{params.setup.3.name}}.</p>
+
+<p>On the diagram, add:</p>
+<ul>
+    <li>The ACK from Host {{params.setup.3.name}} for Host {{params.setup.0.name}}'s transmission, and</li>
+    <li>The next data transmission (from either Host {{params.setup.1.name}} or Host {{params.setup.2.name}}, whoever gets to transmit first!)</li>
+</ul>
+<p>at the appropriate positions on the timeline.</p>
+
+
+
+<div class="alert alert-info">
+<p>Click on a button on the right side to add an item to the canvas, then drag it to its desired location. (Don't resize it - leave the ACK and data frame at their default width.) To delete an item, select it on the canvas and then click the X button labeled "Delete".</p>
+</div>
+
+</pl-question-panel>
+
+<pl-drawing width="600" height="500" gradable="true" answers-name="csma" hide-answer-panel="false">
+
+  <pl-drawing-answer>
+    <pl-rectangle x1="{{params.ackx}}" y1="{{params.setup.3.y}}" width="20" angle="0" color="green2"></pl-rectangle>
+    
+    <pl-line x1="{{params.sifs.end}}" y1="420" x2="{{params.sifs.end}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="{{params.sifs.start}}" y1="420" x2="{{params.sifs.start}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="{{params.sifs.txt}}" y1="420" label="SIFS" latex="false"></pl-text>
+    
+    <pl-line x1="{{params.difs.start}}" y1="420" x2="{{params.difs.start}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="{{params.difs.end}}" y1="420" x2="{{params.difs.end}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="{{params.difs.txt}}" y1="420" label="DIFS" latex="false"></pl-text>
+
+    <!-- Whoever sends second! -->
+    {{#params.nextBoxes}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.1.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.1.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.nextBoxes}}
+    <pl-rectangle x1="{{params.txBox}}" y1="{{params.setup.1.y}}" width="100" angle="0" color="purple2"></pl-rectangle>
+
+    <!-- Whoever doesn't send! -->
+    {{#params.nextBoxesNot}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.2.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.2.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.nextBoxesNot}}
+    
+  </pl-drawing-answer>
+  
+  <pl-drawing-initial draw-error-box="false">
+
+    <pl-text x1="10" y1="50" label="Host A" latex="false"></pl-text>
+    <pl-vector x1="60" y1="80" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <pl-text x1="10" y1="150" label="Host B" latex="false"></pl-text>
+    <pl-vector x1="60" y1="180" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <pl-text x1="10" y1="250" label="Host C" latex="false"></pl-text>
+    <pl-vector x1="60" y1="280" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+
+    <pl-text x1="10" y1="350" label="Host D" latex="false"></pl-text>
+    <pl-vector x1="60" y1="380" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <!-- Whoever sends first -->
+    <pl-rectangle x1="70" y1="{{params.setup.0.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+    <pl-text x1="70" y1="{{params.setup.0.y}}" label="2" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    <pl-rectangle x1="90" y1="{{params.setup.0.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+    <pl-text x1="90" y1="{{params.setup.0.y}}" label="1" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    <pl-rectangle x1="{{params.txx}}" y1="{{params.setup.0.y}}" width="{{params.txw}}" angle="0" color="purple2"></pl-rectangle>
+
+
+    {{#params.initBoxes}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.1.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.1.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.initBoxes}}
+    
+    
+    {{#params.initBoxesNot}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.2.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.2.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.initBoxesNot}}
+    
+    <pl-text x1="30" y1="380" label="t =" latex="false" offsetx="-3"></pl-text>
+    {{#params.tlabels}}
+    <pl-text x1="{{xpos}}" y1="380" label="{{label}}" latex="false" offsetx="{{xoffset}}" font-size="14"></pl-text>
+    {{/params.tlabels}}
+
+
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Add data frame:">
+      <pl-drawing-button x1="80" y1="40" width="100" color="purple2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Add ACK:">
+      <pl-drawing-button x1="80" y1="40" width="20" color="green2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+
+    <pl-controls-group label="Delete :">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+      <pl-controls-group label="Add help line (not graded):">
+          <pl-drawing-button x1="230" y1="420" x2="230" y2="20"  type="help-line"></pl-drawing-button>
+    </pl-controls-group>
+
+  </pl-controls>
+  
+
+</pl-drawing>

@@ -1,0 +1,10 @@
+{
+    "uuid": "b5294de4-d20d-4978-a3dd-5891d67c37b3",
+    "title": "Host boot to HTTP GET - in sections",
+    "topic": "HTTP, DHCP, NTP, NAT",
+    "tags": [
+        "lab",
+        "blocks"
+    ],
+    "type": "v3"
+}

@@ -1,0 +1,145 @@
+<pl-question-panel>
+  <p>In the following exchange, <b>{{params.hosts.0.name}}</b> sends an NTP request. At {{params.rep_s}} (by its own clock), it receives a reply from <b>{{params.hosts.1.name}}</b>. The request and reply packets are shown below.</p>
+
+
+<pl-code language="text">
+IP (tos 0x0, ttl 64, id {{params.id.0}}, offset 0, flags [DF], proto UDP (17), length 76)
+    {{params.hosts.0.ip}}.{{params.port}} &gt; {{params.hosts.1.ip}}.123: NTPv4, length 48
+	Client, Leap indicator: clock unsynchronized (192), Stratum 0 (unspecified), poll 3 (8s), precision -6
+	Root Delay: 1.000000, Root dispersion: 1.000000, Reference-ID: (unspec)
+	  Reference Timestamp:  0.000000000
+	  Originator Timestamp: 0.000000000
+	  Receive Timestamp:    0.000000000
+	  Transmit Timestamp:   {{params.t1_s}} ({{params.t1_f}})
+	    Originator - Receive Timestamp:  0.000000000
+	    Originator - Transmit Timestamp: {{params.t1_s}} ({{params.t1_f}})
+IP (tos 0x0, ttl {{params.ttl}}, id {{param.id.1}}, offset 0, flags [DF], proto UDP (17), length 76)
+    {{params.hosts.1.ip}}.123 &gt; {{params.hosts.0.ip}}.{{params.port}}: NTPv4, length 48
+	Server, Leap indicator:  (0), Stratum {{params.stratum}} (secondary reference), poll 3 (8s), precision -21
+	Root Delay: {{params.rootdelay}}, Root dispersion: {{params.rootdisp}}, Reference-ID: {{params.refid}}
+	  Reference Timestamp:  {{params.ref_s}} ({{params.ref_f}})
+	  Originator Timestamp: {{params.t1_s}} ({{params.t1_f}})
+	  Receive Timestamp:    {{params.t2_s}} ({{params.t2_f}})
+	  Transmit Timestamp:   {{params.t3_s}} ({{params.t3_f}})
+	  Originator - Receive Timestamp:  {{params.t1_t2_diff}}
+	  Originator - Transmit Timestamp: {{params.t1_t3_diff}}
+</pl-code>
+</pl-question-panel>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1: Identifying timestamps from NTP packets</div>
+  <div class="card-body">
+
+<p>From the dropdown menus, select the time at which:</p>
+<ul>
+    <li>the NTP request was sent (with reference to {{params.hosts.0.name}}'s system clock)</li>
+    <li>the NTP request was received (with reference to {{params.hosts.1.name}}'s system clock)</li>
+    <li>the NTP reply was sent (with reference to {{params.hosts.1.name}}'s system clock)</li>
+    <li>the NTP reply was received (with reference to {{params.hosts.0.name}}'s system clock)</li>
+</ul>
+<pl-overlay width=800 height=500>
+    <!-- Background  image  -->
+    <pl-background>
+        
+        <img src="{{options.client_files_question_url}}/ntp.svg" width="720px">
+
+    </pl-background>
+
+
+    <!-- Input -->
+    <pl-location left="640" top="100">
+        <pl-dropdown sort="ascend" answers-name="send-req">
+          <pl-answer correct="true">{{params.opts.0}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.1}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.2}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.3}}</pl-answer>
+        </pl-dropdown>
+    </pl-location>
+    <pl-location left="85" top="185">
+        <pl-dropdown sort="ascend" answers-name="recv-req">
+          <pl-answer correct="false">{{params.opts.0}}</pl-answer>
+          <pl-answer correct="true">{{params.opts.1}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.2}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.3}}</pl-answer>
+        </pl-dropdown>
+    </pl-location>
+    <pl-location left="85" top="230">
+        <pl-dropdown sort="ascend" answers-name="send-rep">
+          <pl-answer correct="false">{{params.opts.0}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.1}}</pl-answer>
+          <pl-answer correct="true">{{params.opts.2}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.3}}</pl-answer>
+        </pl-dropdown>
+    </pl-location>
+    <pl-location left="640" top="315">
+        <pl-dropdown sort="ascend" answers-name="recv-rep">
+          <pl-answer correct="false">{{params.opts.0}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.1}}</pl-answer>
+          <pl-answer correct="false">{{params.opts.2}}</pl-answer>
+          <pl-answer correct="true">{{params.opts.3}}</pl-answer>
+        </pl-dropdown>
+    </pl-location>
+</pl-overlay>
+
+
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2: One-way delay</div>
+  <div class="card-body">
+
+<p>What is the round-trip delay between client and server? Your answer should be accurate to <i>at least</i> 3 decimal places.</p>
+
+<pl-number-input answers-name="owd_ans" suffix="s" show-help-text="true" size="24" comparison="decdig" digits="3"></pl-number-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This value is computed as :</p>
+
+<p>(T4-T1) - (T3-T2)</p>
+
+<p>In other words, we subtract the processing time of the NTP server (the difference between the "Transmit Timestamp" and "Receive Timestamp") from the total transaction time (the difference between the time that the reply is received, and the time that the request is sent).</p>
+
+<p>In this case, it will be:</p>
+<p>({{params.opts.3}} - {{params.opts.0}}) - ({{params.opts.2}} - {{params.opts.1}})</p>
+</pl-answer-panel>
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 3: Offset</div>
+  <div class="card-body">
+
+<p>What is the <i>magnitude</i> of the offset between client and server? Your answer should be accurate to <i>at least</i> 3 decimal places.</p>
+
+<pl-number-input answers-name="offset_ans" suffix="s" show-help-text="true" size="24" comparison="decdig" digits="3"></pl-number-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The offset is computed as :</p>
+
+<p>1/2 [ (T2-T1) + (T3-T4) ]</p>
+
+<p>In this case, it will be:</p>
+<p>({{params.opts.1}} - {{params.opts.0}}) + ({{params.opts.2}} - {{params.opts.3}})</p>
+
+<p>which is {{params.offset_s}}, and the magnitude is {{params.offset_mag_s}}.</p>
+</pl-answer-panel>
+
+</div></div><br>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 4: Leading vs following</div>
+  <div class="card-body">
+
+<p><b>{{params.hosts.0.name}}</b>'s clock should be:</p>
+
+<pl-multiple-choice answers_name="leading" fixed-order="true">
+    <pl-answer correct="{{params.dir.0}}">moved forward</pl-answer>
+    <pl-answer correct="{{params.dir.1}}">set back</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The sign of the offset tells us whether the client is behind and should be moved forward (positive offset) or whether the client is ahead and should be set back (negative offset).</p>
+</pl-answer-panel>
+
+</div></div>

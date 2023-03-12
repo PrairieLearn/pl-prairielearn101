@@ -1,0 +1,28 @@
+<pl-question-panel>
+  <p>A TCP Reno sender has:</p>
+  <ul>
+      <li>MSS={{params.mss}} bytes,</li>
+      <li>{{params.buffer}} bytes in its send buffer that have not yet been sent,</li>
+      <li>{{params.inflight}} bytes sent but not yet ACKed,</li>
+      <li>CWND={{params.cwnd}} bytes,</li>
+      <li>and advertised RWND={{params.awnd}} bytes.</li>
+     </ul>
+</pl-question-panel>
+
+  <p>How many bytes of data (potentially split across multiple segments!) will it send from its buffer?</p>
+
+<pl-integer-input answers-name="bytes" suffix="B"></pl-integer-input>
+
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> </p>
+{{#params.scenarios.app}}
+<p>The sender in this scenario is application-limited - the limiting factor is not CWND or RWND, but rather the rate at which the application adds data to the send buffer.</p><p>It can send {{params.buffer}} bytes.</p>
+{{/params.scenarios.app}}
+{{#params.scenarios.cwnd}}
+<p>The sender in this scenario is CWND-limited - it has plenty of data to send, and the receiver has space in its receive buffer, but the sender is restricted by CWND.</p><p>It can send {{params.cwnd}} - {{params.inflight}} bytes.</p>
+{{/params.scenarios.cwnd}}
+{{#params.scenarios.rwnd}}
+<p>The sender in this scenario is RWND-limited - it has plenty of data to send, and it is allowed to send more data according to CWND, but the receiver is not prepared to receive much data.</p><p>It can send {{params.awnd}} - {{params.inflight}} bytes.</p>
+{{/params.scenarios.rwnd}}
+</pl-answer-panel>
