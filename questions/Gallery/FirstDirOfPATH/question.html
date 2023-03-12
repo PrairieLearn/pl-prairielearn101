@@ -1,0 +1,39 @@
+<pl-question-panel>
+  <p>
+    The <code>PATH</code> environment variable contains a list of
+    directories, separated by a colon ("<code>:</code>"), where
+    executables can be found. Suppose you want to find a list of all
+    unique top-level directories that are represented in the list
+    pointed to by path, as well as the number of times the directory
+    is used, sorted by name. For example, if the <code>PATH</code> is:
+  </p>
+  <pl-code>/cs/home/jonatanstu/bin:/usr/share/Modules/bin:/usr/bin:/bin:/usr/sbin:/sbin:/xsys/bin:/usr/local/sbin</pl-code>
+  <p>You want to find the list:</p>
+  <pl-code>      1 bin
+      1 cs
+      1 sbin
+      4 usr
+      1 xsys</pl-code>
+  <p>Provide a command that uses multiple commands in a pipe to
+    perform the translation above. Here is a suggested approach:</p>
+  <ul>
+    <li>Use <code>echo</code> to print the value of the variable <code>$PATH</code>.</li>
+    <li>Convert the colons into newlines. There are multiple ways to
+      do this, but the <code>tr</code> command is probably one of the
+      simplest options.</li>
+    <li>Extract only the first directory name from the
+      paths. The <code>cut</code> command is a good option here,
+      though <code>awk</code> and <code>sed</code> can also be
+      used.</li>
+    <li>Sort the entries in alphabetical order, using a command
+      like <code>sort</code>.</li>
+    <li>Remove the duplicate entries and count
+      them. The <code>uniq</code> command can be useful to provide
+      this functionality.</li>
+  </ul>
+</pl-question-panel>
+<pl-string-input answers-name="command" correct-answer="echo $PATH | tr ':' '\n' | cut -d/ -f2 | sort | uniq -c"></pl-string-input>
+<pl-submission-panel>
+  <hr/>
+  <pl-external-grader-results></pl-external-grader-results>
+</pl-submission-panel>
