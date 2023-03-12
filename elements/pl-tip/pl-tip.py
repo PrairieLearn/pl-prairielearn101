@@ -25,7 +25,7 @@ def render(element_html, data):
 
     # Create and return html
     html_params = {'text': content}
-    with open('pl-hint.mustache', 'r', encoding='utf-8') as f:
+    with open('pl-tip.mustache', 'r', encoding='utf-8') as f:
         html = chevron.render(f, html_params).strip()
 
     return html
