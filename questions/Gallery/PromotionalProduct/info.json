@@ -1,0 +1,22 @@
+{
+    "uuid": "49d0afb4-c736-4bcf-8885-8ea71275bceb",
+    "type": "v3",
+    "title": "Overriding Methods",
+    "topic": "Polymorphism",
+    "tags": [
+        "jonatan", "york", "polymorphism", "java", "autograder"
+    ],
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "dependencies": {
+        "clientFilesCourseStyles": [
+            "default.css"
+        ]
+    },
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "jonatanschroeder/javagrader",
+        "timeout": 100,
+        "entrypoint": "java JUnitAutograder"
+    }
+}
