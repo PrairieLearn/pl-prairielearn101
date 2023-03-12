@@ -1,0 +1,24 @@
+<pl-question-panel>
+  <markdown>
+    
+A monoalphabetic cipher is an improvement on the Caesar cipher. It
+replaces each letter of the alphabet with another letter of the
+alphabet, based on a translation table. Only letters are converted,
+spaces and punctuation marks retain their value. The convertion
+retains case (i.e., lowercase letters are converted to lowercase
+letters, uppercase letters are converted to uppercase letters).
+
+Assume the following translation table:
+
+|                   |                                                       |
+|-------------------|-------------------------------------------------------|
+| Plaintext letter: | `a b c d e f g h i j k l m n o p q r s t u v w x y z` |
+| Ciphertext letter:| `{{params.conversion_alphabet}}`                      |
+
+Decrypt the following plaintext message using the translation table above.
+
+  </markdown>
+</pl-question-panel>
+
+<p>Ciphertext: <code>{{params.ciphertext}}</code></p>
+<p><pl-string-input answers-name="plaintext" label="Plaintext:"></pl-string-input>
