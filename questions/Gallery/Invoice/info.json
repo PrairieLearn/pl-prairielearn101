@@ -8,15 +8,10 @@
     ],
     "singleVariant": true,
     "gradingMethod": "External",
-    "dependencies": {
-        "clientFilesCourseStyles": [
-            "default.css"
-        ]
-    },
     "externalGradingOptions": {
         "enabled": true,
-        "image": "jonatanschroeder/javagrader",
+        "image": "prairielearn/grader-java",
         "timeout": 100,
-        "entrypoint": "java JUnitAutograder"
+        "entrypoint": "autograder.sh"
     }
 }
