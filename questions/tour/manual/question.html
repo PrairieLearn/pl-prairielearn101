@@ -1,0 +1,25 @@
+<pl-question-panel>
+  <p>Some questions may be graded by a human, instead of being automatically graded by a computer.   These questions won't have a "Save & Grade" button. 
+  Instead, you will "Save" your answer (as many times as you want until the deadline!) and then your final answer will be graded. </p>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<p>Write some words in the text box:</p>
+</pl-hide-in-panel>
+
+<pl-rich-text-editor file-name="input.html" quill-theme="bubble"> </pl-rich-text-editor>
+
+<hr>
+
+
+<pl-submission-panel>
+  {{#feedback.manual}}
+  <hr>
+    <span class="badge badge-info">Submission Feedback</span>
+    <markdown>{{{feedback.manual}}}</markdown>
+  {{/feedback.manual}}
+</pl-submission-panel>
+
+<pl-answer-panel> Anything you write will be correct! </pl-answer-panel>
+

@@ -1,0 +1,29 @@
+<pl-question-panel>
+  <p>Some questions may ask you to add one or more elements to a grading canvas.</p>
+</pl-question-panel>
+
+<p>In the following drawing, add a line segment connecting the two points, then add another point at the midpoint of the line segment.</p>
+
+<pl-hide-in-panel answer="true">{{{feedback.var-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="var-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="false">
+          <pl-controlled-line x1="20" y1="120" x2="200" y2="320" color="blue1" stroke-width="2"  handle-radius="0"></pl-controlled-line>
+            <pl-point x1="110" y1="220" radius="5" color="pink2"></pl-point>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+        <pl-point x1="20" y1="120" radius="5" color="purple2"></pl-point>
+        <pl-point x1="200" y1="320" radius="5" color="purple2"></pl-point>
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-controlled-line" stroke-width="2" color="blue1" handle-radius="4"></pl-drawing-button>
+      <pl-drawing-button type="pl-point" color="pink2" radius="5"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>

@@ -1,0 +1,14 @@
+<pl-question-panel>
+  <p>Some questions may ask you to upload one or more files, with specific file names.</p>
+  
+  <p>Download the following file: <pl-file-download file-name="contour.png" directory="clientFilesQuestion"></pl-file-download></p>
+
+<p><b>Rename</b> it to <code>plot.png</code>, and then upload it here:</p>
+<pl-file-upload file-names="plot.png"></pl-file-upload>
+
+</pl-question-panel>
+
+
+<pl-submission-panel>
+<img style="max-width:100%;" src="data:image/png;base64, {{{submitted_answers.raw_image}}}" alt="Uploaded image" />
+</pl-submission-panel>

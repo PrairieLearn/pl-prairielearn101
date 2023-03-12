@@ -1,0 +1,14 @@
+<pl-question-panel>
+  <p>Some questions will be randomized. You can attempt these questions more than once, but you'll get a different question each time.</p>
+  
+  <p>Answer this question - correctly or incorrectly - then notice how the values change when you try again with a new "variant".</p>
+</pl-question-panel>
+
+<p>Select the smallest number.</p>
+
+<pl-multiple-choice answers-name="min">
+    {{#params.vals}}
+    <pl-answer correct="{{ans}}">{{value}}</pl-answer>
+    {{/params.vals}}
+</pl-multiple-choice>
+

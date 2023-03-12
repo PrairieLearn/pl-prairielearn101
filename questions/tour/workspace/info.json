@@ -1,0 +1,29 @@
+{
+    "uuid": "eb84b86a-5cbc-4e9f-b8f4-8ffd223b56fb",
+    "title": "Workspace",
+    "topic": "Tour",
+    "tags": [
+        "ffund",
+        "su22",
+        "notebook"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "workspaceOptions": {
+        "image": "prairielearn/workspace-jupyterlab",
+        "port": 8080,
+        "home": "/home/jovyan",
+        "enableNetworking": false,
+        "rewriteUrl": false,
+        "gradedFiles": [
+            "Workbook.ipynb"
+        ]
+    },
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "entrypoint": "/python_autograder/run.sh",
+        "timeout": 20
+    }
+}

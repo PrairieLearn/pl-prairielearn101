@@ -1,0 +1,26 @@
+<pl-question-panel>
+  <p>For some questions, you'll only ever see one version of the question.</p>
+  
+  <p>In this question, the correct answer won't change - but you may need more than one attempt to get it.</p>
+  
+  <p>I'm thinking of a number between 1 and 10. What's the number?</p>
+</pl-question-panel>
+
+<pl-integer-input answers-name="guess" correct-answer="{{params.val}}"></pl-integer-input>
+
+<pl-hide-in-panel answer="true" submission="true">
+    <br><br>
+    <p>After you "Save and Grade" your answer, you can scroll down to see the "Submitted Answer" panel, which may have some useful notes or comments. This particular question has "submission feedback" that will tell you whether your guess was too high or too low!</p>
+    <p>In this type of question, you won't see the "Correct Answer" panel while you still have a chance to answer the question again.</p>
+</pl-hide-in-panel>
+
+
+<pl-submission-panel>
+    <br>
+  {{#feedback.number}}
+  <hr>
+    <span class="badge badge-info">Submission Feedback</span>
+    <markdown>{{{feedback.number}}}</markdown>
+  {{/feedback.number}}
+</pl-submission-panel>
+

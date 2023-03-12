@@ -1,0 +1,16 @@
+<pl-question-panel>
+  <p>On some questions, you will be given multiple attempts to answer the <i>same</i> version of the question. If you exhaust that number of attempts, you'll get a different version of the question.</p>
+  
+  <p>(This will often be the case for questions that involve some extended computation. If you get it wrong on the first try, it's good to have another chance to correct your mistake without having to start again with brand new numbers!)</p>
+  
+  <p>For example, try to answer this question incorrectly on your first attempt. You'll get a second attempt with the <i>same</i> version. After the second attempt (or after you get it correct), you'll get a new version of the question.</p>
+</pl-question-panel>
+
+<p>Select the smallest number.</p>
+
+<pl-multiple-choice answers-name="min">
+    {{#params.vals}}
+    <pl-answer correct="{{ans}}">{{value}}</pl-answer>
+    {{/params.vals}}
+</pl-multiple-choice>
+

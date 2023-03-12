@@ -1,0 +1,26 @@
+<pl-question-panel>
+
+<p>Some questions may ask you to solve a Python programming problem in a "workspace".</p>
+
+<p>When you click on the "Open Workspace" button below, another browser tab will open with a Python notebook environment. This workspace will be pre-populated with a Python notebook called <tt>Workbook.ipynb</tt>, which you'll see in the sidebar on the left side. Double click on this file to open it.</p>
+
+<p>Then, you can run code and write code in the notebook's code cells. To run a cell, click on the cell so that a blue vertical line appears on the left side of the cell. Then, press the ▶️ button in the toolbar.</p>
+
+<p>These notebooks will typically contain a <i>graded</i> cell, which has a special comment at the top that marks it for the autograder. Write your solution in this cell, without deleting the special comment at the top, and run the cell. </p>
+<p>Then, make sure your changes are saved (File > Save Notebook). Finally, you can switch back to the original tab (the one with this text in it!) and click "Save and Grade" to see the results of the Python auto-grader.</p>
+
+<hr>
+
+<p>In the notebook attached to this example, your code should produce the following result:</p>
+
+ <pl-external-grader-variables params-name="names_from_user"></pl-external-grader-variables>
+
+
+  <pl-workspace></pl-workspace>
+
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

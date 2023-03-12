@@ -1,0 +1,29 @@
+<pl-question-panel>
+  <p>Some questions may ask you to drag and drop blocks to place them in a specific order.</p>
+</pl-question-panel>
+
+<p><b>Example 1:</b> Drag the numbers 1 to 4 and place them in order from smallest to greatest. Note: Some blocks may not be used.</p>
+
+<pl-order-blocks answers-name="ints" grading-method="ranking" indentation="false">
+  <pl-answer correct="false">X</pl-answer>
+  <pl-answer correct="true" ranking="1">1</pl-answer>
+  <pl-answer correct="true" ranking="2" >2</pl-answer>
+  <pl-answer correct="true" ranking="3" >3</pl-answer>
+  <pl-answer correct="true" ranking="4" >4</pl-answer>
+</pl-order-blocks>
+<hr>
+
+<p><b>Example 2:</b> Use the blocks below to implement the following code (note: indentation matters!):</p>
+  <pl-code language="python">
+for i in range(10):
+  for j in range(5):
+    print(j)
+  </pl-code>
+
+<pl-order-blocks answers-name="python-ordered" grading-method="ranking" indentation="true">
+
+  <pl-answer correct="true" ranking="1" indent="0"><pl-code language="python">for i in range(10):</pl-code></pl-answer>
+  <pl-answer correct="false" ranking="1" indent="0"><pl-code language="python">while True:</pl-code></pl-answer>
+  <pl-answer correct="true" ranking="2" indent="1"><pl-code language="python">for j in range(5):</pl-code></pl-answer>
+  <pl-answer correct="true" ranking="3" indent="2"><pl-code language="python">print(j)</pl-code></pl-answer>
+</pl-order-blocks>

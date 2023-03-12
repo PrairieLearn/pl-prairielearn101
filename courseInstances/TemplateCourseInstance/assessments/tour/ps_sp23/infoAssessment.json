@@ -1,0 +1,40 @@
+{
+    "uuid": "fbedad94-43e7-42a3-b7fd-c94f112436a6",
+    "type": "Homework",
+    "title": "Tour of PrairieLearn",
+    "set": "Homework",
+    "number": "0",
+    "allowAccess": [
+        {
+            "startDate": "2023-01-17T00:00:01",
+            "credit": 100
+        }
+        ],
+    "text": "This 'homework' walks you through the various types of questions that you may encounter on PrairieLearn. It will not count toward your course grade.",
+    "zones": [
+        {
+        "title": "Question types",
+        "questions": [
+            {"id": "tour/choices", "points": 5},
+            {"id": "tour/open", "points": 5},
+            {"id": "tour/numeric", "points": 5},
+            {"id": "tour/text", "points": 5},
+            {"id": "tour/order_blocks", "points": 5},
+            {"id": "tour/upload", "points": 5},
+            {"id": "tour/drawing", "points": 5},
+            {"id": "tour/workspace", "points": 5}
+            ]
+        },
+        {
+        "title": "Saving/grading policies",
+        "questions": [
+            {"id": "tour/randomized", "points": 5},
+            {"id": "tour/single", "points": 5},
+            {"id": "tour/tries_per_variant", "points": 5, "triesPerVariant": 2},
+            {"id": "tour/manual", "points": 5},
+            {"id": "tour/timing", "points": 5, "gradeRateMinutes": 1440}
+            ]
+        }
+
+        ]
+}

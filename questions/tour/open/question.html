@@ -1,0 +1,50 @@
+<pl-question-panel>
+
+
+<p>Some questions may ask you to enter an answer in an input field.</p>
+</pl-question-panel>
+
+<p>You may need to answer with an integer. For example, the answer to the following question is <tt>42</tt>:</p>
+
+<pl-integer-input answers-name="int" correct-answer="42"></pl-integer-input>
+
+<hr>
+
+<p>You may need to give a numeric answer that is not an integer. Pay careful attention to the number of decimal places that will be graded, which is shown in the input space.</p>
+
+<p>For example, the answer to this question is <tt>0.0625</tt>.</p>
+
+<pl-number-input answers-name="float" correct_answer="0.0625" comparison="decdig" digits="4"></pl-number-input>
+
+<hr>
+
+<p>In some cases, your answer may be string. The answer to the following question is <pl-code language="text">Hello</pl-code></p>
+
+<pl-string-input answers-name="string" correct-answer="Hello" remove-leading-trailing="true"></pl-string-input>
+
+
+
+<hr>
+
+<p>Finally, some questions will ask for a <i>symbolic</i> input, when the answer is a mathematical expression. If you click on the <tt>?</tt> symbol next to the input space, it will tell you what variables and operations are permitted in your answer.</p>
+
+<p>The answer to the following question is $x^2$, which you can express in any valid way - any of these are valid:</p>
+<pl-code language="text">
+x*x
+x^2
+x**2
+x^(1+1)
+</pl-code>
+
+<p>However, <code>xx</code> (with an "implied" multiplication) will not be accepted - all operations, including multiplication, must be explicit.</p>
+
+<pl-symbolic-input answers-name="symbolic_ex" variables="x, y"></pl-symbolic-input>
+
+
+<pl-question-panel>
+
+<br><br>
+<div class="alert alert-info" role="alert">
+Note: you won't be able to submit your answer for grading if you've left some parts blank, or if one or more answer is not in a valid format (for example: you try to put a number with a decimal point in an integer field).
+</div>
+</pl-question-panel>

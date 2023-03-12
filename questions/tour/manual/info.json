@@ -1,0 +1,12 @@
+{
+    "uuid": "7935e28f-ebff-4b80-92fc-a0d19ff67c9b",
+    "title": "Manual grading",
+    "topic": "Tour",
+    "tags": [
+        "ffund",
+        "su22"
+    ],
+    "gradingMethod": "Manual",
+    "singleVariant": true,
+    "type": "v3"
+}

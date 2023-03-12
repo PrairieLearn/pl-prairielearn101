@@ -1,0 +1,51 @@
+<pl-question-panel>
+    
+
+<p>Some questions may ask you to choose one or more correct answers from a list.</p>
+</pl-question-panel>
+
+<p>A multiple-choice question with round radio buttons requires you to select exactly one correct answer:</p>
+
+<pl-multiple-choice answers-name="mc" hide-letter-keys="true">
+    <pl-answer correct="true">Correct answer</pl-answer>
+    <pl-answer correct="false">Wrong answer</pl-answer>
+    <pl-answer correct="false">Another wrong answer</pl-answer>
+</pl-multiple-choice>
+
+<hr>
+
+<p>A question with a dropdown list also asks you to select exactly one correct answer:</p>
+
+The correct answer is <pl-dropdown answers-name="dr">
+    <pl-answer correct="true">Correct answer</pl-answer>
+    <pl-answer correct="false">Wrong answer</pl-answer>
+    <pl-answer correct="false">Another wrong answer</pl-answer>
+</pl-dropdown>
+<hr>
+
+<p>A checkbox question with square check buttons requires you to select at least one, but possibly more, correct answers:</p>
+
+<pl-checkbox answers-name="ch" hide-letter-keys="true">
+    <pl-answer correct="true">Correct answer</pl-answer>
+    <pl-answer correct="true">Also a correct answer</pl-answer>
+    <pl-answer correct="false">Wrong answer</pl-answer>
+    <pl-answer correct="false">Another wrong answer</pl-answer>
+</pl-checkbox>
+
+<hr>
+
+<p>You may also encounter a matching question, like this one which asks you to match countries to their capitals:</p>
+
+<pl-matching answers-name="capitals">
+  <pl-statement match="Washington, D.C.">United States</pl-statement>
+  <pl-statement match="Mexico City">Mexico</pl-statement>
+  <pl-statement match="Paris">France</pl-statement>
+  <pl-option>New York City</pl-option>
+</pl-matching>
+
+<pl-question-panel>
+<br>
+<div class="alert alert-info" role="alert">
+Note: you won't be able to submit your answer for grading if you've left some parts blank.
+</div>
+</pl-question-panel>

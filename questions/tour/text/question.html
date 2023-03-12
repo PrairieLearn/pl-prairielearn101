@@ -1,0 +1,26 @@
+<pl-question-panel>
+  <p>Some questions may ask you to write long text in a text input field.
+ </p>
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true">
+<p>Write at least 12 words to answer this question:</p>
+</pl-hide-in-panel>
+
+<pl-hide-in-panel answer="true">{{{feedback.file-editor}}}</pl-hide-in-panel>
+<pl-rich-text-editor file-name="input.html" quill-theme="bubble"> </pl-rich-text-editor>
+
+<hr>
+
+<pl-hide-in-panel answer="true">
+<p>Or, you may be asked to write a long text answer or code in an in-browser file editor. Write at least 12 words to answer this question:</p>
+</pl-hide-in-panel>
+
+<pl-hide-in-panel answer="true">{{{feedback.file-editor}}}</pl-hide-in-panel>
+<pl-file-editor file-name="editor.txt"> </pl-file-editor>
+<pl-submission-panel>
+<pl-code language="text">
+{{submitted_answers.file-editor}}
+</pl-code>
+</pl-submission-panel>
