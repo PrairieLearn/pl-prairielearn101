@@ -28,6 +28,12 @@
       ]
     },
     {
+      "title": "Hidden Hints",
+      "questions": [
+        { "id": "element/hiddenHints", "points": 1 },
+      ]
+    },
+    {
       "title": "Multiple-choice Input (pl-multiple-choice)",
       "questions": [
         { "id": "Gallery/multipleChoice/simple", "points": 1 },
