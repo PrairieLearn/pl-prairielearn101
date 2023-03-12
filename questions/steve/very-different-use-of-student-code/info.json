@@ -5,7 +5,6 @@
   "tags": ["types", "code"],
   "type": "v3",
   "gradingMethod": "External",
-  "singleVariant": true,
   "externalGradingOptions": {
     "enabled": true,
     "image": "cswolf/haskell-prairielearn",
