@@ -1,0 +1,58 @@
+<pl-question-panel>
+    <p>We are interested in building an ensemble
+of decision stumps (trees with only one split) with the AdaBoost algorithm. The labeled training data and the first decision stump are illustrated here.</p>
+
+<p>(Samples to the left of the decision stump as classified as belonging to the purple class, and samples to the right of the decision stump are classified as belonging to the blue class.)</p>
+
+</pl-question-panel>
+
+<p>On the drawing,</p>
+<ul>
+    <li>Which training point(s) would have their weight increase for the next boosting iteration? Indicate your answer by placing a gray dot over each point that would have its weight increase in the next iteration.</li>
+    <li>Draw the decision boundary of a stump that could be learned in the next boosting iteration. (The line you draw should reach from one end of the drawing to the other end.)</li>
+</ul>
+<br>
+
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="tree" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="true">
+        <pl-point x1="{{params.data-dict.3.x}}" y1="{{params.data-dict.3.y}}" radius="10" opacity="0.4" color="{{params.colors.base03}}"></pl-point>
+    <pl-controlled-line x1="135" y1="10" x2="135" y2="395" color="{{params.colors.base03}}"></pl-controlled-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+
+    <pl-coordinates x1="20" y1="380" width="350" label="0" label-x="x_1" label-y="x_2" color="{{params.colors.base01}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="5" color="{{color}}"></pl-point>
+    {{/params.data-dict}}
+    <pl-line x1="220" y1="10" x2="220" y2="400" dashed-size="5"></pl-line>
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-point" radius="10" opacity="0.4" color="{{params.colors.base03}}"></pl-drawing-button>
+      <pl-drawing-button type="pl-controlled-line" color="{{params.colors.base03}}"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+<hr>
+
+<p>Which of these two stumps will have a higher coefficient in the ensemble?</p>
+<pl-multiple-choice answers-name="alpha" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="false">$\alpha_1 = \alpha_2$</pl-answer>
+    <pl-answer correct="false">$\alpha_1 > \alpha_2$</pl-answer>
+    <pl-answer correct="true">$\alpha_2 > \alpha_1$</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The sample that was misclassified will have its weight increase in the next iteration, and the other samples will keep the same weight.</p>
+<p>The second decision stump will also have one misclassified sample. However, the sample that was misclassified in the previous iteration now has higher weight than the other samples, so it will prefer to misclassify any <i>other</i> point.  </p>
+
+ <p>Both stumps classify five points correctly and one point incorrectly. But the second stump correctly classifies the point with increased weight, so it has a higher weighted classification accuracy: $\alpha_2 > \alpha_1$.</p></pl-answer-panel>
+
+<hr>
+<p><small>Based on a question by Eric Xing, Ziv Bar-Joseph at CMU.</small></p>

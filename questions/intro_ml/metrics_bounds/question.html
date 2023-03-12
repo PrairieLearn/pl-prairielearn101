@@ -1,0 +1,151 @@
+<pl-question-panel>
+
+<p>Suppose you have a finite set of training data and a finite set of test data, both sampled from the data-generating process
+    
+    $$ y = A + Bx + \epsilon, \quad \epsilon \sim N(0, \sigma^2)$$
+    
+where $A$ and $B$ are real valued scalar constants. </p>
+
+<p>You fit an ordinary least squares linear regression model to the training data. Finally, you compute R2 for the fitted model.</p>
+</pl-question-panel>
+
+<div class="card card-default">
+  <div class="card-header">Part 1: R2 on training set and test set</div>
+  <div class="card-body">
+
+<p>What is the range of possible values you could get for R2 on your training data?</p>
+
+<pl-multiple-choice answers-name="r2-training" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="false"> $R2 =  1$</pl-answer>
+    <pl-answer correct="false"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="true"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span> The upper bound of R2 is never greater than 1; from the expression for R2 we see that when the MSE is 0, R2 is 1.</p>
+<p>To convince yourself that the lower bound is 0, consider the following: the linear regression finds weights that minimize the error on the training data. The linear regression will only have negative R2 if its error is <i>greater</i> than "prediction by mean". But "prediction by mean" is in the assumed model class (use $w_0 = \bar{y}$ and all other $w_i = 0$). The linear regression can "find" those weights if they do have the smallest possible error, in which case it would have exactly the same error as prediction by mean and R2 of 0. </p>
+</pl-answer-panel>
+
+<hr>
+
+<p>What is the range of possible values you could get for R2 on your test data?</p>
+
+<pl-multiple-choice answers-name="r2-test" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="false"> $R2 =  1$</pl-answer>
+    <pl-answer correct="true"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span> The upper bound of R2 is the same as in the previous question.</p>
+    
+<p>The lower bound is different, however. The least squares linear regression finds the weights for which error on the <i>training set</i> is minimized. However, we know that due to the random draw of training and test sets, the weights that minimize error on the training set may not be the weights that minimize error on the test set! It is possible for the linear regression (fitted on the training set) to have greater error on the test set than prediction by mean on the test set, so R2 will be negative.</p>
+</pl-answer-panel>
+
+</div></div><br>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2: Without noise</div>
+  <div class="card-body">
+
+
+<p>Now, answer the same questions, but assuming $\sigma=0$.</p>
+
+<hr>
+
+<p>What is the range of possible values you could get for R2 on your training data?</p>
+
+<pl-multiple-choice answers-name="r2-training-zero" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="true"> $R2 =  1$</pl-answer>
+    <pl-answer correct="false"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span>  Here, we have $\epsilon_i = 0, \quad \forall i$, i.e. there is no stochastic error in the data. In this case, there will be no error in the model output:</p>
+  <ul>
+        <li>The irreducible error term is 0 because $\sigma=0$.</li> 
+        <li>There is no under-modeling: the true function $y = A + Bx$ is in the assumed model class for a least squares linear regression.</li> 
+        <li>There is no error in the parameter estimates that are fitted by the model. Since there is no noise in the training set, the model will learn the true parameters, $\hat{w} = w_t$, i.e. $\hat{w}_0 = A, \hat{w}_1 = B$.</li> 
+    </ul>
+</pl-answer-panel>
+
+<hr>
+
+<p>What is the range of possible values you could get for R2 on your test data?</p>
+
+<pl-multiple-choice answers-name="r2-test-zero" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="true"> $R2 =  1$</pl-answer>
+    <pl-answer correct="false"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span> There is no error, for the same reasons as R2 on the training data. Unlike the previous case, where the optimal parameters on the training set do not minimize the error on the test set, when there is no noise in the data, there is 0 error on both training and test sets when $\hat{w}_0 = A, \hat{w}_1 = B$</p>
+</pl-answer-panel>
+
+
+</div></div><br>
+
+<div class="card card-default">
+  <div class="card-header">Part 3: Test data from a different distribution</div>
+  <div class="card-body">
+
+
+
+<p>Answer the same questions again, but if the <i>test data</i> was actually sampled from </p>
+    
+    $$ y = C + Dx + \epsilon, \quad \epsilon \sim N(0, \sigma^2)$$
+
+<p>where $C$ and $D$ are real valued scalar constants, while the <i>training data</i> is still sampled from</p>
+
+    $$ y = A + Bx + \epsilon, \quad \epsilon \sim N(0, \sigma^2)$$
+    
+<p>where $A$ and $B$ are real valued scalar constants that may or may not be similar to $C$ and $D$. </p>
+
+    
+<p>Also assume $\sigma=0$.</p>
+
+<hr>
+
+<p>What is the range of possible values you could get for R2 on your training data?</p>
+
+
+<pl-multiple-choice answers-name="r2-training-dif" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="true"> $R2 =  1$</pl-answer>
+    <pl-answer correct="false"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span>  This is the same as the previous part.</p>
+</pl-answer-panel>
+
+<hr>
+
+<p>What is the range of possible values you could get for R2 on your test data?</p>
+
+<pl-multiple-choice answers-name="r2-test-dif" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="false"> $R2 =  1$</pl-answer>
+    <pl-answer correct="true"> $R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $0 \leq R2 \leq 1$</pl-answer>
+    <pl-answer correct="false"> $-\infty < R2 < \infty$</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span> In the best case, if $A=C$ and $B=D$, then this is the same as the previous question and $R2=1$. However, if $A \neq C$ and $B \neq D$ then the model will be substantially worse on the test data. In particular, note that if $B$ and $D$ have opposite signs (i.e. the training data has an upward slope, the test data has a downward slope), the model fitted to the training data will be worse than prediction by mean on the test data, and the R2 will be negative.</p>
+</pl-answer-panel>
+
+
+</div></div><br>
+

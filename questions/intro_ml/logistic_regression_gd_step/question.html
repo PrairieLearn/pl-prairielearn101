@@ -1,0 +1,203 @@
+<style>
+  th, td {
+    padding: 10px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+</style>
+
+
+<pl-question-panel>
+  <p>Given the following data for a binary classification problem (including a "ones column" pre-pended to the data):</p>
+  <table class="center">
+    <thead>
+      <th>$x_0$</th>
+      <th>$x_1$</th>
+      <th>$x_2$</th>
+      <th>$y$</th>
+    </thead>
+    <tbody>
+      {{#params.samples}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }} 
+      </tr>
+      {{/params.samples}}
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <p>and initial weights for a logistic regression:</p>
+  
+  <table class="center">
+    <thead>
+      <th>$w_0$</th>
+      <th>$w_1$</th>
+      <th>$w_2$</th>
+    </thead>
+    <tbody>
+      <tr>
+        {{#params.w_init}}
+        <td>{{.}}</td>
+        {{/params.w_init}}
+      </tr>
+    </tbody>
+  </table>
+  
+  <br>
+  <p>answer the following questions.</p>
+</pl-question-panel>
+
+
+<div class='card card-default'>
+    <div class='card-header'>Part 1: Compute output of the logistic regression</div>
+    <div class='card-body'>
+
+      <p>Assuming a threshold of 0.5, compute $z_i$, $P(y_i=1|\mathbf{x}_i)$, and $\hat{y}_i$ (0 or 1) 
+      for each sample, then indicate whether the output of the classifier
+      is correct or not.</p>
+        <hr>
+        <table class="center">
+          <thead>
+            <th>$x_0$</th>
+            <th>$x_1$</th>
+            <th>$x_2$</th>
+            <th>$y$</th>
+            <th>$z$</th>
+            <th>$P(y=1|\mathbf{x})$</th>
+            <th>$\hat{y}$ (0 or 1)</th>
+            <th>Correct? </th>
+
+          </thead>
+          <tbody>
+            {{#params.compute}}
+            <tr>
+              <td>{{x.0}}</td>
+              <td>{{x.1}}</td>
+              <td>{{x.2}}</td>
+              <td>{{y}}</td>
+              <td><pl-number-input answers-name='z-{{i}}' correct-answer='{{z}}' comparison='decdig' digits='2' size='6' show-help-text='false' allow-blank='true'></pl-number-input></td>
+              <td><pl-number-input answers-name='p-{{i}}' correct-answer='{{p}}' comparison='decdig' digits='2' size='6' show-help-text='false' allow-blank='true'></pl-number-input></td>
+              <td><pl-integer-input answers-name='yhat-{{i}}' correct-answer='{{yhat}}' size='6' show-help-text='false' allow-blank='true'></pl-integer-input></td>
+              <td><pl-multiple-choice inline="true" answers-name='c-{{i}}' hide-letter-keys='true' fixed-order='true'>
+                <pl-answer correct='{{correct}}'>Yes</pl-answer>
+                <pl-answer correct='{{incorrect}}'>No</pl-answer>
+              </pl-multiple-choice></td>
+            </tr>
+            {{/params.compute}}
+          </tbody>
+        </table>      
+
+        <pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span>
+        First, for each sample, we can compute $z_i = \langle w, x_i \rangle$ for the initial weight vector.
+        <ul>
+          {{#params.compute}}
+          <li>$z_{{i}} = {{params.w_init.0}} \cdot {{x.0}} + {{params.w_init.1}} \cdot {{x.1}} + {{params.w_init.2}} \cdot {{x.2}} = {{z}}$</li>
+          {{/params.compute}}
+        </ul>
+        <br>
+        Then, for each sample, we can compute $P(y_i=1|\mathbf{x}_i) = \sigma(z_i)$:
+        <br>
+        <ul>
+          {{#params.compute}}
+          <li>$P(y_{{i}}=1|\mathbf{x}_{{i}}) = \frac{1}{1 + e^{- ({{z}}) } } = {{p}}$</li>
+          {{/params.compute}}
+        </ul>
+        Finally, for each sample, the predicted label is $1$ if $P(y_i=1|\mathbf{x}_i) \geq 0.5$; otherwise, it is $0$.
+        <br>
+        <ul>
+          {{#params.compute}}
+          <li>For sample ${{i}}$: $y = {{y}}$, $\hat{y} = {{yhat}}$. The predicted label is {{#correct}}correct{{/correct}}{{#incorrect}}incorrect{{/incorrect}}.</li>
+          {{/params.compute}}
+        </ul>
+        </p>
+        </pl-answer-panel>
+    </div>
+</div>
+<br><br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 2: Update weights using gradient descent</div>
+    <div class='card-body'>
+
+      <p>The logistic regression learns the coefficient vector $w$ to minimize the binary cross-entropy loss function</p>
+
+      <p>$$L(w) = \sum_{i=1}^n - \left( y_i \log \frac{1}{1 + e^{- \langle w, x_i \rangle}} + (1 - y_i) \log \frac{e^{- \langle w, x_i \rangle}}{1 + e^{- \langle w, x_i \rangle}} \right) $$</p>
+
+      <p>Then, to minimize this loss function, the gradient descent update rule is</p>
+
+      <p>$$w_{k+1} = w_k + \alpha \sum_{i=1}^n \left(y_i - \frac{1}{1 + e^{-\langle w_k,x_i \rangle}}\right) x_i $$</p>
+      
+      <hr>
+
+      <p>For the data and initial weight vector given above, compute the binary cross-entry loss:</p>
+
+      <p><pl-number-input display='block' answers-name='l_init' label='$L =$' comparison='decdig' digits='3' size='24' show-help-text='false' allow-blank='true'></pl-number-input></p>
+      <pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span>
+      We compute:
+      
+      $$L(\mathbf{w}) = - \left( {{#params.compute}} \log \frac{ {{#pos}} 1 {{/pos}} {{^pos}} e^{- ({{z}}) } {{/pos}} }{1+e^{- ({{z}}) } }  {{#notlast}} + {{/notlast}} {{/params.compute}}  \right) $$
+
+      (note that the $\log$ is a natural log.)
+      </p>
+      </pl-answer-panel>
+      <hr>
+
+      <p>the new weight vector if $\alpha={{params.alpha}}$:</p>
+
+      <table class="center">
+        <thead>
+          <th>$w_0$</th>
+          <th>$w_1$</th>
+          <th>$w_2$</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><pl-number-input answers-name='wn-0' correct-answer='{{params.w_new.0}}' comparison='decdig' digits='2' size='6' show-help-text='false' allow-blank='true'></pl-number-input></td>
+            <td><pl-number-input answers-name='wn-1' correct-answer='{{params.w_new.1}}' comparison='decdig' digits='2' size='6' show-help-text='false' allow-blank='true'></pl-number-input></td>
+            <td><pl-number-input answers-name='wn-2' correct-answer='{{params.w_new.2}}' comparison='decdig' digits='2' size='6' show-help-text='false' allow-blank='true'></pl-number-input></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span>
+      For each sample, we compute $\left(y_i - \frac{1}{1 + e^{-\langle w_k,x_i \rangle}}\right) x_i$:
+      <ul>
+        {{#params.compute}}
+        <li>$( {{y}} - {{p}}) \cdot [{{x.0}}, {{x.1}}, {{x.2}}]$</li>
+        {{/params.compute}}
+      </ul>
+      then we sum these up to get $[{{params.grad.0}}, {{params.grad.1}}, {{params.grad.2}}]$. Finally, we multiply this by ${{params.alpha}}$ and add it to the initial weight vector.
+    </p>
+      </pl-answer-panel>
+      <hr>
+
+      <p>and the binary cross-entropy loss for this new weight vector:</p>
+
+      <p><pl-number-input display='block' answers-name='l_new' label='$L =$' comparison='decdig' digits='3' size='24' show-help-text='false' allow-blank='true'></pl-number-input></p>
+      <pl-answer-panel><br><hr><p><span class='badge badge-primary'>Comment</span>
+        First, for each sample, we can compute $z_i = \langle w, x_i \rangle$ for the <i>new</i> weight vector.
+        <ul>
+          {{#params.compute_new}}
+          <li>$z_{{i}} = {{params.w_new_r.0}} \cdot {{x.0}} + {{params.w_new_r.1}} \cdot {{x.1}} + {{params.w_new_r.2}} \cdot {{x.2}} = {{z}}$</li>
+          {{/params.compute_new}}
+        </ul>
+
+        Now we compute the loss as:
+        
+        $$L(\mathbf{w}) = - \left( {{#params.compute_new}} \log \frac{ {{#pos}} 1 {{/pos}} {{^pos}} e^{- ({{z}}) } {{/pos}} }{1+e^{- ({{z}}) } }  {{#notlast}} + {{/notlast}} {{/params.compute_new}}  \right) $$
+  
+        </p>
+        </pl-answer-panel>
+  
+    </div>
+</div>
+<br><br>
+

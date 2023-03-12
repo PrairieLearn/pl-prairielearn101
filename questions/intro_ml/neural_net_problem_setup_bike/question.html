@@ -1,0 +1,89 @@
+<pl-question-panel>
+    
+<markdown>
+You are hired by a bike sharing company that wants to use machine learning to better manage their bicycle inventory across the five stations in their network.
+
+They give you a spreadsheet of bicycle demand per hour for the last year, with {{params.rows}} rows and the following columns:
+
+- month (1 to 12)
+- hour (0 to 23)
+- weekend (0 for M, T, W, Th and 1 for Sat, Sun)
+- holiday (0 for non-holiday days, 1 for holidays)
+- temperature (in °C)
+- precipitation (in cm)
+- station index (0 to 4)
+- number of bikes checked out in that hour
+
+You decide to use a fully connected neural network with a single hidden layer.
+
+Your network will output a vector, with the predicted bike demand for each station. For example, if the output of the network is [0, 3, 2, 1, 1], this means that the expected demand is 0 bikes for station 0, 3 bikes for station 1, 2 bikes for station 2, 1 bike for station 3, and 1 bike for station 4.
+
+(Note: the station index column will not be a "feature" input to your model, since each output from the network includes a value for each station!)
+
+
+</markdown>
+
+
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='6'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The data has 6 features, so there will be 6 input units.</p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='5'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a regression problem with vector output. The network should have 5 output units - one for each station - because it will predict a value for each station.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but that doesn't apply here.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="true">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a regression problem, we use a linear activation at the output units.</p></pl-answer-panel>

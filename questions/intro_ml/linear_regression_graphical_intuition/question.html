@@ -1,0 +1,129 @@
+<pl-question-panel>
+</pl-question-panel>
+
+
+<div class="card card-default">
+<div class="card-header">Part 1: Regression by mean</div>
+<div class="card-body">
+
+<p>For the following dataset, draw a regression line corresponding to prediction by mean, i.e. 
+
+$$\hat{y} = w_0$$
+
+where $w_0 = \frac{1}{n} \sum_{i=1}^n y_i = \bar{y}$.</p>
+
+<p>(You can approximate the mean by sight; you don't have to compute anything explicitly.)</p>
+
+<p>Your line should span the entire x-axis, from the far left to the far right.</p>
+
+
+<pl-hide-in-panel answer="true">{{{feedback.mean-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="mean-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="true">
+          <pl-line x1="{{params.ml.x1}}" y1="{{params.ml.y1}}" x2="{{params.ml.x2}}" y2="{{params.ml.y2}}" stroke-color="{{params.colors.blue}}" stroke-width="2"></pl-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base01}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.violet}}"></pl-point>
+    {{/params.data-dict}}
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-line" stroke-color="{{params.colors.blue}}"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+</div></div>
+
+<br><br>
+
+<div class="card card-default">
+<div class="card-header">Part 2: Positive R2</div>
+<div class="card-body">
+
+<p>Now, draw a regression line for a linear model
+
+$$ \hat{y} = w_0 + w_1 x$$
+
+that fits the data <i>better</i> than prediction by mean - i.e., your regression would have a positive R2. </p>
+
+<p>(You can approximate the coefficient and intercept by sight; you don't have to compute anything explicitly.)</p>
+
+<p>Your line should span the entire x-axis, from the far left to the far right.</p>
+
+<pl-hide-in-panel answer="true">{{{feedback.regression-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="regression-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="true">
+          <pl-line x1="{{params.rl.x1}}" y1="{{params.rl.y1}}" x2="{{params.rl.x2}}" y2="{{params.rl.y2}}" stroke-color="{{params.colors.blue}}" stroke-width="2"></pl-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base01}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.violet}}"></pl-point>
+    {{/params.data-dict}}
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-line" stroke-color="{{params.colors.blue}}"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+</div></div>
+
+<br><br>
+
+
+<div class="card card-default">
+<div class="card-header">Part 3: Negative R2</div>
+<div class="card-body">
+
+<p>Finally, draw a regression line for a linear model
+
+$$ \hat{y} = w_0 + w_1 x$$
+
+that fits the data <i>worse</i> than prediction by mean (including unseen data past the left and right side of the plot, that continues the same trend), i.e., your regression would have a <i>negative</i> R2. </p>
+
+<p>Your line should span the entire x-axis, from the far left to the far right.</p>
+
+<pl-hide-in-panel answer="true">{{{feedback.negative-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="negative-line" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="true">
+          <pl-line x1="{{params.nl.x1}}" y1="{{params.nl.y1}}" x2="{{params.nl.x2}}" y2="{{params.nl.y2}}" stroke-color="{{params.colors.blue}}" stroke-width="2"></pl-line>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+    <pl-coordinates x1="20" y1="380" width="350" label="0" color="{{params.colors.base01}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.violet}}"></pl-point>
+    {{/params.data-dict}}
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-line" stroke-color="{{params.colors.blue}}"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+</div></div>
+
+<br><br>

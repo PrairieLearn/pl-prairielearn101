@@ -1,0 +1,16 @@
+<pl-question-panel>
+<p>{{{params.txt}}}</p>
+</pl-question-panel>
+
+
+<pl-multiple-choice fixed-order="false" hide-letter-keys="true" answers-name="strategy">
+    {{#params.ansTrue}}
+    <pl-answer correct="true">{{.}}</pl-answer>
+    {{/params.ansTrue}}
+    {{#params.ansFalse}}
+    <pl-answer correct="false">{{.}}</pl-answer>
+    {{/params.ansFalse}}
+</pl-multiple-choice>
+
+
+<!-- <pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> {{{params.exp}}} </p></pl-answer-panel> -->

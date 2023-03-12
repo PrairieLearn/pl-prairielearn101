@@ -1,0 +1,213 @@
+<style>
+  th, td {
+    padding: 10px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+</style>
+
+
+<pl-question-panel>
+    <p>Suppose we are given a dataset of feature-label pairs in $\mathbb{R}^1$:</p>
+
+  <table class="center">
+    <thead>
+        <tr>
+      <th>Sample index</th>
+      <th>$x$</th>
+      <th>$y$</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#params.samples}}
+      <tr>
+        <td>{{i}}</td>
+        <td>{{x1}}</td>
+        <td>{{y_int}}</td>
+      </tr>
+      {{/params.samples}}
+    </tbody>
+  </table>
+
+
+<p>The data is not linearly separable in $\mathbb{R}^1$. But using the basis function $\phi(x)=(x,x^2)$, the points in $\mathbb{R}^1$ can be transformed to points in $\mathbb{R}^2$.</p>
+<p>The data <i>is</i> linearly separable in $\mathbb{R}^2$.</p>
+
+</pl-question-panel>
+
+<br>
+
+
+
+
+<div class='card card-default'>
+    <div class='card-header'>Part 1: Define the maximal margin classifier</div>
+    <div class='card-body'>
+
+
+<p>The following plot shows the data in $\mathbb{R}^2$, the separating hyperplane learned by a maximal margin classifier (solid line), and the boundaries of the margin (dashed line).</p>
+
+<pl-figure file-name="svm-sep.svg" ></pl-figure>
+
+<p>Using this plot, provide the equation for the separating hyperplane, in the form $w_0 + w_1 x + w_2 x^2 = 0$ but substituting real values for $w_0, w_1, w_2$.</p>
+
+<pl-number-input answers-name="w_0" size="3" correct-answer="-9" show-help-text="false" show-placeholder="false" allow-fractions="true" allow-blank="true"> </pl-number-input> + <pl-number-input answers-name="w_1" size="3" correct-answer="-1" show-help-text="false" show-placeholder="false" allow-fractions="true" allow-blank="true"> </pl-number-input> $x  + $ <pl-number-input answers-name="w_2" size="3" correct-answer="3" show-help-text="false" show-placeholder="false"  allow-fractions="true" allow-blank="true"> </pl-number-input> $x^2  = 0$.
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+
+The hyperplane is defined by $ -x_1 + 3x_2 -9 =0$ (or any scaled version of this expression).
+</p></pl-answer-panel>
+
+</div></div>
+
+<br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 2: Express the objective of the dual problem</div>
+    <div class='card-body'>
+
+
+<p>To find $\alpha_i$ for the maximal margin classifier, we will solve the dual problem</p>
+    
+$$
+\begin{aligned}
+\operatorname*{maximize}_{\alpha} \quad & \sum_{i} \alpha_i - \frac{1}{2} \sum_{i} \sum_{j} \alpha_i \alpha_j y_i y_j \phi({x}_i)^T \phi({x_j}) \\
+\textrm{s.t.} \quad & \sum_i \alpha_i y_i = 0 \\
+  &\alpha_i\geq0    \\
+\end{aligned}
+$$
+
+<p>(note: this maximal margin classifier problem is slightly different from the support vector classifier problem! There is no slack variable for the maximal margin classifier.) </p>
+
+<p>We know that $\alpha_i = 0$ for any point that is not a support vector - in this case, only $i=1,2$ will have non-zero values. So, write out the expression</p>
+
+$$\sum_{i} \alpha_i - \frac{1}{2} \sum_{i} \sum_{j} \alpha_i \alpha_j y_i y_j \phi({x}_i)^T \phi({x_j})$$
+
+<p>in terms of $\alpha_1$ and $\alpha_2$, the support vectors $x_1$ and $x_2$, and their labels $y_1$ and $y_2$. (Note that $x_1$ and $x_2$ are vectors in the transformed data. The others are scalars.)  </p>
+<p>Then substitute the values of $x_1$ and $x_2$, $y_1$ and $y_2$, and simplify, so that the only unknowns are $\alpha_1$ (<code>alpha_1</code>) and  $\alpha_2$ (<code>alpha_2</code>).</p>
+
+<pl-symbolic-input answers-name="objective" variables="alpha_1, alpha_2" allow-blank="true" show-help-text="true" display="block"></pl-symbolic-input>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+\begin{gather*}
+\alpha_1 + \alpha_2 - \frac{1}{2} \left( \alpha_1  \alpha_1  y_1 y_1 \phi({x}_1)^T \phi({x_1}) + 2 \alpha_1  \alpha_2 y_1 y_2 \phi({x}_1)^T \phi({x_2}) + \alpha_2 \alpha_2 y_2 y_2 \phi({x}_2)^T \phi({x_2}) \right) \\
+\alpha_1 + \alpha_2 - \frac{1}{2} \left( \alpha_1 ^2  \phi({x}_1)^T \phi({x_1}) - 2 \alpha_1  \alpha_2 \phi({x}_1)^T \phi({x_2}) + \alpha_2^2 \phi({x}_2)^T \phi({x_2}) \right) \\
+\alpha_1 + \alpha_2 - \frac{1}{2} \left( \alpha_1 ^2  [-2, 4]^T [-2, 4] - 2 \alpha_1  \alpha_2 [-2, 4]^T [-1, 1] + \alpha_2^2 [-1, 1]^T [-1, 1] \right) \\
+\alpha_1 + \alpha_2 - \frac{1}{2} \left( 20 \alpha_1 ^2 - 12 \alpha_1  \alpha_2 + 2 \alpha_2^2 \right) \\
+\alpha_1 + \alpha_2 -  \left( 10 \alpha_1 ^2 - 6 \alpha_1  \alpha_2 + \alpha_2^2 \right)
+\end{gather*}
+</p></pl-answer-panel>
+
+</div></div>
+<br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 3: Use the constraint to simplify</div>
+    <div class='card-body'>
+
+
+<p>Note that for our example, since there is one support vector in the positive class and one support vector in the negative class, the first constraint of the dual problem described above implies that $\alpha_1 = \alpha_2$.</p>
+
+<p>In your expression for the objective in the previous part, substitute $\alpha_1=\alpha$ and $\alpha_2=\alpha$, and simplify. Your answer should be an expression in terms of $\alpha$ (<code>alpha</code>).</p>
+
+<pl-symbolic-input answers-name="constraint" variables="alpha" allow-blank="true" show-help-text="true" display="block"></pl-symbolic-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+
+ $$2 \alpha - 5\alpha^2$$
+</p></pl-answer-panel>
+</div></div>
+<br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 4: Solve by setting the derivative to zero</div>
+    <div class='card-body'>
+
+
+<p>Take the derivative of the expression from the previous part with respect to $\alpha$.</p>
+
+<pl-symbolic-input label="$\frac{\partial}{\partial \alpha} = $" answers-name="derivative" variables="alpha" allow-blank="true" show-help-text="true" display="block"></pl-symbolic-input>
+
+<br><hr>
+
+<p>The, set it equal to zero. Solve to find the value of $\alpha_1 = \alpha_2 = \alpha$.</p>
+
+    <pl-number-input answers-name="alpha" label="$\alpha = $" display='block' show-help-text="true" allow-fractions="true" allow-blank="true"></pl-number-input>
+
+<br><hr>
+
+    <p>Find the optimal values of the coefficients of the separating hyperplane, using </p>
+    
+    $$w_j = \sum_{i \in S} \alpha_i y_i x_{ij}, j=1,2 $$
+    
+    <br>
+    
+    <pl-number-input answers-name="w1star" label="$w_1^* = $" display='block' show-help-text="true" allow-fractions="true" allow-blank="true"></pl-number-input>
+    <br>
+    <pl-number-input answers-name="w2star" label="$w_2^* = $" display='block' show-help-text="true" allow-fractions="true" allow-blank="true"></pl-number-input>
+
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+
+    $$\frac{d}{d\alpha} 2 \alpha - 5\alpha^2 = 0 \rightarrow 2 - (2)(5)\alpha = 0 \rightarrow \alpha=\frac{1}{5}$$
+    
+    Then,
+    $$ w_1 = -\frac{2}{5}+\frac{1}{5} = -\frac{1}{5}, w_2 = \frac{4}{5}-\frac{1}{5} = \frac{3}{5}$$
+
+</p></pl-answer-panel>
+</div></div>
+<br>
+
+
+<div class='card card-default'>
+    <div class='card-header'>Part 5: Find $w_0$</div>
+    <div class='card-body'>
+
+
+<p>To find $w_0$, use the fact that for points on the margin, $y_i = w_0 + \sum_{j=1}^p w_j x_{ij}$. Plug in values of $x$ and $y$ from either support vector to solve for $w_0$.</p>
+
+<pl-number-input answers-name="w0star"  label="$w_0^* = $" display='block' show-help-text="true" allow-fractions="true" allow-blank="true"></pl-number-input>
+    
+    
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+
+Use either
+
+$$1 = w_0 + \frac{-1}{5}(-2) + \frac{3}{5}(4) \rightarrow \beta_0 = - \frac{9}{5}$$
+
+or 
+
+$$ -1 = w_0 + \frac{-1}{5}(-1) + \frac{3}{5}(1) \rightarrow \beta_0 = - \frac{9}{5}$$
+
+</p></pl-answer-panel>
+</div></div>
+<br>
+
+<div class='card card-default'>
+    <div class='card-header'>Part 6: Compare to geometric solution</div>
+    <div class='card-body'>
+
+Confirm that for the values of $w_0$, $w_1$, and $w_2$ you computed above, the separating hyperplane $w_0 + w_1 x_1 + w_2 x_2 = 0$ is the same as the hyperplane you identified in the first part of this question.
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+
+The hyperplane 
+    
+    $$-\frac{1}{5}x_1 + \frac{3}{5}x_2 - \frac{9}{5} = 0$$
+    
+    
+    is equivalent because it is a scaled version of $-x_1 + 3x_2 -9 =0$.
+    
+</p></pl-answer-panel>
+</div></div>
+<br>
+
+<hr>
+<p><small>Adapted from a question by M. Kolar at CMU.</small></p>

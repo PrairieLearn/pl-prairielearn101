@@ -1,0 +1,71 @@
+<pl-question-panel>
+  <p>First, read (and interact with!) the interactive article <a href="http://neuralnetworksanddeeplearning.com/chap4.html">A visual proof that neural nets can compute any function</a>, by Michael Nielsen.</p>
+  <p>Then, considering the following function:</p>
+  <pl-figure file-name="function.png" type="dynamic" width="600px"></pl-figure>
+
+  
+  <br>
+  <p>design weights for the neural network to approximate this function over the input range $x = 0$ to $x = 1$.</p>
+    <p>The neural network has sigmoid activation at its hidden units and linear activation at its output unit.</p>
+</pl-question-panel>
+
+
+<pl-answer-panel><div class="alert alert-info"><p>There is more than one possible valid answer - here's one answer that has 0 MSE.</p></div></pl-answer-panel>
+<pl-overlay width=800 height=600 clip="false">
+
+    <pl-background>
+  <pl-figure file-name="network.png" width="800px"></pl-figure>
+    </pl-background>
+
+    <pl-location left="300" top="285"><pl-number-input show-placeholder="false" answers-name="xb-h2" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+    
+    <pl-location left="250" top="345"><pl-number-input show-placeholder="false" answers-name="xb-h1" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+        
+    <pl-location left="250" top="395"><pl-number-input show-placeholder="false" answers-name="x1-h2" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+
+    <pl-location left="300" top="450"><pl-number-input show-placeholder="false" answers-name="x1-h1" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+
+    <pl-location left="460" top="200"><pl-number-input show-placeholder="false" answers-name="hb-o1" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+
+    <pl-location left="480" top="350"><pl-number-input show-placeholder="false" answers-name="h2-o1" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+
+    <pl-location left="500" top="450"><pl-number-input show-placeholder="false" answers-name="h1-o1" comparison='decdig' digits='3' size="4" show-help-text='false' allow-blank='true'></pl-number-input></pl-location>
+
+</pl-overlay>
+
+<p>For full credit, the mean squared error of your approximation should be less than 0.01.</p>
+
+<pl-submission-panel><hr><p><span class="badge badge-info">Submission Feedback</span> The MSE of your submission is {{feedback.mse}}.</p>
+
+{{^feedback.has_image}}
+
+<p>To see the output of the network you designed, compared to the function you are trying to approximate, open a Colab notebook, copy the following, and run it:</p>
+<pl-code language="python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+inputs      = [ {{params.input_str}} ]
+outputs     = [ {{params.output_str}} ]
+outputs_sub = [ {{feedback.submit_str}} ]
+
+plt.plot(inputs, outputs, label='Function');
+plt.plot(inputs, outputs_sub, label='Network output');
+plt.xlabel("Input x");
+plt.ylabel("Output y");
+plt.grid();
+plt.legend();
+
+</pl-code>
+{{/feedback.has_image}}
+
+{{#feedback.has_image}}
+<p>Here's the output of the network you designed, compared to the function you are trying to approximate:</p>
+
+<img src="data:image/png;base64,{{{feedback.image_result}}}"/>
+{{/feedback.has_image}}
+<!--
+<p>Here is the output of the network you designed:</p> 
+  <pl-figure file-name="output.png" type="dynamic" width="600px"></pl-figure>
+-->
+
+</pl-submission-panel>

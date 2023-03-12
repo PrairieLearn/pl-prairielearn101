@@ -1,0 +1,264 @@
+<style>
+    td {
+    padding: 5px;
+    vertical-align: top;
+  }
+  table.numbers td {
+    padding: 8px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+    vertical-align: middle;
+  }
+  table.numbers {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+</style>
+
+<pl-question-panel>
+  <p> Given the following (zero-padded) input to a convolutional layer, and the current weights of each of its filters, assuming stride {{params.stride}}, fill in the missing values in the output volume.</p>
+  </pl-question-panel>
+
+   <table>
+    <tbody>
+        <tr>
+            <td>
+
+    <b>Input <code>X[:, :, 0]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.input_0}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.input_0}}
+    </tbody></table>
+
+    <b>Input <code>X[:, :, 1]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.input_1}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.input_1}}
+    </tbody></table>
+ 
+    <b>Input <code>X[:, :, 2]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.input_2}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.input_2}}
+    </tbody></table>
+                
+            </td>
+            <td>
+
+    <b>Filter 0 <code>W0[:, :, 0]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.filter_0}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.filter_0}}
+    </tbody></table>
+                
+    <b>Filter 0 <code>W0[:, :, 1]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.filter_1}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.filter_1}}
+    </tbody></table>
+
+    <b>Filter 0 <code>W0[:, :, 2]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.filter_2}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.filter_2}}
+    </tbody></table>
+
+    <b>Bias 0 <code>b0</code></b>
+   <table class="numbers"><tbody>
+      <tr>
+        <td>{{params.bias_0}}</td>
+      </tr>
+    </tbody></table>
+    
+    </td>
+
+            <td>
+    <b>Filter 1 <code>W1[:, :, 0]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.vilter_0}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.vilter_0}}
+    </tbody></table>
+                
+    <b>Filter 1 <code>W1[:, :, 1]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.vilter_1}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.vilter_1}}
+    </tbody></table>
+
+    <b>Filter 1 <code>W1[:, :, 2]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.vilter_2}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.vilter_2}}
+    </tbody></table>
+
+    <b>Bias 1 <code>b1</code></b>
+   <table class="numbers"><tbody>
+      <tr>
+        <td>{{params.bias_1}}</td>
+      </tr>
+    </tbody></table>
+    
+    </td>
+    <td>
+        
+    <b>Output <code>o[:, :, 0]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.output_0_tagged}}
+      <tr>
+        {{# . }}
+        {{#show}}
+        <td>{{value}}</td>
+        {{/show}}
+        {{^show}}
+        <td><pl-integer-input answers-name="missing_0" correct-answer="{{value}}" show-help-text="false" size="1"></pl-integer-input> </td>
+        {{/show}}
+        {{/ . }}
+      </tr>
+      {{/params.output_0_tagged}}
+    </tbody></table>
+                
+    <b>Output <code>O[:, :, 1]</code></b>
+   <table class="numbers"><tbody>
+      {{#params.output_1_tagged}}
+      <tr>
+        {{# . }}
+        {{#show}}
+        <td>{{value}}</td>
+        {{/show}}
+        {{^show}}
+        <td><pl-integer-input answers-name="missing_1" correct-answer="{{value}}" show-help-text="false" size="1"></pl-integer-input> </td>
+        {{/show}}
+        {{/ . }}
+      </tr>
+      {{/params.output_1_tagged}}
+    </tbody></table>
+        
+    </td>
+
+    </tr>
+    </tbody>
+  </table>
+  
+ <br>
+
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> </p>
+<p>For the missing entry in the first output volume (corresponding to convolution with the first filter), we iterate over each depth index and multiply the corresponding filter with the patch of input:</p>
+<table>
+    <thead>
+        <tr>
+        <th>Input patch</th>
+        <th>Filter</th>
+        <th>Product</th>
+        <th>Sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><pl-python-variable params-name="exp_0_ip_0"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_filter_0"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_prod_0"></pl-python-variable></td>
+            <td>{{params.exp_0_sum_0}}</td>
+        </tr>
+        <tr>
+            <td><pl-python-variable params-name="exp_0_ip_1"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_filter_1"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_prod_1"></pl-python-variable></td>
+            <td>{{params.exp_0_sum_1}}</td>
+        </tr>
+        <tr>
+            <td><pl-python-variable params-name="exp_0_ip_2"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_filter_2"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_0_prod_2"></pl-python-variable></td>
+            <td>{{params.exp_0_sum_2}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>then add it all together, along with the bias term, for a total of: ${{params.exp_0_sum_0}} + {{params.exp_0_sum_1}} + {{params.exp_0_sum_2}} + {{params.bias_0}}$</p>
+
+<hr>
+
+<p>For the missing entry in the second output volume (corresponding to convolution with the second filter), we follow a similar process:</p>
+
+<table>
+    <thead>
+        <tr>
+        <th>Input patch</th>
+        <th>Filter</th>
+        <th>Product</th>
+        <th>Sum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><pl-python-variable params-name="exp_1_ip_0"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_filter_0"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_prod_0"></pl-python-variable></td>
+            <td>{{params.exp_1_sum_0}}</td>
+        </tr>
+        <tr>
+            <td><pl-python-variable params-name="exp_1_ip_1"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_filter_1"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_prod_1"></pl-python-variable></td>
+            <td>{{params.exp_1_sum_1}}</td>
+        </tr>
+        <tr>
+            <td><pl-python-variable params-name="exp_1_ip_2"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_filter_2"></pl-python-variable></td>
+            <td><pl-python-variable params-name="exp_1_prod_2"></pl-python-variable></td>
+            <td>{{params.exp_1_sum_2}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>then add it all together, along with the bias term, for a total of: ${{params.exp_1_sum_0}} + {{params.exp_1_sum_1}} + {{params.exp_1_sum_2}} + {{params.bias_1}}$</p>
+</pl-answer-panel>
+

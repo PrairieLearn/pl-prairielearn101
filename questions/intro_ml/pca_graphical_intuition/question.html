@@ -1,0 +1,43 @@
+<pl-question-panel>
+    <p>Given this 2D mean-removed dataset, PCA will find the new 2D coordinate system that optimally describes the variance in the dataset, with the most variance in the direction of the PC1 axis.</p>
+</pl-question-panel>
+
+
+<p>Add this coordinate system to the drawing.</p>
+
+
+<pl-hide-in-panel answer="true">{{{feedback.mean-line-badge}}}</pl-hide-in-panel>
+
+<pl-drawing width="400" show-tolerance-hint="false" height="400" gradable="true" answers-name="pca-coords" hide-answer-panel="false">
+  <pl-drawing-answer draw-error-box="true">
+    <pl-coordinates x1="{{params.mean-x1}}" y1="{{params.mean-x2}}" width="70" label-x="PC1" label-y="PC2" color="{{params.colors.blue}}" angle="{{params.angle}}"></pl-coordinates>
+  </pl-drawing-answer>
+  <pl-drawing-initial>
+
+   <!-- <pl-coordinates x1="{{params.mean-x1}}" y1="{{params.mean-x2}}" width="70" label-x="PC1" label-y="PC2" color="{{params.colors.blue}}" angle="{{params.angle}}"></pl-coordinates>
+    <pl-point x1="{{params.mean-x1}}" y1="{{params.mean-x2}}" color="{{params.colors.orange}}"></pl-point>
+    <pl-point x1="36" y1="395" color="{{params.colors.orange}}"></pl-point> -->
+
+
+    <pl-coordinates x1="{{params.mean-x1}}" y1="{{params.mean-x2}}" width="100" label="0" label-x="x_1" label-y="x_2" color="{{params.colors.base01}}"></pl-coordinates>
+    {{#params.data-dict}}
+        <pl-point x1="{{x}}" y1="{{y}}" radius="3" color="{{params.colors.violet}}"></pl-point>
+    {{/params.data-dict}}
+    <!--    <pl-line x1="{{params.rl.x1}}" y1="{{params.rl.y1}}" x2="{{params.rl.x2}}" y2="{{params.rl.y2}}"></pl-line> -->
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-coordinates" label-x="PC1" label-y="PC2" width="70" x1="200" y1="200" color="{{params.colors.blue}}"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+<pl-submission-panel>
+    <p>{{{feedback.pca-center}}}</p>
+    <p>{{{feedback.pca-angle}}}</p>
+</pl-submission-panel>

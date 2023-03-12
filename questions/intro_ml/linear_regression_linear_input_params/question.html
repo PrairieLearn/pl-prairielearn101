@@ -1,0 +1,21 @@
+<pl-question-panel>
+  <p>Indicate whether the model is linear in the inputs, linear in the parameters, linear in both, or non-linear in both:</p>
+  <p>$${{{params.model}}}$$</p>
+</pl-question-panel>
+
+<pl-multiple-choice answers-name="linear" fixed-order="true" hide-letter-keys="true">
+    <pl-answer correct="{{params.ans.0}}">Linear in inputs only</pl-answer>
+    <pl-answer correct="{{params.ans.1}}">Linear in parameters only</pl-answer>
+    <pl-answer correct="{{params.ans.2}}">Linear in both inputs and parameters</pl-answer>
+    <pl-answer correct="{{params.ans.3}}">Non-linear in both inputs and parameters</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-question-panel>
+<hr>
+<p><small><i>Attribution: question by Neil D. Lawrence, University of Sheffield; explanation of answer by Chen Yang.</i></small></p>
+</pl-question-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span>
+{{{params.explanation}}}
+</p></pl-answer-panel>

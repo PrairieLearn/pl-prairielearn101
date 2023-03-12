@@ -1,0 +1,21 @@
+<pl-question-panel>
+  <p> You have a fitted softmax classifier for a {{params.nclass}}-class classification problem, with the following weights (the first column is the bias):</p>
+  <pl-python-variable params-name="w"></pl-python-variable>
+
+</pl-question-panel>
+
+<p>What is the output of the model for the input:</p>
+<pl-python-variable params-name="x"></pl-python-variable>
+<br>
+<p><pl-number-input comparison='decdig' digits='3' answers-name="prob-0" label="$P(y = 0 | x) =$"></pl-number-input></p>
+<p><pl-number-input comparison='decdig' digits='3' answers-name="prob-1" label="$P(y = 1 | x) =$"></pl-number-input></p>
+<p><pl-number-input comparison='decdig' digits='3' answers-name="prob-2" label="$P(y = 2 | x) =$"></pl-number-input></p>
+
+<br><hr>
+<p>The classification for this sample is:</p>
+
+<pl-multiple-choice answers-name='mc' hide-letter-keys='true' fixed-order='true'>
+    {{#params.class}}
+  <pl-answer correct="{{ans}}">The sample belongs to class ${{class}}$</pl-answer>
+    {{/params.class}}
+</pl-multiple-choice>

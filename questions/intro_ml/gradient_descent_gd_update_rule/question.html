@@ -1,0 +1,64 @@
+<pl-question-panel>
+    <p>Suppose we are training a linear regression model. We assume that the feature data includes a "ones" column so that the bias term is just the first element of $\mathbf{w}$, and our model is:</p>
+    $$\hat{y_i} = \sum\limits_{j=0}^p x_{ij}w_j$$
+      <p>But, instead of minimizing the mean squared error, we want to minimize the logarithmic loss function </p> 
+      $$L(\mathbf{w}) = \sum\limits_{i=1}^{N} (\ln (y_i) - \ln (\hat y_i))^2$$
+      <p>To solve this, we can use gradient descent, where in each gradient descent update step we compute</p>
+      $$\mathbf{w}^{t+1} = \mathbf{w}^{t} - \alpha\nabla L(\mathbf{w}^{t})$$
+      <p>But, to implement this we should find the gradient with respect to its parameters, i.e. the terms of $\nabla L(\mathbf{w})$.</p>
+      
+
+</pl-question-panel>
+
+<div class="card card-default">
+  <div class="card-header">Part 1: Gradient calculation</div>
+  <div class="card-body">
+      
+      <p>  Find the gradient components $\dfrac{\partial L}{\partial w_j}$. Write your answer in terms of $y_i$, $\hat{y_i}$ and $x_{ij}$ </p>
+      
+      <pl-hidden-hints>
+
+  <pl-hint show-after-submission="3">
+      <p>The loss function can be expressed as a composite function of $\mathbf{w}$, i.e., $L(\mathbf{w}) = f(g(h(i(\mathbf{w}))))$. Here, $f(.) = (.)^2, g(.) = -1(.), h(.)=\ln (.), i(\mathbf{w}) = \mathbf{x}^T \mathbf{w}$. You will need to apply the chain rule of differentiation to find the required gradients.</p>
+  </pl-hint>
+</pl-hidden-hints>
+
+
+
+
+<p><pl-symbolic-input display="block" answers-name="g1" variables="y_i, yhat_i, x_ij" label="$\dfrac{\partial L}{\partial w_j} = \sum\limits_{i=1}^N$"></pl-symbolic-input></p>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> </p>
+
+<p>This is a direct application of the chain rule.</p>
+<p>$$\frac{\partial L}{\partial w_j} = \sum_{i=1}^N  \frac{\partial L}{\partial \hat{y}_i}\frac{\partial \hat{y}_i}{\partial w_j} =  \sum_{i=1}^N 2(\ln(\hat{y}_i) - \ln(y_i))\frac{1}{\hat{y}_i}x_{ij}$$</p>
+
+</pl-answer-panel>
+
+</div></div><br>
+
+<div class="card card-default">
+  <div class="card-header">Part 2: Gradient descent update rule</div>
+  <div class="card-body">
+
+      <p>Using your solution to Part 1, write the gradient descent update rule for a single parameter, $w_j$, using <i>stochastic gradient descent</i> with a single sample indexed $i$.</p>
+      <p>Write your answer in terms of $y_i$, $\hat{y_i}$, $x_{ij}$, $\alpha$, and $w_j$ (the value of $w_j$ before the update). </p>
+
+<pl-symbolic-input display="block" answers-name="u1" variables="y_i, yhat_i, x_ij, alpha, w_j " label="$w_j^{t+1} = $"></pl-symbolic-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> </p>
+
+<p> The update rule for a single parameter $w_j$ on a single sample indexed $i$ will be: $w_j^{t+1} = w_j^{t} - \alpha\dfrac{\partial L}{\partial w_j}$.</p>
+<p>Given the answer in Part 1, this is:</p>
+$$w_j^{t+1} = w_j^{t} - \alpha (2(\ln(\hat{y}_i) - \ln(y_i))\frac{1}{\hat{y}_i}x_{ij}) $$
+</pl-answer-panel>
+
+</div></div><br>
+
+
+
+
+
+<pl-question-panel><br><hr><p><small>Based on a question by Sundeep Rangan.</small></p></pl-question-panel>
+

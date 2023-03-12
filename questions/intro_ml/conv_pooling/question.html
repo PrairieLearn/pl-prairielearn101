@@ -1,0 +1,38 @@
+<style>
+  table.numbers td {
+    padding: 10px;
+    border: 5px solid white;
+    background-color: #f8f9fa;
+  }
+  table.numbers {
+    margin-left: auto;
+    margin-right: auto;
+  }
+    td {
+    padding: 5px;
+  }
+
+</style>
+
+<pl-question-panel>
+  <p> Given the following ${{params.in_size}} \times {{params.in_size}}$ "depth slice" input to a <b>{{params.pooltype}}</b> pooling layer with ${{params.pad}}$ padding, stride ${{params.stride}}$, and ${{params.filter}} \times {{params.filter}}$ filters,</p>
+  
+   <table class="numbers">
+    <tbody>
+      {{#params.input}}
+      <tr>
+        {{# . }}
+        <td>{{.}}</td>
+        {{/ . }}
+      </tr>
+      {{/params.input}}
+    </tbody>
+  </table>
+  
+  <p>the output of the layer is:</p>
+ <br>
+</pl-question-panel>
+
+<span class="center">
+<pl-matrix-component-input allow-partial-credit="true" allow-fractions="true" answers-name="output"></pl-matrix-component-input>
+</span>

@@ -1,0 +1,86 @@
+<pl-question-panel>
+    
+<markdown>
+You are hired by a large U.S. corporation to help them use machine learning to identify employees that are at risk of burnout due to Zoom fatigue. They want to create an application that will generate a message in the employee's calendar if they are at risk of Zoom fatigue in a particular workweek, like this:
+
+<pl-figure file-name="zoom-fatigue.png"></pl-figure>
+
+
+There will be one version of the calendar message for employees at risk of moderate Zoom fatigue, and another message for employees at risk of extreme Zoom fatigue. If the employee's risk for the week is low, there will be no message at all in the calendar. 
+
+To train your model, they give you a spreadsheet of data drawn from employees' calendars and surveys of employees. The spreadsheet has the following columns
+
+- record index (an auto-incrementing unique ID for each row in the spreadsheet)
+- number of Zoom calls employee participated in that week
+- average duration of Zoom calls the employee participated in that week (in minutes)
+- average time between Zoom calls that week (in minutes)
+- employee experience (number of months this employee has worked at this corporation)
+- Zoom fatigue level that week (0 for not much Zoom fatigue, 1 for moderate Zoom fatigue, 2 for extreme Zoom fatigue) based on survey at the end of the week. (Note: this survey was used to collect training data, but when your model is used "in production", employees will not be surveyed about Zoom fatigue!)
+
+You decide to use a fully connected neural network with a single hidden layer to solve this problem. You will train the network using the features from the spreadsheet that are relevant for predicting Zoom fatigue.
+</markdown>
+
+
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='4'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The data has 4 features, so there will be 4 input units. (Note that the "record index" is not relevant to the target variable, so it's not included as an input.)</p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='3'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a multi-class classification problem with 3 classes. The network should have 3 output units - one for each class.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but not at the hidden units.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="true">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a multi-class classification problem, we use a softmax activation at the output units, and the number of units should be the same as the number of classes.</p></pl-answer-panel>

@@ -1,0 +1,11 @@
+import random, copy
+
+def generate(data):
+
+    data['params'] = random.choice([
+        {"model": "f(x) = w_1x_1 + w_2", "explanation": "The model is linear in both the inputs and the parameters. This function can be written in the form of $f(x) = \mathbf{w}^T \mathbf{\phi}(\mathbf{x})$, where $\mathbf{\phi}(\mathbf{x}) = [x_1 \; 1]$. There is no non-linear transformation on the inputs $\mathbf{x}$. Also, the parameters, $\mathbf{w}$, are of linear combinations in this function.", "ans": [False, False, True, False]},
+        {"model": "f(x) = w_1\exp(x_1) + w_2x_2 + w_3", "explanation": " This model is linear in the parameters, but not in the inputs. This function can be written in the form of $f(x) = \mathbf{w}^T \mathbf{\phi}(\mathbf{x})$, where $\mathbf{\phi}(\mathbf{x}) = [ \exp(x_1) \;  x_2 \;  1 ]$. Note that the $\exp$ function is a non-linear transformation on the input $x_1$. However, the parameters are still of linear combinations in this function.", "ans": [False, True, False, False]},
+        {"model": "f(x) = \log(x_1^{w_1}) + w_2x_2^2 + w_3", "explanation": "This model is linear in the parameters, but not in the inputs. Because of a logarithmic identity ($\log(x^y) = y\log(x)$), this function is equivalent to $f(x) = w_1\log(x_1) + w_2x_2^2 + w_3$. In this case, this function can be written in the form of $f(x) = \mathbf{w}^T \mathbf{\phi}(\mathbf{x})$, where $\mathbf{\phi}(\mathbf{x}) = [\log(x_1) \; x_2^2 \; 1 ]$. Note both $\log$ and squaring are non-linear transformations on the original inputs. However, the parameters are still of linear combinations in this function.", "ans": [False, True, False, False]},
+        {"model": "f(x) = \exp(-\sum_i(x_i - w_i)^2)", "explanation": "This model is not linear in neither the inputs nor the parameters. In this function, non-linear transformations ($\exp$ and squaring) are applied on both the inputs and the parameters.", "ans": [False, False, False, True]},
+        {"model": "f(x) = \exp(-\mathbf{w}^T \mathbf{x})", "explanation": "This model is not linear in neither the inputs nor the parameters. In this function, a non-linear transformation ($\exp$) is applied on the linear combination of the inputs and the parameters. This makes neither the inputs nor the parameters linear with respect to the final result.", "ans": [False, False, False, True]},
+        ])

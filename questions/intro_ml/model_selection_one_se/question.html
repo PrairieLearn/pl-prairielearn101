@@ -1,0 +1,45 @@
+<pl-question-panel>
+  <p>You are using a regularized regression model, and you are using K-fold CV to select an appropriate value of $\alpha$ (the strength of the regularization penalty). The larger the value of $\alpha$, the "simpler" the model.</p>
+  
+  <p>You find the following mean R2 and SE of R2 for each model.</p>
+  
+  <table style="min-width: {{params.n}}0%"  >
+    <thead>
+        <th>Model</th>
+        <th>Mean R2</th>
+        <th>SE R2</th>
+    </thead>
+    <tbody>
+        {{#params.models}}
+        <tr >
+            <td style="background-color: #f8f9fa; padding: 15px; border: 5px solid white">Model {{name}} ($\alpha = {{alpha}}$)</td>
+            <td style="background-color: #f8f9fa; padding: 15px; border: 5px solid white">{{mean}}</td>
+            <td style="background-color: #f8f9fa; padding: 15px; border: 5px solid white">{{se}}</td>
+        </tr>
+        {{/params.models}}
+    </tbody>
+</table>
+
+</pl-question-panel>
+
+<hr>
+
+<p>Which model has the best R2?</p>
+
+<pl-multiple-choice answers-name="best_model" inline="true" weight="1" hide-letter-keys="true" fixed-order="true">
+    {{#params.best}}
+  <pl-answer correct="{{ans}}">Model {{id}}</pl-answer>
+    {{/params.best}}
+</pl-multiple-choice>
+
+<br><hr>
+
+
+<p>Which is the best model according to the one-SE rule?</p>
+
+<pl-multiple-choice answers-name="onese_model" inline="true" weight="1" hide-letter-keys="true" fixed-order="true">
+    {{#params.one_se}}
+  <pl-answer correct="{{ans}}">Model {{id}}</pl-answer>
+    {{/params.one_se}}
+</pl-multiple-choice>
+

@@ -1,0 +1,88 @@
+<pl-question-panel>
+    
+<markdown>
+You have been hired by an exciting new startup that is developing a plant identification app. The goal is for users to be able to take a photo of any flower, tree, or other plant, and the app will tell them its name.
+
+You decide to train a fully connected neural network on a small training set, to see how well it works. You go to the Brooklyn Botanic Garden and take photos of flowers as follows:
+
+1. 109 photos of New England aster
+2. 773 photos of cardinal flower
+3. 982 photos of dahlia
+4. 914 photos of Japanese anemone
+5. 476 photos of black-eyed Susan
+6. 228 photos of rose-of-Sharon
+7. 844 photos of spotted bee balm
+8. 910 photos of petunia
+9. 248 photos of great blue lobelia
+10. 843 photos of gray goldenrod
+11. 401 photos of spider flower
+12. 950 photos of purple coneflower
+13. 341 photos of autumn crocus
+
+Each photo is {{params.dims.0}} pixels wide by {{params.dims.1}} pixels high and in full color (3 color channels).
+
+You set aside 20% of the photos of each plant for a test set, and use the rest as a training set for your network.
+</markdown>
+    
+</pl-question-panel>
+
+<br><hr>
+
+<p>How many input units will your network have? (Not including any bias unit.) </p>
+
+
+<pl-integer-input answers-name="input" correct-answer='{{params.pixels}}'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Each color channel in each pixel is a feature: {{params.dims.0}}x{{params.dims.1}}x3. </p></pl-answer-panel>
+
+<br><hr>
+
+<p> How many output units will your network have?</p>
+
+<pl-integer-input answers-name="output" correct-answer='13'></pl-integer-input>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> This is a multi-class classification problem with 13 classes. The network should have 13 output units - one for each class.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>How many units will you use in the hidden layer? (Not including any bias unit.) </p>
+
+<pl-hide-in-panel answer="true">
+    <pl-integer-input answers-name="hidden" correct-answer='24'></pl-integer-input>
+</pl-hide-in-panel>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> You can select the number of hidden units; it's not dictated by the problem. 
+Your choice will determine how much capacity the network has for learning a complicated function.</p></pl-answer-panel>
+
+<br><hr>
+
+<p>What activation function will you use at the hidden units?</p>
+
+<pl-multiple-choice answers-name="act-hidden" weight="1" fixed-order="true" hide-letter-keys="true" number-answers="5">
+  <pl-answer correct="true">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="false">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Acceptable options include relu, sigmoid, or tanh. </p>
+<p>The linear activation function is not a good choice for the hidden units, since then the network will not learn any non-linear function, and will be equivalent to a classical linear regression. </p>
+<p>The sofmax activation is used at the output units when we want to produce a probability distribution over a set of discrete classes, but not at the hidden units.</p></pl-answer-panel>
+
+
+<br><hr>
+
+<p>What activation function will you use at the output units?</p>
+
+<pl-multiple-choice answers-name="act-output" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">relu</pl-answer>
+  <pl-answer correct="false">sigmoid</pl-answer>
+  <pl-answer correct="false">tanh</pl-answer>
+  <pl-answer correct="true">softmax</pl-answer>
+  <pl-answer correct="false">linear</pl-answer>
+</pl-multiple-choice>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> For a multi-class classification problem, we use a softmax activation at the output units, and the number of units should be the same as the number of classes.</p></pl-answer-panel>
