@@ -1,0 +1,60 @@
+<style>
+  table { border: 1px solid #ccc; border-collapse: collapse; margin-bottom: 1em;}
+  th, td { padding: .5em; border: 1px solid #ccc; }
+</style>
+<pl-question-panel>
+<markdown>
+
+Consider the figure and table below, representing the transmission
+time of video blocks in a multimedia transmission. Suppose that video
+is encoded at a fixed bit rate, and thus each video block contains
+video frames that each take $\Delta$ time units to playback. Once the
+client begins playback, ideally, blocks are played back in succession
+with each block set to play $\Delta$ time units after the previous
+block starts to play.
+
+<pl-figure type="dynamic" file-name="graph.png"></pl-figure>
+
+Suppose the client starts playback exactly at $t_1$. Any time a block
+is not available in the buffer at the time it must be played, the
+client pauses the video for buffering until the block arrives, and
+then plays out immediately. Any block received before it is to be
+played is buffered until it can be played, no earlier than $\Delta$
+time units after the previous block. The buffer is large enough to fit
+the entire video. Complete the table below with the starting playback
+time of each block.
+
+</markdown>
+
+</pl-question-panel>
+
+<markdown>
+
+
+| Video Block | Original Transmission | Reception at Client             | Starting Playback time |
+|-------------|-----------------------|---------------------------------|--------------|
+| $0$         | $t_0$                 | $t_1$                           | $t_1$ |
+| $1$         | $t_0+\Delta$          | $t_1+{{params.delays.1}}\Delta$ | <pl-number-input answers-name="playout-1" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $2$         | $t_0+2\Delta$         | $t_1+{{params.delays.2}}\Delta$ | <pl-number-input answers-name="playout-2" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $3$         | $t_0+3\Delta$         | $t_1+{{params.delays.3}}\Delta$ | <pl-number-input answers-name="playout-3" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $4$         | $t_0+4\Delta$         | $t_1+{{params.delays.4}}\Delta$ | <pl-number-input answers-name="playout-4" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $5$         | $t_0+5\Delta$         | $t_1+{{params.delays.5}}\Delta$ | <pl-number-input answers-name="playout-5" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $6$         | $t_0+6\Delta$         | $t_1+{{params.delays.6}}\Delta$ | <pl-number-input answers-name="playout-6" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $7$         | $t_0+7\Delta$         | $t_1+{{params.delays.7}}\Delta$ | <pl-number-input answers-name="playout-7" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $8$         | $t_0+8\Delta$         | $t_1+{{params.delays.8}}\Delta$ | <pl-number-input answers-name="playout-8" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+| $9$         | $t_0+9\Delta$         | $t_1+{{params.delays.9}}\Delta$ | <pl-number-input answers-name="playout-9" label="$t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 show-help-text=false></pl-number-input> |
+
+Based on the computation above, what is the smallest initial playback
+delay the client could have used, such that the entire video would
+have arrived in time for the playback of all individual blocks? In
+other words, what is the earliest time at which the client should have
+started playing the first block of the video, so that the entire video
+would have played without interruptions?
+
+Block $0$ should have started at: <pl-number-input answers-name="initial-delay-smooth" label=" $t_1+$" suffix="$\Delta$" display="inline" comparison="decdig" digits=1 size=5 weight=3></pl-number-input>
+
+<pl-submission-panel>
+</pl-submission-panel>
+
+</markdown>
+

@@ -1,0 +1,55 @@
+<script>
+  function update_translation() {
+    table = document.getElementById('translation_table');
+    keyValue = document.getElementById('key_value');
+    keyRange = document.getElementById('key_range');
+
+    key = keyRange.value;
+  
+    alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    conversion = (alphabet + alphabet).substr(key, 26);
+  
+    table.innerHTML = conversion.split("").join(" ");
+    keyValue.innerHTML = key;
+  }
+</script>
+
+<pl-question-panel>
+  <markdown>
+    
+The Caesar cipher is a simple cipher that replaces each letter of the
+alphabet with another letter of the alphabet, found $k$ elements
+later, where $k$ is the key for encryption. Only letters are
+converted, spaces and punctuation marks retain their value. The
+convertion retains case (i.e., lowercase letters are converted to
+lowercase letters, uppercase letters are converted to uppercase
+letters).
+
+The following translation table shows the translation for a specific
+key. You may move the key slider to change the key and observe the new
+translation.
+
+|                   |                                                       |
+|-------------------|-------------------------------------------------------|
+| Plaintext letter: | `a b c d e f g h i j k l m n o p q r s t u v w x y z` |
+| Ciphertext letter:| <code id="translation_table">a b c d e f g h i j k l m n o p q r s t u v w x y z</code> |
+| Key:              | <span id="key_value">0</span> <input type="range" min="0" max="25" value="0" id="key_range" style='width: 80%' oninput="update_translation();"></input> |
+
+-----
+
+Assume you are an intruder and want to decrypt the two messages below,
+corresponding to the first two messages sent by a client on a POP3
+connection. The connection is encrypted using a Caesar cypher, but you
+don't know the key. However, it is possible to guess the key by taking
+advantage of a known fact of the POP3 protocol: the first message in
+this protocol is typically the `USER` command. Based on this
+knowledge, decrypt the following ciphertext messages into their
+corresponding plaintext messages.
+
+  </markdown>
+</pl-question-panel>
+
+<p>Ciphertext: `{{params.ciphertext1}}`</p>
+<p><pl-string-input answers-name="plaintext1" label="Plaintext:" ignore-case="true"></pl-string-input></p>
+<p>Ciphertext: `{{params.ciphertext2}}`</p>
+<p><pl-string-input answers-name="plaintext2" label="Plaintext:" ignore-case="true"></pl-string-input></p>

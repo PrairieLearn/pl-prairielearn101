@@ -1,0 +1,31 @@
+<pl-question-panel>
+  <p>
+    In this question you will continue the implementation of a system
+    to handle customer sales for a store. Assume the following class
+    declaration for a class named <code>Product</code>:
+  </p>
+
+  <pl-code language="java" source-file-name="code/Product.java"></pl-code>
+
+  <p class="mt-2">
+    The class <code>Invoice</code> below uses the product classes
+    above to create an invoice with a list of products and respective
+    quantities. Implement the <code>getTotal</code> method so that it
+    returns the sum of the total price of all products in the
+    invoice. Your implementation must be able to handle products with
+    different behaviours for total computation, such as
+    the <code>PromotionalProduct</code> class developed in the
+    previous question.
+  </p>
+
+  <pl-file-editor ace-mode="ace/mode/java"
+                  file-name="Invoice.java"
+                  source-file-name="code/Invoice.java">
+  </pl-file-editor>
+  
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
