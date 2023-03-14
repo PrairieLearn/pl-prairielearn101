@@ -1,0 +1,10 @@
+{
+    "uuid": "2d29bcd5-15d1-4e31-949c-0d577481dc79",
+    "title": "PWM signal to rotate servo",
+    "topic": "PWM",
+    "tags": [
+        "datasheet",
+        "drawing"
+    ],
+    "type": "v3"
+}

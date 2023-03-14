@@ -1,0 +1,20 @@
+<pl-question-panel>
+    <p>You are using a PWM signal to control a standard servo motor. The datasheet for the motor is at the following link: <pl-file-download force-download="false" file-name="SG90MicroServo.pdf"></pl-file-download></p>
+
+  <p>You want to position the motor shaft so the "horn" (illustrated in white) is at a {{params.angle}}&deg; angle, like this:</p>
+
+  <p>
+  <pl-drawing width="300" height="300">
+  <pl-drawing-initial>
+    <pl-rectangle x1="150" y1="200" width="50" height="120" angle="0" color="blue3"></pl-rectangle>
+    <pl-coordinates x1="150" y1="150" width="120" label-x="0&deg;" label-y="90&deg;" offsetx-label-y="5"></pl-coordinates>
+    <pl-rod x1="150" y1="150" x2="{{params.endx}}" y2="{{params.endy}}" draw-pin="false"></pl-rod>
+  </pl-drawing-initial>
+</pl-drawing>
+</p>
+<p>What should your PWM signal look like?</p>
+</pl-question-panel>
+
+<p>The period of your PWM signal should be:</p><p><pl-number-input display="block" size=10 answers-name="period" label="Period" suffix="ms"  digits="0" comparison="decdig"></pl-number-input></p>
+<br>
+<p>The pulse width ("on time") of your PWM signal should be:</p><p><pl-number-input display="block" size=10 answers-name="pulse" label="Pulse width" suffix="ms" digits="2" comparison="decdig"></pl-number-input></p>

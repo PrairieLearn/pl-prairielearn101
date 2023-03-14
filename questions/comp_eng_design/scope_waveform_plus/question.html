@@ -1,0 +1,58 @@
+<pl-question-panel>
+  <p>You are using the RC circuit from our pulse width input lab to measure a resistive sensor, Rvar. You attach a scope across the capacitor in this circuit.</p>
+<pl-figure file-name="schematic-rc-scope.svg"></pl-figure>
+<br>
+  <p>Then, you run code to:</p>
+  <ul>
+      <li>First, discharge capacitor through the discharge resistor. Set GPIO_A as INPUT, which effectively disconnects R_CHARGE and R_VAR from the circuit. Then, set GPIO_B as OUTPUT and LOW.</li>
+      <li>Next, charge capacitor through the photoresistor. Set GPIO_B as input, which effectively disconnects R_DISCHARGE. Then, set GPIO_A as OUTPUT and HIGH. Start a timer, and when GPIO_B reads HIGH (indicating that the voltage across the capacitor is sufficiently high to be read as logic HIGH by the Pi), stop the timer.</li>
+  </ul>
+<p>As your code runs, you observe the following waveform in your scope.</p>
+
+<p>Annotate this image of the scope view as follows: </p>
+<ul>
+    <li>add one vertical line to show where your code <i>starts</i> timing the pulse width,</li>
+    <li>and another vertical line to show where your code <i>stops</i> the timer and computes the pulse width as the difference between the two times.</li>
+</ul>
+</pl-question-panel>
+
+
+<pl-overlay width=650 height=300 clip="false">
+    <!-- Background  image  -->
+    <pl-background>
+        <!-- Use a normal img tag because pl-figure applies extra padding and scaling when the window gets small -->
+
+        <!-- <img src="{{options.client_files_question_url}}/scope-rc.svg" width="600px"> -->
+      <pl-figure file-name="scope-rc.svg"></pl-figure>
+    </pl-background>
+    <pl-location left="90" top="30" valign="top" halign="left">
+
+        
+<pl-drawing grid-size="0" width="480" height="200" gradable="true" answers-name="annotate-image" hide-answer-panel="false" show-tolerance-hint="false" >
+  <pl-drawing-answer draw-error-box="false">
+    <pl-controlled-line x1="275" x2="275" y1="5" y2="195" stroke-width="2" handle-radius="4" color="purple2" ></pl-controlled-line>
+    <pl-controlled-line x1="210" x2="210" y1="5" y2="195" stroke-width="2" handle-radius="4" color="purple2" ></pl-controlled-line>
+  </pl-drawing-answer>
+
+  <pl-drawing-initial draw-error-box="false">
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Add or delete line:">
+      <pl-drawing-button x1="100" x2="100" y1="20" y2="180" stroke-width="2" handle-radius="4" color="purple2" type="pl-controlled-line"></pl-drawing-button>
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+</pl-drawing>
+
+
+        <!-- Use a normal img tag because pl-figure applies extra padding and scaling when the window gets small -->
+
+    <!-- Input -->
+    <!-- <pl-hide-in-panel answer="true">
+        <img src="{{options.client_files_question_url}}/scope-rc.svg" width="600px">
+    </pl-hide-in-panel> -->
+    </pl-location>
+</pl-overlay>
+

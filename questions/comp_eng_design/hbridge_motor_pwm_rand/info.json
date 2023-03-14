@@ -1,0 +1,20 @@
+{
+    "uuid": "160fb5a5-13d3-47cf-aacf-60a0c335d3e6",
+    "singleVariant": true,
+    "title": "H bridge motor code with selected PWM",
+    "topic": "Current driving",
+    "tags": [
+        "schematic",
+        "code",
+        "datasheet"
+    ],
+    "type": "v3",
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "comment": "testing comments in external grading blocks",
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "entrypoint": "/python_autograder/run.sh",
+        "timeout": 60
+    }
+}
