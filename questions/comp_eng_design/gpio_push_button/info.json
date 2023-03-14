@@ -1,0 +1,11 @@
+{
+    "uuid": "41dfbf6b-fe9c-4f46-a624-2ae41b96dbea",
+    "title": "Use Pi to read button state",
+    "topic": "GPIO",
+    "singleVariant": true,
+    "tags": [
+        "breadboard",
+        "prototyping"
+    ],
+    "type": "v3"
+}

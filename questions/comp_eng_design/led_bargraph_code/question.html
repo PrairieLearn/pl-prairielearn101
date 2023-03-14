@@ -1,0 +1,44 @@
+<pl-question-panel>
+   <p>You are using a 10-segment {{params.color}} LED bar graph. The LED bar graph is a part with 10 LEDs arranged in a single package.</p>
+   <p>The datasheet for the LED bar graph is:
+   <pl-file-download file-name="{{params.datasheet}}" directory="clientFilesQuestion" force-download="false"></pl-file-download>
+  <p>You connect your Pi to the LED bar graph, so that BCM pins 16, 12, 7, 8, 25, 24, 23, 18, 15, 14 are connected (through a series resistor) to the anodes of the LED segments, from the bottom to top of the bar graph.</p>
+
+  <pl-figure file-name="led-bargraph-1_bb.svg" width="100%"></pl-figure>
+
+ <p>You write a function <code>setup_pins</code> to configure the GPIO pins connected to your bar graph, and a function <code>write_bar</code> to make it display a "bar" with the bottom <code>k</code> bars lit.</p>
+ <pl-code language='python' source-file-name='code.py'>
+</pl-code>
+
+<p><i>Hint:</i> In case you are unfamiliar with Python's slice notation, here's an example to show you how it works:</p>
+<pl-code language='python'>
+l = [0,1,2,3,4,5]
+l[:2] # output will be [0, 1]
+l[2:] # output will be [2, 3, 4, 5]
+</pl-code>
+
+<p>When you try to test your work by running</p>
+
+<pl-code language='python'>
+setup_pins(PINS)
+write_bar(PINS, 8)
+time.sleep(5)
+write_bar(PINS, 4)
+</pl-code>
+
+<p>it seems to work on the first call to <code>write_bar</code> (the bottom 8 bars are lit). But after the second call to <code>write_bar</code>, you still see 8 bars lit, not 4 as expected.</p>
+
+<p>Modify <code>write_bar</code> so that the bottom <i>k</i> bars (and only those bars) are lit following a call to <code>write_bar</code>.</p>
+
+
+<pl-file-editor
+        file-name="user_code.py"
+        ace-mode="ace/mode/python"
+        source-file-name="tests/initial_code.py"
+	font-size="1em"></pl-file-editor>
+</pl-question-panel>
+
+<pl-submission-panel>
+    <pl-external-grader-results></pl-external-grader-results>
+    <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

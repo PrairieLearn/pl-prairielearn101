@@ -1,0 +1,20 @@
+{
+    "uuid": "b34ee5fc-669f-4084-b775-4c38610cf20b",
+    "singleVariant": true,
+    "title": "LED bargraph code",
+    "topic": "GPIO",
+    "tags": [
+        "breadboard",
+	"code"
+    ],
+    "type": "v3",
+     "gradingMethod": "External",
+    "externalGradingOptions": {
+        "comment": "testing comments in external grading blocks", 
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "entrypoint": "/python_autograder/run.sh",
+        "timeout": 60
+    }
+}
+

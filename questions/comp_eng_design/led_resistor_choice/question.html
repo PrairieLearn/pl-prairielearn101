@@ -1,0 +1,18 @@
+<pl-question-panel>
+  <p> In the following circuit, the GPIO pin is configured in output mode, and will be set HIGH to turn the LED on.</p>
+
+            <pl-figure file-name="schematic.svg"></pl-figure>
+
+	    <p>The datasheet for the LED is: 
+	    <pl-file-download file-name="{{params.datasheet}}" directory="clientFilesQuestion" force-download="false"></pl-file-download>
+	   </p>
+
+	   <p>Refer to the datasheet to find key parameters of the LED: the typical forward voltage (or minimum forward voltage, if a typical number is not given) and the recommended maximum <i>continuous</i> current.<p>
+	   <p>Then, choose the resistor that will make the LED shine as brightly as possible <i>without exceeding the recommended maximum continuous current</i> AND <i>without drawing more than 15mA from the GPIO pin</i>. The following resistors are available for you to choose from: {{params.r1}}Ω, {{params.r2}}Ω, or {{params.r3}}Ω.</p>
+</pl-question-panel>
+
+<pl-number-input answers-name="r" comparison="sigfig" digits="2" label="Resistor choice" suffix="Ω"></pl-number-input>
+
+<pl-answer-panel>
+</pl-answer-panel>
+
