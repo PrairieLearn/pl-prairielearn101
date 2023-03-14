@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 10.054166 10.054167"
+   height="38"
+   width="38"
+   sodipodi:docname="dip-ic-icon.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1608"
+     inkscape:window-height="986"
+     id="namedview55"
+     showgrid="false"
+     inkscape:zoom="20.814967"
+     inkscape:cx="7.6785192"
+     inkscape:cy="19"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2093" />
+  <defs
+     id="defs2">
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y1="-335.05099"
+       x2="-182.577"
+       x1="-192.873"
+       gradientTransform="matrix(1,0,0,-1,273,-448.8574)"
+       id="SVGID_1_"
+       y2="-335.05099">
+      <stop
+         id="stop2993"
+         offset="0"
+         style="stop-color:#333333" />
+      <stop
+         id="stop2995"
+         offset="1"
+         style="stop-color:#3C3C3C" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="matrix(0.2,0,0,0.2,3.97758,-1.753662)"
+     id="g1865">
+    <g
+       id="breadboard"
+       transform="matrix(1.143,0,0,1.143,-5.8601422,12.619639)">
+      <g
+         id="g2020"
+         partID="855212920"
+         transform="matrix(1.3888878,0,0,1.3888878,-233.68754,-0.52397869)">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g2018"
+           transform="translate(167.524)">
+          <g
+             style="fill:#000000;fill-opacity:1"
+             id="g2016">
+            <g
+               y1="40.565"
+               x2="6.287"
+               x1="6.287"
+               id="g1980"
+               y2="74.754"
+               style="fill:#000000;stroke:#8c8c8c;stroke-width:2.15136003;stroke-linecap:round;fill-opacity:1" />
+            <g
+               y1="40.565"
+               x2="16.29"
+               x1="16.29"
+               id="g1982"
+               y2="74.754"
+               style="fill:#000000;stroke:#8c8c8c;stroke-width:2.15136003;stroke-linecap:round;fill-opacity:1" />
+            <g
+               id="g3022"
+               partID="855213020"
+               transform="matrix(1.1111117,0,0,1.1111117,-232.83329,-173.17426)">
+              <g
+                 transform="rotate(-90,190.865,-13.767)"
+                 id="g3018">
+                <g
+                   id="g3016">
+                  <g
+                     id="g3014">
+                    <linearGradient
+                       y2="-335.05099"
+                       id="linearGradient3877"
+                       gradientTransform="matrix(1,0,0,-1,273,-448.8574)"
+                       x1="-192.873"
+                       x2="-182.577"
+                       y1="-335.05099"
+                       gradientUnits="userSpaceOnUse">
+                      <stop
+                         style="stop-color:#333333"
+                         offset="0"
+                         id="stop3873" />
+                      <stop
+                         style="stop-color:#3C3C3C"
+                         offset="1"
+                         id="stop3875" />
+                    </linearGradient>
+                    <g
+                       id="g2097"
+                       transform="rotate(90,-2.12118,21.29822)">
+                      <g
+                         id="g2095"
+                         transform="rotate(90)">
+                        <g
+                           id="g2093">
+                          <rect
+                             width="21.6"
+                             height="19.440001"
+                             x="0"
+                             y="2.1600001"
+                             id="rect2035"
+                             style="fill:#101010;fill-opacity:1" />
+                          <rect
+                             width="21.6"
+                             height="1.7711999"
+                             x="0"
+                             y="2.1600001"
+                             id="rect2037"
+                             style="fill:#202020;fill-opacity:1" />
+                          <rect
+                             width="21.6"
+                             height="1.7711999"
+                             x="0"
+                             y="19.8288"
+                             id="rect2039"
+                             style="fill:#000000" />
+                          <polygon
+                             points="21.6,21.6 21.6,2.16 21.06,3.9312 21.06,19.8288 "
+                             id="polygon2041"
+                             style="fill:#141414" />
+                          <polygon
+                             points="0,21.6 0,2.16 0.54,3.9312 0.54,19.8288 "
+                             id="polygon2043"
+                             style="fill:#1f1f1f" />
+                          <path
+                             d="m 0.4032,9.7776 v 4.1976 C 1.4616,13.8528 2.2896,12.9672 2.2896,11.8728 2.2896,10.7784 1.4688,9.9 0.4032,9.7776 Z"
+                             id="path2049"
+                             style="fill:#262626"
+                             inkscape:connector-curvature="0" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="2.52"
+                             y="20.635201"
+                             id="rect2057"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="2.52"
+                             y="21.6"
+                             id="g2059"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2061"
+                             points="2.52,20.6352 2.52,22.0752 4.68,22.0752 6.12,21.4128 6.12,20.6352 "
+                             style="fill:#8c8c8c" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="2.52"
+                             id="rect2063"
+                             y="0"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="2.52"
+                             id="g2065"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2067"
+                             points="6.12,3.1248 6.12,2.3472 4.68,1.6848 2.52,1.6848 2.52,3.1248 "
+                             style="fill:#8c8c8c" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="16.92"
+                             y="20.635201"
+                             id="rect2069"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="16.92"
+                             y="21.6"
+                             id="g2071"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2073"
+                             points="15.48,20.6352 15.48,21.4128 16.92,22.0752 19.08,22.0752 19.08,20.6352 "
+                             style="fill:#8c8c8c" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="16.92"
+                             y="0"
+                             id="rect2075"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="16.92"
+                             y="0"
+                             id="g2077"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2079"
+                             points="19.08,3.1248 19.08,1.6848 16.92,1.6848 15.48,2.3472 15.48,3.1248 "
+                             style="fill:#8c8c8c" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="9.7200003"
+                             y="0"
+                             id="rect2081"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="9.72"
+                             id="g2083"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2085"
+                             points="9.72,1.6848 8.28,2.3472 8.28,3.1248 13.32,3.1248 13.32,2.3472 11.88,1.6848 "
+                             style="fill:#8c8c8c" />
+                          <rect
+                             width="2.1600001"
+                             height="3.1248"
+                             x="9.7200003"
+                             y="20.635201"
+                             id="rect2087"
+                             style="fill:#8c8c8c" />
+                          <g
+                             width="2.16"
+                             height="2.16"
+                             x="9.72"
+                             y="21.6"
+                             id="g2089"
+                             style="fill:#8c8c8c" />
+                          <polygon
+                             id="polygon2091"
+                             points="11.88,22.0752 13.32,21.4128 13.32,20.6352 8.28,20.6352 8.28,21.4128 9.72,22.0752 "
+                             style="fill:#8c8c8c" />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

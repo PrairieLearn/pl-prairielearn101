@@ -1,0 +1,6 @@
+{
+    "controller": "dip-ic.py",
+    "dependencies": {
+        "extensionScripts": ["dip-ic.js"]
+    }
+}
