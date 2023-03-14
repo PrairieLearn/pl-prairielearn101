@@ -1,0 +1,6 @@
+{
+    "controller": "push-button.py",
+    "dependencies": {
+        "extensionScripts": ["push-button.js"]
+    }
+}

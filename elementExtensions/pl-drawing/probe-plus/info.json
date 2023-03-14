@@ -1,0 +1,6 @@
+{
+    "controller": "probe-plus.py",
+    "dependencies": {
+        "extensionScripts": ["probe-plus.js"]
+    }
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="38"
+   height="38"
+   viewBox="0 0 10.054166 10.054167"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="probe-plus-icon.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1608"
+     inkscape:window-height="986"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="22.052632"
+     inkscape:cx="19"
+     inkscape:cy="19"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+     x="4.4888511"
+     y="5.2411194"
+     id="text839"><tspan
+       sodipodi:role="line"
+       id="tspan837"
+       x="4.4888511"
+       y="5.2411194"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05555534px;font-family:Manjari;-inkscape-font-specification:'Manjari, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">-</tspan></text>
+  <g
+     id="g1865"
+     transform="matrix(0.2,0,0,0.2,3.97758,-1.753662)">
+    <path
+       id="path1237"
+       d="M 1.3318398,35.596758 H -9.9581954 c -1.5586606,0 -2.8233686,0.44892 -2.8233686,1.002992 v 21.067244 c 0,0.554071 1.264708,1.003743 2.8233686,1.003743 H 1.3318398 c 1.55866,0 2.8194,-0.449672 2.8194,-1.003743 V 36.59975 c 0,-0.554072 -1.26074,-1.002992 -2.8194,-1.002992 z"
+       style="fill:#4a4a4a;stroke-width:0.15775016;fill-opacity:1"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path1241"
+       d="m -4.3154267,41.241643 c -1.5586604,0 -2.8194,-1.264973 -2.8194,-2.823369 V 18.663953 c 0,-1.55866 1.2610042,-2.821516 2.8194,-2.821516 1.5583956,0 2.8236336,1.262856 2.8236336,2.821516 v 19.754321 c 0,1.558661 -1.264973,2.823369 -2.8236336,2.823369 z"
+       style="fill:#101111;stroke-width:0.26458332;fill-opacity:1"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path1247"
+       d="M 1.3318398,35.596758 H -9.9581954 c -1.5586606,0 -2.8233686,1.262856 -2.8233686,2.821516 v 5.644885 H 4.1512398 v -5.644885 c 0,-1.55866 -1.26074,-2.821516 -2.8194,-2.821516 z"
+       style="fill:#6a6a6a;stroke-width:0.26458332;fill-opacity:1"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

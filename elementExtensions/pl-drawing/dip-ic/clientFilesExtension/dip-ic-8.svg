@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16.763992mm"
+   height="20.31999mm"
+   viewBox="0 0 16.763993 20.31999"
+   version="1.1"
+   id="svg1903"
+   sodipodi:docname="dip-ic-8.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview5414"
+     showgrid="false"
+     inkscape:zoom="4.2252625"
+     inkscape:cx="27.538231"
+     inkscape:cy="38.399981"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g1883" />
+  <defs
+     id="defs1897">
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y1="-335.05099"
+       x2="-182.577"
+       x1="-192.873"
+       gradientTransform="matrix(1,0,0,-1,273,-448.8574)"
+       id="SVGID_1_"
+       y2="-335.05099">
+      <stop
+         id="stop2993"
+         offset="0"
+         style="stop-color:#333333" />
+      <stop
+         id="stop2995"
+         offset="1"
+         style="stop-color:#3C3C3C" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata1900">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-26.504048,-44.503758)">
+    <g
+       id="g1889"
+       partID="855213080"
+       transform="matrix(0.70555522,0,0,0.70555522,-160.00383,8.2684179)">
+      <g
+         id="g1887"
+         transform="translate(288.102,51.3572)">
+        <g
+           id="g1885"
+           transform="rotate(90)">
+          <g
+             id="g1883">
+            <rect
+               width="28.799999"
+               height="19.440001"
+               x="0"
+               y="2.1600001"
+               id="rect1813"
+               style="fill:#303030" />
+            <rect
+               width="28.799999"
+               height="1.7711999"
+               x="0"
+               y="2.1600001"
+               id="rect1815"
+               style="fill:#3d3d3d" />
+            <rect
+               width="28.799999"
+               height="1.7711999"
+               x="0"
+               y="19.8288"
+               id="rect1817"
+               style="fill:#000000" />
+            <polygon
+               points="28.8,21.6 28.8,2.16 28.26,3.9312 28.26,19.8288 "
+               id="polygon1819"
+               style="fill:#141414" />
+            <polygon
+               points="0,21.6 0,2.16 0.54,3.9312 0.54,19.8288 "
+               id="polygon1821"
+               style="fill:#1f1f1f" />
+            <polygon
+               points="0.4032,9.7776 0.4032,11.88 3.6,11.88 3.6,8.28 0.54,8.2512 "
+               id="polygon1823"
+               style="fill:#1c1c1c" />
+            <polygon
+               points="3.6,11.88 0.4032,11.88 0.4032,13.9824 0.54,15.516 3.6,15.516 "
+               id="polygon1825"
+               style="fill:#383838" />
+            <path
+               d="m 0.4032,9.7776 v 4.1976 C 1.4616,13.8528 2.2896,12.9672 2.2896,11.8728 2.2896,10.7784 1.4688,9.9 0.4032,9.7776 Z"
+               id="path1827"
+               style="fill:#262626" />
+            <path
+               d="M 0.54,3.9312 V 8.244 c 1.7136,0.324 3.0168,1.8216 3.0168,3.6288 0,1.8072 -1.296,3.312 -3.0168,3.636 v 0.0072 h 3.6 V 3.9312 Z"
+               id="path1829"
+               style="fill:#303030" />
+            <circle
+               id="circle1831"
+               cx="4.6799998"
+               cy="16.898399"
+               r="1.4832"
+               style="fill:#212121" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="2.52"
+               y="20.635201"
+               id="rect1835"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="2.52"
+               y="21.6"
+               id="g1837"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1839"
+               points="4.68,22.0752 6.12,21.4128 6.12,20.6352 2.52,20.6352 2.52,22.0752 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="2.52"
+               id="rect1841"
+               y="0"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="2.52"
+               id="g1843"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1845"
+               points="4.68,1.6848 2.52,1.6848 2.52,3.1248 6.12,3.1248 6.12,2.3472 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="24.120001"
+               y="20.635201"
+               id="rect1847"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="24.12"
+               y="21.6"
+               id="g1849"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1851"
+               points="24.12,22.0752 26.28,22.0752 26.28,20.6352 22.68,20.6352 22.68,21.4128 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="24.120001"
+               y="0"
+               id="rect1853"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="24.12"
+               y="0"
+               id="g1855"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1857"
+               points="24.12,1.6848 22.68,2.3472 22.68,3.1248 26.28,3.1248 26.28,1.6848 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="9.7200003"
+               y="0"
+               id="rect1859"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="9.72"
+               id="g1861"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1863"
+               points="13.32,2.3472 11.88,1.6848 9.72,1.6848 8.28,2.3472 8.28,3.1248 13.32,3.1248 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="16.92"
+               y="0"
+               id="rect1865"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="16.92"
+               id="g1867"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1869"
+               points="20.52,2.3472 19.08,1.6848 16.92,1.6848 15.48,2.3472 15.48,3.1248 20.52,3.1248 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="9.7200003"
+               y="20.635201"
+               id="rect1871"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="9.72"
+               y="21.6"
+               id="g1873"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1875"
+               points="8.28,21.4128 9.72,22.0752 11.88,22.0752 13.32,21.4128 13.32,20.6352 8.28,20.6352 "
+               style="fill:#8c8c8c" />
+            <rect
+               width="2.1600001"
+               height="3.1248"
+               x="16.92"
+               y="20.635201"
+               id="rect1877"
+               style="fill:#8c8c8c" />
+            <g
+               width="2.16"
+               height="2.16"
+               x="16.92"
+               y="21.6"
+               id="g1879"
+               style="fill:#8c8c8c" />
+            <polygon
+               id="polygon1881"
+               points="15.48,21.4128 16.92,22.0752 19.08,22.0752 20.52,21.4128 20.52,20.6352 15.48,20.6352 "
+               style="fill:#8c8c8c" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
