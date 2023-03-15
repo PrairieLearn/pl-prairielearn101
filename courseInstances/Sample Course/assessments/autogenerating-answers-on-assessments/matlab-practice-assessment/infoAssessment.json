@@ -2,7 +2,7 @@
     "uuid": "be6c2ce7-e13b-4935-aeed-553f37791e96",
     "type": "Exam",
     "title": "MATLAB Assessment Example Questions",
-    "set": "PracticeAssessment",
+    "type": "Homework",
     "number": "1",
     "allowIssueReporting": false,
     "allowRealTimeGrading": true,

@@ -2,7 +2,7 @@
     "uuid": "52279a2f-59ee-43e8-8fd4-e82c37356f6f",
     "type": "Exam",
     "title": "C++ Assessment Example Questions",
-    "set": "PracticeAssessment",
+    "type": "Homework",
     "number": "2",
     "allowIssueReporting": false,
     "allowRealTimeGrading": true,
