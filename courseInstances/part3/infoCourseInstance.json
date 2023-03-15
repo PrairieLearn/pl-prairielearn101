@@ -1,0 +1,11 @@
+{
+  "uuid": "dfca235f-6810-46b2-b204-a324c06c7a32",
+  "shortName": "part3",
+  "longName": "Part 3",
+  "allowAccess": [
+    {
+      "startDate": "2014-01-19T00:00:01",
+      "endDate": "2400-05-13T23:59:59"
+    }
+  ]
+}

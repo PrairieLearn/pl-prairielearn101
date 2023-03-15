@@ -1,7 +1,7 @@
 {
-  "uuid": "b1bee5fb-8a22-4cbe-82a6-7eb96555a5a7",
-  "shortName": "TC 101",
-  "longName": "Template Course",
+  "uuid": "dfca235f-6810-46b2-b204-a324c06c7a33",
+  "shortName": "part4",
+  "longName": "Part 4",
   "allowAccess": [
     {
       "startDate": "2014-01-19T00:00:01",
