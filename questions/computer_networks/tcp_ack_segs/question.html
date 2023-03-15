@@ -1,0 +1,15 @@
+<pl-question-panel>
+  <p> Suppose the following TCP ACK is received by a host running a TCP service:</p>
+  <pl-code language="text">
+{{params.server}}.{{params.sport}} > {{params.client}}.{{params.cport}}: 
+    Flags [.], ack {{params.ack}}, win 6227, length 0</pl-code>
+</pl-question-panel>
+
+<p>Before it received that ACK, the host sent all of the following TCP segments. Which of these can it conclude were received by the other endpoint? Select all that apply.</p>
+
+<pl-checkbox hide-letter-keys="true" answers-name="sent" fixed-order="true">
+{{#params.segs}}
+<pl-answer correct="{{ans}}"> <pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: 
+    Flags [.], seq {{start}}:{{end}}, ack {{isn2}}, win 502, length 1448 </pl-code>  </pl-answer>
+{{/params.segs}}
+</pl-checkbox>

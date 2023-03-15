@@ -1,0 +1,65 @@
+<pl-question-panel>
+  <p>A sender using sliding window flow control has the following bytes in its buffer. The gray outline shows the current state of its flow control "sliding window":</p>
+  <ul>
+      <li>The width of the gray outline is the most recent advertised receive window size.</li>
+      <li>Data to the left of the gray outline has been sent and ACKed.</li>
+      <li>Data to the left of the dashed line has been sent,</li>
+      <li>Data to the right of the dashed line has not been sent yet.</li>
+  </ul>
+<pl-drawing gradable="false" width="600" height="140" answers-name="window-init" grid-size="0" show-tolerance-hint="false">
+  <pl-drawing-initial>
+    <!-- objects that define the correct answer are placed here -->
+    {{#params.segs}}
+        <pl-rectangle x1="{{x}}" y1="{{y}}" width="40" height="60" color="yellow2" stroke-color="yellow1"></pl-rectangle>
+    {{/params.segs}}
+    <pl-rectangle x1="{{params.rwnd_init.x}}" y1="{{params.rwnd_init.y}}" opacity="0.4" width="{{params.rwnd_init.width}}" height="60" color="yellow2" stroke-color="black" stroke-width="4"></pl-rectangle>
+    <pl-line x1="{{params.rwnd_init.xnext}}" y1="40"  angle="90" width="60" opacity="0.6" dashed-size="7" stroke-color="black" stroke-width="4"></pl-line>
+    {{#params.segs}}
+        <pl-text x1="{{x}}" y1="{{y}}" label="{{n}}" offsetx="-10"></pl-text>
+    {{/params.segs}}
+  </pl-drawing-initial>
+  <pl-drawing-answer>
+    <!-- objects that define the correct answer are placed here -->
+  </pl-drawing-answer>
+</pl-drawing>  
+<br>
+<p>Then, before the sender has a chance to send any more bytes, it receives an ACK:</p>
+<p><b>ACK {{params.ack}}, advertised receive window {{params.new_rwnd}}</b></p>
+</pl-question-panel>
+
+<hr>
+<p>Using the same format as the diagram above, place a rectangular outline on the image, then click on it and resize it to show the updated state of the sender's sliding window after receiving this ACK but <b>before</b> sending any more data:</p>
+
+<pl-drawing gradable="true" width="600" height="140" answers-name="window" grid-size="0" hide-answer-panel="false" show-tolerance-hint="false">
+  <pl-drawing-initial>
+    <!-- objects that define the correct answer are placed here -->
+    {{#params.segs}}
+        <pl-rectangle x1="{{x}}" y1="{{y}}" width="40" height="60" color="yellow2" stroke-color="yellow1"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{y}}" label="{{n}}" offsetx="-10"></pl-text>
+    {{/params.segs}}
+    <pl-line x1="{{params.rwnd_init.xnext}}" y1="40"  angle="90" width="60" opacity="0.6" dashed-size="7" stroke-color="black" stroke-width="4"></pl-line>
+  </pl-drawing-initial>
+  <pl-controls>
+    <pl-controls-group label="Graded objects:">
+      <pl-drawing-button type="pl-rectangle" opacity="0.4" width="{{params.rwnd_init.width}}" x1="{{params.rwnd_init.x}}" y1="{{params.rwnd_init.y}}" height="60" color="yellow2" stroke-color="black" stroke-width="4"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Delete button:">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+  </pl-controls>
+
+  <pl-drawing-answer>
+    <pl-rectangle x1="{{params.rwnd_new.x}}" y1="{{params.rwnd_new.y}}" opacity="0.4" width="{{params.rwnd_new.width}}" height="60" color="yellow2" stroke-color="black" stroke-width="4"></pl-rectangle>
+  </pl-drawing-answer>
+</pl-drawing>  
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> After placing the outline on the diagram, slide the left edge of the window over to the left edge of the byte that was just ACKed. Then, slide the right edge of the window over until the width of the window is equal to the advertised receive window size.</p></pl-answer-panel>
+
+<hr>
+<p>Which new bytes do you expect the sender to send now? Select all that apply:</p>
+<pl-checkbox answers-name="send_bytes" inline="true" hide-letter-keys="true" fixed-order="true">
+    {{#params.send}}<pl-answer correct="{{ans}}">{{i}}</pl-answer>{{/params.send}}
+    <pl-answer correct="false">None of the above</pl-answer>
+</pl-checkbox>
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The sender can now send anything inside the window, to the right of the dashed line. (Bytes to the left of the dashed line but inside the window, if there are any, have already been sent.)</p></pl-answer-panel>

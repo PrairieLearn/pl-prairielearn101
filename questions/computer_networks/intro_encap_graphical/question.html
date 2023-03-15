@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+  <p>Which of the following options is a representation of a <b>{{params.opt.name}}</b> when it is passed down to the next layer?</p>
+</pl-question-panel>
+
+<pl-multiple-choice answers-name="graphical" fixed-order="true" hide-letter-keys="true">
+    <pl-answer correct="{{params.opt.ans.0}}">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td>Application data</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+    <pl-answer correct="{{params.opt.ans.1}}">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td>{{params.trans}} header</td>
+                    <td>Application data</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+    <pl-answer correct="{{params.opt.ans.2}}">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td>{{params.net}} header</td>
+                    <td>{{params.trans}} header</td>
+                    <td>Application data</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+    <pl-answer correct="{{params.opt.ans.3}}">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td>{{params.link}} header</td>
+                    <td>{{params.net}} header</td>
+                    <td>{{params.trans}} header</td>
+                    <td>Application data</td>
+                    <td>{{params.link}} trailer</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+</pl-multiple-choice>

@@ -1,0 +1,26 @@
+<pl-question-panel>
+  <p> Suppose that the position of a particle at time $t$ seconds is given by:</p>
+  <p>$$x(t) = {{params.x}}$$</p>
+  <p>where $x$ is measured in metres from the origin.  Write a program in C named <code>lab1.c</code> that prompts the user for a time $t$ in seconds (we assume that $0\leq t \leq \pi$ but it is not necessary to check that the value entered by the user satisfies this condition).  The program should then print the position of the particle in metres at the given time.  The position must be printed to 3 decimal places.</p>
+  <p>You might find some of the following functions from the library <code>math.h</code> useful (all functions receive a double parameter and return a double value:</p>
+<pl-code language="c">
+/* returns the square root of num */
+sqrt(num)
+
+/* returns base to the power of exponent */
+pow(base, exponent); 
+
+/* returns sine of angle (angle measured in radians) */
+sin(angle);
+
+/* returns cosine of angle (angle measured in radians) */
+cos(angle);  
+</pl-code>
+</pl-question-panel>
+
+<pl-file-editor source-file-name="source.c" file-name="position.c" ace-mode="ace/mode/c_cpp"></pl-file-editor>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

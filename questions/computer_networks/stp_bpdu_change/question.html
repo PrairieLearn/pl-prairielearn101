@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+
+<pl-question-panel>
+  <p> A bridge has bridge ID <tt>8000.{{params.id}}</tt> and interface cost 100 on all interfaces (note: this is <b>not</b> the root path cost, just the cost due to forwarding through the local interface). The bridge comes online and receives the following BPDUs.</p>
+  {{#params.rx-bpdus}}
+  <p>On its port <tt>800{{rxport}}</tt>, it receives:</p>
+  <pl-code language="text">
+STP 802.1d, Config, Flags [none], bridge-id 8000.{{id}}.{{port}}, length 35
+	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	root-id 8000.{{root}}, root-pathcost {{rpc}}
+  </pl-code>
+   {{/params.rx-bpdus}}
+<br>
+<p>In response, the bridge will prepare a BPDU describing its <i>own</i> configuration, in case it needs to send a configuration BPDU on any of its ports. </p>
+</pl-question-panel>
+
+<br><hr>
+
+<p>In the table below, fill in the values in this BPDU:</p>
+
+<table  class="table-arial-no-border" width="100%">
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Value</th>
+  </tr>
+</thead>
+<tbody>
+    <tr><td>Sender bridge ID</td><td><pl-string-input display="block" answers-name="bpdu-bid" allow-blank="true" ignore-case="true" correct_answer="8000.{{params.win-bpdu.id}}" remove-spaces="true" show-help-text="false" size="16"></pl-string-input></td></tr>
+    <tr><td>Root bridge ID</td><td><pl-string-input display="block" answers-name="bpdu-root" allow-blank="true" ignore-case="true" correct_answer="8000.{{params.win-bpdu.root}}" remove-spaces="true" show-help-text="false" size="16"></pl-string-input></td></tr>
+    <tr><td>Root path cost</td><td><pl-string-input display="block" answers-name="bdpu-rpc" allow-blank="true" ignore-case="true" correct_answer="{{params.win-bpdu.new_rpc}}" remove-spaces="true" show-help-text="false" size="16"></pl-string-input></td></tr>
+</tbody>
+</table>
+<br>
+<p>(The "sender bridge port" field in the BPDU will be set according to the bridge port that sends the BPDU.)</p>
+<br><hr>
+<p>On which port(s) will it send this BPDU? Select all that apply.</p>
+
+<pl-checkbox answers-name="sender" hide-letter-keys="true" fixed-order="true">
+    <pl-answer correct="{{params.chk.0}}"><tt>8001</tt></pl-answer>
+    <pl-answer correct="{{params.chk.1}}"><tt>8002</tt></pl-answer>
+    <pl-answer correct="{{params.chk.2}}">None of the above</pl-answer>
+</pl-checkbox>
+
+<br><hr>
+<p>What will be the final state of each of the bridge ports?</p>
+
+     
+ <table>
+     <thead>
+         <tr>
+             <th>Port&nbsp;&nbsp;</th>
+             <th>State</th>
+         </tr>
+     </thead>
+      <tbody>
+    {{#params.opts}}
+    <tr><td><tt>800{{rxport}}</tt>:&nbsp; &nbsp;</td><td><pl-multiple-choice answers-name="p-{{rxport}}" inline="true" hide-letter-keys="true" fixed-order="true"><pl-answer correct="{{root}}">Root port</pl-answer><pl-answer correct="{{des}}">Designated port</pl-answer><pl-answer correct="{{bl}}">Blocking</pl-answer></pl-multiple-choice></td></tr>
+    {{/params.opts}}
+    </tbody>
+</table>

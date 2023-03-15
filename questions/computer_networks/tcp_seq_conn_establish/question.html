@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+  <p>The following diagram shows the establishment of a TCP connection between two hosts using the three-way handshake involving packets A, B, and C.</p>
+ 
+
+ <pl-drawing width="590" height="350" gradable="false" grid-size="0" hide-answer-panel="false">
+
+  <pl-drawing-initial draw-error-box="false">
+
+
+      
+    <pl-text x1="150" y1="20" label="client" latex="false"></pl-text>
+    <pl-line x1="160" y1="40" x2="160" y2="300"></pl-line>
+    <pl-text x1="320" y1="20" label="server" latex="false"></pl-text>
+    <pl-line x1="340" y1="40" x2="340" y2="300"></pl-line>
+    
+
+    <pl-text x1="240" y1="85" label="A" font-size="16" latex="false"></pl-text>
+    <pl-vector x1="160" y1="80" width="185" angle="18" offset-backward="0" color="blue2"></pl-vector>
+    
+    <pl-text x1="240" y1="145" label="B" font-size="16" latex="false"></pl-text>
+    <pl-vector x1="340" y1="140" width="185" angle="162" offset-backward="0" color="blue2"></pl-vector>
+
+    <pl-text x1="240" y1="205" label="C" font-size="16" latex="false"></pl-text>
+    <pl-vector x1="160" y1="200" width="185" angle="18" offset-backward="0" color="blue2"></pl-vector>
+
+
+    <pl-text x1="230" y1="290" label="..." font-size="20"></pl-text>
+
+  </pl-drawing-initial>
+
+</pl-drawing>
+
+ </pl-question-panel>
+
+<br>
+<p>Given the sequence numbers of packets A and B, as shown in the table below, fill in the missing ACK numbers, sequence numbers, and flags in these packets.</p>
+   <table class="table-arial-with-border" width="100%">
+      <thead>
+          <tr>
+              <th>Packet</th>
+              <th>SN</th>
+              <th>ACK</th>
+              <th>Flags</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>A</td>
+              <td>{{params.sn_a}}</td>
+              <td>-</td>
+              <td>
+                <pl-checkbox answers-name="flags-a" inline="true" hide-help-text="true" hide-letter-keys="true">
+                  <pl-answer correct="{{params.flags.0.ack}}">ACK</pl-answer>
+                  <pl-answer correct="{{params.flags.0.syn}}">SYN</pl-answer>
+                  <pl-answer correct="{{params.flags.0.fin}}">FIN</pl-answer>
+                </pl-checkbox>
+              </td>
+          </tr>
+          <tr>
+              <td>B</td>
+              <td>{{params.sn_b}}</td>
+              <td><pl-integer-input answers-name="ack_b" size="8" show-help-text="false"></pl-integer-input></td>
+              <td>
+                <pl-checkbox answers-name="flags-b" inline="true" hide-help-text="true" hide-letter-keys="true">
+                  <pl-answer correct="{{params.flags.1.ack}}">ACK</pl-answer>
+                  <pl-answer correct="{{params.flags.1.syn}}">SYN</pl-answer>
+                  <pl-answer correct="{{params.flags.1.fin}}">FIN</pl-answer>
+                </pl-checkbox>
+              </td>
+          </tr>
+          <tr>
+              <td>C</td>
+              <td><pl-integer-input answers-name="sn_c" size="8" show-help-text="false"></pl-integer-input></td>
+              <td><pl-integer-input answers-name="ack_c" size="8" show-help-text="false"></pl-integer-input></td>
+              <td>
+                <pl-checkbox answers-name="flags-c" inline="true" hide-help-text="true" hide-letter-keys="true">
+                  <pl-answer correct="{{params.flags.2.ack}}">ACK</pl-answer>
+                  <pl-answer correct="{{params.flags.2.syn}}">SYN</pl-answer>
+                  <pl-answer correct="{{params.flags.2.fin}}">FIN</pl-answer>
+                </pl-checkbox>
+              </td>
+          </tr>
+      </tbody>
+</table>
+
+<br>
+
+<p>Assuming the next segment is a data segment of length <b>{{params.len_d}}</b> bytes transferred from server to client (D), and this segment is ACKed in E which is a pure ACK, </p>
+
+<pl-question-panel>
+    
+
+ <pl-drawing width="590" height="350" gradable="false" grid-size="0" hide-answer-panel="false">
+
+  <pl-drawing-initial draw-error-box="false">
+
+
+      
+    <pl-text x1="150" y1="20" label="client" latex="false"></pl-text>
+    <pl-line x1="160" y1="40" x2="160" y2="300"></pl-line>
+    <pl-text x1="320" y1="20" label="server" latex="false"></pl-text>
+    <pl-line x1="340" y1="40" x2="340" y2="300"></pl-line>
+    
+    <pl-text x1="230" y1="100" label="..." font-size="20"></pl-text>
+
+
+    <pl-text x1="240" y1="145" label="D" font-size="16" latex="false"></pl-text>
+    <pl-vector x1="340" y1="140" width="185" angle="162" offset-backward="0" color="blue2"></pl-vector>
+
+    <pl-text x1="240" y1="205" label="E" font-size="16" latex="false"></pl-text>
+    <pl-vector x1="160" y1="200" width="185" angle="18" offset-backward="0" color="blue2"></pl-vector>
+
+
+    <pl-text x1="230" y1="290" label="..." font-size="20"></pl-text>
+
+  </pl-drawing-initial>
+
+</pl-drawing>
+
+ </pl-question-panel>
+ 
+ <br>
+<p>complete the following table.</p>
+   <table class="table-arial-with-border" width="100%">
+      <thead>
+          <tr>
+              <th>Packet</th>
+              <th>SN</th>
+              <th>ACK</th>
+              <th>Flags</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>D</td>
+              <td><pl-integer-input answers-name="sn_d" size="8" show-help-text="false"></pl-integer-input></td>
+              <td><pl-integer-input answers-name="ack_d" size="8" show-help-text="false"></pl-integer-input></td>
+              <td>
+                <pl-checkbox answers-name="flags-d" inline="true" hide-help-text="true" hide-letter-keys="true">
+                  <pl-answer correct="True">ACK</pl-answer>
+                  <pl-answer correct="False">SYN</pl-answer>
+                  <pl-answer correct="False">FIN</pl-answer>
+                </pl-checkbox>
+              </td>
+          </tr>
+          <tr>
+              <td>E</td>
+              <td><pl-integer-input answers-name="sn_e" size="8" show-help-text="false"></pl-integer-input></td>
+              <td><pl-integer-input answers-name="ack_e" size="8" show-help-text="false"></pl-integer-input></td>
+              <td>
+                <pl-checkbox answers-name="flags-e" inline="true" hide-help-text="true" hide-letter-keys="true">
+                  <pl-answer correct="True">ACK</pl-answer>
+                  <pl-answer correct="False">SYN</pl-answer>
+                  <pl-answer correct="False">FIN</pl-answer>
+                </pl-checkbox>
+              </td>
+          </tr>
+      </tbody>
+</table>
+

@@ -1,0 +1,14 @@
+{
+  "uuid": "a3cb8274-ac3d-4f21-b7e5-c68e5b82cf82",
+  "title": "Sample Problem that Builds on a Randomized Provided Data Structure",
+  "topic": "Haskell",
+  "tags": [],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "cswolf/haskell-prairielearn",
+    "serverFilesCourse": ["haskell-grader/"],
+    "entrypoint": "/grade/serverFilesCourse/haskell-grader/run-qc-lib.sh"
+  }
+}

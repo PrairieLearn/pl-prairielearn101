@@ -1,0 +1,6 @@
+{
+    "controller": "led.py",
+    "dependencies": {
+        "extensionScripts": ["led.js"]
+    }
+}

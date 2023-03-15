@@ -1,0 +1,10 @@
+{
+    "uuid": "17df6eb8-8d8e-42c1-89d5-9ea5a93d201c",
+    "title": "Port state from BPDUs",
+    "topic": "ARP, bridges, and spanning tree",
+    "tags": [
+        "lab",
+        "multiple choice"
+    ],
+    "type": "v3"
+}

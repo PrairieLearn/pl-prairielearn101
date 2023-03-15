@@ -1,0 +1,201 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1: Initial distance tables</div>
+  <div class="card-body">
+
+<pl-question-panel>
+  <p> Consider the following topology of routers using a distance vector routing procotol with no hop count limit or cost limit, no split horizon and no poison reverse. The cost of each link is shown on the diagram.</p>
+  <pl-graph engine="dot">
+graph G {
+    rankdir="LR";
+    overlap = false;
+    {
+        node [colorscheme=accent3 fontname="courier" style="filled" ]
+    A [width=1 shape=rect label="A" fillcolor=1]
+    B [width=1 shape=rect label="B" fillcolor=1]
+    C [width=1 shape=rect label="C" fillcolor=1]
+
+    }
+    
+        edge [ fontname="courier"  minlen=2]
+
+    A -- B [label=1]
+    B -- C [label={{params.cost}}]
+
+
+}  </pl-graph>
+<br>
+</pl-question-panel>
+
+<p>Fill in the distance tables for routers A, B, and C once the system has stablized:</p>
+
+<table class="table-arial-with-border" width="100%">
+<tbody>
+    <tr>
+        <td colspan="2"><b>Router A</b></td><td rowspan="4"></td>
+        <td colspan="3"><b>Router B</b></td><td  rowspan="4"></td>
+        <td colspan="2"><b>Router C</b></td>
+    </tr>
+    <tr>
+        <td>To/Via</td><td>B</td>   <td>To/Via</td><td>A</td><td>C</td>         <td>To/Via</td><td>B</td></tr>
+    <tr>
+        <td>B</td>
+            <td><pl-integer-input answers-name="i-A-B-B" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>        
+        <td>A</td>
+            <td><pl-integer-input answers-name="i-B-A-A" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>
+            <td><pl-integer-input answers-name="i-B-A-C" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>        
+        <td>A</td>
+            <td><pl-integer-input answers-name="i-C-A-B" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>        
+    </tr>
+    <tr>
+        <td>C</td>
+            <td><pl-integer-input answers-name="i-A-C-B" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>        
+        <td>C</td>
+            <td><pl-integer-input answers-name="i-B-C-A" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>
+            <td><pl-integer-input answers-name="i-B-C-C" allow-blank="true" show-help-text="false" size="2"></pl-integer-input></td>        
+        <td>B</td>
+            <td><pl-integer-input answers-name="i-C-B-B" allow-blank="true"  show-help-text="false" size="2"></pl-integer-input></td>        
+        </tr>
+</tbody>
+</table>
+</div></div><br>
+
+<div class="card card-default">
+  <div class="card-header">Part 2: After link is broken</div>
+  <div class="card-body">
+
+<pl-question-panel>
+  <p> Now suppose the link between A and B is broken.</p>
+  <pl-graph engine="dot">
+graph G {
+    rankdir="LR";
+    overlap = false;
+    {
+        node [colorscheme=accent3 fontname="courier" style="filled" ]
+    A [width=1 shape=rect label="A" fillcolor=1]
+    B [width=1 shape=rect label="B" fillcolor=1]
+    C [width=1 shape=rect label="C" fillcolor=1]
+
+    }
+    
+        edge [ fontname="courier"  minlen=2]
+
+    A -- B [label=X fontcolor="red"]
+    B -- C [label={{params.cost}}]
+
+
+}  
+</pl-graph>
+
+</pl-question-panel>
+
+<p>B notices the change in link cost (to  &infin;), and updates its distance table. What is B's new distance table?</p>
+<div class="alert alert-info"><p>Note: for an &infin; entry, just leave the space blank.</p></div><br>
+
+<table class="table-arial-with-border" width="30%">
+<tbody>
+    <tr><td colspan="3"><b>Router B</b></td></tr>
+    <tr><td>To/Via</td><td>A</td><td>C</td></tr>
+    <tr><td>A</td>
+        <td><pl-integer-input answers-name="2-B-A-A" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+        <td><pl-integer-input answers-name="2-B-A-C" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>    </td>
+    </tr>
+    <tr><td>C</td>
+        <td><pl-integer-input answers-name="2-B-C-A" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+        <td><pl-integer-input answers-name="2-B-C-C" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>    </td>
+    </tr>
+</tbody>
+</table>
+
+<pl-answer-panel> <br><hr><p><span class="badge badge-primary">Comment</span> Any link from B via A now has &infin; cost. (If you leave these entries blank, as instructed for &infin; cost, it will appear as <code>1000000</code> in the answer panel, but it is actually &infin;.) For the link to A via C, B remembers that in the last update from C, C said that it could reach A with a cost of {{correct_answers.i-C-A-B}}. Therefore, B believes that it can reach A via C with a cost of {{correct_answers.i-C-A-B}}+{{params.cost}}={{correct_answers.2-B-A-C}}.</p></pl-answer-panel>
+
+</div></div><br>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 3: After an update from B to C</div>
+  <div class="card-body">
+<p>B sends an update to C. What is C's distance table after receiving the update?</p>
+<div class="alert alert-info"><p>Note: for an &infin; entry, just leave the space blank.</p></div><br>
+
+<table class="table-arial-with-border" width="30%">
+<tbody>
+    <tr><td colspan="4"><b>Router C</b></td></tr>
+    <tr><td>To/Via</td><td>B</td></tr>
+    <tr><td>A</td>
+        <td><pl-integer-input answers-name="3-C-A-B" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+    </tr>
+    <tr><td>B</td>
+        <td><pl-integer-input answers-name="3-C-B-B" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+    </tr>
+
+</tbody>
+</table>
+
+<pl-answer-panel> <br><hr><p><span class="badge badge-primary">Comment</span> After the update,</p>
+<ul>
+    <li>Distance from router C to A via B: (shortest path from C to B) + (shortest path from B to A, learned from B’s update) = {{params.cost}}+{{correct_answers.2-B-A-C}}={{correct_answers.3-C-A-B}}</li>
+    <li>Distance from router C to B via B: (shortest path from C to B) = {{params.cost}}</li>
+</ul></pl-answer-panel>
+
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 4: After an update from C to B</div>
+  <div class="card-body">
+<p>After updating its table, C sends an update to B. What is B’s distance table after receiving the update?</p>
+<div class="alert alert-info"><p>Note: for an &infin; entry, just leave the space blank.</p></div><br>
+
+<table class="table-arial-with-border" width="30%">
+<tbody>
+    <tr><td colspan="3"><b>Router B</b></td></tr>
+    <tr><td>To/Via</td><td>A</td><td>C</td></tr>
+    <tr><td>A</td>
+        <td><pl-integer-input answers-name="4-B-A-A" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+        <td><pl-integer-input answers-name="4-B-A-C" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>    </td>
+    </tr>
+    <tr><td>C</td>
+        <td><pl-integer-input answers-name="4-B-C-A" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>  </td>
+        <td><pl-integer-input answers-name="4-B-C-C" allow-blank="true" blank-value="1000000" show-help-text="false" size="2"></pl-integer-input>    </td>
+    </tr>
+</tbody>
+</table>
+
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 5: Convergence</div>
+  <div class="card-body">
+<p>After many updates, what will be the cost in the <i>routing</i> tables...</p>
+
+<br>
+<p>... at B, to A (shortest path by any route)?</p>
+<pl-multiple-choice answers-name="mc-b" fixed-order="true" hide-letter-keys="true">
+    <pl-answer correct="false">A value smaller than {{params.final}}</pl-answer>
+    <pl-answer correct="false">{{params.final}}</pl-answer>
+    <pl-answer correct="false">{{params.finalx}}</pl-answer>
+    <pl-answer correct="true">This cost will keep increasing to &infin;</pl-answer>
+</pl-multiple-choice>
+
+<br><hr>
+<p>... at C, to A?</p>
+<pl-multiple-choice answers-name="mc-c" fixed-order="true" hide-letter-keys="true">
+    <pl-answer correct="false">A value smaller than {{params.final}}</pl-answer>
+    <pl-answer correct="false">{{params.final}}</pl-answer>
+    <pl-answer correct="false">{{params.finalx}}</pl-answer>
+    <pl-answer correct="true">This cost will keep increasing to &infin;</pl-answer>
+</pl-multiple-choice>
+
+<pl-answer-panel> <br><hr><p><span class="badge badge-primary">Comment</span> In each iteration, the cost to A increases by {{params.cost}}, to infinity.</p></pl-answer-panel>
+
+
+
+</div></div><br>
+
+
+<!-- example via https://inst.eecs.berkeley.edu/~ee122/fa12/discussion/Section108_Answers.pdf -->

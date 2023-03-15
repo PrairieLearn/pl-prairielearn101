@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+
+
+<p>The routing table at a router includes the following rule:</p>
+<p>
+<table class="table-gray-no-border" width="100%">
+<thead>
+  <tr>
+    <th>Destination</th>
+    <th>Gateway</th>
+    <th>Genmask</th>
+    <th>Flags</th>
+    <th>Metric</th>
+    <th>Ref</th>
+    <th>Use</th>
+    <th>Iface</th>
+  </tr>
+</thead>
+
+<tbody>
+    <tr>
+    <td>{{params.netaddr}}</td>
+    <td>0.0.0.0</td>
+    <td>{{params.netmask}}</td>
+    <td>U</td>
+    <td>600</td>
+    <td>0</td>
+    <td>0</td>
+    <td>{{params.iface}}</td>
+     </tr>
+</tbody>
+</table>
+</p>
+
+</pl-question-panel>
+
+<br>
+
+<p>Which of the following addresses match this rule? Select all that apply.</p>
+
+<pl-checkbox answers-name="add" partial-credit="true" min-correct="2" max-correct="3" number-answers="5">
+  {{#params.choices}}
+  <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+  {{/params.choices}}
+</pl-checkbox>
+
+<pl-answer-panel><hr>
+<p><span class="badge badge-primary">Comment</span> This rule matches addresses from <b>{{params.netaddr}}</b> to <b>{{params.bcast}}</b>.</p>
+<p>The bottom end of this range is the network address, which is given in the routing table rule: {{params.netaddr}}. </p>
+<p>To find the top end of this range, compute the network address OR the <i>inverse</i> of the subnet mask:</p>
+
+<pre>
+{{params.netaddr_bin}}
+{{params.maskinv_bin}}
+-----------------------------------
+{{params.bcast_bin}}
+</pre>
+<p>to get {{params.bcast}}.</p>
+</pl-answer-panel>
+

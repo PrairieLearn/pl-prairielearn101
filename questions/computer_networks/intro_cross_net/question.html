@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+  <p>In the home network illustrated below, Host A connects to Router J over an 802.11 (WiFi) link and Host B connects to Router J using an Ethernet cable. A TCP connection has been established between App X on Host A and App X on Host B.</p>
+
+  <pl-figure file-name="tcpip-encap-decap.svg" directory="clientFilesQuestion" width="90%"></pl-figure>
+
+  <br>
+  <p>Now, suppose App X on Host A sends some data to App X on Host B.</p>
+</pl-question-panel>
+
+  <p>Which option represents the frame that will be sent over the <b>802.11</b> link between Host A and Router J?</p>
+
+<pl-multiple-choice answers-name="wifi" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="true">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+</pl-multiple-choice>
+
+<br>
+
+
+  <p>Which option represents the frame that will be sent over the <b>Ethernet</b> link between Router J and Host B?</p>
+
+<pl-multiple-choice answers-name="ether" weight="1" fixed-order="true" hide-letter-keys="true">
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                </tr>
+            </tbody>
+        </table>
+    </pl-answer>
+  <pl-answer correct="true">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+  <pl-answer correct="false">
+        <table class="table-arial-with-border">
+            <tbody>
+                <tr>
+                    <td bgcolor="#e2cafd">802.11 header</td>
+                    <td bgcolor="#8ce28f">Ethernet header</td>
+                    <td bgcolor="#84c4fd">IP header</td>
+                    <td bgcolor="#ffd384">TCP header</td>
+                    <td bgcolor="#ffdfeb">Application data</td>
+                    <td bgcolor="#8ce28f">Ethernet trailer</td>
+                    <td bgcolor="#e2cafd">802.11 trailer</td>
+                </tr>
+            </tbody>
+        </table>
+  </pl-answer>
+</pl-multiple-choice>

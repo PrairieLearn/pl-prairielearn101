@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+  <p>In this practice question, we will see how to determine the network address, broadcast address, and range of usable addresses in a subnet, given an IPv4 address <b>{{params.ip}}</b> and subnet mask <b>{{params.netmask}}</b> of a host in the subnet.</p>
+</pl-question-panel>
+
+
+<br>
+
+<div class="card card-default">
+  <div class="card-header">Part 1. Working with binary representation</div>
+  <div class="card-body">
+    <p>
+    <table class="table-arial-no-border" width="100%">
+    <tbody>
+        <tr>
+            <td colspan="100%"><p>Fill in an 8-bit binary value (e.g. <code>00101110</code>) in each space below.</td>
+        </tr>
+        <tr>
+            <td colspan="100%"><p>First, convert the dotted decimal IP address {{params.ip}} and subnet mask {{params.netmask}} to dotted binary format:</td>
+        </tr>
+        <tr>
+         <td><b>IP address:</b></td>
+         <td><pl-string-input display="block" answers-name="ip-0" correct_answer="{{params.ip_bin.0}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="ip-1" correct_answer="{{params.ip_bin.1}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="ip-2" correct_answer="{{params.ip_bin.2}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="ip-3" correct_answer="{{params.ip_bin.3}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+         <td><b>Netmask:</b></td>
+         <td><pl-string-input display="block" answers-name="netmask-0" correct_answer="{{params.netmask_bin.0}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netmask-1" correct_answer="{{params.netmask_bin.1}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netmask-2" correct_answer="{{params.netmask_bin.2}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netmask-3" correct_answer="{{params.netmask_bin.3}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+            <td colspan="100%"><p>Take the bitwise AND of IP address and netmask to get the network address:</td>
+        </tr>
+        <tr>
+         <td><b>Network address:</b></td>
+         <td><pl-string-input display="block" answers-name="netaddr-0" correct_answer="{{params.netaddr_bin.0}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netaddr-1" correct_answer="{{params.netaddr_bin.1}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netaddr-2" correct_answer="{{params.netaddr_bin.2}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="netaddr-3" correct_answer="{{params.netaddr_bin.3}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+            <td colspan="100%"><p>The broadcast address is the network address OR (NOT the subnet mask):</td>
+        </tr>
+        <tr>
+         <td><b>Broadcast address:</b></td>
+         <td><pl-string-input display="block" answers-name="bcaddr-0" correct_answer="{{params.bcaddr_bin.0}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="bcaddr-1" correct_answer="{{params.bcaddr_bin.1}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="bcaddr-2" correct_answer="{{params.bcaddr_bin.2}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+         <td><pl-string-input display="block" answers-name="bcaddr-3" correct_answer="{{params.bcaddr_bin.3}}" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+    </tbody>
+    </table>
+    </p>
+
+</div></div><br>
+
+<div class="card card-default">
+  <div class="card-header">Part 2. Results in dotted decimal notation</div>
+  <div class="card-body">
+
+    <p>Now, we can convert these binary values back to dotted decimal notation. We'll also identify the range of usable addresses in this subnet.</p>
+    
+    <p>The network address and the broadcast address are "reserved" - you can't use them as a host IP address. So the range of IP addresses that you can assign to interfaces on a network is the range from the network address + 1, to the broadcast address - 1.</p>
+    
+    <p>In the following spaces, fill in the network address, broadcast address, smallest usable address, and largest usable address, in <b>dotted decimal</b> notation.</p>
+    
+    <p>
+    <table class="table-arial-no-border"  width="100%">
+    <tbody>
+        <tr>
+         <td><b>Network address:</b></td>
+         <td><pl-string-input display="block" answers-name="netaddr" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+         <td><b>Broadcast address:</b></td>
+         <td><pl-string-input display="block" answers-name="bcaddr" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+         <td><b>Smallest usable address:</b></td>
+         <td><pl-string-input display="block" answers-name="minaddr" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+        <tr>
+         <td><b>Largest usable address:</b></td>
+         <td><pl-string-input display="block" answers-name="maxaddr" remove-spaces="true" show-help-text="false" size="8"></pl-string-input></td>
+        </tr>
+    
+    </tbody>
+    </table>
+    </p>
+</div></div><br>

@@ -1,0 +1,187 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+ <p>Consider the following topology of routers and LANs. The IP address of each router interface is noted on the diagram.</p>
+ <pl-graph engine="dot">
+graph G {
+    rankdir="TB";
+    splines=ortho;
+    {
+        node [colorscheme=accent3]
+    ra [width=1.7 shape=cylinder label="router-a" fontname="courier" style="filled" fillcolor=1]
+    rb [width=1.8 shape=cylinder label="router-b" fontname="courier" style="filled" fillcolor=1]
+    rc [width=1.7 shape=cylinder label="router-c" fontname="courier" style="filled" fillcolor=1]
+    rd [width=1.7 shape=cylinder label="router-d" fontname="courier" style="filled" fillcolor=1]
+    re [width=1.7 shape=cylinder label="router-e" fontname="courier" style="filled" fillcolor=1]
+
+    wa [width=0.5 shape=rec label="WAN" fontname="courier" style="filled" fillcolor=2]
+    la [width=0.5 shape=rect label="LAN A\n10.0.0.128/26" fontname="courier" style="filled" fillcolor=2]
+    lb [width=0.5 shape=rec label="LAN B\n10.0.0.64/26" fontname="courier" style="filled" fillcolor=2]
+    lc [width=0.5 shape=rec label="LAN C\n10.0.0.192/27" fontname="courier" style="filled" fillcolor=2]
+    ld [width=0.5 shape=rec label="LAN D\n10.0.0.32/27" fontname="courier" style="filled" fillcolor=2]
+    le [width=0.5 shape=rec label="LAN E\n10.0.0.0/27" fontname="courier" style="filled" fillcolor=2]
+
+    {rank = min; rb; wa; lb}
+
+
+
+    }
+
+    ra -- la [taillabel="10.0.0.129" fontname="courier" minlen=2]
+    ra -- rb [headlabel="10.0.0.161" taillabel="10.0.0.162" fontname="courier" minlen=2]
+    rb -- lb  [taillabel="10.0.0.65" fontname="courier" minlen=6]
+    wa -- rb [headlabel="17.14.28.20" fontname="courier" minlen=6]
+    rb -- rc  [headlabel="10.0.0.165" taillabel="10.0.0.166" fontname="courier" minlen=2]
+    rc -- rd [headlabel="10.0.0.169" taillabel="10.0.0.170" fontname="courier" minlen=2]
+    rc -- re [headlabel="10.0.0.173" taillabel="10.0.0.174" fontname="courier" minlen=2]
+    rc -- lc [taillabel="10.0.0.193"  fontname="courier" minlen=2]
+    rd -- ld [taillabel="10.0.0.33"  fontname="courier" minlen=2]
+    re -- le [taillabel="10.0.0.1"  fontname="courier" minlen=2]
+    }
+     
+ </pl-graph>
+</pl-question-panel>
+
+
+<br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1. Identify matching routes</div>
+  <div class="card-body">
+
+<p>The routing table at <code>router-b</code> is as follows (I have also numbered each route for reference, on the left side):</p>
+<p>
+<table class="table-gray-no-border" width="100%">
+<thead>
+  <tr>
+    <th></th>
+    <th>Destination</th>
+    <th>Gateway</th>
+    <th>Genmask</th>
+    <th>Flags</th>
+    <th>Metric</th>
+    <th>Ref</th>
+    <th>Use</th>
+    <th>Iface</th>
+  </tr>
+</thead>
+
+<tbody>
+    {{#params.routes}}
+    <tr>
+    <td>{{k}}&nbsp;&nbsp;&nbsp;</td>
+    <td>{{dest}}</td>
+    <td>{{gw}}</td>
+    <td>{{netmask}}</td>
+    <td>{{flags}}</td>
+    <td>600</td>
+    <td>0</td>
+    <td>0</td>
+    <td>{{iface}}</td>
+     </tr>
+    {{/params.routes}}
+</tbody>
+</table>
+</p>
+
+<p>Which of the routing rules match the destination address <b>{{params.sol.address}}</b>? Select <i>all</i> rules that match, not just the longest prefix match.</p>
+
+<pl-checkbox inline="true" fixed-order="true" hide-letter-keys="true" answers-name="matching" partial-credit="true">
+    <pl-answer correct={{params.sol.matches.0}}>0</pl-answer>
+    <pl-answer correct={{params.sol.matches.1}}>1</pl-answer>
+    <pl-answer correct={{params.sol.matches.2}}>2</pl-answer>
+    <pl-answer correct={{params.sol.matches.3}}>3</pl-answer>
+    <pl-answer correct={{params.sol.matches.4}}>4</pl-answer>
+    <pl-answer correct={{params.sol.matches.5}}>5</pl-answer>
+    <pl-answer correct={{params.sol.matches.6}}>6</pl-answer>
+    <pl-answer correct={{params.sol.matches.7}}>7</pl-answer>
+</pl-checkbox>    
+    
+    
+    <pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> To identify the rules that match a destination address: apply the AND operation to the destination address <b>{{params.sol.address}}</b> and to each of the subnet masks in the <code>Genmask</code> column in turn, and see if the result matches the address in the <code>Destination</code> column. If it does, it's a match!</p>
+    
+    <p>For this destination address <b>{{params.sol.address}}</b>, the binary representation is 
+    
+    <pre>{{params.addressbin}}</pre>
+    
+    The following table shows how we would check each route, to see if the result of {{params.sol.address}} AND netmask matches the destination address in the route.</p>
+    
+    <p>
+    <table class="table-with-border" width="100%">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Destination</th>
+        <th>{{params.sol.address}} AND Genmask</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {{#params.routes}}
+        <tr>
+        <td>{{k}}&nbsp;&nbsp;&nbsp;</td>
+        <td>{{dest}}<br><br><br><b>{{destbin}}</b></td>
+        <td>{{params.addressbin}}<br>{{netmaskbin}}<br>-----------------------------------<br><b>{{andresult}}</b>
+    </td>
+         </tr>
+        {{/params.routes}}
+    </tbody>
+    </table>
+    </p>
+    
+    <p>If the result of the AND in the last column is the same as the binary representation of the network address in the first column, then the rule matches the destination address!</p>
+
+    </pl-answer-panel>
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2. Apply longest prefix matching</div>
+  <div class="card-body">
+    <p>Which <i>one</i> rule will be applied, according to longest prefix matching? Identify the interface that the packet will be forwarded from, and the gateway IP address (if it is a direct route with no gateway, leave the gateway field blank.)</p>
+    
+    <br>
+    Using rule <pl-dropdown answers-name="rule" sort="fixed">{{#params.rule}}
+        <pl-answer correct={{tag}}>{{name}}</pl-answer>
+        {{/params.rule}}
+        </pl-dropdown>, forward from <pl-dropdown answers-name="iface" sort="fixed">{{#params.iface}}
+        <pl-answer correct={{tag}}>{{name}}</pl-answer>
+        {{/params.iface}}
+        </pl-dropdown> via <pl-string-input label="gateway" answers-name="gw" ignore-case="true" correct_answer="{{params.finalRoute.gw}}" allow-blank="true" remove-spaces="true" show-help-text="false" size="14"></pl-string-input>.
+        
+      <pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> Once you have identified the rules that match, select the one with the longest prefix - most 1s in the subnet mask. This is the rule that will be applied.</p>
+    <p>In this case, the prefix length of each of the matching rules is (last column):</p>
+    <table class="table-with-border" width="100%">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Destination</th>
+                <th>Gateway</th>
+                <th>Genmask</th>
+                <th>Flags</th>
+                <th>Iface</th>
+                <th><b>Prefix</b></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                {{#params.solRoutes}}
+                <tr>
+                <td>{{k}}&nbsp;&nbsp;&nbsp;</td>
+                <td>{{dest}}</td>
+                <td>{{gw}}</td>
+                <td>{{netmask}}</td>
+                <td>{{flags}}</td>
+                <td>{{iface}}</td>
+                <td><b>{{prefix}}</b></td>
+                 </tr>
+                {{/params.solRoutes}}
+            </tbody>
+            </table>
+        </p>
+
+    </pl-answer-panel>
+    
+</div></div><br>
+

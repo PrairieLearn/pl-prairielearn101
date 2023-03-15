@@ -1,0 +1,78 @@
+<pl-question-panel>
+    <p>You have connected a Raspberry Pi to the breadboard below as follows:</p>
+    <ul>
+        <li>Red wire to 3.3V</li>
+        <li>Black wire to GND</li>
+        <li>Green wire to GPIO{{params.pin}}</li>
+    </ul>
+    
+    <p>Now, add components to the breadboard so that the GPIO pin can switch the LED on and off in an <b>active {{params.active}}</b> configuration.</p>
+
+</pl-question-panel>
+
+
+<pl-hide-in-panel answer="true" submission="true">
+{{{feedback.breadboard}}}
+<pl-overlay width=800 height=750>
+    <pl-background>
+        
+            <pl-drawing grid-size="0" width="600" height="700" gradable="true" answers-name="bb" hide-answer-panel="true" show-tolerance-hint="false">
+                <pl-drawing-answer></pl-drawing-answer>
+                <pl-controls>
+                    <pl-controls-group label="Wires">
+                        <pl-drawing-button type="pl-line" stroke-width="5" stroke-color="purple2"></pl-drawing-button>
+                    </pl-controls-group>
+                    <pl-controls-group label="Basic Components">
+                        <pl-drawing-button type="pl-resistor" x="100" y="100" ohm="220"></pl-drawing-button>
+                        <pl-drawing-button type="pl-led" x="100" y="100" ledcolor="red"></pl-drawing-button>
+                    </pl-controls-group>
+                    <pl-controls-group label="Delete">
+                         <pl-drawing-button type="delete"></pl-drawing-button>
+                    </pl-controls-group>
+                </pl-controls>
+              <pl-drawing-initial>
+                  <!-- Negative supply -->
+                <pl-line stroke-width="5" x1="0" x2="137" y1="119" y2="119" stroke-color="black"></pl-line>
+                <pl-point x1="137" y1="119" color="black"></pl-point>
+                  <!-- Positive supply -->
+                <pl-line stroke-width="5" x1="0" x2="119" y1="138" y2="138" stroke-color="red2"></pl-line>
+                <pl-point x1="119" y1="138" color="red2"></pl-point>
+                  <!-- GPIO pin -->
+                <pl-line stroke-width="5" x1="0" x2="192" y1="317" y2="317" stroke-color="green2"></pl-line>
+                <pl-point x1="192" y1="317" color="green2"></pl-point>
+              </pl-drawing-initial>
+
+            </pl-drawing>
+    </pl-background>
+
+    <pl-location left="300" top="300">
+        <img src="{{options.client_files_course_url}}/breadboard-blank.svg" width="400px">
+    </pl-location>
+    <pl-location left="262" top="750">
+        <p><small><i>This question uses <a href="https://github.com/fritzing/fritzing-parts">Fritzing graphics</a>, shared under a CC BY-SA 3.0 Unported license.</i></small></p>
+    </pl-location>
+</pl-overlay>
+
+
+<hr>
+
+</pl-hide-in-panel>
+
+<pl-question-panel>
+    <p>Then, drag and drop the blocks to write code that will configure the GPIO pin and turn the LED on. Note: not all blocks will be used.</p>
+</pl-question-panel>
+
+<pl-hide-in-panel answer="true" submission="true">
+
+{{{feedback.code}}}
+<pl-order-blocks answers-name="code" grading-method="dag" format="code" code-language="python">
+  <pl-answer correct="true" tag="1" depends="">import RPi.GPIO as GPIO</pl-answer>
+  <pl-answer correct="true" tag="2" depends="1">GPIO.setmode(GPIO.BCM)</pl-answer>
+  <pl-answer correct="true" tag="3" depends="2">GPIO.setup({{params.pin}}, GPIO.OUT)</pl-answer>
+  <pl-answer correct="false">GPIO.setup({{params.pin}}, GPIO.IN)</pl-answer>
+  <pl-answer correct="true" tag="4" depends="3">GPIO.output({{params.pin}}, GPIO.{{params.active}})</pl-answer>
+  <pl-answer correct="false">GPIO.output({{params.pin}}, GPIO.{{params.opp}})</pl-answer>
+  <pl-answer correct="false">print(GPIO.input({{params.pin}}))</pl-answer>
+</pl-order-blocks>
+
+</pl-hide-in-panel>

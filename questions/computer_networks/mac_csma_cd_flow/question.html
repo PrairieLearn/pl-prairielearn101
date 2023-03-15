@@ -1,0 +1,16 @@
+<pl-question-panel>
+  <p>A host is connected to a shared medium that uses CSMA/CD as its MAC protocol. Suppose {{params.desc.situation}}. What will it do next?</p>
+</pl-question-panel>
+<pl-multiple-choice answers-name="csma_cd" weight="1" hide-letter-keys="true" number-answers="4">
+  <pl-answer correct="false">Wait until it receives an ACK or there is an ACK timeout.</pl-answer>
+  <pl-answer correct="{{params.ans.jam}}">Send a jamming signal and cease transmission.</pl-answer>
+  <pl-answer correct="{{params.ans.backoff}}">Start the exponential backoff process.</pl-answer>
+  <pl-answer correct="{{params.ans.wait-idle}}">Wait for the transmission to end.</pl-answer>
+  <pl-answer correct="{{params.ans.sense}}">Sense the medium to see if it is idle before transmitting.</pl-answer>
+    <pl-answer correct="{{params.ans.detect-collision}}">Sense the medium to be sure there is no collision.</pl-answer>
+  <pl-answer correct="{{params.ans.tx}}">Transmit data.</pl-answer>
+  <pl-answer correct="{{params.ans.abort}}">Give up.</pl-answer>
+  <pl-answer correct="{{params.ans.complete}}">The frame transmission is complete, so the host does not need to do anything else.</pl-answer>
+
+
+</pl-multiple-choice>

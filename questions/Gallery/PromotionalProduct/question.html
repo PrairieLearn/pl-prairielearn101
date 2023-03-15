@@ -1,0 +1,33 @@
+<pl-question-panel>
+  <p>
+    In this question you will complete the implementation of a class
+    used in a system to handle customer sales for a store. Assume the
+    following class declaration for a class
+    named <code>Product</code>:
+  </p>
+
+  <pl-code language="java" source-file-name="code/Product.java"></pl-code>
+
+  <p>
+    Now implement a new class named <code>PromotionalProduct</code>
+    that is similar to <code>Product</code>, but that has a special
+    price for higher quantities. If the order quantity is larger than
+    or equal to <code>promotionQuantity</code>, then the price per
+    unit is <code>promotionPrice</code>, otherwise the regular price
+    applies (for example, the product is priced at 50 dollars, but if
+    you buy at least 10 items you only pay 45 dollars). Note that most
+    of the functionality is already implemented, you only need to
+    implement the <code>getTotalPrice</code> method.
+  </p>
+
+  <pl-file-editor ace-mode="ace/mode/java"
+                  file-name="PromotionalProduct.java"
+                  source-file-name="code/PromotionalProduct.java">
+  </pl-file-editor>
+  
+</pl-question-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

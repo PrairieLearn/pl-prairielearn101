@@ -1,0 +1,17 @@
+{
+    "uuid": "767afb56-c8b0-4c0a-b3a5-507163b80c0a",
+    "type": "v3",
+    "title": "Using overridden methods",
+    "topic": "Polymorphism",
+    "tags": [
+        "jonatan", "york", "polymorphism", "java", "autograder"
+    ],
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-java",
+        "timeout": 100,
+        "entrypoint": "autograder.sh"
+    }
+}

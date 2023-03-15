@@ -1,0 +1,44 @@
+<pl-question-panel>
+   <p>You are using the L293D motor driver to control a 2-wheeled robot.</p>
+  <pl-figure file-name="2WD.jpg" width="40%"></pl-figure>
+    <br>
+   <p>The datasheet for the motor driver is available here:  
+   <pl-file-download file-name="L293.pdf" directory="clientFilesQuestion" force-download="false"></pl-file-download>
+   <p>You are going to use hardware PWM on pin 12 and pin 13 to control the speed of each motor. You want to be able to make each motor (independently):</p>
+   <p>
+   <ul>
+       <li>go at full speed in the forward direction</li>
+       <li>go at full speed in the reverse direction</li>
+       <li>go at {{params.speed}}% speed in the forward direction</li>
+       <li>go at {{params.speed}}% speed in the reverse direction</li>
+       <li>stop</li>
+   </ul>
+</p>
+<p>You connect your Pi and two motors to the motor driver, along with a battery as an external power supply for the motors, as shown in the following schematic:</p>
+  <pl-figure file-name="schematic-h-bridge.svg" width="100%"></pl-figure>
+  <p>and you started a Python script with your basic imports and pin numbering mode:</p>
+<pl-code language="Python">import RPi.GPIO as GPIO
+import pigpio
+
+GPIO.setmode(GPIO.BCM)
+pi = pigpio.pi()
+</pl-code>
+
+ <p>Now, you need to add code to define some basic functions for using the motor:</p>
+<pl-external-grader-variables params-name="names_from_user"></pl-external-grader-variables>
+
+
+<p>Modify the function definitions below - replace the <code>pass</code> inside each function with your own code. (Don't add any code outside of the function definitions, though!)</p>
+
+
+<pl-file-editor
+        file-name="user_code.py"
+        ace-mode="ace/mode/python"
+        source-file-name="tests/initial_code.py"
+	font-size="1em"></pl-file-editor>
+</pl-question-panel>
+
+<pl-submission-panel>
+    <pl-external-grader-results></pl-external-grader-results>
+    <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

@@ -1,0 +1,53 @@
+{
+  "uuid": "fbedad94-43e7-42a6-b7fd-c94f112491f8",
+  "type": "Homework",
+  "title": "Examples from Computer Engineering Design Project",
+  "set": "Homework",
+  "number": "0",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This 'homework' demonstrates a sample of questions from a Computer Engineering Design Project course at NYU. Contact: Fraida Fund ffund@nyu.edu",
+  "zones": [
+    {
+      "title": "Questions",
+      "questions": [
+        { "id": "comp_eng_design/resistor_color", "points": 5 },
+        { "id": "comp_eng_design/led_resistor_choice", "points": 5 },
+        { "id": "comp_eng_design/led_bargraph_code", "points": 5 },
+        { "id": "comp_eng_design/gpio_light_led", "points": 5 },
+        { "id": "comp_eng_design/gpio_push_button", "points": 5 },
+        { "id": "comp_eng_design/scope_waveform_plus", "points": 5 },
+        { "id": "comp_eng_design/pwm_parameters", "points": 5 },
+        { "id": "comp_eng_design/servo_rotate", "points": 5 }, 
+        { "id": "comp_eng_design/4_bit_waveform", "points": 5 },
+        { "id": "comp_eng_design/spi_waveform", "points": 5 },
+        { "id": "comp_eng_design/hbridge_motor_pwm_rand", "points": 5 }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

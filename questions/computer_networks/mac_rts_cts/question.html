@@ -1,0 +1,156 @@
+ <pl-question-panel>
+     
+
+<p>In the following question, assume that:</p>
+<ul>
+    <li>the SIFS time is one grid square (one unit of time)</li>
+    <li>the DIFS time is two grid squares (two units of time)</li>
+    <li>an ACK lasts one grid square (one unit of time)</li>
+    <li>the RTS lasts one grid square (one unit of time)</li>
+    <li>the CTS lasts one grid square (one unit of time)</li>
+</ul>
+
+<p>The IEEE 802.11 protocol allows a station to use a short Request to Send (RTS) control frame and a short Clear to Send (CTS) control frame to reserve access to the channel. In this question, the host A wants to send a DATA frame to host D which is the AP.</p>
+
+<p>On the diagram, add:</p>
+<ul>
+    
+    
+    
+    <li>The RTS from host {{params.setup.0.name}} to host {{params.setup.1.name}} </li>
+    <li>The CTS from host {{params.setup.1.name}} to other hosts </li>
+    <li>The data transmission from host {{params.setup.0.name}} to host {{params.setup.1.name}} </li>
+    <li>The defer access (other stations do not send anything for this reserved duration) </li>
+    <li>The ACK from Host {{params.setup.1.name}} to the other hosts.</li>
+</ul>
+<p>at the appropriate positions on the timeline.</p>
+
+
+
+<div class="alert alert-info">
+<p>Click on a button on the right side to add an item to the canvas, then drag it to its desired location. (Don't resize it - leave the ACK and data frame at their default width.) To delete an item, select it on the canvas and then click the X button labeled "Delete".</p>
+</div>
+
+</pl-question-panel>
+
+<pl-drawing width="600" height="500" gradable="true" answers-name="csma" hide-answer-panel="false">
+
+  <pl-drawing-answer>
+    <pl-rectangle x1="{{params.ackx}}" y1="360" width="20" angle="0" color="green2"></pl-rectangle>
+    
+    <pl-rectangle x1="{{params.rtsx}}" y1="60" width="20" angle="0" color="blue2"></pl-rectangle>
+    <pl-rectangle x1="{{params.ctsx}}" y1="360" width="20" angle="0" color="red2"></pl-rectangle>
+    
+    
+    <pl-line x1="{{params.sifs4.end}}" y1="420" x2="{{params.sifs4.end}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="{{params.sifs4.start}}" y1="420" x2="{{params.sifs4.start}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="{{params.sifs4.txt}}" y1="420" label="SIFS" latex="false"></pl-text>
+    
+    <pl-line x1="{{params.sifs3.end}}" y1="420" x2="{{params.sifs3.end}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="{{params.sifs3.start}}" y1="420" x2="{{params.sifs3.start}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="{{params.sifs3.txt}}" y1="420" label="SIFS" latex="false"></pl-text>
+    
+    
+    <pl-line x1="{{params.sifs2.end}}" y1="420" x2="{{params.sifs2.end}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="{{params.sifs2.start}}" y1="420" x2="{{params.sifs2.start}}" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="{{params.sifs2.txt}}" y1="420" label="SIFS" latex="false"></pl-text>
+
+    
+    <pl-line x1="60" y1="420" x2="60" y2="20" stroke-color="gray"></pl-line>
+    <pl-line x1="100" y1="420" x2="100" y2="20" stroke-color="gray"></pl-line>
+    <pl-text x1="60" y1="420" label="DIFS" latex="false"></pl-text>
+    
+    <pl-rectangle x1="{{params.txBox}}" y1="60" width={{params.width_choice}} angle="0" color="purple2"></pl-rectangle>
+    <pl-rectangle x1="{{params.defer_location}}" y1="160" width={{{params.defer}}} angle="0" color="gray2"></pl-rectangle>
+    <pl-rectangle x1="{{params.defer_location}}" y1="260" width={{{params.defer}}} angle="0" color="gray2"></pl-rectangle>
+
+
+  </pl-drawing-answer>
+  
+  <pl-drawing-initial draw-error-box="false">
+
+   
+    <pl-text x1="10" y1="50" label="Host A" latex="false"></pl-text>
+    <pl-vector x1="60" y1="80" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <pl-text x1="10" y1="150" label="Host B" latex="false"></pl-text>
+    <pl-vector x1="60" y1="180" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <pl-text x1="10" y1="250" label="Host C" latex="false"></pl-text>
+    <pl-vector x1="60" y1="280" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+
+    <pl-text x1="10" y1="350" label="Host D" latex="false"></pl-text>
+    <pl-vector x1="60" y1="380" width="450" angle="0" color="black" offset-backward="0"></pl-vector>
+    
+    <!-- Whoever sends first -->
+    
+
+    {{#params.initBoxes}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.1.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.1.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.initBoxes}}
+    
+    {{#params.initBoxesNot}}
+        <pl-rectangle x1="{{x}}" y1="{{params.setup.1.y}}" width="20" angle="0" color="red2"></pl-rectangle>
+        <pl-text x1="{{x}}" y1="{{params.setup.1.y}}" label="{{text}}" latex="false" offsety="-5" offsetx="-2"></pl-text>
+    {{/params.initBoxesNot}}
+    
+    
+    <pl-text x1="30" y1="380" label="t =" latex="false" offsetx="-3"></pl-text>
+    {{#params.tlabels}}
+    <pl-text x1="{{xpos}}" y1="380" label="{{label}}" latex="false" offsetx="{{xoffset}}" font-size="14"></pl-text>
+    {{/params.tlabels}}
+
+
+
+  </pl-drawing-initial>
+
+  <pl-controls>
+    <pl-controls-group label="Add data frame:">
+      <pl-drawing-button x1="80" y1="40" width={{params.width_choice}} color="purple2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+    <pl-controls-group label="Add ACK:">
+      <pl-drawing-button x1="80" y1="40" width="20" color="green2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+
+    <pl-controls-group label="Delete :">
+      <pl-drawing-button type="delete"></pl-drawing-button>
+    </pl-controls-group>
+    
+    <pl-controls-group label="Add RTS:">
+      <pl-drawing-button x1="80" y1="40" width="20" color="blue2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+    
+    <pl-controls-group label="Add CTS:">
+      <pl-drawing-button x1="80" y1="40" width="20" color="red2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+    
+    
+    <pl-controls-group label="defer access:">
+      <pl-drawing-button x1="80" y1="40" width="{{params.defer}}" color="gray2" type="pl-rectangle"></pl-drawing-button>
+    </pl-controls-group>
+    
+    
+    
+    
+    
+    
+    
+      <pl-controls-group label="Add help line (not graded):">
+          <pl-drawing-button x1="230" y1="420" x2="230" y2="20"  type="help-line"></pl-drawing-button>
+    </pl-controls-group>
+    
+    
+
+
+
+
+
+
+
+
+
+  </pl-controls>
+  
+
+</pl-drawing>

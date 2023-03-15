@@ -1,0 +1,113 @@
+.ace_editor {
+    direction: ltr; 
+    font: 18px 'Monaco','Menlo','Ubuntu Mono','Consolas','source-code-pro',monospace;
+} 
+
+table.table-with-border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table.table-with-border td {
+  font-family:"Courier New", Courier, monospace;
+  padding: 3px;
+  border: 1px solid black;
+}
+
+table.table-with-border th {
+  font-family:"Courier New", Courier, monospace;
+  padding: 3px;
+  border: 1px solid black;
+}
+
+table.table-arial-with-border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table.table-arial-with-border td {
+  padding: 3px;
+  border: 1px solid black;
+}
+
+table.table-arial-with-border th {
+  padding: 3px;
+  border: 1px solid black;
+}
+
+
+table.table-arial-no-border {
+  border: 0px solid black;
+  border-collapse: collapse;
+}
+
+table.table-arial-no-border td {
+  padding: 1px;
+  border: 0px solid black;
+  vertical-align: top!important;
+}
+
+table.table-arial-no-border th {
+  padding: 1px;
+  border: 0px solid black;
+}
+
+table.table-no-border {
+  border: 0px solid black;
+  border-collapse: collapse;
+}
+
+table.table-no-border td {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+  vertical-align: top!important;
+}
+
+table.table-no-border th {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+}
+
+table.table-gray-no-border {
+  border: 0px solid black;
+  border-collapse: collapse;
+  background: #f0f0f0;
+}
+
+table.table-gray-no-border td {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+  background: #f0f0f0;
+  vertical-align: top!important;
+}
+
+table.table-gray-no-border th {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+  background: #f0f0f0;
+}
+
+table.table-gray-no-border-no-align {
+  border: 0px solid black;
+  border-collapse: collapse;
+  background: #f0f0f0;
+}
+
+table.table-gray-no-border-no-align td {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+  background: #f0f0f0;
+}
+
+table.table-gray-no-border-no-align th {
+  font-family:"Courier New", Courier, monospace;
+  padding: 1px;
+  border: 0px solid black;
+  background: #f0f0f0;
+}
+

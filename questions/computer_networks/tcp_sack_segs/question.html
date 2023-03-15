@@ -1,0 +1,21 @@
+<pl-question-panel>
+  <p> Suppose the following TCP ACK, including the SACK option, is received by a TCP endpoint:</p>
+  <pl-code language="text">
+{{params.server}}.{{params.sport}} > {{params.client}}.{{params.cport}}: 
+    Flags [.], ack {{params.ack}}, win 6227, options [sack 1 &#123;{{params.lsack}}:{{params.rsack}}&#125;], length 0</pl-code>
+</pl-question-panel>
+
+<p>Before it received that ACK, the host sent all of the following TCP segments. Which of these can it conclude were received by the other endpoint? Select all that apply.</p>
+
+<pl-checkbox hide-letter-keys="true" answers-name="sent" fixed-order="true">
+{{#params.segs}}
+<pl-answer correct="{{ans}}"> <pl-code language="text">{{params.client}}.{{params.cport}} > {{params.server}}.{{params.sport}}: 
+    Flags [.], seq {{start}}:{{end}}, ack {{params.isn2}}, win 502, length 1448 </pl-code>  </pl-answer>
+{{/params.segs}}
+</pl-checkbox>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> The ACK number is {{params.ack}}, indicating that all contiguous bytes staring from the initial sequence number up to byte {{params.ack}} were received.</p> 
+<p>The ACK number indicates that the segment with sequence number {{params.ack}} was <i>not</i> received. The bytes from {{params.ack}} up to the left side of the SACK ({{params.lsack}}) were not received.</p>
+<p>The SACK option indicates that in addition to all the contiguous bytes before the ACK number, some later non-contiguous bytes were received: starting with byte {{params.lsack}} (i.e. the segment with sequence number {{params.lsack}}), up to {{params.rsack}}.</p>
+<p>The segment with sequence number {{params.rsack}} and any bytes sent after that were <i>not</i> received.</p></pl-answer-panel>

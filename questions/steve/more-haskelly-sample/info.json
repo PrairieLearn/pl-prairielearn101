@@ -1,0 +1,14 @@
+{
+  "uuid": "5dd37e8a-26aa-4f3f-9289-5e7c9701f588",
+  "title": "Sample with a Bit More Haskell Infrastructure",
+  "topic": "Haskell",
+  "tags": ["types", "code"],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "cswolf/haskell-prairielearn",
+    "serverFilesCourse": ["haskell-grader/"],
+    "entrypoint": "/grade/serverFilesCourse/haskell-grader/run-qc-lib.sh"
+  }
+}

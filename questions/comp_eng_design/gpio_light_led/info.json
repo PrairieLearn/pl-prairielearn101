@@ -1,0 +1,11 @@
+{
+    "uuid": "0fac928e-4dbe-4d3e-b777-f3c2480a6465",
+    "title": "Use Pi to switch LED on and off",
+    "topic": "GPIO",
+    "singleVariant": true,
+    "tags": [
+        "breadboard",
+        "prototyping"
+    ],
+    "type": "v3"
+}

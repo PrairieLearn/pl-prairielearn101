@@ -1,0 +1,17 @@
+{
+  "uuid": "3e678b6b-0b2e-43e6-86e2-468e87a523ab",
+  "title": "Ways to Abuse an Autograder: Parsons Problems (but use PL's Built-In Version Instead!)",
+  "topic": "Haskell",
+  "tags": ["types", "code"],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "cswolf/haskell-prairielearn",
+    "serverFilesCourse": ["haskell-grader/"],
+    "entrypoint": "/grade/serverFilesCourse/haskell-grader/run-qc-lib.sh"
+  },
+  "dependencies": {
+    "clientFilesQuestionStyles": ["question.css"]
+  }
+}

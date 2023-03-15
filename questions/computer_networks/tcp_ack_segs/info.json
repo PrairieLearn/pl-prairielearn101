@@ -1,0 +1,10 @@
+{
+    "uuid": "c3f908f5-b6fb-4c40-a714-c90d4fcc4a2b",
+    "title": "TCP ACK - received segments",
+    "topic": "TCP",
+    "tags": [
+        "lab",
+        "checkbox"
+    ],
+    "type": "v3"
+}

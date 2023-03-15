@@ -1,0 +1,6 @@
+# resolver: only change this if you are CONFIDENT it matches the Dockerfile lts version!
+resolver: lts-17.9
+
+# User packages to be built.
+packages:
+- .

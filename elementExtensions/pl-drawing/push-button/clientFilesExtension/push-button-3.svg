@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1903"
+   version="1.1"
+   viewBox="0 0 18.149045 17.862771"
+   height="17.86277mm"
+   width="18.149044mm"
+   sodipodi:docname="push-button-3.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1608"
+     inkscape:window-height="986"
+     id="namedview968"
+     showgrid="false"
+     inkscape:zoom="5.301322"
+     inkscape:cx="42.170925"
+     inkscape:cy="22.640305"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs1897">
+    <linearGradient
+       y2="-335.05099"
+       id="SVGID_1_"
+       gradientTransform="matrix(1,0,0,-1,273,-448.8574)"
+       x1="-192.873"
+       x2="-182.577"
+       y1="-335.05099"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         style="stop-color:#333333"
+         offset="0"
+         id="stop2993" />
+      <stop
+         style="stop-color:#3C3C3C"
+         offset="1"
+         id="stop2995" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata1900">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-29.400768,-38.185014)"
+     id="layer1">
+    <g
+       transform="matrix(0,0.67055967,-0.67055967,0,241.55831,-207.03332)"
+       partID="855213050"
+       id="g8596"
+       inkscape:transform-center-x="-5.9391634"
+       inkscape:transform-center-y="-0.79854282">
+      <g
+         transform="translate(366.569,289.923)"
+         id="g8594">
+        <g
+           id="g8592">
+          <g
+             style="fill:#8c8c8c"
+             y="25.2756"
+             id="connector0terminal"
+             height="1.18584"
+             width="1.8144"
+             x="4.34376" />
+          <g
+             style="fill:#8c8c8c"
+             y="25.2756"
+             id="connector1terminal"
+             height="1.18584"
+             width="1.81512"
+             x="11.543" />
+          <g
+             style="fill:#8c8c8c"
+             y="25.2756"
+             id="connector2terminal"
+             height="1.18584"
+             width="1.81512"
+             x="18.7416" />
+          <rect
+             style="fill:#8c8c8c"
+             y="21.110399"
+             id="rect8574"
+             height="5.35536"
+             width="1.8144"
+             x="4.34376" />
+          <rect
+             style="fill:#8c8c8c"
+             y="21.110399"
+             id="rect8576"
+             height="5.35536"
+             width="1.81512"
+             x="11.543" />
+          <rect
+             style="fill:#8c8c8c"
+             y="21.110399"
+             id="rect8578"
+             height="5.35536"
+             width="1.81512"
+             x="18.7416" />
+          <rect
+             style="fill:#8c8c8c"
+             y="11.4516"
+             id="rect4"
+             height="14.9652"
+             width="1.8144"
+             x="4.3351202" />
+          <rect
+             style="fill:#8c8c8c"
+             y="11.4516"
+             id="rect6"
+             height="14.9652"
+             width="1.81512"
+             x="11.5344" />
+          <rect
+             style="fill:#8c8c8c"
+             y="11.4516"
+             id="rect8"
+             height="14.9652"
+             width="1.81512"
+             x="18.733" />
+          <polygon
+             style="fill:#8c8c8c"
+             points="2.72232,18.7553 2.72232,9.9864 7.76232,9.9864 7.76232,18.7553 6.14952,19.4753 4.33584,19.4753 "
+             id="polygon21" />
+          <polygon
+             style="fill:#8c8c8c"
+             points="9.92232,18.7553 9.92232,9.9864 14.963,9.9864 14.963,18.7553 13.3481,19.4753 11.5351,19.4753 "
+             id="polygon23" />
+          <polygon
+             style="fill:#8c8c8c"
+             points="17.1216,18.7553 17.1216,9.9864 22.1616,9.9864 22.1616,18.7553 20.5466,19.4753 18.7344,19.4753 "
+             id="polygon25" />
+          <rect
+             style="fill:#1a1a1a"
+             y="3.34512"
+             id="rect27"
+             height="13.2998"
+             width="26.638599"
+             x="-0.87695998" />
+          <rect
+             y="5.9400001"
+             id="rect49"
+             height="3.34728"
+             width="26.638599"
+             x="-0.87695998" />
+          <rect
+             style="fill:#333333"
+             y="3.24072"
+             id="rect51"
+             height="4.1385598"
+             width="26.638599"
+             x="-0.87695998" />
+          <rect
+             y="3.64464"
+             id="rect49_1_"
+             height="3.34728"
+             width="11.2046"
+             x="7.2979202" />
+          <rect
+             style="fill:#1a1a1a"
+             y="1.59408"
+             id="rect27_1_"
+             height="5.2790399"
+             width="4.79808"
+             x="13.5547" />
+          <rect
+             style="fill:#333333"
+             y="-0.59976"
+             id="rect51_1_"
+             height="2.19312"
+             width="4.79808"
+             x="13.5547" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

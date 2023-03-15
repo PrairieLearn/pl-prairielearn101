@@ -1,0 +1,189 @@
+<pl-question-panel>
+  <p> A user boots a host named <b>{{params.host.name}}</b> on a LAN.</p>
+  <p>The host has no previous knowledge of its network configuration (no network interface configuration, no routes, no ARP table entries, no DNS information), but it uses DHCP to configure itself. </p>
+  <p>Then, the user opens a web browser and uses it to visit the web page {{params.web}}.</p>
+  
+  <hr>
+  <p>Use the blocks below to describe the entire sequence of events on the LAN, from the time <b>{{params.host.name}}</b> boots until the web page is retrieved.</p>
+
+<br>
+
+</pl-question-panel>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 1: DHCP</div>
+  <div class="card-body">
+
+    <p>When it boots, <b>{{params.host.name}}</b> will use DHCP to find out its network configuration.</p><p> Use the blocks below to show this sequence of events.</p>
+
+
+<pl-order-blocks answers-name="dhcp" grading-method="ranking" solution-placement="bottom">
+  <pl-answer correct="true" ranking="1">DHCP Discover
+    <pl-code language="text">{{params.host.mac}} &gt; ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 342: 
+    (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 328)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, 
+    Request from {{params.host.mac}}, length 300, xid {{params.xid}}, Flags [none]
+	  Client-Ethernet-Address {{params.host.mac}}
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Discover
+	    Hostname Option 12, length 8: "{{params.host.name}}"
+	    Parameter-Request Option 55, length 8: 
+	      Subnet-Mask, BR, Time-Zone, Default-Gateway
+	      Domain-Name, Domain-Name-Server, Option 119, Hostname</pl-code></pl-answer>
+  <pl-answer correct="true" ranking="2">DHCP Offer
+    <pl-code language="text">{{params.dhcp.mac}} &gt; {{params.host.mac}}, ethertype IPv4 (0x0800), length 342: 
+    (tos 0x10, ttl 64, id {{params.ids.2}}, offset 0, flags [none], proto UDP (17), length 328)
+    {{params.dhcp.ip}}.67 > {{params.host.ip}}.68: BOOTP/DHCP, Reply, length 300, xid {{params.xid}}, Flags [none]  
+	  Your-IP {{params.host.ip}}
+	  Server-IP {{params.dns.ip}}
+	  Client-Ethernet-Address {{params.host.mac}}
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Offer
+	    Server-ID Option 54, length 4: {{params.dns.ip}}
+	    Lease-Time Option 51, length 4: 14400
+	    RN Option 58, length 4: 7200
+	    RB Option 59, length 4: 12600
+	    Subnet-Mask Option 1, length 4: 255.255.255.0
+	    BR Option 28, length 4: {{params.bcast}}
+	    Domain-Name-Server Option 6, length 4: {{params.dns.ip}}
+	    Default-Gateway Option 3, length 4: {{params.gw.ip}} </pl-code></pl-answer>
+  <pl-answer correct="true" ranking="3">DHCP Request
+    <pl-code language="text">{{params.host.mac}} &gt; ff:ff:ff:ff:ff:ff, ethertype IPv4 (0x0800), length 342: 
+    (tos 0x10, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 328)
+    0.0.0.0.68 > 255.255.255.255.67: BOOTP/DHCP, 
+    Request from {{params.host.mac}}, length 300, xid {{params.xid}}, Flags [none]
+	  Client-Ethernet-Address {{params.host.mac}}
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: Request
+	    Server-ID Option 54, length 4: {{params.dhcp.ip}}
+	    Requested-IP Option 50, length 4: {{params.host.ip}}
+	    Hostname Option 12, length 8: "{{params.host.name}}"
+	    Parameter-Request Option 55, length 8: 
+	      Subnet-Mask, BR, Time-Zone, Default-Gateway
+	      Domain-Name, Domain-Name-Server, Option 119, Hostname</pl-code></pl-answer>
+  <pl-answer correct="true" ranking="4">DHCP ACK
+    <pl-code language="text">{{params.dhcp.mac}} &gt; {{params.host.mac}}, ethertype IPv4 (0x0800), length 342: 
+    (tos 0x10, ttl 64, id {{params.id-dnsack}}, offset 0, flags [none], proto UDP (17), length 328)
+    {{params.dhcp.ip}}.67 > {{params.host.ip}}.68: BOOTP/DHCP, Reply, length 300, xid {{params.xid}}, Flags [none]  
+	  Your-IP {{params.host.ip}}
+	  Server-IP {{params.dns.ip}}
+	  Client-Ethernet-Address {{params.host.mac}}
+	  Vendor-rfc1048 Extensions
+	    Magic Cookie 0x63825363
+	    DHCP-Message Option 53, length 1: ACK
+	    Server-ID Option 54, length 4: {{params.dns.ip}}
+	    Lease-Time Option 51, length 4: 14400
+	    RN Option 58, length 4: 7200
+	    RB Option 59, length 4: 12600
+	    Subnet-Mask Option 1, length 4: 255.255.255.0
+	    BR Option 28, length 4: {{params.bcast}}
+	    Domain-Name-Server Option 6, length 4: {{params.dns.ip}}
+	    Default-Gateway Option 3, length 4: {{params.gw.ip}} </pl-code></pl-answer>
+</pl-order-blocks>
+</div></div><br>
+
+
+
+<div class="card card-default">
+  <div class="card-header">Part 2: DNS</div>
+  <div class="card-body">
+
+    <p>Then, the user tries to reach {{params.web}}. But the host first needs to resolve the name <b>{{params.hostname}}</b>. (And to reach the DNS server that it learned about via DHCP, the host must first resolve its IP address to a MAC address with ARP.)</p><p>Use the blocks below to show this sequence of events.</p>
+
+<pl-order-blocks answers-name="dns" grading-method="ranking" solution-placement="bottom">
+
+  <pl-answer correct="true" ranking="5">ARP request for {{params.dns.ip}} (DNS server)
+    <pl-code language="text">{{params.host.mac}} &gt; ff:ff:ff:ff:ff:ff, ethertype ARP (0x0806), length 42: 
+    Ethernet (len 6), IPv4 (len 4), Request who-has {{params.dns.ip}} tell {{params.host.ip}}, length 28</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="6">ARP reply for {{params.dns.ip}} (DNS server)
+    <pl-code language="text">{{params.dns.mac}} &gt; {{params.host.mac}}, ethertype ARP (0x0806), length 60: 
+    Ethernet (len 6), IPv4 (len 4), Reply {{params.dns.ip}} is-at {{params.dns.mac}}, length 46</pl-code>
+  </pl-answer>
+  <pl-answer correct="true" ranking="7">DNS request for {{params.hostname}}
+  <pl-code language="text">
+{{params.host.mac}} &gt; {{params.dns.mac}}, ethertype IPv4 (0x0800), length 94:  
+    (tos 0x0, ttl 64, id {{params.ids.0}}, offset 0, flags [none], proto UDP (17), length 80) 
+    {{params.host.ip}}.{{params.dnsport}} &gt; {{params.dns.ip}}.53: {{params.dnstrans}}+ [1au] A? {{params.hostname}}. (52)</pl-code>
+  </pl-answer>
+  <pl-answer correct="true" ranking="8">DNS reply for {{params.hostname}}
+  <pl-code language="text">
+{{params.dns.mac}} &gt; {{params.host.mac}}, ethertype IPv4 (0x0800), length 909:  
+    (tos 0x0, ttl 64, id {{params.ids.1}}, offset 0, flags [DF], proto UDP (17), length 895) 
+    {{params.dns.ip}}.53 &gt; {{params.host.ip}}.{{params.dnsport}}: {{params.dnstrans}} 1/13/27 {{params.hostname}}. A {{params.webip}} (867)</pl-code>
+</pl-answer>
+
+</pl-order-blocks>
+
+</div></div><br>
+
+
+<div class="card card-default">
+  <div class="card-header">Part 3: HTTP</div>
+  <div class="card-body">
+
+    <p>Finally, the host is ready to send an HTTP GET request for {{params.web}}. But the host first must establish a TCP connection over which to send the HTTP request, and after receiving the response the host will close the TCP connection. (And to send via the default gateway that the host learned about from DHCP, the host must first resolve the gateway's IP address to a MAC address with ARP.) </p><p>Use the blocks below to show this sequence of events.</p>
+
+<pl-order-blocks answers-name="http" grading-method="ranking" solution-placement="bottom">
+
+  <pl-answer correct="true" ranking="9">ARP request for {{params.gw.ip}} (gw)
+    <pl-code language="text">{{params.host.mac}} &gt; ff:ff:ff:ff:ff:ff, ethertype ARP (0x0806), length 42: 
+    Ethernet (len 6), IPv4 (len 4), Request who-has {{params.gw.ip}} tell {{params.host.ip}}, length 28</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="10">ARP reply for {{params.gw.ip}} (gw)
+    <pl-code language="text">{{params.gw.mac}} &gt; {{params.host.mac}}, ethertype ARP (0x0806), length 60: 
+    Ethernet (len 6), IPv4 (len 4), Reply {{params.gw.ip}} is-at {{params.gw.mac}}, length 46</pl-code>
+  </pl-answer>
+  <pl-answer correct="true" ranking="11">TCP SYN from {{params.host.ip}} to {{params.webip}} port 80
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 74: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [S], seq {{params.isn1}}, win 64240, length 0</pl-code>
+    </pl-answer>
+    
+    
+  <pl-answer correct="true" ranking="12">TCP SYN, ACK from {{params.webip}} to {{params.host.ip}}
+<pl-code language="text">{{params.gw.mac}} &gt; {{params.host.mac}},  ethertype IPv4 (0x0800), length 74: 
+    {{params.webip}}.80 > {{params.host.ip}}.{{params.tcpport}}: Flags [S.], seq {{params.isn2}}, ack {{params.ack1}}, win 65535, length 0</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="13">TCP ACK for last SYN
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 66: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [.], seq {{params.seq3}}, ack {{params.ack2}}, win 502, length 0</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="14">HTTP GET Request from {{params.host.ip}} to {{params.webip}} port 80
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 204: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [P.], seq {{params.seq3}}, ack {{params.ack2}} win 502, length 138: 
+        HTTP: GET / HTTP/1.1</pl-code>
+    </pl-answer>
+    
+  <pl-answer correct="true" ranking="15">TCP ACK for the HTTP GET Requst
+<pl-code language="text">{{params.gw.mac}} &gt; {{params.host.mac}},  ethertype IPv4 (0x0800), length 66: 
+    {{params.webip}}.80 > {{params.host.ip}}.{{params.tcpport}}: Flags [.], seq {{params.isn2}}, ack {{params.ack3}}, win 131, length 0</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="16">HTTP Response from {{params.webip}} to {{params.host.ip}}
+<pl-code language="text">{{params.gw.mac}} &gt; {{params.host.mac}},  ethertype IPv4 (0x0800), length 1457: 
+    {{params.webip}}.80 > {{params.host.ip}}.{{params.tcpport}}: Flags [P.], seq {{params.seq4}}, ack {{params.ack3}}, win 131, length 1391
+        HTTP: HTTP/1.1 200 OK</pl-code>
+</pl-answer>
+  <pl-answer correct="true" ranking="17">TCP ACK for the HTTP Response
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 66: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [.], seq {{params.seq3}}, ack {{params.ack4}}, win 491, length 0</pl-code>
+    </pl-answer>
+    
+  <pl-answer correct="true" ranking="18">TCP FIN from {{params.host.ip}} to {{params.webip}}
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 66: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [F.], seq {{params.seq5}}, ack {{params.ack4}}, win 501, length 0</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="19">TCP FIN, ACK from {{params.webip}} to 66
+<pl-code language="text">{{params.gw.mac}} &gt; {{params.host.mac}},  ethertype IPv4 (0x0800), length 74: 
+    {{params.webip}}.80 > {{params.host.ip}}.{{params.tcpport}}: Flags [F.], seq {{params.seq6}}, ack {{params.ack5}}, win 131, length 0</pl-code>
+    </pl-answer>
+  <pl-answer correct="true" ranking="20">TCP ACK for last FIN
+<pl-code language="text">{{params.host.mac}} &gt; {{params.gw.mac}},  ethertype IPv4 (0x0800), length 66: 
+    {{params.host.ip}}.{{params.tcpport}} > {{params.webip}}.80: Flags [.], seq {{params.ack4}}, ack {{params.ack6}} win 501, length 0</pl-code>
+    </pl-answer>
+</pl-order-blocks>
+
+</div></div><br>

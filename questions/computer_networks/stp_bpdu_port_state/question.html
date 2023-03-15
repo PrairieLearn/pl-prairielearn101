@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="{{ options.client_files_course_url }}/iap.css">
+
+<pl-question-panel>
+     <p>Suppose a bridge with bridge ID comes online.</p>
+     <ul>
+         <li>Its bridge ID is <tt>8000.{{params.bid}}</tt>.</li>
+         <li>The path cost of each of its interfaces is 100 (note: this is <b>not</b> the root path cost, just the cost due to forwarding through the local interface).</li>
+     </ul>
+     <p>It receives the following BPDUs on its four ports:</p>
+     
+ <table>
+     <thead>
+         <tr>
+             <th>Port&nbsp;&nbsp;</th>
+             <th>BPDU</th>
+         </tr>
+     </thead>
+      <tbody>
+
+  {{#params.bpdus}}
+     <tr>
+    <td>{{rxport}}:</td>
+    <td><pl-code language="text">STP 802.1d, Config, Flags [none], bridge-id 8000.{{id}}.{{port}}, length 35
+    	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+    	root-id 8000.{{root}}, root-pathcost {{rpc}}</pl-code></td>
+    	</tr>
+ {{/params.bpdus}}
+     </tbody>
+ </table>
+
+<br>
+</pl-question-panel>
+
+<p>What will be the final state of each of the bridge ports?</p>
+
+     
+ <table>
+     <thead>
+         <tr>
+             <th>Port&nbsp;&nbsp;</th>
+             <th>State</th>
+         </tr>
+     </thead>
+      <tbody>
+    {{#params.opts}}
+    <tr><td>{{rxport}}:</td><td><pl-multiple-choice answers-name="p-{{rxport}}" inline="true" hide-letter-keys="true" fixed-order="true"><pl-answer correct="{{root}}">Root port</pl-answer><pl-answer correct="{{des}}">Designated port</pl-answer><pl-answer correct="{{bl}}">Blocking</pl-answer></pl-multiple-choice></td></tr>
+    {{/params.opts}}
+    </tbody>
+</table>
+
+
+<pl-answer-panel><br><hr><p><span class="badge badge-primary">Comment</span> <p>First, we apply the four tiebreak conditions (root bridge ID, root path cost, sender bridge ID, sender bridge port) to the received BPDUs. We determine that port <b>{{params.root_bpdu.rxport}}</b> is the root port, because it receives the BPDU that 'wins' the tiebreakers.</p>
+<p>The bridge configuration (on its port <tt>800X</tt> for any <tt>X</tt>) is then described by the BPDU:</p>
+<pl-code language="text">STP 802.1d, Config, Flags [none], bridge-id 8000.{{params.root_bpdu.id}}.800X, length 35
+	message-age 0.00s, max-age 20.00s, hello-time 2.00s, forwarding-delay 15.00s
+	root-id 8000.{{params.root_bpdu.root}}, root-pathcost {{params.root_bpdu.rpc}}</pl-code>
+<p>where the <tt>root-id</tt> is adopted from the BPDU received by port {{params.root_bpdu.rxport}}, and we have added 100 to the root path cost in the BPDU received on port {{params.root_bpdu.rxport}} to account for the additional cost associated with forwarding through port {{params.root_bpdu.rxport}}.</p>
+<p>Now we can compare this bridge's BPDU to the ones received on each of the other ports. If for any port, this bridge's BPDU 'wins', then that port becomes the designated port on its network segment.</p>
+<p>Finally, we find that:</p>
+<ul>
+    {{#params.feedback-port}}
+    <li>{{{.}}}</li>
+    {{/params.feedback-port}}
+</ul>
+</pl-answer-panel>

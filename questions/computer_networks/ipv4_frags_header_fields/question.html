@@ -1,0 +1,47 @@
+<pl-question-panel>
+  <p> A datagram arrives at a router with the following values for key IPv4 header fields:</p>
+  <p>
+      
+    <ul>
+        <li><b>[Header Len.]</b> 5 (specified as number of 32 bit words, so 5 &rarr; 20B)</li>
+        <li><b>[Total Len.]</b> {{params.totlen}} (specified as number of bytes)</li>
+        <li><b>[ID]</b> {{params.id}} (specified as integer value)</li>
+        <li><b>[Don't Frag.]</b> 0 (specified as binary flag, 0 or 1)</li>
+        <li><b>[More Frags.]</b> 0 (specified as binary flag, 0 or 1)</li>
+        <li><b>[Frag. Offset]</b> 0 (specified as number of 8-byte units)</li>
+    </ul>
+  </p>
+  <p>The MTU of the router interface that the datagram will be forwarded through is {{params.mtu}}B, so the packet will be fragmented by the router.</p>
+</pl-question-panel>
+
+<p>For each of the fragments forwarded by the router (in order from first fragment to last), indicate the value of each of those IPv4 header fields.</p>
+
+<table width="100%">
+        <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<thead>
+  <tr>
+<th>[Header Len.]</th><th>[Total Len.]</th><th>[ID]</th><th>[Don't Frag.]</th><th>[More Frags.]</th><th>[Frag. Offset]</th> 
+</thead>
+<tbody>
+{{#params.frags}}
+    <tr>
+    <td><pl-integer-input answers-name="hlen-{{offset}}" correct-answer={{hlen}} show-help-text="false"></pl-integer-input></td>
+    <td><pl-integer-input answers-name="tlen-{{offset}}" correct-answer={{totalLen}} show-help-text="false"></pl-integer-input></td>
+    <td><pl-integer-input answers-name="id-{{offset}}" correct-answer={{id}} show-help-text="false"></pl-integer-input></td>
+    <td><pl-integer-input answers-name="df-{{offset}}" correct-answer={{df}} show-help-text="false"></pl-integer-input></td>
+    <td><pl-integer-input answers-name="mf-{{offset}}" correct-answer={{mf}} show-help-text="false"></pl-integer-input></td>
+    <td><pl-integer-input answers-name="offset-{{offset}}" correct-answer={{offset}} show-help-text="false"></pl-integer-input></td>
+
+    </tr>
+{{/params.frags}}
+</tbody>
+</table>
+</p>

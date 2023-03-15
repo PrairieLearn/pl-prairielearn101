@@ -1,0 +1,6 @@
+{
+    "controller": "rvar.py",
+    "dependencies": {
+        "extensionScripts": ["rvar.js"]
+    }
+}

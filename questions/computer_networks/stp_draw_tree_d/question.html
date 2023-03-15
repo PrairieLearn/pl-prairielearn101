@@ -1,0 +1,104 @@
+<pl-question-panel>
+    <p>On the following network diagram, each bridge (green) is labeled with a two-digit bridge ID beneath its name. Hosts are shown in orange.</p>
+    <p>Next to each bridge port, indicate its final state (designated port, root port, or blocking) after the spanning tree protocol has converged.</p>
+<div class="alert alert-info">
+    <p>Note: if you are not sure which bridge port a particular drop-down menu is associated with, move your mouse over the drop-down - the tooltip will tell you which bridge port it is for.</p>
+</div>
+
+</pl-question-panel>
+
+
+<pl-overlay width=800 height=640>
+
+    <pl-background>
+<pl-graph engine="neato">
+    graph G {
+    rankdir="TB";
+    overlap=false;
+     edge [len=1]
+      graph [splines=ortho, nodesep=1]
+         bgcolor="FloralWhite"
+
+ size="7,8!";
+
+    {
+        node [fontname="courier" fontsize="11" colorscheme=accent3 style="filled" ]
+        edge [fontname="courier" fontsize="11" ]
+        
+    LA [height=0.3 width=1 shape=rect label="LAN A" fillcolor=2 ]
+    LB [height=0.3 width=1 shape=rect label="LAN B" fillcolor=2]
+    LC [height=0.3 width=1 shape=rect label="LAN C" fillcolor=2]
+    LD [height=0.3 width=1 shape=rect label="LAN D" fillcolor=2]
+    LE [height=0.3 width=1 shape=rect label="LAN E" fillcolor=2]
+    LF [height=0.3 width=1 shape=rect label="LAN F" fillcolor=2]
+    LG [height=0.3 width=1 shape=rect label="LAN G" fillcolor=2]
+
+    {{#params.bridges}}
+    {{name}} [width=1 shape=rect fillcolor=1 label="{{name}}\n{{id}}"]
+    {{/params.bridges}}
+        
+
+    HA [width=0.1 shape=rect fillcolor=3 label="Alice" ]
+    HB [width=0.1 shape=rect fillcolor=3 label="Bob" ]
+    HC [width=0.1 shape=rect fillcolor=3 label="Charlie" ]
+    HD [width=0.1 shape=rect fillcolor=3 label="David" ]
+    HE [width=0.1 shape=rect fillcolor=3 label="Eva" ]
+    #HF [width=0.1 shape=rect fillcolor=3 label="Frank" ]
+    #HG [width=0.1 shape=rect fillcolor=3 label="Grace" ]
+
+    HA -- LA [minlen=2]
+    HB -- LB [minlen=2]
+    HC -- LC [minlen=2]
+    HD -- LD [minlen=2]
+    HE -- LE [minlen=2]
+    #HF -- LF [minlen=2]
+    #HG -- LG [minlen=1]
+
+    catt -- LB [taillabel="2" len=1.2 ]
+    eng -- LB [taillabel="2"  len=1.2]
+    
+    eng -- LC [taillabel="1"  len=1.2]
+    utopia -- LC [taillabel="2"  len=1.2 ]
+    
+    catt -- LD [taillabel="1" len=1.2 ]
+    photon -- LD [taillabel="1"  len=1.2]
+
+
+    utopia -- LA [taillabel="1"  len=1.2 ]
+    duke -- LA [taillabel="1"  len=1.2 ]
+    
+    duke -- LE [taillabel="2"  len=1.2 ]
+    photon -- LE [taillabel="4"  len=1.2 ]
+    
+    photon -- LF [taillabel="3" len=1.2 ]
+    
+    photon -- LG [taillabel="2" len=1.2 ]
+    catt -- LG [taillabel="3"  len=1.2]
+
+    }
+
+    }
+</pl-graph>
+    </pl-background>
+
+    {{#params.menus}}
+    <pl-location left="{{x}}" top="{{y}}">
+        <span title="{{bridge}} port {{port}}">
+        <pl-dropdown sort="fixed" answers-name="{{bridge}}-{{port}}" weight="1">
+          <pl-answer correct="{{dp}}">DP</pl-answer>
+          <pl-answer correct="{{rp}}">RP</pl-answer>
+          <pl-answer correct="{{bl}}">🛑</pl-answer>
+    </pl-dropdown></span>
+    </pl-location>
+    {{/params.menus}}
+
+</pl-overlay>
+
+
+<!--
+<pl-answer-panel><br><hr>
+<p><span class="badge badge-primary">Comment</span></p>
+
+
+</pl-answer-panel>
+-->

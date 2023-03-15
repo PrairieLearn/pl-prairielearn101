@@ -1,0 +1,10 @@
+{
+    "uuid": "7a0598a2-9261-4555-9aca-1eac3a0c059e",
+    "title": "Routing table matching rule",
+    "topic": "Static routing",
+    "tags": [
+        "checkbox",
+        "lab"
+    ],
+    "type": "v3"
+}
