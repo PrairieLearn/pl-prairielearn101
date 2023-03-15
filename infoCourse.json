@@ -1,44 +1,26 @@
 {
-    "uuid": "1a21691e-84f3-443e-9065-b3e805151033",
-    "name": "PrairieLearn 101",
-    "title": "Introduction to PrairieLearn",
-    "assessmentSets": [
-        {
-            "abbreviation": "G",
-            "name": "Gallery",
-            "heading": "Gallery of questions using different PrairieLearn elements",
-            "color": "orange1",
-            "description": "Gallery of PL questions"
-        },
-        {
-            "abbreviation": "L", 
-            "name": "Learn", 
-            "heading": "Samples of Assignments That Show Students How to Use PrairieLearn", 
-            "color": "green1"
-        },
-        {
-            "abbreviation": "HW", 
-            "name": "Homework", 
-            "heading": "Samples of Homeworks and Homework Questions", 
-            "color": "orange1"
-        },
-        {
-            "abbreviation": "PA", 
-            "name": "PracticeAssessment", 
-            "heading": "Samples of Practice Assessments", 
-            "color": "yellow1"
-        }
-        
-    ],
-    "options": {
-        "useNewQuestionRenderer": true
+  "uuid": "1a21691e-84f3-443e-9065-b3e805151033",
+  "name": "PrairieLearn 101",
+  "title": "Introduction to PrairieLearn",
+  "options": {
+    "useNewQuestionRenderer": true
+  },
+  "assessmentSets": [
+    {
+      "abbreviation": "DL",
+      "name": "Discover and Learn",
+      "heading": "Discover and Learn about PrairieLearn",
+      "color": "purple3",
+      "description": "Discover and learn about cool PrairieLearn Features!"
     },
-    "topics": [
-        {
-            "name": "Gallery",
-            "color": "orange1",
-            "description": "Gallery of PL questions"
-        }
-    ],
-    "tags": []
+    {
+      "abbreviation": "S",
+      "name": "Explore",
+      "heading": "Explore how others' have used PrairieLearn",
+      "color": "orange1",
+      "description": "Explore creative ways others have used PrairieLearn"
+    }
+  ],
+  "topics": [],
+  "tags": []
 }
