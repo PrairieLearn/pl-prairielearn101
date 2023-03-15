@@ -40,11 +40,5 @@
             "description": "Gallery of PL questions"
         }
     ],
-    "tags": [
-        {
-            "name": "mariana@prairielearn.com",
-            "color": "gray1",
-            "description": "Author of the original question"
-        }
-    ]
+    "tags": []
 }
