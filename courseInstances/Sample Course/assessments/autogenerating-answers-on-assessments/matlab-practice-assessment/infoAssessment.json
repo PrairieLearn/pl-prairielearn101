@@ -3,6 +3,7 @@
     "type": "Exam",
     "title": "MATLAB Assessment Example Questions",
     "type": "Homework",
+    "set": "Sample",
     "number": "1",
     "allowIssueReporting": false,
     "allowRealTimeGrading": true,
