@@ -1,137 +1,140 @@
 {
-    "uuid": "be6c2ce7-e13b-4935-aeed-553f37791e96",
-    "type": "Exam",
-    "title": "MATLAB Assessment Example Questions",
-    "type": "Homework",
-    "set": "Sample",
-    "number": "1",
-    "allowIssueReporting": false,
-    "allowRealTimeGrading": true,
-    "multipleInstance": true,
-    "text": "<b>Hello!</b> <br><br>This is the practice assessment for Assessment #1. You can take this practice assessment as many times as you want. Practice Assessment grades do not count towards your overall grade in the course. <br><br>To get started with the practice assessment, click on a question below!",
-    "allowAccess": [
+  "uuid": "be6c2ce7-e13b-4935-aeed-553f37791e96",
+  "type": "Exam",
+  "title": "MATLAB Assessment Example Questions",
+  "set": "Sample",
+  "number": "1",
+  "allowIssueReporting": false,
+  "allowRealTimeGrading": true,
+  "multipleInstance": true,
+  "text": "<b>Hello!</b> <br><br>This is the practice assessment for Assessment #1. You can take this practice assessment as many times as you want. Practice Assessment grades do not count towards your overall grade in the course. <br><br>To get started with the practice assessment, click on a question below!",
+  "allowAccess": [
+    {
+      "comment": "this is who needs time and a half for the assessment",
+      "uids": ["email1@address.edu", "email2@address.edu"],
+      "startDate": "2023-01-01T00:00:01",
+      "endDate": "2050-04-30T23:59:59",
+      "timeLimitMin": 113,
+      "showClosedAssessment": true,
+      "credit": 100
+    },
+    {
+      "comment": "this is who needs double time for the assessment",
+      "uids": ["email3@address.edu"],
+      "startDate": "2023-01-01T00:00:01",
+      "endDate": "2050-04-30T23:59:59",
+      "timeLimitMin": 150,
+      "showClosedAssessment": true,
+      "credit": 100
+    },
+    {
+      "comment": "this is for the general student",
+      "role": "Student",
+      "startDate": "2023-01-01T00:00:01",
+      "endDate": "2050-04-30T23:59:59",
+      "timeLimitMin": 75,
+      "showClosedAssessment": true,
+      "credit": 100
+    }
+  ],
+  "shuffleQuestions": true,
+  "autoClose": true,
+  "zones": [
+    {
+      "title": "Calling Functions",
+      "comment": "",
+      "questions": [
         {
-            "comment": "this is who needs time and a half for the assessment",
-            "uids": [
-                "email1@address.edu",
-                "email2@address.edu"
-            ],
-            "startDate": "2023-01-01T00:00:01", 
-            "endDate": "2050-04-30T23:59:59",
-            "timeLimitMin": 113,
-            "showClosedAssessment": true,
-            "credit": 100
-        },
-        {
-            "comment": "this is who needs double time for the assessment",
-            "uids": [
-                "email3@address.edu"
-            ],
-            "startDate": "2023-01-01T00:00:01", 
-            "endDate": "2050-04-30T23:59:59",
-            "timeLimitMin": 150,
-            "showClosedAssessment": true,
-            "credit": 100
-        },    
-        {
-            "comment": "this is for the general student",
-            "role": "Student",
-            "startDate": "2023-01-01T00:00:01", 
-            "endDate": "2050-04-30T23:59:59",
-            "timeLimitMin": 75,
-            "showClosedAssessment": true,
-            "credit": 100
+          "numberChoose": 1,
+          "points": 9,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/calling functions/simulateBridge"
+            },
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/calling functions/threeDprinting"
+            }
+          ]
         }
-        ],
-    "shuffleQuestions": true,
-    "autoClose": true,
-    "zones": [
+      ]
+    },
+    {
+      "title": "Debugging Calling A Function",
+      "comment": "",
+      "questions": [
         {
-            "title": "Calling Functions",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 9,
-                    "alternatives": [
-                        {"id":"automatically generating wrong answers in coding assessment problems/matlab/calling functions/simulateBridge"},
-                        {"id":"automatically generating wrong answers in coding assessment problems/matlab/calling functions/threeDprinting"}
-                    ]
-                    
-                }
-            ]
-        },
-        {
-            "title": "Debugging Calling A Function",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 9,
-                    "alternatives": [
-                        {"id":"automatically generating wrong answers in coding assessment problems/matlab/debugging function calling/ship_characteristics"},
-                        {"id":"automatically generating wrong answers in coding assessment problems/matlab/debugging function calling/threeDprinting"}
-                    ]
-                    
-                }
-            ]
-        },
-        {
-            "title": "Image Manipulation",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 12,
-                    "alternatives": [
-                        {"id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/image_manipulation/crop_and_highlight"}
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Data Analysis",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 12,
-                    "alternatives": [
-                        {"id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/data_analysis/nutridium"}
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Plotting",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 33,
-                    "alternatives": [
-                        {"id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/plotting/path_finding"}
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Driver Program",
-            "comment": "",
-            "questions": [
-                {
-                    "numberChoose": 1,
-                    "points": 32,
-                    "alternatives": [
-                        {"id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/driver/deliveries"}
-                    ]
-                }
-            ]
+          "numberChoose": 1,
+          "points": 9,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/debugging function calling/ship_characteristics"
+            },
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/debugging function calling/threeDprinting"
+            }
+          ]
         }
-
-
-    ]
+      ]
+    },
+    {
+      "title": "Image Manipulation",
+      "comment": "",
+      "questions": [
+        {
+          "numberChoose": 1,
+          "points": 12,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/image_manipulation/crop_and_highlight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Data Analysis",
+      "comment": "",
+      "questions": [
+        {
+          "numberChoose": 1,
+          "points": 12,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/data_analysis/nutridium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Plotting",
+      "comment": "",
+      "questions": [
+        {
+          "numberChoose": 1,
+          "points": 33,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/plotting/path_finding"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Driver Program",
+      "comment": "",
+      "questions": [
+        {
+          "numberChoose": 1,
+          "points": 32,
+          "alternatives": [
+            {
+              "id": "automatically generating wrong answers in coding assessment problems/matlab/select a statement questions/driver/deliveries"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
-
-
-
