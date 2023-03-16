@@ -2,6 +2,20 @@
 <markdown>
 After you've gone through DL01, of the 9 question types, select 5 elements that you are most interested in for your course and context, and then rank them from 1 (most interesting) to 5 (least interesting).
 </markdown>
+
+{{#format_errors.invalid}}
+<div class="alert alert-danger" role="alert">{{.}}</div>
+{{/format_errors.invalid}}
+
+{{#submitted_answers.questions}}
+
+{{^format_errors.invalid}}
+<div class="alert alert-success" role="alert">Thank you for submitting your responses and ranking! Stay tuned for
+    more...</div>
+{{/format_errors.invalid}}
+
+{{/submitted_answers.questions}}
+
 </pl-question-panel>
 
 <pl-order-blocks answers-name="questions" grading-method="ranking">
@@ -16,15 +30,3 @@ After you've gone through DL01, of the 9 question types, select 5 elements that 
   <pl-answer correct="false">Workspace</pl-answer>
   <pl-answer correct="false">Autograded Code (you'll see this in the next part!)</pl-answer>
 </pl-order-blocks>
-
-{{#format_errors.invalid}}
-<div class="alert alert-danger" role="alert">{{.}}</div>
-{{/format_errors.invalid}}
-
-{{#submitted_answers.questions}}
-
-{{^format_errors.invalid}}
-<div class="alert alert-success" role="alert">Thank you for submitting your responses and ranking! Stay tuned for more...</div>
-{{/format_errors.invalid}}
-
-{{/submitted_answers.questions}}
