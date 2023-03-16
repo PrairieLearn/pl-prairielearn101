@@ -3,15 +3,15 @@
 After you've gone through DL01, of the 9 question types, select 5 elements that you are most interested in for your course and context, and then rank them from 1 (most interesting) to 5 (least interesting).
 </markdown>
 
-{{#format_errors.invalid}}
+{{#format_errors.questions}}
 <div class="alert alert-danger" role="alert">{{.}}</div>
-{{/format_errors.invalid}}
+{{/format_errors.questions}}
 
 {{#submitted_answers.questions}}
 
-{{^format_errors.invalid}}
+{{^format_errors.questions}}
 <div class="alert alert-success" role="alert">Thank you for submitting your responses and ranking! Stay tuned for more...</div>
-{{/format_errors.invalid}}
+{{/format_errors.questions}}
 
 {{/submitted_answers.questions}}
 
