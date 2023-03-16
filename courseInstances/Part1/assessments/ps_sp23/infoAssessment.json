@@ -32,7 +32,7 @@
         { "id": "tour/single", "points": 5 },
         { "id": "tour/tries_per_variant", "points": 5, "triesPerVariant": 2 },
         { "id": "tour/manual", "points": 5 },
-        { "id": "tour/timing", "points": 5, "gradeRateMinutes": 1440 }
+        { "id": "tour/timing", "points": 5, "gradeRateMinutes": 1 }
       ]
     }
   ]
