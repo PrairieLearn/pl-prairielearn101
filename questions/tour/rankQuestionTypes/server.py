@@ -3,6 +3,7 @@ def grade(data):
     if len(data['submitted_answers']['questions']) == 5:
         # This will give participants a mark regardless of what answers they select!
         data['score'] = 1
+        data['partial_scores'] = ""
 
     elif len(data['submitted_answers']['questions']) < 5:
         data['format_errors']['questions'] = {"invalid":"Please select at least 5 choices!"}
