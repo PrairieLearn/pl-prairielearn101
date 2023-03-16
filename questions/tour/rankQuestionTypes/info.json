@@ -3,5 +3,6 @@
   "title": "Rank Questions",
   "topic": "tour",
   "tags": [],
-  "type": "v3"
+  "type": "v3",
+  "showCorrectAnswer": false
 }
