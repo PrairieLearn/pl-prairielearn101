@@ -4,7 +4,7 @@ def grade(data):
         # This will give participants a mark regardless of what answers they select!
         data['score'] = 1
 
-        data["feedback"] = "Great, thank you so much for engaging with this activity!"
+        data["feedback"] = {"Great, thank you so much for engaging with this activity!"}
 
     
     elif len(data['submitted_answers']['questions']) < 5:
