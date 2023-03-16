@@ -2,6 +2,7 @@ def grade(data):
     
     if len(data['submitted_answers']['questions']) == 5:
         # This will give participants a mark regardless of what answers they select!
+        data['format_errors']['questions'] = None
         data['score'] = 1
 
     elif len(data['submitted_answers']['questions']) < 5:
