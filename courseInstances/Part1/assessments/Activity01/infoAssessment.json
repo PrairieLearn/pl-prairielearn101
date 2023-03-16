@@ -14,7 +14,9 @@
   "zones": [
     {
       "title": "Question types",
-      "questions": [{ "id": "tour/rankQuestionTypes", "points": 5 }]
+      "questions": [
+        { "id": "tour/rankQuestionTypes", "points": 5 }
+      ]
     }
   ]
 }
