@@ -16,5 +16,3 @@ def grade(data):
         data['format_errors']['question'] = "Oops! You selected too many choices, please select only 5 choices!"
 
         data["feedback"] = "Oops! You selected too many choices, please select only 5 choices!"
-
-    
