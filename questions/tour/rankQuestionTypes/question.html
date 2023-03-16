@@ -3,6 +3,10 @@
 After you've gone through the DL01 question types, select 5 elements that you are most interested in for your course and context, and then rank them from most interesting (highest).
 </markdown>
 
+<!-- START This section is written using moustache templating and shows a red alert when the input is ungradeable and a 
+    green alert when the submission is successful -->
+
+
 {{ #format_errors.questions.invalid }}
 <div class="alert alert-danger" role="alert">{{.}}</div>
 {{ /format_errors.questions.invalid }}
@@ -14,6 +18,9 @@ After you've gone through the DL01 question types, select 5 elements that you ar
 {{ /format_errors.questions.invalid }}
 
 {{ /score }}
+
+<!-- End. For more details about moustache templating, see https://mustache.github.io/mustache.5.html -->
+
 
 </pl-question-panel>
 
