@@ -5,9 +5,9 @@ def grade(data):
         data['score'] = 1
     
     elif len(data['submitted_answers']['questions']) < 5:
-        data['format_errors'] = "Please select at least 5 choices!"
+        data['questions']['format_errors'] = "Please select at least 5 choices!"
         
     elif len(data['submitted_answers']['questions']) > 5:
-        data['format_errors'] = "Oops! You selected too many choices, please select only 5 choices!"
+        data['questions']['format_errors'] = "Oops! You selected too many choices, please select only 5 choices!"
 
     
