@@ -6,9 +6,9 @@ def grade(data):
         data["feedback"] = {"Great, thank you so much for engaging with this activity!"}
 
     elif len(data['submitted_answers']['questions']) < 5:
-        data['format_errors']['question'] = "Please select at least 5 choices!"
-        data["feedback"]['question'] = data['format_errors']['question']
+        data['format_errors']['questions'] = "Please select at least 5 choices!"
+        data["feedback"]['questions'] = data['format_errors']['questions']
         
     elif len(data['submitted_answers']['questions']) > 5:
-        data['format_errors']['question'] = {"Oops! You selected too many choices, please select only 5 choices!"}
-        data["feedback"]['question'] = data['format_errors']['question']
+        data['format_errors']['questions'] = {"Oops! You selected too many choices, please select only 5 choices!"}
+        data["feedback"]['questions'] = data['format_errors']['questions']
