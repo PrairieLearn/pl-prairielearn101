@@ -1,0 +1,22 @@
+{
+  "uuid": "d5cdfef7-d412-4cc6-a657-2646dfa44b53",
+  "set": "Discover and Learn",
+  "type": "Homework",
+  "title": "Extending PrairieLearn",
+  "number": "4",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment walks you through the various types of questions that you may encounter on PrairieLearn.",
+  "zones": [
+    {
+      "title": "Question types",
+      "questions": [
+        { "id": "tour/choices", "points": 5 }
+      ]
+    }
+  ]
+}
