@@ -9,3 +9,6 @@ def grade(data):
         
     elif len(data['submitted_answers']['questions']) > 5:
         data['format_errors']['questions'] = {"Oops! You selected too many choices, please select only 5 choices!"}
+
+    # if data["score"] == 1:
+
