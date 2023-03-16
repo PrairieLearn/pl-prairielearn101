@@ -14,6 +14,13 @@
       "description": "Discover and learn about cool PrairieLearn Features!"
     },
     {
+      "abbreviation": "A",
+      "name": "Activity",
+      "heading": "Workshop Activity",
+      "color": "green2",
+      "description": "At the end of each part, there's an activity for you to attempt."
+    },
+    {
       "abbreviation": "S",
       "name": "Sample",
       "heading": "Explore how others' have used PrairieLearn",
