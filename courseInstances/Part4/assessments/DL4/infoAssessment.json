@@ -12,15 +12,16 @@
   ],
   "text": "<p><strong>Comments about this assessment:</strong> </p><p> This assessment shows off uses of custom autograders on various PrairieLearn problems. Please see <a href=\"http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html\">http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html</a> for more information!</p>",
   "zones": [
-      {
-          "title": "Basic and Official Autograders",
-          "questions": [
-              { "id": "Gallery/FirstDirOfPATH", "points": 10 },
-              { "id": "Gallery/PromotionalProduct", "points": 10 },
-              { "id": "Gallery/Invoice", "points": 10 },
-              { "id": "Gallery/RandomCProgram", "points": 10 }
-          ],
-          "comment": "This zone contains questions demonstrating the basic functionality of external autograder, as well as official autograders for Java and C. For more info, contact: Jonatan Schroeder jonatan@yorku.ca"
+    {
+      "title": "Basic and Official Autograders",
+      "questions": [
+        { "id": "Gallery/FirstDirOfPATH", "points": 10 },
+        { "id": "Gallery/PromotionalProduct", "points": 10 },
+        { "id": "Gallery/Invoice", "points": 10 },
+        { "id": "Gallery/RandomCProgram", "points": 10 },
+        { "id": "Gallery/LinkedListRemove", "points": 10 }
+      ],
+      "comment": "This zone contains questions demonstrating the basic functionality of external autograder, as well as official autograders for Java and C. For more info, contact: Jonatan Schroeder jonatan@yorku.ca"
       },
     {
       "title": "Haskell Autograder",
