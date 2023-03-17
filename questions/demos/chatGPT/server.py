@@ -15,7 +15,7 @@ def grade(data):
 
     chatgpt_response = openai.Completion.create(
     model="code-davinci-002",
-    prompt= response
+    prompt= f"{response}"
     temperature=0,
     max_tokens=60,
     top_p=1.0,
