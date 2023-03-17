@@ -2,8 +2,8 @@
   "uuid": "fbedad94-43e7-42a3-b7fd-c94f112436b7",
   "set": "Activity",
   "type": "Homework",
-  "title": "Part 3 Activity",
-  "number": "3",
+  "title": "Part 1 Activity",
+  "number": "1",
   "allowAccess": [
     {
       "startDate": "2023-01-17T00:00:01",

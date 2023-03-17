@@ -1,16 +1,16 @@
 {
-  "uuid": "6da1b012-f315-4dd0-9cbd-e2d288a0e999",
+  "uuid": "c0ddc782-0347-44be-bd9f-d463e0be0ae6",
   "set": "Sample",
   "type": "Homework",
-  "title": "Showcase of Assignments with Feedback",
-  "number": "3",
+  "title": "Showcase of PrairieLearn Elements",
+  "number": "2",
   "allowAccess": [
     {
       "startDate": "2023-01-17T00:00:01",
       "credit": 100
     }
   ],
-  "text": "This assessment walks you through the different autograded questions that you may encounter on PrairieLearn.",
+  "text": "This assessment shows you other, more specialized features of assessments in PrairieLearn.",
   "zones": [
     {
       "title": "Question types",
