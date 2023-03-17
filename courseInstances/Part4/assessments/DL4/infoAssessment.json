@@ -20,7 +20,7 @@
               { "id": "Gallery/Invoice", "points": 10 },
               { "id": "Gallery/RandomCProgram", "points": 10 }
           ],
-          "comment": "This zone contains questions demonstrating the basic functionality of external autograder, as well as official autograders for Java and C. For more info, contact: Jonatan Schroeder jonatan@yorku.ca",
+          "comment": "This zone contains questions demonstrating the basic functionality of external autograder, as well as official autograders for Java and C. For more info, contact: Jonatan Schroeder jonatan@yorku.ca"
       },
     {
       "title": "Haskell Autograder",
