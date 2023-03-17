@@ -1,0 +1,42 @@
+<pl-question-panel>
+<markdown>
+
+Assume that a linked list data structure has been defined in `list.h` as follows:
+
+```c
+struct node {
+  int value;
+  struct node *next;
+};
+
+struct list {
+  struct node *head;
+};
+```
+
+Assume that for a list `l`, the element `l->head` points to the first
+element of the list.
+
+The following function deletes all elements of the list that match a
+particular value. However, it has a problem. In particular, it has a
+dangling pointer issue. Fix the code below so that the program
+provides the appropriate functionality without any dangling pointers,
+memory leaks or other similar memory problems.
+
+<pl-file-editor source-file-name="source.c" file-name="deleteall.c" ace-mode="ace/mode/c_cpp">
+</pl-file-editor>
+
+</markdown>
+</pl-question-panel>
+
+<pl-answer-panel>
+<details class="card">
+<summary class="card-header">Click to reveal</summary>
+<pl-code language="c" source-file-name="solution.c"></pl-code>
+</details>
+</pl-answer-panel>
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
