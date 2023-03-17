@@ -1,6 +1,7 @@
 <pl-question-panel>
 <markdown>
 Consider two binary numbers `a = {{ params.a }}` and `b = {{ params.b }}`.
+
 **What is the sum `c = a + b` in binary?**
 </markdown>
 
@@ -8,9 +9,9 @@ c = <input name="c" type="text" width="50" value="{{ submitted_answers.c }}">
 </pl-question-panel>
 
 <pl-submission-panel>
-<markdown>c = {{ submitted_answers.c }}</markdown>
+<markdown>`c = {{ submitted_answers.c }}`</markdown>
 <pl-hidden-hints>
-<pl-hint>
+<pl-hint name="Feedback">
 {{ feedback.c }}
 </pl-hint>
 </pl-hidden-hints>
