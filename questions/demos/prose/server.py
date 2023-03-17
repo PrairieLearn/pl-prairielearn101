@@ -30,7 +30,16 @@ def grade(data):
         data['score'] = 0
         data['feedback']['manual'] = "This response was left blank, or was barely answered. Unfortunately we can't give you any credit for this."
 
-    explanation="""\n\n\nThank you - I hope this was valuable to you to reflect on ! Here is a sample answer:
+    if "branch" not in response:
+        branch_msg = "Hmm, it doesn't seem like you used the word 'branch' anywhere in your answer - are you sure you are able to explain what the merge and the switch commands do?"
+    else:
+        branch_msg = ""
+
+    explanation = f"""\n\n\nThank you - I hope this was valuable to you to reflect on ! 
+
+**{branch_msg}**
+
+Here is a sample answer:
 
 - git commit, takes a snapshot of the current repository and add a comment so it is "versioned" and can be referred back to at any time. You can only go back to see previous versions when they're committed to the repository.
 
@@ -40,11 +49,9 @@ def grade(data):
 
 - git pull, pulls the commits from a remote repository to your local repository so any changes are integrated onto your local machine.
 
-- git branch, allows you to split off of the branch you currently have checked out and make changes without the main branch being altered. This is generally used when a new feature has been added, or a bug has been fixed.
-
 - git merge, allows you to take any commits you have been made from a branch, and integrate them into the main branch.
 
 - git rebase, allows the user to take all the commits they've made on a branch and act as if they were done on another branch. It's another way to integrate changes from a branch onto another one.
-    """
+"""
 
     data['feedback']['manual'] += explanation
