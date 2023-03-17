@@ -25,10 +25,10 @@
     {
       "title": "Configuring Questions",
       "questions": [
-        { "id": "tour/randomized", "points": 1 },
-        { "id": "tour/single", "points": 1 },
-        { "id": "tour/tries_per_variant", "points": 1, "triesPerVariant": 2 },
-        { "id": "tour/timing", "points": 1, "gradeRateMinutes": 1 }
+        { "id": "demos/randomized", "points": 1 },
+        { "id": "demos/single", "points": 1 },
+        { "id": "demos/tries_per_variant", "points": 1, "triesPerVariant": 2 },
+        { "id": "demos/timing", "points": 1, "gradeRateMinutes": 1 }
       ]
     }
   ]
