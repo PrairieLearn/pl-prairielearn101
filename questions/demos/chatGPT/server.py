@@ -11,7 +11,7 @@ def grade(data):
     message_bytes = base64.b64decode(base64_bytes)
     response =  message_bytes.decode('ascii')
 
-    openai.api_key = os.getenv("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")
+    openai.api_key = "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"
 
     chatgpt_response = openai.Completion.create(
     model="code-davinci-002",
