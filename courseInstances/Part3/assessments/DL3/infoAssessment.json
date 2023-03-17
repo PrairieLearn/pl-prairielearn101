@@ -17,8 +17,9 @@
       "questions": [
         { "id": "demos/hints", "points": 1 },
         { "id": "demos/hiddenHints", "points": 1 },
-        { "id": "demos/gradeFunction", "points": 1 },
-        { "id": "tour/manual", "points": 1 }
+        { "id": "demos/prose", "points": 1 },
+        { "id": "tour/manual", "points": 1 },
+        { "id": "demos/gradeFunction", "points": 1 }
       ]
     }
   ]
