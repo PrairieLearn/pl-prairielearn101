@@ -15,7 +15,7 @@ def grade(data):
 
     chatgpt_response = openai.Completion.create(
     model="code-davinci-002",
-    prompt=f"A student has written the following prompt: {response}.\n\n I want you to first respond to it as if you're their friend. And then, tell them about your day assuming you're from a country outside North America.",
+    prompt= response
     temperature=0,
     max_tokens=60,
     top_p=1.0,
