@@ -1,46 +1,19 @@
 <pl-question-panel>
-    <p>
-        Questions below were designed to showcase the different features of
-        <a
-            href="http://prairielearn.readthedocs.io/en/latest/elements/#pl-hidden-hints-element"><code>pl-hidden-hints</code></a>.
-        The goal of <a
-            href="http://prairielearn.readthedocs.io/en/latest/elements/#pl-hidden-hints-element"><code>pl-hidden-hints</code></a>
-        is to progressively show hints as students submit incorrect (but not invalid) answers. Submit incorrect answers
-        to see more hints.
-        Newly revealed hints are first shown as open.
-    </p>
 
+<markdown>
+This question shows how the standard `pl-hint` element can be setup to give a hint to students that need it.
+</markdown>
 </pl-question-panel>
 
-<pl-integer-input answers-name="c_2" label="$1 + 1 = $" correct-answer=2></pl-integer-input>
+<pl-integer-input answers-name="c_2" label="$2 + 2 = $" correct-answer=4></pl-integer-input>
 
 <pl-question-panel>
-    <pl-hidden-hints>
-        <!-- Hints with the same show-after-submission appear in the order they're written -->
-        <pl-hint hint-name="Starting Hint">
-            Beginning of the hints to be shown.
-        </pl-hint>
+    <!-- This is a hint -->
+    <pl-hint hint-name="Cool hint">
+        Think about what we learned in Week 2 about how to add numbers. [Here's a link to the slides](https://www.khanacademy.org/math/early-math#cc-early-math-add-sub-basics).
 
-        <pl-hint>
-            Another hint that will be shown immediately.
-        </pl-hint>
+        Actually, perhaps you should just watch this YouTube video:
 
-        <pl-hint show-after-submission=5 hint-name="Final Hint">
-            This is a hint that will be shown after <b>five</b> incorrect submissions for the current question.
-        </pl-hint>
-
-        <!-- Comments are allowed inside the hints element -->
-
-        <pl-hint show-after-submission=3>
-            This is a hint that will be shown after <b>three</b> incorrect submissions for the current question.
-        </pl-hint>
-    </pl-hidden-hints>
+        <iframe src="https://www.khanacademy.org/math/early-math/cc-early-math-counting-topic/cc-early-math-counting/v/counting-with-small-numbers" width="800px" height="100%"></iframe>
+    </pl-hint>
 </pl-question-panel>
-
-<pl-submission-panel>
-    <pl-hidden-hints>
-        <pl-hint>
-            This is a hint that will be shown only on the submission panel.
-        </pl-hint>
-    </pl-hidden-hints>
-</pl-submission-panel>
