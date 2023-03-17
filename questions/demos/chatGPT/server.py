@@ -24,4 +24,4 @@ def grade(data):
     #stop=["You:"]
     )
 
-    data['feedback']['manual'] += chatgpt_response
+    data['feedback']['manual'] = chatgpt_response
