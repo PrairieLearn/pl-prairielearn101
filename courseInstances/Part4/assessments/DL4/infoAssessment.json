@@ -10,13 +10,22 @@
       "credit": 100
     }
   ],
-  "text": "This assessment walks you through the various types of questions that you may encounter on PrairieLearn.",
+  "text": "<p><strong>Comments about this assessment:</strong> </p><p> This assessment shows off uses of custom autograders on various PrairieLearn problems. Please see <a href=\"http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html\">http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html</a> for more information!</p>",
   "zones": [
     {
-      "title": "Question types",
+      "title": "Haskell Autograder",
       "questions": [
-        { "id": "tour/choices", "points": 1 }
-      ]
+        { "id": "steve/small-sample-with-randomization", "points": 10 },
+        { "id": "steve/sample-with-randomization-and-setup", "points": 10 },
+        { "id": "steve/more-haskelly-sample", "points": 10 },
+        { "id": "steve/very-different-use-of-student-code", "points": 10 }
+      ],
+      "comment": "This zone contains several questions demonstrating the Haskell autograder. For more info, contact: Steve Wolfman wolf@cs.ubc.ca."
+    },
+    {
+      "title": "Sample R Question",
+      "questions": [{ "id": "r_example/createRObject", "points": 10 }],
+      "comment": "This zone contains a question demonstrating the R autograder, and the mapping between 'evaluating code in unit tests' and 'evaluating student answers' that it uses. For more info, contact: Dirk Eddelbuettel deddel@illinois.edu."
     }
   ]
 }

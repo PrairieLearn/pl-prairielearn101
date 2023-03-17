@@ -1,0 +1,22 @@
+{
+  "uuid": "6da1b012-f315-4dd0-9cbd-e2d288a0e999",
+  "set": "Sample",
+  "type": "Homework",
+  "title": "Showcase of Assignments with Feedback",
+  "number": "3",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment walks you through the different auto0graded questions that you may encounter on PrairieLearn.",
+  "zones": [
+    {
+      "title": "Question types",
+      "questions": [
+        { "id": "tour/choices", "points": 5 }
+      ]
+    }
+  ]
+}

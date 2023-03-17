@@ -1,0 +1,20 @@
+{
+  "uuid": "6bf6323e-1e3e-4416-9ed5-9f5af8e6d1f2",
+  "set": "Activity",
+  "type": "Homework",
+  "title": "Part 4 Activity",
+  "number": "4",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment should be done after Discover and Learn 4 (DL4)!",
+  "zones": [
+    {
+      "title": "Question types",
+      "questions": [{ "id": "tour/rankQuestionTypes", "points": 1 }]
+    }
+  ]
+}

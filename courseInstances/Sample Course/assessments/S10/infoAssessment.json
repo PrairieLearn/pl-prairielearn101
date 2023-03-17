@@ -1,13 +1,15 @@
 {
-  "uuid": "fbedad94-43e7-42a3-b7fd-c94f112491f8",
+  "uuid": "a339ed1b-ca00-43d7-82de-cced4490f218",
   "type": "Homework",
-  "title": "Examples from Computer Networks",
+  "title": "Computer Networks",
   "set": "Sample",
-  "number": "0",
+  "number": "10",
   "allowAccess": [
     {
-      "startDate": "2023-01-17T00:00:01",
-      "credit": 100
+      "mode": "Public",
+      "credit": 100,
+      "startDate": "2023-03-01T00:00:01",
+      "endDate": "2050-12-31T23:59:59"
     }
   ],
   "text": "This 'homework' demonstrates a sample of questions from a Computer Networks course at NYU. Contact: Fraida Fund ffund@nyu.edu",
@@ -34,7 +36,7 @@
         { "id": "computer_networks/bridge_frame_one", "points": 5 },
         { "id": "computer_networks/bridge_frame_seq", "points": 5 },
         { "id": "computer_networks/stp_tiebk_bpdu", "points": 5 },
-        { "id": "computer_networks/stp_bpdu_port_state", "points": 5 },        
+        { "id": "computer_networks/stp_bpdu_port_state", "points": 5 },
         { "id": "computer_networks/stp_bpdu_change", "points": 5 },
         { "id": "computer_networks/stp_draw_tree_d", "points": 5 }
       ]
@@ -51,14 +53,14 @@
         { "id": "computer_networks/ipv4_frags_header_fields", "points": 5 },
         { "id": "computer_networks/dynamic_dijkstra_table_rand_all", "points": 5 },
         { "id": "computer_networks/dynamic_dv_line_broken", "points": 5 }
-         ]
-    },                    
+      ]
+    },
     {
       "title": "Transport Layer",
       "questions": [
         { "id": "computer_networks/udp_socket_blocks", "points": 5 },
         { "id": "computer_networks/tcp_socket_blocks", "points": 5 },
-        { "id": "computer_networks/tcp_timers_match", "points": 5 },      
+        { "id": "computer_networks/tcp_timers_match", "points": 5 },
         { "id": "computer_networks/tcp_mech_header", "points": 5 },
         { "id": "computer_networks/tcp_state_single", "points": 5 },
         { "id": "computer_networks/tcp_sliding_window", "points": 5 },
@@ -87,13 +89,3 @@
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-

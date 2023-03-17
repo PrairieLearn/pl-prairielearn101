@@ -1,0 +1,22 @@
+{
+  "uuid": "7ad4f613-d29a-4edf-9fed-bd91b1cfa5b6",
+  "set": "Sample",
+  "type": "Homework",
+  "title": "Showcase of Externally Graded Questions",
+  "number": "5",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment walks you through the different auto0graded questions that you may encounter on PrairieLearn.",
+  "zones": [
+    {
+      "title": "Question types",
+      "questions": [
+        { "id": "tour/choices", "points": 5 }
+      ]
+    }
+  ]
+}

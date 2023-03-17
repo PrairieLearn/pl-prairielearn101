@@ -1,5 +1,5 @@
 {
-  "uuid": "fbedad94-43e7-42a3-b7fd-c94f112436b7",
+  "uuid": "2ef753bd-1652-4e6a-9683-1c1e573373b0",
   "set": "Activity",
   "type": "Homework",
   "title": "Part 3 Activity",
@@ -10,13 +10,11 @@
       "credit": 100
     }
   ],
-  "text": "This assessment should be done after Discover and Learn 1 (DL1)!",
+  "text": "This assessment should be done after Discover and Learn 3 (DL3)!",
   "zones": [
     {
       "title": "Question types",
-      "questions": [
-        { "id": "tour/rankQuestionTypes", "points": 1 }
-      ]
+      "questions": [{ "id": "tour/rankQuestionTypes", "points": 1 }]
     }
   ]
 }
