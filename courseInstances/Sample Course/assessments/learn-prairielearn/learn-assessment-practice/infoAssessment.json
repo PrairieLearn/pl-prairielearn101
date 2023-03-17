@@ -12,7 +12,7 @@
         {
             "comment": "This is for everyone",
             "role": "Student",
-            "startDate": "2022-12-14T00:00:01", 
+            "startDate": "2024-12-14T00:00:01", 
             "endDate": "2050-04-30T23:59:59",
             "timeLimitMin": 75,
             "showClosedAssessment": true,
