@@ -1,0 +1,15 @@
+{
+  "uuid": "c7e4d4ab-2c0c-4fcb-9c33-1fb19e025b4c",
+  "title": "Python Autograder: Multiple Tests",
+  "topic": "Demo",
+  "tags": [],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "prairielearn/grader-python",
+    "entrypoint": "/python_autograder/run.sh",
+    "timeout": 60
+  }
+}
