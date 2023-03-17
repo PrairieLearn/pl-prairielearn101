@@ -1,0 +1,25 @@
+{
+  "uuid": "f625fb75-5f98-45da-8e19-4059bc80dbf6",
+  "set": "Discover and Learn",
+  "type": "Homework",
+  "title": "Configuring Questions",
+  "number": "2",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment walks you through the various types of questions that you may encounter on PrairieLearn.",
+  "zones": [
+    {
+      "title": "Configuring Questions",
+      "questions": [
+        { "id": "demos/randomized", "points": 1 },
+        { "id": "demos/single", "points": 1 },
+        { "id": "demos/tries_per_variant", "points": 1, "triesPerVariant": 2 },
+        { "id": "demos/timing", "points": 1, "gradeRateMinutes": 2 }
+      ]
+    }
+  ]
+}

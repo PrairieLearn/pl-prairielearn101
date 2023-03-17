@@ -1,0 +1,27 @@
+{
+  "uuid": "a339ed1b-ca00-43d7-82de-cced4490f218",
+  "type": "Homework",
+  "title": "Cool Questions 4: Autograder Sample Questions",
+  "set": "Sample",
+  "number": "4",
+  "text": "<p><strong>Comments about this assessment:</strong> </p><p> This assessment shows off uses of custom autograders on various PrairieLearn problems. Please see <a href=\"http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html\">http://firas.moosvi.com/books/prairielearn_workshop/docs/home.html</a> for more information!</p>",
+  "allowAccess": [
+    {
+      "mode": "Public",
+      "credit": 100,
+      "startDate": "2023-03-01T00:00:01",
+      "endDate": "2050-12-31T23:59:59"
+    }
+  ],
+  "zones": [
+    {
+      "title": "Haskell Autograder",
+      "questions": [
+        { "id": "steve/small-sample-with-randomization", "points": 10 },
+        { "id": "steve/sample-with-randomization-and-setup", "points": 10 },
+        { "id": "steve/more-haskelly-sample", "points": 10 },
+        { "id": "steve/very-different-use-of-student-code", "points": 10 }
+      ]
+    }
+  ]
+}
