@@ -15,24 +15,23 @@
     {
       "title": "Question types",
       "questions": [
-        { "id": "tour/choices", "points": 5 },
-        { "id": "tour/open", "points": 5 },
-        { "id": "tour/numeric", "points": 5 },
-        { "id": "tour/text", "points": 5 },
-        { "id": "tour/order_blocks", "points": 5 },
-        { "id": "tour/upload", "points": 5 },
-        { "id": "tour/drawing", "points": 5 },
-        { "id": "tour/workspace", "points": 5 }
+        { "id": "tour/choices", "points": 1 },
+        { "id": "tour/open", "points": 1 },
+        { "id": "tour/numeric", "points": 1 },
+        { "id": "tour/text", "points": 1 },
+        { "id": "tour/order_blocks", "points": 1 },
+        { "id": "tour/upload", "points": 1 },
+        { "id": "tour/drawing", "points": 1 },
+        { "id": "tour/workspace", "points": 1 }
       ]
     },
     {
-      "title": "Saving/grading policies",
+      "title": "Configuring Questions",
       "questions": [
-        { "id": "tour/randomized", "points": 5 },
-        { "id": "tour/single", "points": 5 },
-        { "id": "tour/tries_per_variant", "points": 5, "triesPerVariant": 2 },
-        { "id": "tour/manual", "points": 5 },
-        { "id": "tour/timing", "points": 5, "gradeRateMinutes": 1440 }
+        { "id": "tour/randomized", "points": 1 },
+        { "id": "tour/single", "points": 1 },
+        { "id": "tour/tries_per_variant", "points": 1, "triesPerVariant": 2 },
+        { "id": "tour/timing", "points": 1, "gradeRateMinutes": 1440 }
       ]
     }
   ]

@@ -1,0 +1,24 @@
+{
+  "uuid": "f625fb75-5f98-45da-8e19-4059bc80dbf6",
+  "set": "Discover and Learn",
+  "type": "Homework",
+  "title": "Giving Feedback",
+  "number": "3",
+  "allowAccess": [
+    {
+      "startDate": "2023-01-17T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment walks you through the various ways PrairieLearn can be used to give students Feedback.",
+  "zones": [
+    {
+      "title": "Feedback Models",
+      "questions": [
+        { "id": "exampleCourse/hiddenHints", "points": 1 },
+        { "id": "exampleCourse/gradeFunction", "points": 1},
+        { "id": "tour/manual", "points": 1 }
+      ]
+    }
+  ]
+}

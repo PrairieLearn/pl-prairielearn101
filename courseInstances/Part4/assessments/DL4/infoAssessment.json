@@ -15,7 +15,7 @@
     {
       "title": "Question types",
       "questions": [
-        { "id": "tour/choices", "points": 5 }
+        { "id": "tour/choices", "points": 1 }
       ]
     }
   ]

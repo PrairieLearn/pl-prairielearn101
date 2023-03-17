@@ -15,7 +15,7 @@
     {
       "title": "Question types",
       "questions": [
-        { "id": "tour/rankQuestionTypes", "points": 5 }
+        { "id": "tour/rankQuestionTypes", "points": 1 }
       ]
     }
   ]
