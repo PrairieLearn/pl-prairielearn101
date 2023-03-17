@@ -4,7 +4,8 @@
 This question shows how the standard `pl-hint` element can be setup to give a hint to students that need it.
 
 *Note that there is currently no functionality to reduce `credit` if a hint is used.
-This is probably for the best because there is some research that suggests penalizing students for using hints hampers learning.*
+This is probably for the best because there is some research that suggests penalizing students for using hints hampers learning.
+That said, the suggested way to handle this is to provide [diminishing points](https://prairielearn.readthedocs.io/en/latest/assessment/#limiting-the-number-of-attempts-for-each-question) for each subsequent attempt.*
 </markdown>
 </pl-question-panel>
 
@@ -20,6 +21,10 @@ Think about what we learned in Week 2 about how to add numbers. [Here's a link t
 Actually, perhaps you should just watch this YouTube video:
 
 <pl-video-embed url="https://www.youtube.com/embed/AuX7nPBqDts"></pl-video-embed>
+
+**Note: The video is embedded using a customized element called `pl-video-embed` that is not yet available as a default element.
+In order to use it, you should copy the folder `elements/pl-video-embed` into your course (if the `elements` directory doesn't exist, you can create it).
+This is how you can create your own customized elements!
 
 </markdown>
     </pl-hint>
