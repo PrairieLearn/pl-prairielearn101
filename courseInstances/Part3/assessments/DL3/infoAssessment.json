@@ -20,9 +20,7 @@
         { "id": "demos/hiddenHints", "points": 1 },
         { "id": "demos/prose", "points": 1 },
         { "id": "demos/manual", "points": 1 },
-        { "id": "demos/gradeFunction", "points": 1 },
-        { "id": "demos/python_multiple_tests", "points": 1 },
-        { "id": "demos/java_multiple_tests", "points": 1 }
+        { "id": "demos/gradeFunction", "points": 1 }
       ]
     }
   ]
