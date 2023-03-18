@@ -1,0 +1,37 @@
+<pl-question-panel>
+
+<p>For floating point numeric inputs, where the number of digits after the decimal place is specified, you can either: </p>
+<ul>
+    <li>enter <i>more</i> digits than are required (and then you won't have to round your answer), </li>
+    <li>or round (don't concatenate!) your answer so to the specified number of digits (following the rule: digits 0 through 4 round down, digits 5 through 9 round up).</li>
+</ul>
+
+<p>For example, the answer to this question is <tt>2/3</tt> (but as a decimal, not a ratio). </p>
+
+<p>This is a valid answer - supplying more digits than required:</p>
+<pl-code language="text">
+0.6666666
+</pl-code>
+
+
+<p>This is a valid answer - rounding (not truncating!) to four digits after the decimal place:</p>
+<pl-code language="text">
+0.6667
+</pl-code>
+
+
+<p>But, this answer (truncating to four digits after the decimal place) would not be valid:</p>
+<pl-code language="text">
+0.6666
+</pl-code>
+
+<p>When you are working on a problem with multiple computations that build on one another, rounding errors can propagate and get bigger through the sequence of computations. To avoid this, you should always keep <i>more</i> decimal places in your computation than are expected in your submitted answer.</p>
+
+</pl-question-panel>
+
+<br>
+
+<pl-number-input answers-name="float" correct_answer="0.66666667" comparison="decdig" digits="4"></pl-number-input>
+
+<br>
+<hr>
