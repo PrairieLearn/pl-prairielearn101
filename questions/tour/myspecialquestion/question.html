@@ -1,42 +1,7 @@
 <pl-question-panel>
 
 <markdown>
-For floating point numeric inputs, where the number of digits after the decimal place is specified, you can either:
-
-- enter *more* digits than are required (and then you won't have to round your answer),
-- or round (don't concatenate!) your answer so to the specified number of digits (following the rule: digits 0 through 4 round down, digits 5 through 9 round up).
-
-For example, the answer to this question is `2/3` (but as a decimal, not a ratio).
-
-This is a valid answer - supplying more digits than required:
-
-```python
-for i in range(6):
-    print(i)
-```
-
-<pl-code language="python">
-for i in range(6):
-    print(i)
-</pl-code>
-
-```
-0.6666666
-```
-
-This is a valid answer - rounding (not truncating!) to four digits after the decimal place:
-
-```
-0.6667
-```
-
-But, this answer (truncating to four digits after the decimal place) would not be valid:
-```
-0.6666
-```
-
-When you are working on a problem with multiple computations that build on one another, rounding errors can propagate and get bigger through the sequence of computations. To avoid this, you should always keep <i>more</i> decimal places in your computation than are expected in your submitted answer.
-
+Pick a number that I'm thinking of:
 </markdown>
 </pl-question-panel>
 
@@ -44,4 +9,4 @@ When you are working on a problem with multiple computations that build on one a
 Hello world!!
 </pl-submission-panel>
 
-<pl-number-input answers-name="float" correct_answer="0.66666667" comparison="decdig" digits="4"></pl-number-input>
+<pl-number-input answers-name="float" correct_answer="7"></pl-number-input>
