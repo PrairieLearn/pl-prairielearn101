@@ -20,6 +20,12 @@
         { "id": "tour/numeric", "points": 1 },
         { "id": "tour/text", "points": 1 },
         { "id": "tour/order_blocks", "points": 1 },
+          { "id": "demos/checkbox_feedback", "points": 1 },
+          { "id": "demos/hints", "points": 1 },
+          { "id": "demos/hiddenHints", "points": 1 },
+          { "id": "demos/prose", "points": 1 },
+          { "id": "demos/manual", "points": 1 },
+          { "id": "demos/gradeFunction", "points": 1 },
         { "id": "tour/upload", "points": 1 },
         { "id": "tour/drawing", "points": 1 },
         { "id": "tour/workspace", "points": 1 }
