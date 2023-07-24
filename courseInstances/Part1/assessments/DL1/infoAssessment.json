@@ -27,9 +27,7 @@
           { "id": "demos/manual", "points": 1 },
           { "id": "demos/gradeFunction", "points": 1 },
         { "id": "tour/upload", "points": 1 },
-        { "id": "tour/drawing", "points": 1 },
-        { "id": "tour/workspace", "points": 1 }
-      ]
+        { "id": "tour/drawing", "points": 1 }      ]
     }
   ]
 }
