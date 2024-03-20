@@ -19,6 +19,12 @@
       ]
     },
     {
+      "title": "David Cooper - Polymorphism",
+      "questions": [
+        { "id": "java-multi-select/Polymorphism", "points": 5}
+      ]
+    },
+    {
       "title": "Firstname Lastname - Question title",
       "questions": [{ "id": "intro_ml/linear_regression_compute_fitted_trans", "points": 5 }]
     },
