@@ -1,0 +1,44 @@
+<!-- Author: David G. Cooper, West Chester University, -->
+<!-- dcooper@wcupa.edu --> 
+
+
+<pl-question-panel>
+<pl-code language="java">
+    public interface {{params.interface_type}} {
+        void {{params.interface_method}}();
+    }
+    
+    public class {{params.parent_type}} {
+        public void {{params.parent_method}}() {
+            System.out.println("{{params.parent_type}} calling {{params.parent_method}}()");
+        }
+    }
+    
+    public class {{params.child_type}} extends {{params.parent_type}} implements {{params.interface_type}} {
+        public void {{params.interface_method}}() {
+            System.out.println("{{params.child_type}} calling {{params.interface_method}}()");
+        }
+    }
+    
+    public class Polymorphism {
+        public static void main(String[] args) {
+            {{params.interface_type}} {{params.interface_id}} = new {{params.child_type}}();
+            {{params.parent_type}} {{params.parent_id}} = new {{params.parent_type}}();
+            {{params.child_type}} {{params.child_id}} = new {{params.child_type}}();
+            {{params.interface_type}} {{params.child_interface_id}} = {{params.child_id}};
+            {{params.parent_type}} {{params.child_parent_id}} = {{params.child_id}};
+            {{params.parent_type}} {{params.interface_parent_id}} = ({{params.parent_type}}){{params.interface_id}};
+            
+        }
+    }
+</pl-code>
+Based on the inheritance relationship above, select the code below that has no errors.
+</pl-question-panel>
+<pl-checkbox answers-name="select" hide-letter-keys="true" partial-credit="true" partial-credit-method="COV">
+  <pl-answer correct="{{params.c4}}"><pl-code language="java">{{params.answer4}}</pl-code></pl-answer>
+  <pl-answer correct="{{params.c1}}"><pl-code language="java">{{params.answer1}}</pl-code></pl-answer>
+  <pl-answer correct="{{params.c2}}"><pl-code language="java">{{params.answer2}}</pl-code></pl-answer>
+  <pl-answer correct="{{params.c3}}"><pl-code language="java">{{params.answer3}}</pl-code></pl-answer>
+  <pl-answer correct="{{params.c5}}"><pl-code language="java">{{params.answer5}}</pl-code></pl-answer>
+  <pl-answer correct="{{params.c6}}"><pl-code language="java">{{params.answer6}}</pl-code></pl-answer>
+</pl-checkbox>
