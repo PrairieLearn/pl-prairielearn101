@@ -1,0 +1,10 @@
+{
+  "uuid": "b564dee6-820e-4917-8129-d25c0db8bf76",
+  "longName": "Showcase - SIGCSE 2024",
+  "allowAccess": [
+    {
+      "startDate": "2024-03-20T00:00:00",
+      "endDate": "2400-05-13T23:59:59"
+    }
+  ]
+}
