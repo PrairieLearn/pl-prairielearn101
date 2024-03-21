@@ -1,0 +1,38 @@
+<!-- Author: Blaise Swartwood Rose-Hulman Institute of Technology -->
+<!-- Advisor: Joseph Hollingsworth, holling@rose-hulman.edu --> 
+
+<!-- User is allowed multiple attempts when solving the problem -->
+<!-- Each attempt is recorded and the ranking number provides the ordering submitted -->
+<!-- All attempts by all users can then be aggregated and analyzed for learning obstacles faced by users -->
+
+<p> Given two integer arrays of the same length, find the <b>number of differences</b> in the two arrays. A difference in the array is when at the same index value in the arrays, the integers values differ. </p> 
+
+<p> For example, [1,2,3] and [1,2,4] have 1 difference at index 2 since 3 is not equal to 4.</p> 
+
+<p> @paramter: r0 address to first int array </p> 
+<p> @paramter: r1 address to second int array </p> 
+<p> @paramter: r2 the length of the arrays (positive number) </p> 
+<p> @return: in r0, the number of different values in the array   </p> 
+
+<p> You may assume that registers r3 - r6 have already been initialized to values of 0. </p> 
+
+<p> Arrange code to be efficient (Hint: this means at the beginning of the loop, a comparison to the end should be present. </p> 
+
+<!-- Note: using pl-order-blocks with the grading-method customization and the ranking number assigned to each of the blocks -->
+<pl-order-blocks answers-name="Answers" grading-method="ranking">
+  <pl-answer correct="true" ranking = 0> .LOOP: </pl-answer>
+  <pl-answer correct="true" ranking = 1> cmp r3, r2 </pl-answer>
+  <pl-answer correct="true" ranking = 2> beq .ENDLOOP </pl-answer>
+  <pl-answer correct="true" ranking = 3> ldr r4, [r0] <br> ldr r5, [r1] </pl-answer>
+  <pl-answer correct="true" ranking = 4> cmp r4, r5 </pl-answer>
+  <pl-answer correct="true" ranking = 5> beq .MATCH </pl-answer>
+  <pl-answer correct="true" ranking = 6> add r6, r6, #1 </pl-answer>
+  <pl-answer correct="true" ranking = 7> .MATCH: <br> add r3, r3, #1 <br> add r0, r0, #4 <br> add r1, r1, #4 </pl-answer>
+  <pl-answer correct="true" ranking = 8> b .LOOP </pl-answer>
+  <pl-answer correct="true" ranking = 9> .ENDLOOP: </pl-answer>
+  <pl-answer correct="true" ranking = 10> move r0, r6 </pl-answer>
+
+
+
+
+</pl-order-blocks>
