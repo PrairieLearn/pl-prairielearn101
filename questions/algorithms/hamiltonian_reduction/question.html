@@ -1,0 +1,22 @@
+<pl-question-panel>
+<pl-template file-name="uiuc/templates/problem-statement.mustache">
+    <pl-variable
+      name="problem-statement"
+      directory="serverFilesCourse"
+      file-name="uiuc/problem_statements/hamcycle_to_hampath.html"
+    ></pl-variable>
+</pl-template>
+<markdown>
+We need to design a reduction from the Hamiltonian cycle problem to the Hamiltonian path problem.  Given an arbtirary input graph $G$, your reduction should compute an output graph $G'$ with the following crucial property: **The input graph $G$ contains a Hamiltonian cycle if and only if the output graph $G’$ contains a Hamiltonian path.**  Drag the blocks below to build pseudocode for this reduction.
+</markdown>
+</pl-question-panel>
+
+<pl-order-blocks answers-name="pseudocode">
+{{#params.pseudocode_lines}}
+    <pl-answer>{{.}}</pl-answer>
+{{/params.pseudocode_lines}}
+</pl-order-blocks>
+
+<pl-submission-panel>
+    <pl-external-grader-results></pl-external-grader-results>
+</pl-submission-panel>

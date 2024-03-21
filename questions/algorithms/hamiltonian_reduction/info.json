@@ -1,0 +1,22 @@
+{
+    "uuid": "6fed1bf3-016d-4b10-ab7b-e16e931a60bc",
+    "title": "Reducing Hamiltonian Cycle to Hamiltonian Path",
+    "topic": "Reductions",
+    "tags": [
+        "Andrew Yin",
+        "algorithms",
+        "NP-hardness",
+        "Parsons Problem",
+        "SIGCSE 2024"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "serverFilesCourse": ["/"],
+        "entrypoint": "/python_autograder/run.sh",
+        "timeout": 20
+    }
+}

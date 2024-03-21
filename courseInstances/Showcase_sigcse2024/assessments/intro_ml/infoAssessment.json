@@ -31,6 +31,10 @@
     {
       "title": "Firstname Lastname - Question title",
       "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+    },
+    {
+      "title": "Jeff Erickson - Hamiltonian reduction",
+      "questions": [{ "id": "algorithms/hamiltonian_reduction", "points": 10}]
     }
   ]
 }
