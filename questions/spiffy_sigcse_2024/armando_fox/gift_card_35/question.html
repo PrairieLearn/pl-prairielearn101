@@ -1,0 +1,46 @@
+<pl-question-panel>
+
+  <markdown>
+The implementation of the `Customer#pay` method tries to call `GiftCard#withdraw`.
+However, recall that a best practice for unit test writing is that
+each test should be Indepedent of all others (that's what the "I"
+stands for in the mnemonic "FIRST": Fast, Independent, Repeatable,
+Self-checking, Timely).
+
+Therefore, to isolate the behavior of `Customer#pay` from the
+implementation of `GiftCard#withdraw`, we will use a test double to
+"stand in" for the latter method.
+
+Which part(s) of the tests for `Customer#pay` will need to be
+concerned with this test double?
+  </markdown>
+</pl-question-panel>
+
+<pl-checkbox answers-name="a" hide-letter-keys="true" fixed-order="true">
+  <pl-answer correct="true"
+             feedback="Correct: part of Arranging the test's
+                       preconditions will include setting up the test
+                       double.">
+    Arrange
+  </pl-answer>
+  <pl-answer correct="false"
+             feedback="Not quite: part of the goal of the test double
+                       is that once it has been properly
+                       set up, the Act portion of the test should not
+                       even need know about it.">
+    Act
+  </pl-answer>
+  <pl-answer correct="false"
+             feedback="Not quite: part of the goal of the test double
+                       is that once it has been properly
+                       set up, it should behave the same way the real
+                       method would work, so any assertions regarding
+                       the method's behavior should not have to change.">
+    Assert
+  </pl-answer>
+   
+
+
+   
+
+

@@ -1,0 +1,66 @@
+<!-- AUTO-GENERATED FILE -->
+<markdown>
+
+  # Part 1 of 5: Basic specs
+  
+Here is the class that models a gift card:
+
+```ruby
+class GiftCard
+  attr_reader :balance, :error
+  def initialize(balance)
+    if balance < 0
+      raise ArgumentError.new("New gift card cannot have negative balance")
+    end
+    @balance = balance
+    @error = ""
+  end
+  def withdraw(amount)
+    if @balance >= amount
+      @balance -= amount
+    else
+      @error = "Insufficient balance"
+      return nil
+    end
+  end
+end
+```
+  
+In this question, construct tests that verify:
+* a GiftCard is created successfully with a nonnegative balance
+* a GiftCard cannot be created with a negative balance
+---
+</markdown>
+<!-- 
+* a withdrawal when there is enough cash returns success, and changes 
+the card balance <br />
+* a withdrawal when there is not enough cash returns failure, provides 
+an error message explaining the failure, and does not change the card balance. <br />
+-->
+
+</pl-question-panel>
+<!-- see README for where the various parts of question live -->
+
+<pl-faded-parsons format="no-code" language="ruby">
+<pre-text>
+describe GiftCard do
+</pre-text>
+<code-lines>
+  it 'fails to instantiate with negative balance' do
+  expect { !BLANK(-1) }.!BLANK raise_error(ArgumentError)
+  end
+  it 'successfully assigns a positive balance on instantiation' do
+  gift_card = GiftCard.new(20)
+  !BLANK(gift_card.balance).to !BLANK(20)
+  end
+</code-lines>
+<post-text>
+end
+
+</post-text>
+</pl-faded-parsons>
+
+<pl-question-panel>
+  <p class="alert alert-info">Note: It may take up to 30 seconds for the autograder to display results
+    after you press "Save & Grade".</p>
+</pl-question-panel>

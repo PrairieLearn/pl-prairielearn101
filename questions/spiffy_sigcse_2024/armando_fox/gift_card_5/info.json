@@ -1,0 +1,17 @@
+{
+  "uuid": "b142e53f-dcb9-4529-86b4-864c45de1188",
+  "title": "RSpec Intro: Customer#pay sad path, and DRYing out tests",
+  "topic": "RSpec",
+  "tags": [
+
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "saasbook/pl-rspec-autograder",
+    "entrypoint": "/grader/run.py",
+    "timeout": 60
+  }
+}

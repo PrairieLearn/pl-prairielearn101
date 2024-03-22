@@ -1,0 +1,46 @@
+<pl-question-panel>
+  <markdown>
+# Before Part 2: simple tests for the Gift Card
+
+The first tests you will write for a gift card behavior will test what
+happens when a customer tries to use the gift card for a purchase.  If
+the gift card balance is sufficient for the purchase (happy
+path), the transaction should succeed and the gift card balance should
+be reduced by the purchase amount.  If the balance is insufficient
+(sad path), the transaction should fail and the gift card balance
+should not change.
+
+Which phase of the test
+pattern (Arrange, Act, Assert) contains each of the following elements of
+the sad path test case?
+
+  </markdown>
+</pl-question-panel>
+
+<pl-matching answers-name="a" fixed-options-order="true" counter-type="full-text">
+  <pl-statement match="Arrange">
+    Initialize valid gift card with non-negative balance
+  </pl-statement>
+  <pl-statement match="Act">
+    Try a withdrawal that exceeds the balance
+  </pl-statement>
+  <pl-statement match="Act">
+    Try a withdrawal that is less than or equal to the balance
+  </pl-statement>
+  <pl-statement match="Assert">
+    Verify that a too-large withdrawal fails
+  </pl-statement>
+  <pl-statement match="Assert">
+    Verify that a sufficiently small withdrawal succeeds
+  </pl-statement>
+  <pl-statement match="Assert">
+    Verify that when a withdrawal fails, the gift card balance does not change
+  </pl-statement>
+  <pl-statement match="Assert">
+    Verify that when a withdrawal succeeds, the gift card balance is reduced by the amount of the withdrawal
+  </pl-statement>
+</pl-matching>
+
+
+  
+  

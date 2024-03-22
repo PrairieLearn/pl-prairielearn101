@@ -4,7 +4,8 @@
   "allowAccess": [
     {
       "startDate": "2024-03-20T00:00:00",
-      "endDate": "2400-05-13T23:59:59"
+      "endDate": "2400-05-13T23:59:59",
+      "institution": "Any"
     }
   ]
 }

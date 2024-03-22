@@ -2,8 +2,16 @@
 <div id="instructions">
 <h4>Instructions</h4>
   <p>
-    Translate the C code below to MIPS assembly. The <pl-file-download file-name="MIPS_reference.html" directory="clientFilesCourse" force-download="false" label = "MIPS Reference Guide"></pl-file-download>. Do your best to follow the <pl-file-download file-name="mipsstyle.html" directory="clientFilesCourse" force-download="false" label = "MIPS Style Guide"></pl-file-download>.
+    Translate the C code below to MIPS assembly. Do your best to follow the style guide.
   </p>
+<pl-hidden-hints>
+  <pl-hint hint-name="MIPS Reference Guide">
+    <pl-template directory="clientFilesCourse" file-name="MIPS_reference.html" log-tag-warnings="false"></pl-template>
+  </pl-hint>
+  <pl-hint hint-name="MIPS Style Guide">
+    <pl-template directory="clientFilesCourse" file-name="mipsstyle.html" log-tag-warnings="false"></pl-template>
+  </pl-hint>
+</pl-hidden-hints>
   <p>
     Follow register calling conventions to decide which registers to use. You may assume that functions (e.g., <code>bar()</code>) can be found at a corresponding label (e.g., <code>bar:</code>).
   </p>

@@ -1,0 +1,17 @@
+{
+  "uuid": "350ea16e-1005-447f-a825-cb185abd2f9b",
+  "title": "RSpec Intro: DRY out specs with common preconditions",
+  "topic": "RSpec",
+  "tags": [
+
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "saasbook/pl-rspec-autograder",
+    "entrypoint": "/grader/run.py",
+    "timeout": 60
+  }
+}
