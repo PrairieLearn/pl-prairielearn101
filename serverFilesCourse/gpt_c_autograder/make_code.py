@@ -1,14 +1,24 @@
+"""
+Author: David H Smith IV, University of Illinois Urbana-Champaign
+Email: dhsmith2@illinois.edu
+
+Feelt free to email me if you have questions on how to integrate this into your course
+or want to collaborate in terms of evaluating it!
+"""
+
 import json
 import traceback
 import openai 
 import random
 
 # weighted random choice picking the first key more often
-openai.api_key = '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'
+openai.api_key = 'REPLACE WITH YOUR OWN KEY'
 
 data_path = '/grade/data/data.json'
 results_path = '/grade/results/results.json'
 
+
+# You can change the prompt to get different outcomes in the generated code
 prompt_base = '''
 Pretend that you are an introductory computer science student learning C for
 the very first time. You have an extremely limited programming knowledge.  You
