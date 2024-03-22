@@ -1,0 +1,21 @@
+{
+    "uuid": "1b599289-478d-4cba-9459-dda1290da97c",
+    "title": "Example 2: C",
+    "topic": "prompt_engineering",
+    "tags": [
+        "CoffeePoweredComputers",
+        "chatGPT"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-c",
+        "entrypoint": "/grade/serverFilesCourse/gpt_c_autograder/run.sh",
+        "serverFilesCourse": [
+            "gpt_c_autograder/"
+        ],
+        "enableNetworking": true
+    }
+}
