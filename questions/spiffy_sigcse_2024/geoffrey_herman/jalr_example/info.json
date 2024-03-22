@@ -2,7 +2,7 @@
     "uuid": "3c7eed76-fd81-4b77-9c6f-07487c940d38",
     "title": "Verilog Datapath Modification (jalr example)",
     "topic": "Verilog",
-    "tags": ["zilles", "workspace"],
+    "tags": ["zilles", "workspace", "glherman"],
     "type": "v3",
     "singleVariant": true,
     "gradingMethod": "External",
