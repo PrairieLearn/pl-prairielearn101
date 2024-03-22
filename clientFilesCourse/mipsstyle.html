@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="assets/css/poole.css">
+<link rel="stylesheet" href="assets/css/syntax.css">
+<link rel="stylesheet" href="assets/css/hyde.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+<h1 id="mips-style-guidelines">MIPS Style Guidelines</h1>
+
+<h3 id="syntax-highlighting">Syntax highlighting</h3>
+<p>Syntax highlighting greatly enhances the readability of your code and helps catch simple mistakes like typing $tO vs $t0.</p>
+
+<h3 id="indentation">Indentation</h3>
+<p>Labels should never be indented, and instructions should always be indented one tab. You should set your tab width to 3-8 spaces and prevent your editor from expanding tabs (Google is your friend if you’re not sure how to).</p>
+
+<h3 id="commenting">Commenting</h3>
+<p>Comments are essential to understanding what your code is doing and figuring out why it might be breaking, particularly since assembly lacks such niceties as variable names, so be liberal with commenting. A helpful guideline is to make a note of which C statement (or part of a statement) each instruction corresponds to, although this isn’t always straightforward, since some statements involve a lot of intermediate steps and conditions are usually inverted.</p>
+
+<h3 id="instruction-formatting">Instruction formatting</h3>
+<p>The first operand of every instruction should be aligned; the easiest way to do this is to set your tab width to 3-8 spaces and then tab after the instruction name. Comments should also be aligned, and once again, tabs are the best way to achieve this (although you might need more than one).</p>
+
+<h3 id="label-names">Label names</h3>
+<p>Label names should be all lower case with underscores separating words. Try to make your label names meaningful but not excessively long; a good tip is to base label names on the C control structures they correspond to. Some label names are pretty generic, so to disambiguate, you can prefix them with an abbreviation of the function name. For example, for the function called count_odd_elements below, I’ve referred to the start of the for loop as coe_for.</p>
+
+<h3 id="examples">Examples</h3>
+<p>Here’s some C code we’ll be translating - it counts the number of odd elements in an array.</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">count_odd_elements</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">num_odd_elements</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="o">++</span><span class="n">num_odd_elements</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">num_odd_elements</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>This is a functional but unreadable MIPS translation. Please don’t do this.</p>
+<div class="pl-code"><span><div class="mb-2 rounded" style="background: #f0f0f0"><pre style="padding: 0.5rem; margin-bottom: 0px; line-height: 125%;"><span></span>count_odd_elements:
+li <span style="color: #bb60d5">$v0</span>,0
+li <span style="color: #bb60d5">$t0</span>,0
+ 
+foo:
+bge <span style="color: #bb60d5">$t0</span>,<span style="color: #bb60d5">$a1</span>,baz
+sll <span style="color: #bb60d5">$t1</span>,<span style="color: #bb60d5">$t0</span>,2
+add <span style="color: #bb60d5">$t1</span>,<span style="color: #bb60d5">$a0</span>,<span style="color: #bb60d5">$t1</span>
+lw <span style="color: #bb60d5">$t1</span>,0<span style="color: #666666">(</span><span style="color: #bb60d5">$t1</span><span style="color: #666666">)</span>
+and <span style="color: #bb60d5">$t1</span>,<span style="color: #bb60d5">$t1</span>,1
+beqz <span style="color: #bb60d5">$t1</span>,bar
+add <span style="color: #bb60d5">$v0</span>,<span style="color: #bb60d5">$v0</span>,1
+ 
+bar:
+add <span style="color: #bb60d5">$t0</span>,<span style="color: #bb60d5">$t0</span>,1
+j foo
+ 
+baz:
+jr <span style="color: #bb60d5">$ra</span>
+</pre></div>
+</span></div>
+
+<p>This is significantly better - the alignment is off, but there are comments and label names make sense.</p>
+<div class="pl-code"><span><div class="mb-2 rounded" style="background: #f0f0f0"><pre style="padding: 0.5rem; margin-bottom: 0px; line-height: 125%;"><span></span>        li <span style="color: #bb60d5">$v0</span>, <span style="color: #40a070">0</span> <span style="color: #60a0b0; font-style: italic"># num_odd_elements = 0</span>
+        li <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">0</span> <span style="color: #60a0b0; font-style: italic"># i = 0</span>
+ 
+coe_for:
+        bge <span style="color: #bb60d5">$t0</span>, <span style="color: #bb60d5">$a1</span>, coe_end <span style="color: #60a0b0; font-style: italic"># branch if !(i &lt; size)</span>
+        sll <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">2</span>
+        add <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$a0</span>, <span style="color: #bb60d5">$t1</span> <span style="color: #60a0b0; font-style: italic"># calculate &amp;array[i]</span>
+        lw <span style="color: #bb60d5">$t1</span>, <span style="color: #40a070">0</span><span style="color: #666666">(</span><span style="color: #bb60d5">$t1</span><span style="color: #666666">)</span> <span style="color: #60a0b0; font-style: italic"># load array[i]</span>
+        and <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$t1</span>, <span style="color: #40a070">1</span> <span style="color: #60a0b0; font-style: italic"># calculate array[i] &amp; 1</span>
+        beqz <span style="color: #bb60d5">$t1</span>, coe_for_next <span style="color: #60a0b0; font-style: italic"># branch if !(array[i] &amp; 1)</span>
+        add <span style="color: #bb60d5">$v0</span>, <span style="color: #bb60d5">$v0</span>, <span style="color: #40a070">1</span> <span style="color: #60a0b0; font-style: italic"># ++num_odd_elements</span>
+ 
+coe_for_next:
+        add <span style="color: #bb60d5">$t0</span>, <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">1</span> <span style="color: #60a0b0; font-style: italic"># ++i</span>
+        j coe_for
+ 
+coe_end:
+        jr <span style="color: #bb60d5">$ra</span> <span style="color: #60a0b0; font-style: italic"># return num_odd_elements</span>
+</pre></div>
+</span></div>
+
+<p>This is the above with proper alignment. This is what we want your MIPS code to look like.</p>
+<div class="pl-code"><span><div class="mb-2 rounded" style="background: #f0f0f0"><pre style="padding: 0.5rem; margin-bottom: 0px; line-height: 125%;"><span></span>        li      <span style="color: #bb60d5">$v0</span>, <span style="color: #40a070">0</span>                  <span style="color: #60a0b0; font-style: italic"># num_odd_elements = 0</span>
+        li      <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">0</span>                  <span style="color: #60a0b0; font-style: italic"># i = 0</span>
+ 
+coe_for:
+        bge     <span style="color: #bb60d5">$t0</span>, <span style="color: #bb60d5">$a1</span>, coe_end       <span style="color: #60a0b0; font-style: italic"># branch if !(i &lt; size)</span>
+        sll     <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">2</span>
+        add     <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$a0</span>, <span style="color: #bb60d5">$t1</span>           <span style="color: #60a0b0; font-style: italic"># calculate &amp;array[i]</span>
+        lw      <span style="color: #bb60d5">$t1</span>, <span style="color: #40a070">0</span><span style="color: #666666">(</span><span style="color: #bb60d5">$t1</span><span style="color: #666666">)</span>             <span style="color: #60a0b0; font-style: italic"># load array[i]</span>
+        and     <span style="color: #bb60d5">$t1</span>, <span style="color: #bb60d5">$t1</span>, <span style="color: #40a070">1</span>             <span style="color: #60a0b0; font-style: italic"># calculate array[i] &amp; 1</span>
+        beqz    <span style="color: #bb60d5">$t1</span>, coe_for_next       <span style="color: #60a0b0; font-style: italic"># branch if !(array[i] &amp; 1)</span>
+        add     <span style="color: #bb60d5">$v0</span>, <span style="color: #bb60d5">$v0</span>, <span style="color: #40a070">1</span>             <span style="color: #60a0b0; font-style: italic"># ++num_odd_elements</span>
+ 
+coe_for_next:
+        add     <span style="color: #bb60d5">$t0</span>, <span style="color: #bb60d5">$t0</span>, <span style="color: #40a070">1</span>             <span style="color: #60a0b0; font-style: italic"># ++i</span>
+        j       coe_for
+ 
+coe_end:
+        jr      <span style="color: #bb60d5">$ra</span>                     <span style="color: #60a0b0; font-style: italic"># return num_odd_elements</span>
+</pre></div>
+</span></div>

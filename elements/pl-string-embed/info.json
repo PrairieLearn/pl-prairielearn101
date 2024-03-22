@@ -1,0 +1,9 @@
+{
+    "controller": "pl-string-embed.py",
+    "dependencies": {
+        "elementStyles": [
+            "pl-string-embed.css"
+        ]
+    }
+
+}

@@ -1,0 +1,9 @@
+jalr    rs
+Jump and Link Register
+r-type
+opcode: 6'h00   funct: 6'h09
+
+`define OP0_JALR    6'h09  # You will want to copy this line into machine.v.
+
+R[31] = PC + 4
+PC = R[rs]

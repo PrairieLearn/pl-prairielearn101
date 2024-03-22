@@ -1,0 +1,180 @@
+/* Main calculator styles */
+
+[class^=hex-calculator] {
+    width: 130pt;
+    overflow: hidden;
+}
+
+[id^=hex-main-container] {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+[class^=hex-calculator-body] {
+    width: 100%;
+    position: relative;
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr) 20%;
+    grid-template-rows: repeat(2, 7.5%) repeat(6, 1fr);
+    gap: 2px;
+    border-top: 2px solid rgba(0, 0, 0, 0.00);
+    background-color: rgba(0, 0, 0, 0.100);
+}
+
+/* Styles for hex/dec live conversions */
+
+[class^=hex-dec-label] {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+[class^=hex-dec-label] > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: medium;
+    font-weight: 500;
+}
+
+[class^=hex-dec-translation-container] {
+    grid-column: 2 / span 3;
+    margin-left: -3px;
+}
+
+[class^=hex-dec-translation-container] > span {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-indent: 3px;
+    height: 100%;
+    width: 100%;
+    font-size: small;
+}
+
+/* Styles for mode marker */
+[class*=hex-base] {
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #888;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    opacity: 0;
+}
+
+[class*=hex-dec-label] > [class*=hex-base-visible] { /* Just so we have higher specificity */
+    opacity: 1;
+}
+
+
+/* Styles for input and opline */
+
+[id^=hex-opline] {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    font-size: smaller;
+    min-height: calc(1.5rem + 5px);
+    padding-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    justify-content: right;
+    color: rgb(33, 36, 41);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.100);
+    white-space: nowrap;
+    overflow-x: scroll !important;
+    pointer-events: all;
+}
+
+[id^=hex-opline]::-webkit-scrollbar {
+    height: 5px;
+}
+
+[id^=hex-opline]::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.00);
+}
+
+[id^=hex-opline]::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+[id^=hex-input-container] {
+    position: relative;
+}
+
+[id^=hex-calculator-input] {
+    width: 100%;
+    text-transform: lowercase;
+    border: none;
+    padding: 0px 2px 0px 2px;
+    text-align: right;
+    resize: none;
+}
+
+[class^=hex-text-fade] {
+    color:rgba(0, 0, 0, 0.5);
+}
+
+[id^=hex-calculator-input]:focus {
+    outline: none;
+}
+
+[id^=hex-overflow-icon] {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 5px;
+    min-width: 20px;
+    height: calc(100% - 10px);
+    color: rgba(255, 0, 0, 0.5);
+    font-size: small;
+    justify-content: center;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+}
+
+[id^=hex-overflow-icon] > * {
+    position: absolute;
+    top: 0px;
+}
+
+[class^=hex-icon-hidden] {
+    opacity: 0!important;
+}
+
+/* Styles for grid cells */
+[class^=hex-calculator-body] > div {
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: rgb(247.35, 247.35, 247.35);
+}
+
+/* Styles for clickable elements */
+[class*=hex-clickable]:not([class*=hex-faded]):hover {
+    background-color: rgba(0, 0, 0, 0.100);
+}
+
+[class^=hex-exclusive-digit] {
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+}
+
+[class*=hex-faded] {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -1,0 +1,20 @@
+{
+    "uuid": "c5cb70d4-eb1a-4c5f-906b-5b2c53283801",
+    "title": "Calling Functions",
+    "type": "v3",
+    "topic": "MIPS Assembly",
+    "partialCredit": false,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/centos7-python",
+        "serverFilesCourse": [
+            "mips_autograder3/"
+        ],
+        "entrypoint": "/grade/serverFilesCourse/mips_autograder3/run.sh"
+    },
+    "tags": [
+        "glherman",
+        "fcifuen1"
+    ]
+}

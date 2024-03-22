@@ -1,0 +1,29 @@
+<h1 class="page-title">Workspace Waveform Viewers</h1>
+
+<p>If you want to verify that your circuit is working correctly or you want to debug your circuit, it can be helpful to see what your circuit is doing in a timing diagram. You can use the <code>waveform viewer</code> to do this.</p>
+
+<h2 id="create-your-vcd-file">Create your vcd file</h2>
+<p>After you've written your Verilog code (e.g., <code>circuit.v</code> or <code>sc2_block.v</code>), you will need to create a corresponding Verilog test bench (e.g., <code>circuit_tb.v</code> or <code>sc2_block_tb.v</code>).</p>
+
+<p>Once you have run your executable, you should have a .vcd file. You may need to press the <code>Refresh Explorer</code> button after compiling to see your .vcd file.</p>
+
+<div class="container-fluid">
+<pl-figure file-name="waveform_viewer_images/refresh_explorer_button.png" width="600px" alt="Refresh Explorer button is a circular arrow above the list of files" directory="clientFilesCourse"></pl-figure>
+</div>
+
+<h2 id="navigating-gtkwave">.vcd Viewer</h2>
+
+<p>If you click twice on the <code>.vcd</code> file in the file navigator, it will open the waveform viewer. This viewer is currently limited to letting you view just 8 signals at a time.</p>
+
+<p>If the name of the module in your test bench was <code>reg_writer_test</code>, you might see something like the following. If you click the &quot;Add Signals&quot; button, you will see a list of modules and signals. Notice the word <code>reg_writer_test</code> in the far-left panel (modules panel) of the viewer. The viewer shows a hierarchy of modules with each indented module being used by the module above it (<code>reg_writer_test</code> comprises <code>rf</code> and <code>writer</code> modules). If you click on a module, the panel to the right (signals) will show the signals available to inspect in that module (e.g., <code>regnum</code> or <code>done</code>).</p>
+
+<div class="container-fluid">
+<pl-figure file-name="waveform_viewer_images/vcd_viewer_signal_panel1.png" alt="Refresh Explorer button is a circular arrow above the list of files" directory="clientFilesCourse"></pl-figure>
+
+<p>You can add signals to view if you double-click a signal or you can use ctrl+click to select several signals before pressing "Add signals." After you add some signals your waveform viewer might look the following. A time cursor starts at 0s. You can move the time cursor by clicking anywhere on the timeline. If you use the magnification tools in the Zoom controls, the viewer will zoom in on the cursor. If you press the four arrows pointing out, it will expand the waveform to exactly fit the screen. If you click on a signal, you can change the radix that is used to display the signal (i.e., hexadecimal, binary, or decimal). You can also remove a selected signal by using the trash can icon. Since you can view only 8 signals at a time, you may need to remove a signal to view an extra one.</p>
+
+<div class="container-fluid">
+<pl-figure file-name="waveform_viewer_images/vcd_viewer_signal_panel2.png" alt="vcd viewer with 4 signal waveforms added" directory="clientFilesCourse"></pl-figure>
+</div>
+
+<p>If you see an <code>x</code> in the waveform viewer, that means that the signal's value could not be determined based on the module and test bench. If you see a <code>z</code> in the waveform viewer, that means that the signal was not has not been defined by the testbench.</p>

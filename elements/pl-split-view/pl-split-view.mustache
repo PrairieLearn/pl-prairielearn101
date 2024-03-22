@@ -1,0 +1,35 @@
+{{#question}}
+
+<button id="split-button" class="btn btn-outline-primary btn-sm">
+  {{{inner_html}}}
+</button>
+
+<div id="split-modal" class="modal fade" tabindex="-1" aria-labelledby="split-modal-label" aria-hidden="true">
+  <div class="modal-dialog split-modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="split-modal-label" class="modal-title">{{title}}</h5>
+        <button id="split-modal-close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="split-container">
+          <div id="split-pane-left"></div>
+          <div id="split-pane-right"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(() => {
+    PLSplitView.init(
+      {{left_ids}},
+      {{right_ids}},
+    );
+  });
+</script>
+
+{{/question}}

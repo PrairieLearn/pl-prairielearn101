@@ -1,0 +1,83 @@
+<p> 
+Please enter the control signal values <b>in binary</b> in the highlighted boxes, for the following instruction:
+<p><pl-code language="bash">{{params.inst}}</pl-code></p>
+</p>
+<p>
+<b>Assume that branches are taken (i.e., the zero flag is 1 for <code>beq</code> and 0 for <code>bne</code>).</b> If the value of a control signal can be any value without negatively affecting the functionality of an instruction, enter an 'x' for each bit.
+</p>
+<pl-overlay width="750" height="510" clip="false">
+    <pl-background>
+      <pl-figure file-name="MIPS_datapath_full.png" directory="clientFilesCourse"></pl-figure>
+    </pl-background>
+    <pl-location left="381" top="44" halign="left">
+      <pl-string-embed answers-name="control_type" show-help-text="false" placeholder="??" ignore-case="true" remove-leading-trailing="true" size="20" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="270" top="227" halign="left">
+      <pl-string-embed answers-name="wr_enable" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="195" top="243" halign="left">
+      <pl-string-embed answers-name="rd_src" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="220" top="310" halign="left">
+      <pl-string-embed answers-name="lui" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="383" top="300" halign="left">
+      <pl-string-embed answers-name="alu_src2" show-help-text="false" placeholder="??" ignore-case="true" remove-leading-trailing="true" size="20" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="441" top="261" halign="left">
+      <pl-string-embed answers-name="alu_op" show-help-text="false" placeholder="???" ignore-case="true" remove-leading-trailing="true" size="30" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="505" top="275" halign="left">
+      <pl-string-embed answers-name="slt" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="530" top="221" halign="left">
+      <pl-string-embed answers-name="word_we" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="530" top="265" halign="left">
+      <pl-string-embed answers-name="byte_we" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="495" top="347" halign="left">
+      <pl-string-embed answers-name="mem_read" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+    <pl-location left="650" top="358" halign="left">
+      <pl-string-embed answers-name="byte_load" show-help-text="false" placeholder="?" ignore-case="true" remove-leading-trailing="true" size="15" display ="inline"></pl-string-embed>
+    </pl-location>
+</pl-overlay>
+
+<table style="width:100%" class="table table-bordered">
+  <tr>
+    <th>alu_op</th>
+    <td>3'b000</td>
+    <td>3'b001</td> 
+    <td>3'b010</td>
+    <td>3'b011</td> 
+    <td>3'b100</td>
+    <td>3'b101</td> 
+    <td>3'b110</td>
+    <td>3'b111</td> 
+  </tr>
+  <tr>
+    <th>Operation</th>
+    <td>undefined</td> 
+    <td>undefined</td>
+    <td>ADD</td>
+    <td>SUB</td> 
+    <td>AND</td> 
+    <td>OR</td>
+    <td>NOR</td>
+    <td>XOR</td> 
+  </tr>
+</div>
+
+<p>
+A copy of the <pl-file-download file-name="MIPS_reference.html" directory="clientFilesCourse" force-download="false" label = "MIPS Reference Guide"></pl-file-download> is available for your reference.
+</p>
+
+<p>
+  <a href="{{ options.client_files_course_url }}/alt_text/MIPS_datapath_full.html" target="_blank">Image description</a>
+</p>
+
+<pl-answer-panel>
+<p>Example Solution Video</p>
+<iframe id="kmsembed-1_83m1i5rv" style="width:25vh" src="https://mediaspace.illinois.edu/embed/secure/iframe/entryId/1_83m1i5rv/uiConfId/26883701" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</pl-answer-panel>

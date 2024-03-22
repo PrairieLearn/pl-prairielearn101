@@ -1,0 +1,57 @@
+<h5>Example: Finding a semantic bug using a waveform viewer</h5>
+<pl-code language="verilog">
+module buggy(out, in1, in2);
+  // Port and wire declarations
+  output out;
+  input  in1, in2;
+  wire   w1, w2, w3;
+
+  // Gates
+  and a1(w1, in1, in2);
+  and a2(w3, in1, w2);
+  or  o1(out, w1, w3);
+endmodule
+</pl-code>
+
+<p>Suppose you created an exhaustive test bench for the module above. You could potentially see a terminal output like the following.</p>
+
+<pl-code language="bash">
+coder@d5b148ae0d6c:~/workspace$ iverilog -Wall -o buggy buggy.v buggy_tb.v
+coder@d5b148ae0d6c:~/workspace$ ./buggy
+VCD info: dumpfile test.vcd opened for output.
+inputs = in  outputs = out
+in1 = 0 in2 = 0   outputs = 0   time =  0
+in1 = 0 in2 = 1   outputs = 0   time = 10
+in1 = 1 in2 = 0   outputs = x   time = 20
+in1 = 1 in2 = 1   outputs = 1   time = 30
+coder@d5b148ae0d6c:~/workspace$ 
+</pl-code>
+
+<p>There were no syntax errors, but buggy has an error if we were not expecting the <code>x</code> for <code>in==1</code><code>in2==0</code>. To find the error, one tactic you could use is to open the waveform viewer by clicking on the <code>test.vcd</code> file (might need to click on it twice or three times). You would see something like the following.</p>
+
+<pl-figure file-name="tutorials/verilog_bugs/buggy_waveform1.png" directory="clientFilesCourse" alt="Screenshot of VSCode workspace with a test.vcd opened."></pl-figure>
+
+<p>To get a peek into what is happening inside your module, click on the big blue "Add Signals" button.</p>
+
+<pl-figure file-name="tutorials/verilog_bugs/buggy_waveform2.png" directory="clientFilesCourse" alt="Screenshot of VSCode workspace Add Signals button."></pl-figure>
+
+<p>This pulls up a list of the signals in your test bench. The first signal <code>out</code> is a wire in your test bench. The second two signals (<code>in1</code> and <code>in2</code>) are the <code>reg</code> signals in your test bench that you assigned in your testbench. These first three signals are what your testbench passed to/from the instance of the <code>buggy</code> circuit.</p>
+
+<p>The remaining signals all have the word <code>bug</code> in front of them. <code>bug</code> is the name of the circuit instance we gave our buggy circuit (e.g., <code>buggy bug(out, in1, in2);</code>) in our test bench (This is why module names are important!). In this set of signals, you also see the wires <code>w1</code>, <code>w2</code>, and <code>w3</code> that we declared inside the <code>buggy</code> module. Note: if we had a second buggy module instance called <code>insect</code>, we would see another set of signals called <code>insect in1</code>, <code>insect in2</code>, etc.,</p>
+
+<p>We recommend working backward from your output to see if you can isolate where your error is coming from. Since output is determined by <code>w1</code> and <code>w3</code>, let's add those wires and <code>out</code> to our waveform. With some zooming in, you might see the following.</p>
+
+<pl-figure file-name="tutorials/verilog_bugs/buggy_waveform3.png" directory="clientFilesCourse" alt="Screenshot of VSCode workspace with waveforms added."></pl-figure>
+
+<p>From this screenshot, we see that <code>w3</code> is the likely source of the bug because it has value <code>x</code>. We would then want to add the signals that determine the value of <code>w3</code>: <code>in1</code> and <code>w2</code>.</p>
+
+<pl-figure file-name="tutorials/verilog_bugs/buggy_waveform4.png" directory="clientFilesCourse" alt="Screenshot of VSCode workspace with waveforms added."></pl-figure>
+
+<p>From this screenshot, we see that <code>w2</code> was never properly assigned a value, so it is the source of the semantic bug. You would want to look through your code and verify that <code>w2</code> is never the output of a module or is never assigned a value. You would then need to think about the expected behavior of your circuit and decide what to do about <code>w2</code>.</p>
+
+<h5>Alternate Example</h5>
+<p>Let's consider one more example. Suppose you had slightly different code from the original example and opened <code>test.vcd</code> and added the signals like last time and saw the following instead.</p>
+
+<pl-figure file-name="tutorials/verilog_bugs/buggy_waveform5.png" directory="clientFilesCourse" alt="Screenshot of VSCode workspace with waveforms added."></pl-figure>
+
+<p>In this example, <code>in1</code> and <code>w2</code> are not the source of the <code>x</code> output for <code>w3</code> since both signals are never <code>x</code> or <code>z</code>. In this case, <code>w3</code> is probably <code>x</code> because another gate is also trying to assign to <code>w3</code>. In this case, you would want to look through your code to find two modules that both have output <code>w3</code> or two <code>assign</code> statements that assign to <code>w3</code>.</p>

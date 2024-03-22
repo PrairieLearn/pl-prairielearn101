@@ -1,0 +1,135 @@
+<h2>Verilog Debugging Cheat Sheet</h2>
+<p>Below are example error messages and/or common problems that you may encounter when writing Verilog.</p>
+
+<p>In the error messages below, if you see something in between &lt; &gt;, such as &lt;wire name&gt; or &lt;line_number&gt;, you should not expect to see "wire name" or "line_number" in an actual error message, rather Verilog will replace "wire name" or "line_number" with the name of an actual wire (e.g., <code>w1</code>) used in your circuit or the actual line number (e.g., <code>15</code>) associated with the error.</p>
+
+<h3>Syntax Errors and Warnings</h3>
+<h5>Syntax Error</h5>
+<pl-code language="text">
+&lt;file_name.v&gt;:line_number: syntax error
+</pl-code>
+
+<p>Generic message for syntax errors. Associated with syntax errors such as forgetting a semicolon, a comma, or an opening or closing parenthesis.</p>
+
+<h5>Common Syntax errors</h5>
+<pl-code language="text">
+&lt;file_name&gt;.v:&lt;line_number&gt;: error: invalid module item.
+</pl-code>
+
+<pl-code language="text">
+&lt;file_name&gt;.v:&lt;line_number&gt;: error: Syntax error in instance port expression(s).
+</pl-code>
+<p>Both messages are associated with syntax errors such as forgetting a semicolon, a comma, or an opening or closing parenthesis.</p>
+
+<p><strong>NOTES AND EXAMPLE:</strong> Many times, the <code>line_number</code> comes AFTER the error. For example using the example code below, the error message would say that the error was in line 10, but the error is actually the missing semi-colon on line 9. The error message gets flagged late because without the semicolon, the compiler thinks lines 9 and 10 are part of one module. The compiler knows that it shouldn't expect to see another <code>not</code> inside a <code>not</code> gate on line 10, so it flags <code>not</code> on line 10 as the error. Adding the semicolon back in will help the compiler parse your code correctly, removing the error.</p>
+
+<pl-code language="verilog">
+ 9: not nx(not_x, x)
+10: not ny(not_y, y);
+</pl-code>
+
+<h5>Missing input/output/inout declaration</h5>
+<pl-code language="text">
+error: Port &lt;name&gt; (#) of module &lt;module name&gt; has no direction declaration.
+</pl-code>
+
+<pl-code language="text">
+error: signal &lt;name&gt; in module &lt;module name&gt; is not a port.
+	 :      : Are you missing an input/output/inout declaration?
+</pl-code>
+
+<p>The two errors above typically come together. They both mean that you forget to declare one of your inputs or outputs as a port (e.g., <code>output out;</code> or <code>input in;</code>).</p>
+
+<h5>Implicit Definition of Wire</h5>
+<pl-code language="text">
+warning: implicit definition of wire '&lt;wire name&gt;'
+</pl-code>
+
+<p>This is not strictly an error and may not cause your code to work incorrectly. It means you forgot to declare a wire (e.g., <code>wire w1;</code>). Recommend fixing this error no mater what. It often indicates a typo in a wire name either in the declaration or your module.</p>
+
+<pl-code language="text">
+error: duplicate declaration for net or variable '&lt;wire name&gt;' in '&lt;module name&gt;'.
+</pl-code>
+
+<p>You declared two wires with the same name. When paired with the warning above, you probably declared your wire after you used it in a module.</p>
+
+<h5>Instance Name</h5>
+<pl-code language="text">
+error: Instantiation of module &lt;module name&gt; requires an instance name.
+</pl-code>
+
+<p>You forgot to give a module an instance name. For example if you had a <code>mux</code> module, you would get this error if you wrote.
+
+<pl-code language="verilog">
+mux (out, a, b, s);
+mux (out, c, d, s);
+</pl-code>
+
+you could fix it by adding an instance name.
+
+<pl-code language="verilog">
+mux m1(out, a, b, s);
+mux m2(out, c, d, s);
+</pl-code>
+
+<h5>Port/Wire mismatch</h5>
+<pl-code language="text">
+error: can not select part of scalar: &lt;wire name&gt;
+error: Failed to elaborate port expression.
+</pl-code>
+<p>These two errors typically come as a pair. They mean that you declared a wire or port as a single bit wire (e.g., <code>wire w1;</code>) but then tried to use it as if it was a bus (e.g., <code>w1[4];</code>). You either need to fix the wire/port declaration or your use of the wire/port.</p>
+
+<h5>Index out of range</h5>
+<pl-code language="text">
+error: Index &lt;wire[index]&gt; is out of range.
+</pl-code>
+<p>You tried to use an index for a bus (e.g., <code>w1[9]</code>) that is too big for the size of the bus you declared (e.g., <code>w1[8:0]</code>). You either need to fix the wire/port declaration or your use of the wire/port.</p>
+
+<h5>Port coerced to inout</h5>
+<pl-code language="text">
+warning: output port &lt;port name&gt; is coerced to inout
+</pl-code>
+
+<p>You tried to assign the output of a module in your circuit to an input port of your circuit.</p>
+
+<h3>Semantic Errors</h3>
+<p>Even if your code compiles without any errors or warnings, your code may not be correct. You could still have errors in the behavior of your circuit (i.e., semantic errors). To detect semantic errors on your own, you need to first determine the desired behavior of your circuit on your own and then compare your expectation with the actual behavior of your circuit. For example, you may create a truth table or state diagram and then compare the output of your circuit with the truth table or state diagram.</p>
+
+<p>To find difficult to identify semantic errors, we recommend using the waveform viewer</p>
+
+<p>Sometimes Verilog will alert you to likely semantic errors in your circuit with the <code>x</code> and <code>z</code> outputs. While neither of these is strictly an error (you will see examples in this class where these outputs are the expected behavior), we generally don't want to see these outputs.</p>
+
+<div class="alert alert-info" role="alert">
+You need to verify your circuits actual behavior against the behavior you expected! A lack of error messages or a lack of <code>x</code> or <code>z</code> outputs does NOT mean that your circuit is correct.
+</div>
+
+<h5><code>x</code> output</h5>
+
+<p>If your circuit or a module in your circuit outputs an <code>x</code>, this means that Verilog is not sure what value your signal should have at that time. This likely means that you are assigning the output of multiple modules to the same wire. For example,  
+
+<pl-code language="verilog">
+not nx(not_x, x);
+and a1(not_x, y, z);
+</pl-code>
+
+<p>The <code>x</code> output is also commonly seen before a finite state machine gets initialized (e.g., before the first clock edge). In this context, <code>x</code> is not an error.</p>
+
+<p>But it may also be due to another error described in the following subsection.</p>
+
+<h5><code>z</code> output</h5>
+<p>If your circuit or a module in your circuit outputs a <code>z</code>, this likely means that one of the inputs to one of your modules is never assigned a value. For example, in the code below <code>w2</code> will have the value <code>z</code> because it was never assigned a value. In this situation, when <code>in1==0</code>, <code>w3=0</code>, because we know that 0 AND anything must be 0, but when <code>in1==1</code>, <code>w3=x</code>, because 1 AND "an unconnected wire" does not have a defined behavior.</p>
+
+<pl-code language="verilog">
+module buggy(out, in1, in2);
+  // Port and wire declarations
+  output out;
+  input  in1, in2;
+  wire   w1, w2, w3;
+
+  // Gates
+  and a1(w1, in1, in2);
+  and a2(w3, in1, w2);
+  or  o1(out, w1, w3);
+endmodule
+</pl-code>
+

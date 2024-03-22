@@ -1,0 +1,206 @@
+.pl-mips-debugger {
+  padding: 1.5rem 0 0 0;
+}
+
+.pl-mips-debugger .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pl-mips-debugger .card-header {
+  padding: 0.75rem 1rem;
+}
+
+.pl-mips-debugger .card-header * {
+  margin: 0;
+}
+
+.pl-mips-debugger .card-body {
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+.pl-mips-debugger .segment-title {
+  text-align: center;
+  font-weight: bold;
+  cursor: initial !important;
+}
+
+.pl-mips-debugger .data-number {
+  color: #1c00cf;
+}
+
+.pl-mips-debugger .highlight {
+  background-color: yellow;
+}
+
+.pl-mips-debugger .unused {
+  color: gainsboro;
+}
+
+#mips-navbar {
+  margin-bottom: 0.5rem;
+}
+
+#mips-run-buttons {
+  margin-bottom: 0.5rem;
+}
+
+#mips-run-buttons .btn {
+  margin-right: 0.25rem;
+}
+
+#mips-run-panels {
+  display: grid;
+  grid-template-areas: "output log";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 16rem;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  padding-bottom: 10px;
+}
+
+#mips-col-main-panels {
+  display: grid;
+  grid-template-areas:
+    "reg text"
+    "reg text";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 22rem 22rem;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  padding-bottom: 10px;
+}
+
+#mips-col-more-panels {
+  display: grid;
+  grid-template-areas:
+    "data data"
+    "stack stack"
+    "output log";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 26rem 26rem 16rem;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  padding-bottom: 10px;
+}
+
+#mips-full-view-container {
+  display: grid;
+  grid-template-areas:
+    "reg text text data"
+    "reg text text data"
+    "reg text text stack"
+    "reg output log stack";
+  grid-template-columns: 15rem 16.5rem 16.5rem 28rem;
+  grid-template-rows: 14rem 16rem 14rem 16rem;
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+}
+
+#regs-panel {
+  grid-area: reg;
+}
+
+#regs-panel pre {
+  margin-left: 1rem;
+  white-space: pre-wrap;
+}
+
+#text-panel {
+  grid-area: text;
+}
+
+#text-panel pre {
+  cursor: pointer;
+  width: unset;
+}
+
+#text-panel-buttons .btn {
+  margin-right: 0.25rem;
+}
+
+#data-panel {
+  grid-area: data;
+}
+
+#stack-panel {
+  grid-area: stack;
+}
+
+#stack-container {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+#stack-content {
+  max-height: 100%;
+  overflow: auto;
+  margin-bottom: 0;
+}
+
+#output-panel {
+  grid-area: output;
+}
+
+#log-panel {
+  grid-area: log;
+}
+
+#output-panel pre,
+#log-panel pre {
+  white-space: pre-wrap;
+  height: 8rem;
+}
+
+#output-panel .card-body,
+#log-panel .card-body {
+  margin: 0;
+}
+
+#mips-full-modal {
+  padding: 0 !important;
+}
+
+.modal-fullscreen {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+}
+
+.modal-fullscreen .modal-header {
+  padding: 0.25rem 0.25rem;
+}
+
+.modal-fullscreen .modal-content {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.modal-fullscreen .modal-body {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+@media (min-width: 1280px) {
+  .modal-fullscreen .modal-body {
+    margin: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  #mips-full-view-container {
+    grid-template-columns: 15rem 20rem 20rem 32rem;
+  }
+}
+
+@media (min-width: 1640px) {
+  #mips-full-view-container {
+    grid-template-columns: 15rem 24rem 24rem 36rem;
+  }
+}
