@@ -17,18 +17,6 @@
       "questions": [{ "id": "spiffy_sigcse_2024/david_smith/checkIfAllEven", "points": 5 }]
     },
     {
-      "title": "Zachary Kurmas - Linux Filesystem TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/tbd", "points": 5 }]
-    },
-    {
-      "title": "Geoffrey Herman - Code Debugging TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/tbd", "points": 5 }]
-    },
-    {
-      "title": "Armando Fox - Unit Testing TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/armando_fox/tbd", "points": 5 }]
-    },
-    {
       "title": "Ramon Lawrence - Database Systems - UML",
       "questions": [
         { "id": "spiffy_sigcse_2024/ramon_lawrence/er_design/randomUML", "points": 2.5 },
@@ -47,16 +35,28 @@
       ]
     },
     {
+      "title": "Joe Hollingsworth - Assembly Language",
+      "questions": [{ "id": "spiffy_sigcse_2024/joe_hollingsworth/assembly_language", "points": 5 }]
+    },
+    {
+      "title": "Jeff Erickson - Hamiltonian reduction",
+      "questions": [{ "id": "spiffy_sigcse_2024/hamiltonian_reduction", "points": 5 }]
+    },
+    {
       "title": "Gary Dahl - Red-Black tree insertion",
       "questions": [{ "id": "spiffy_sigcse_2024/gary_dahl/tbd", "points": 5 }]
     },
     {
-      "title": "Joe Hollingsworth - Assembly Language",
-      "questions": [{ "id": "pl-order-blocks/assembly_language", "points": 5 }]
+      "title": "Zachary Kurmas - Linux Filesystem TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/tbd", "points": 5 }]
     },
     {
-      "title": "Jeff Erickson - Hamiltonian reduction",
-      "questions": [{ "id": "algorithms/hamiltonian_reduction", "points": 10 }]
+      "title": "Geoffrey Herman - Code Debugging TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/tbd", "points": 5 }]
+    },
+    {
+      "title": "Armando Fox - Unit Testing TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/armando_fox/tbd", "points": 5 }]
     }
   ]
 }
