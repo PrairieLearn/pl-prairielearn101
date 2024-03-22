@@ -1,0 +1,110 @@
+<pl-question-panel>
+    <p>Use Rules of Inference and Equivalence Laws to prove that the following argument is a <b>contradiction</b>.</p> 
+    
+    <p>
+    {{#params.prem}}
+    {{num}}. ${{exp}}$<br>
+    {{/params.prem}}
+    $\therefore {{params.conc}}$
+    </p>
+
+    <br>
+
+    <p><i>You have up to 25 premises to finish your proof, you don't need to use all.</i></p>
+
+    <p>You find what each law/rule means here: <pl-file-download file-name="FormulaSheet.pdf" directory="clientFilesCourse" force-download="false"></pl-file-download></p>
+
+    <br>
+
+</pl-question-panel>
+
+<pl-hide-in-panel answer="true">
+<table>
+    {{#params.answer_panel}}
+    <tr>
+        <td>{{num}}.&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            <pl-string-input answers-name="{{ans}}" allow-blank="true" show-help-text="false" remove-spaces="true"></pl-string-input>
+            <pl-dropdown answers-name="{{rule}}" blank="false" sort="fixed">
+                <pl-answer correct="true"></pl-answer>
+                <pl-answer correct="false">I</pl-answer>
+                <pl-answer correct="false">UB</pl-answer>
+                <pl-answer correct="false">ID</pl-answer>
+                <pl-answer correct="false">COM</pl-answer>
+                <pl-answer correct="false">ASS</pl-answer>
+                <pl-answer correct="false">DIST</pl-answer>
+                <pl-answer correct="false">ABS</pl-answer>
+                <pl-answer correct="false">NEG</pl-answer>
+                <pl-answer correct="false">DNEG</pl-answer>
+                <pl-answer correct="false">DM</pl-answer>
+                <pl-answer correct="false">XOR</pl-answer>
+                <pl-answer correct="false">IMP</pl-answer>
+                <pl-answer correct="false">CONTP</pl-answer>
+                <pl-answer correct="false">BIC</pl-answer>
+                <pl-answer correct="false">M.PON</pl-answer>
+                <pl-answer correct="false">M.TOL</pl-answer>
+                <pl-answer correct="false">GEN</pl-answer>
+                <pl-answer correct="false">SPEC</pl-answer>
+                <pl-answer correct="false">CONJ</pl-answer>
+                <pl-answer correct="false">ELIM</pl-answer>
+                <pl-answer correct="false">TRANS</pl-answer>
+                <pl-answer correct="false">CASE</pl-answer>
+                <pl-answer correct="false">RES</pl-answer>
+                <pl-answer correct="false">CONTD</pl-answer>
+            </pl-dropdown>
+        </td>
+        <td>
+             &nbsp; &nbsp;From &nbsp; &nbsp;
+        </td>
+        <td>
+            <pl-dropdown answers-name="{{FirstNum}}" blank="false" sort="fixed">
+                {{#Numbers}}
+                <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+                {{/Numbers}}
+            </pl-dropdown>
+        </td>
+        <td>
+             &nbsp; &nbsp;and &nbsp; &nbsp;
+        </td>
+        <td>
+            <pl-dropdown answers-name="{{SecondNum}}" blank="false" sort="fixed">
+                {{#Numbers}}
+                <pl-answer correct="{{tag}}">{{ans}}</pl-answer>
+                {{/Numbers}}
+            </pl-dropdown>
+        </td>
+    </tr>
+    {{/params.answer_panel}}
+
+
+
+
+    <tr>
+        <td></td>
+        <td>QED</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</pl-hide-in-panel>
+
+<br><br>
+
+<pl-question-panel>
+    <pl-template file-name="templates/exprules_template.mustache">
+        <pl-variable name="var1">{{params.var1}}</pl-variable>
+        <pl-variable name="var2">{{params.var2}}</pl-variable>
+        <pl-variable name="var3">{{params.var3}}</pl-variable>
+    </pl-template>
+</pl-question-panel>
+
+
+<pl-answer-panel>
+	<p style="color:blue;">{{params.answer}}</p>
+	<p style="color:blue;">{{params.debug}}</p>
+</pl-answer-panel>
+
+<pl-submission-panel>
+	<p style="color:red;">{{params.feedback}}</p>
+</pl-submission-panel>
+

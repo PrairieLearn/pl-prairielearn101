@@ -14,36 +14,41 @@
   "zones": [
     {
       "title": "David Smith - Explain in Plain Language",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/david_smith/checkIfAllEven", "points": 5 }]
     },
     {
-      "title": "Zachary Kurmas - Linux Filesystem",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "title": "Zachary Kurmas - Linux Filesystem TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/tbd", "points": 5 }]
     },
     {
-      "title": "Geoffrey Herman - Code Debugging",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "title": "Geoffrey Herman - Code Debugging TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/tbd", "points": 5 }]
     },
     {
-      "title": "Armando Fox - Unit Testing",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "title": "Armando Fox - Unit Testing TBD",
+      "questions": [{ "id": "spiffy_sigcse_2024/armando_fox/tbd", "points": 5 }]
     },
     {
       "title": "Ramon Lawrence - Database Systems - UML",
-      "questions": [{ "id": "er_design/randomUML", "points": 2.5 },
-                    {"id": "er_design/Fish_Store", "points": 2.5}]
+      "questions": [
+        { "id": "spiffy_sigcse_2024/ramon_lawrence/er_design/randomUML", "points": 2.5 },
+        { "id": "spiffy_sigcse_2024/ramon_lawrence/er_design/Fish_Store", "points": 2.5 }
+      ]
     },
     {
       "title": "David Cooper - Polymorphism",
-      "questions": [{ "id": "java-multi-select/Polymorphism", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/david_cooper/java-multi-select/Polymorphism", "points": 5 }]
     },
     {
       "title": "Karina Mochetti - Digital Circuits",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "questions": [
+        { "id": "spiffy_sigcse_2024/karina_mochetti/SIGCSE_01", "points": 2.5 },
+        { "id": "spiffy_sigcse_2024/karina_mochetti/SIGCSE_02", "points": 2.5 }
+      ]
     },
     {
       "title": "Gary Dahl - Red-Black tree insertion",
-      "questions": [{ "id": "intro_ml/linear_regression_residual_graphical", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/gary_dahl/tbd", "points": 5 }]
     },
     {
       "title": "Joe Hollingsworth - Assembly Language",
