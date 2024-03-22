@@ -1,3 +1,28 @@
+<script>
+  $(document).ready(function() {
+
+    var maxChar = 150;
+
+    // Get the input element with class pl-string-input-input
+    var $inputElement = $('.pl-string-input-input');
+
+    // Change it to a text area but keep the same class
+    $inputElement.replaceWith('<textarea id="textArea" name="result" class="form-control pl-string-input-input" rows="3" aria-describedby="basic-addon1" placeholder="Provide a high-level description of the code here (255 character limit)" maxlength="' + maxChar + '"></textarea>');
+    
+    const textArea = document.getElementById('textArea');
+    const charCount = document.getElementById('charCount');
+    textArea.addEventListener('input', () => {
+      const count = textArea.value.length;
+      charCount.textContent = `Character count: ${count}/${maxChar}`;
+    });
+
+    var $userOutput = $('.user-output');
+    $userOutput.css('white-space', 'pre-wrap');
+
+  });
+</script>
+
+
 <pl-question-panel>
 
   <p>
