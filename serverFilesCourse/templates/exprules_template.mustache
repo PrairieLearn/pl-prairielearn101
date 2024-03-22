@@ -1,0 +1,56 @@
+<div style="border:1px solid black; padding: 5px">
+    <p>Use <b>only</b> the following exactly characters in your answer (you may not need or be allowed to use all of these operators):</p>
+
+    <table>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;~&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the NOT operator&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;^&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the AND operator&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;v&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the OR operator&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;(+)&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the XOR operator&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;->&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the implication&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;<->&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for the biconditional&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;T&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for True&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;F&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for False&nbsp;&nbsp;</td>
+        </tr>
+        <tr style="border-bottom: 1px solid black;">
+            <td style="text-align: center;">&nbsp;&nbsp;()&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;for any brackets&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">{{var1}} {{var2}} {{var3}}</td>
+            <td>&nbsp;&nbsp;for the variables&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <br>
+    <p><b>Do not use any other symbols or characters, even if they are similar!</b></p>
+    
+    <p>All operations with two variables must have exactly <b>one</b> operator between brackets:</p>
+    <ul>
+        <li><b>{{var1}} v {{var2}}</b> is not allowed and should be <b>({{var1}} v {{var2}})</b> instead</li>
+        <li>Your expression must have the same number of brackets pairs as the number of operations, so <b>~({{var1}} v {{var2}}) ^ ({{var3}} v ~ {{var2}})</b> should be <b>(~({{var1}} v {{var2}}) ^ ({{var3}} v ~ {{var2}}))</b></li>
+        <li><b>({{var1}} ^ {{var2}} ^ {{var3}})</b> is not allowed and should be <b>(({{var1}} ^ {{var2}}) ^ {{var3}})</b> instead</li>
+        <li>Do not use brackets for NOT operators, <b>(~{{var1}})</b> is not allowed and should be <b>~{{var1}}</b> instead</li>
+    </ul>
+</div>
