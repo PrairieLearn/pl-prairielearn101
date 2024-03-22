@@ -1,0 +1,137 @@
+<pl-question-panel>
+  <h1>Practice Linux 1</h1>
+  <h2>Basic Filesystem operations</h2>
+
+  <ol>
+    <li>Click the "Open Workspace" button below.</li>
+    <li>When the workspace opens, launch the terminal.</li>
+    <li>Immediately run the command <code>pwd</code> and make sure you are in the workspace's home directory
+      (<code>/home/jovyan</code>). </li>
+    <li>Answer the questions below.</li>
+  </ol>
+  
+  
+  <pl-external-grader-variables params-name="names_from_user"></pl-external-grader-variables>
+  <pl-workspace></pl-workspace>
+
+  <p></p>
+  <h2>Question 1</h2>
+
+  <p>
+    From the workspace's home directory (<code>/home/jovyan</code>), create a new directory 
+    named <code>{{params.new_directory_in_home}}</code> inside the home directory. Use a <em>relative</em> path.
+  </p>
+
+  <pl-string-input answers-name="mk_in_home" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 2</h2>
+
+  From the workspace's home directory (<code>/home/jovyan</code>),
+  use a <em>single</em> command to create a directory named <code>{{params.new_course}}</code>
+  inside the <code>Courses</code> directory. (Do not change directories.)
+  <pl-string-input answers-name="mk_in_courses" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 3</h2>
+  <ul>
+    <li>How many hidden files are in the workspace's home directory
+      (<em>including</em> <code>.</code> and <code>..</code>)?</li>
+    <li>What is the name of the hidden file that comes last alphabetically?</li>
+  </ul>
+
+  <pl-integer-input answers-name="num_hidden" label="Number of hidden files"></pl-integer-input>
+</pl-question-panel>
+<pl-question-panel>
+  <pl-string-input answers-name="last_hidden" label="Name of last hidden file"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 4</h2>
+  <p> From the workspace's home directory (<code>/home/jovyan</code>), use
+    a <em>single</em> command to change directories into the <code>Projects/p1</code> directory inside the directory for
+    <code>{{params.course_to_copy_instructions}}</code>.
+  </p>
+</pl-question-panel>
+<pl-question-panel>
+  <pl-string-input answers-name="cd_before_copy" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p>Now, <em>without changing directories</em>, use <em>one</em> command to copy <code>{{params.project_file}}</code>
+    file from the <code>p1</code> directory
+    (which is the directory you just moved into) to the <code>p2</code> directory (a "sibling" directory).
+    Use <em>relative</em> path names.</p>
+  </p>
+  <pl-string-input answers-name="copy_to_sibling" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 5</h2>
+  <p>Return to the workspace's home directory.</p>
+  <pl-string-input answers-name="return_home" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 6</h2>
+  <p>From the workspace's home directory (<code>/home/jovyan</code>), use a single command to move the file named <code>{{params.file_to_move}}</code> from
+    <code>{{params.dir_to_move}}</code> to <code>{{params.dest_dir}}</code>.
+  </p>
+  <pl-string-input answers-name="move_file" label="Command"></pl-string-input>
+</pl-question-panel>
+
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 7</h2>
+  <p>From the workspace's home directory (<code>/home/jovyan</code>), use a single command to copy the file named <code>{{params.file_to_copy}}</code>
+    from <code>{{params.dir_to_copy}}</code> to the current directory.</p>
+  <pl-string-input answers-name="copy_file" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 8</h2>
+  <p>Use a single command to copy all of the files in <code>Pictures</code>with the extension
+    <code>{{params.pict_type_to_copy}}</code>
+    to the <code>/tmp</code> directory. Use a glob/wildcard. (<em>Don't</em> list the files individually!)
+  </p>
+  <pl-string-input answers-name="copy_images" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 9</h2>
+  <p>What is the size (in bytes) of the largest <code>{{params.pict_type_for_size}}</code>
+    in <code>Pictures</code>?
+  </p>
+  <pl-integer-input answers-name="largest_size" label="Command"></pl-integer-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p>What command did you use to help you find this information?
+  </p>
+  <pl-string-input answers-name="command_for_size" label="Command"></pl-string-input>
+</pl-question-panel>
+
+<pl-question-panel>
+  <p></p>
+  <h2>Question 10</h2>
+  <p>What is the absolute path name of the file <code>{{params.full_path_file}}</code> 
+    in the {{params.full_path_dir}} directory for {{params.full_path_course}}.
+  </p>
+  <pl-string-input answers-name="full_path" label="Absolute path name"></pl-string-input>
+</pl-question-panel>
+
+
+<pl-submission-panel>
+  <pl-external-grader-results></pl-external-grader-results>
+  <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

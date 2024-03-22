@@ -1,0 +1,25 @@
+{
+  "uuid": "21a7B9B9-ca43-4c78-8381-E328E89EEAA0",
+  "title": "Linux Practice: Basic Filesystem Operations",
+  "topic": "linux",
+  "tags": [
+    "linux",
+    "kurmas"
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "Internal",
+  "workspaceOptions": {
+    "image": "prairielearn/workspace-jupyterlab-python",
+    "port": 8080,
+    "home": "/home/jovyan",
+    "rewriteUrl": false,
+    "gradedFiles": ["hello_world.py"]
+  },
+  "externalGradingOptions": {
+    "enabled": false,
+    "image": "prairielearn/grader-python",
+    "entrypoint": "/python_autograder/run.sh",
+    "timeout": 20
+  }
+}
