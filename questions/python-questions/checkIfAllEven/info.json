@@ -1,0 +1,23 @@
+{
+    "uuid": "1703b2e4-a596-4cb5-980d-b052d41ced07",
+    "title": "Example 1: Python",
+    "topic": "prompt_engineering",
+    "tags": [
+        "CoffeePoweredComputers",
+        "chatGPT"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "entrypoint": "/grade/serverFilesCourse/gpt_python_autograder/run.sh",
+        "serverFilesCourse": [
+            "gpt_python_autograder/run.sh",
+            "gpt_python_autograder/make_code.py",
+            "gpt_python_autograder/pltest.py"
+        ],
+        "enableNetworking": true
+    }
+}
