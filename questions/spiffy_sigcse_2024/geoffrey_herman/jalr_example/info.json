@@ -1,0 +1,23 @@
+{
+    "uuid": "3c7eed76-fd81-4b77-9c6f-07487c940d38",
+    "title": "Verilog Datapath Modification (jalr example)",
+    "topic": "Verilog",
+    "tags": ["zilles", "workspace", "glherman"],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/centos7-verilog",
+        "serverFilesCourse": ["datapath_autograder/"],
+        "entrypoint": "/grade/serverFilesCourse/datapath_autograder/run.sh"
+    },
+    "workspaceOptions": {
+      "image": "cs233illinois/workspace-vscode-wave",
+      "port": 8080,
+      "home": "/home/coder/workspace",
+      "gradedFiles": [
+        "machine.v"
+      ]
+  }
+}

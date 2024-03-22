@@ -1,0 +1,53 @@
+<div class="hex-calculator-{{uuid}}">
+    <div id="hex-main-container-{{uuid}}">
+        <span id="hex-opline-{{uuid}}"></span>
+        <div id="hex-input-container-{{uuid}}">
+            <div id="hex-overflow-icon-{{uuid}}" class="hex-icon-hidden-{{uuid}}" data-toggle="popover" data-trigger="hover">
+                <i class="fa fa-solid fa-exclamation"></i>
+            </div>
+            <input autocomplete="false" data-lpignore="true" id="hex-calculator-input-{{uuid}}" class="hex-text-fade-{{uuid}}" type="text" value="0">
+        </div>
+        <div class="hex-calculator-body-{{uuid}}">
+            <!-- realtime conversion -->
+            <div id="hex-mode-button-{{uuid}}" class="hex-dec-label-{{uuid}} hex-clickable-{{uuid}}"> <div id="hex-mode-label-{{uuid}}" class="hex-base-{{uuid}} hex-base-visible-{{uuid}}"> </div> <span>HEX</span> </div>
+            <div class="hex-dec-translation-container-{{uuid}}"><span></span></div>
+            <div id="dec-mode-button-{{uuid}}" class="hex-dec-label-{{uuid}} hex-clickable-{{uuid}}"> <div id="dec-mode-label-{{uuid}}" class="hex-base-{{uuid}}"> </div> <span>DEC</span> </div>
+            <div class="hex-dec-translation-container-{{uuid}}"><span></span></div>            
+            <!-- first row -->
+            <div value="1" class="hex-clickable-{{uuid}}"> 1 </div>
+            <div value="2" class="hex-clickable-{{uuid}}"> 2 </div>
+            <div value="3" class="hex-clickable-{{uuid}}"> 3 </div>
+            <div value="ce" class="hex-clickable-{{uuid}}"> CE </div>
+            <!-- second row -->
+            <div value="4" class="hex-clickable-{{uuid}}"> 4 </div>
+            <div value="5" class="hex-clickable-{{uuid}}"> 5 </div>
+            <div value="6" class="hex-clickable-{{uuid}}"> 6 </div>
+            <div value="+" class="hex-clickable-{{uuid}}"> + </div>
+            <!-- third row -->
+            <div value="7" class="hex-clickable-{{uuid}}"> 7 </div>
+            <div value="8" class="hex-clickable-{{uuid}}"> 8 </div>
+            <div value="9" class="hex-clickable-{{uuid}}"> 9 </div>
+            <div value="-" class="hex-clickable-{{uuid}}"> - </div>
+            <!-- fourth row -->
+            <div value="a" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> A </div>
+            <div value="b" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> B </div>
+            <div value="c" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> C </div>
+            <div value="/" class="hex-clickable-{{uuid}}"> ÷ </div>
+            <!-- fifth row -->
+            <div value="d" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> D </div>
+            <div value="e" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> E </div>
+            <div value="f" class="hex-exclusive-digit-{{uuid}} hex-clickable-{{uuid}}"> F </div>
+            <div value="*" class="hex-clickable-{{uuid}}"> × </div>
+            <!-- sixth row -->
+            <div id="hex-copy-btn-{{uuid}}" class="hex-clickable-{{uuid}}">COPY</div>
+            <div value="0" class="hex-clickable-{{uuid}}"> 0 </div>
+            <div value="=" class="hex-clickable-{{uuid}}"> = </div>
+            <div value="%" class="hex-clickable-{{uuid}}"> % </div>
+        </div>
+    </div>
+</div>
+
+{{!-- we would ordinarily put this in info.json, but we need the defer tag which the PL DOM constructor doesn't add }}
+<script>
+    CalculatorController.init("{{{uuid}}}");
+</script>

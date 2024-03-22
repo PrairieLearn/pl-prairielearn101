@@ -14,7 +14,7 @@
   "zones": [
     {
       "title": "David Smith - Explain in Plain Language",
-      "questions": [{ "id": "spiffy_sigcse_2024/david_smith/checkIfAllEven", "points": 5 }]
+      "questions": [{ "id": "@gpt-100/auckland-questions/lastZeroInList", "points": 5 } ]
     },
     {
       "title": "Ramon Lawrence - Database Systems - UML",
@@ -52,7 +52,7 @@
     },
     {
       "title": "Geoffrey Herman - Code Debugging TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/datapath_MIPS_data", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/foobar", "points": 5 }]
     },
     {
       "title": "Armando Fox - Unit Testing TBD",

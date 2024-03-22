@@ -1,0 +1,13 @@
+{
+    "uuid": "e9be8f33-fabd-46f1-9450-12b453f20e83",
+    "title": "Register file timing diagram",
+    "type": "v3",
+    "topic": "Control/Datapath",
+    "dependencies": {
+        "clientFilesCourseScripts": [
+            "wavedrom/default.js",
+            "wavedrom/wavedrom.min.js"
+        ]
+    },
+    "tags": ["glherman"]
+}

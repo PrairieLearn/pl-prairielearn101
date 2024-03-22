@@ -1,0 +1,12 @@
+{
+  "uuid": "4767d50f-c753-4b61-8c89-47c5e0e0e92e",
+  "title": "Debug Sum-of-Products circuit (waveform only)",
+  "topic": "Verilog",
+  "tags": ["glherman"],
+  "type": "v3",
+  "workspaceOptions": {
+      "image": "cs233illinois/workspace-vscode-wave",
+      "port": 8080,
+      "home": "/home/coder/workspace"
+  }
+}

@@ -1,0 +1,124 @@
+<pl-question-panel>
+  <p>
+    On the left is a 16B data memory. On the right are two tables, both representing the same fully associative, 8B cache with 1 set of 4 blocks and 2B per block. The top table shows the initial state of the cache before a series of memory loads. You will need to fill in the bottom table to show the final state of the cache after the series of loads completes. Fill what tags and data are stored in each cache block and show the final state of the LRU FSM.
+  </p>
+
+</pl-question-panel>
+
+
+  <div class="container">
+  <div class="row">
+<pl-question-panel>
+    <div class="col-sm-3">
+      <p style="text-align: center;"><b>Data Memory</b></p>
+      <table class="table-striped mem-table" border = "1">
+        <thead>
+          <tr>
+          <th>Address</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{{params.mem_table}}}
+      </tbody>  
+      </table>
+      <pl-question-panel>
+        <pl-hex-calculator></pl-hex-calculator>
+      </pl-question-panel>
+    </div>
+</pl-question-panel>
+    <div class="col-sm-9">
+<pl-question-panel>
+      <p style="text-align: center;"><b>Start: Fully associative, 8B cache, with 2B blocks</b></p>
+      <table class="table-striped cache-entry" border = "1">
+      <thead>
+      <tr>
+      <th colspan="3">Way 0</th>
+      <th style="width:5px"></th>
+      <th colspan="3">Way 1</th>
+      </tr>
+      <tr>
+      <th style="width:60px">Tag</th>
+      <th style="width:60px">Off 0</th>
+      <th style="width:60px">Off 1</th>
+      <th></th>
+      <th style="width:60px">Tag</th>
+      <th style="width:60px">Off 0</th>
+      <th style="width:60px">Off 1</th>
+      </tr>
+      </thead>
+      <tbody>
+{{{params.start_cache_table}}}
+      </tbody>  
+      </table>
+  <p></p>
+  <p>Suppose a program accesses the following series of addresses, where the top-most question address is accessed first. Further, suppose that the LRU FSM indicates that the order of past accesses was {{{params.lru_list}}} where Way {{{params.lru}}} was least-recently used and Way {{{params.mru}}} was most-recently used. Indicate whether each access is a hit or miss. Remember to update the order of past accesses each access.</p>
+</pl-question-panel>
+<table class="table table-striped table-bordered table-condensed cache-entry">
+<thead>
+<tr>
+<th>Address</th>
+<th>Hit/Miss</th>
+</tr>
+</thead>
+<tbody>
+{{{params.address_table}}}
+</tbody>
+</table>
+<p></p>
+      <p style="text-align: center;"><b>End: Fully associative, 8B cache, with 2B blocks</b></p>
+      <table class="table-striped cache-entry" border = "1">
+      <thead>
+      <tr>
+      <th colspan="3">Way 0</th>
+      <th style="width:5px"></th>
+      <th colspan="3">Way 1</th>
+      </tr>
+      <tr>
+      <th style="width:60px">Tag</th>
+      <th style="width:60px">Off 0</th>
+      <th style="width:60px">Off 1</th>
+      <th></th>
+      <th style="width:60px">Tag</th>
+      <th style="width:60px">Off 0</th>
+      <th style="width:60px">Off 1</th>
+      </tr>
+      </thead>
+      <tbody>
+{{{params.input_cache_table}}}
+      </tbody>  
+      </table>
+      <p style="text-align: center;"><b>LRU FSM (least-recently used on the left)</b></p>
+      <p style="text-align: center;">[<pl-string-embed answers-name="lru0" size="15" weight=1></pl-string-embed>,<pl-string-embed answers-name="lru1" size="15" weight=1></pl-string-embed>,<pl-string-embed answers-name="lru2" size="15" weight=1></pl-string-embed>,<pl-string-embed answers-name="lru3" size="15" weight=1></pl-string-embed>]</p>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .mem-table {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin: 0 auto
+  }
+  .cache-entry {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin: 0 auto
+  }
+  .cache-entry tr {
+    height: 35px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
+  }
+  .cache-entry th, .cache-entry td {
+    text-align: center;
+    vertical-align:middle;
+    padding: 0px 0px 0px 0px;
+    margin: 0px;
+  }
+  .pl-string-embed-input::placeholder {
+    color: red;
+    opacity: .75;
+  }
+</style>

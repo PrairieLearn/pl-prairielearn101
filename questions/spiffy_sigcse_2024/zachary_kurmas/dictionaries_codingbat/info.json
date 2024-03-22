@@ -1,0 +1,27 @@
+{
+  "uuid": "077066e2-d32e-4389-9258-52bb59927f5a",
+  "title": "dictionaries",
+  "topic": "dictionaries",
+  "tags": [
+    "dictionaries",
+    "f23"
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "workspaceOptions": {
+    "image": "prairielearn/workspace-jupyterlab",
+    "port": 8080,
+    "home": "/home/jovyan",
+    "rewriteUrl": false,
+    "gradedFiles": [
+      "learning_target.ipynb"
+    ]
+  },
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "prairielearn/grader-python",
+    "entrypoint": "/python_autograder/run.sh",
+    "timeout": 20
+  }
+}

@@ -1,0 +1,95 @@
+<script>$(() => WaveDrom.ProcessAll());</script>
+<pl-question-panel>
+
+
+<p>A 4x4 register file has 4, 4-bit registers. The timing diagram below displays the values of the inputs to the register file. The register file has an asynchronous reset signal. Determine how the state of the registers change each clock period.</p>
+
+<p>Enter answers as a single hex digit without the 0x prefix (e.g., just 5 or A, not 0x5 or 0xA).</p>
+</pl-question-panel>
+
+<pl-overlay width="600" height="425" clip="false">
+    <pl-background>
+<script type="WaveDrom">
+{{{params.waveform}}}
+</script>
+    </pl-background>
+    <!--cycle0-->
+    <pl-location left="96" top="215">
+        <pl-string-embed answers-name="reg0_0" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="96" top="275">
+        <pl-string-embed answers-name="reg1_0" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="96" top="335">
+        <pl-string-embed answers-name="reg2_0" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="96" top="395">
+        <pl-string-embed answers-name="reg3_0" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="176" top="215">
+        <pl-string-embed answers-name="reg0_1" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="176" top="275">
+        <pl-string-embed answers-name="reg1_1" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="176" top="335">
+        <pl-string-embed answers-name="reg2_1" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="176" top="395">
+        <pl-string-embed answers-name="reg3_1" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="256" top="215">
+        <pl-string-embed answers-name="reg0_2" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="256" top="275">
+        <pl-string-embed answers-name="reg1_2" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="256" top="335">
+        <pl-string-embed answers-name="reg2_2" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="256" top="395">
+        <pl-string-embed answers-name="reg3_2" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="336" top="215">
+        <pl-string-embed answers-name="reg0_3" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="336" top="275">
+        <pl-string-embed answers-name="reg1_3" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="336" top="335">
+        <pl-string-embed answers-name="reg2_3" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="336" top="395">
+        <pl-string-embed answers-name="reg3_3" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="416" top="215">
+        <pl-string-embed answers-name="reg0_4" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="416" top="275">
+        <pl-string-embed answers-name="reg1_4" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="416" top="335">
+        <pl-string-embed answers-name="reg2_4" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="416" top="395">
+        <pl-string-embed answers-name="reg3_4" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="496" top="215">
+        <pl-string-embed answers-name="reg0_5" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="496" top="275">
+        <pl-string-embed answers-name="reg1_5" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="496" top="335">
+        <pl-string-embed answers-name="reg2_5" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+    <pl-location left="496" top="395">
+        <pl-string-embed answers-name="reg3_5" show-help-text="false" remove-leading-trailing="true" ignore-case="true" size="70" weight="1" placeholder="?"></pl-string-embed>
+    </pl-location>
+</pl-overlay>
+
+
+<pl-answer-panel>
+    <h2>Example</h2>
+    <p><a href="https://mediaspace.illinois.edu/media/t/1_e1mjbvu5">Example Solution Video</a></p>
+</pl-answer-panel>

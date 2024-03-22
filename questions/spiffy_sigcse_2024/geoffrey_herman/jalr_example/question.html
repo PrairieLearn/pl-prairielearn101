@@ -1,0 +1,94 @@
+
+<pl-question-panel>
+  <h2>Background Information</h2>
+  <p>We provide a simplified version of the MIPS datapath that you will need to modify to provide support for a new instruction. We've removed support for instructions like <code>nor</code>, <code>xor</code>, <code>lui</code>, <code>j</code>, <code>bne</code>, <code>lbu</code>, and <code>sb</code> so that you have fewer control signals to worry about. Likewise, we moved support for <code>slt</code> into the ALU.
+  </p>
+  <p>
+    <pl-file-download file_name="single_cycle.pdf" directory="clientFilesCourse" label="single_cycle.pdf"></pl-file-download>
+  </p>
+  <p>We have also simplified the ALU and provide the following defined constants for accessing your ALU.</p>
+
+<pl-code>
+`define ALU_ADD    3'h0
+`define ALU_SUB    3'h1
+`define ALU_AND    3'h2
+`define ALU_OR     3'h3
+`define ALU_SLT    3'h4
+</pl-code>
+
+  <p>The <pl-file-download file_name="MIPS_green_sheet.pdf" directory="clientFilesCourse" label="MIPS_green_sheet.pdf"></pl-file-download> and <pl-file-download file-name="MIPS_reference.html" directory="clientFilesCourse" force-download="false" label = "MIPS Reference Guide"></pl-file-download> are available for your reference as well.
+  </p>
+
+
+  <h2>Instructions</h2>
+  <p>Add support for the <code>jalr</code> instruction to the MIPS datapath (specification below).</p>
+
+<pl-code language="Verilog">
+jalr    rs
+Jump and Link Register
+r-type
+opcode: 6'h00   funct: 6'h09
+
+`define OP0_JALR    6'h09  # You will want to copy this line into machine.v.
+
+R[31] = PC + 4
+PC = R[rs]
+</pl-code>
+
+<h2>Compiling, Testing, and Debugging</h2>
+<ol>
+  <li>Read the prompt and figure out how you think <code>test.s</code> should behave</li>
+  <li>Take some time to sketch out the changes you want to make on paper first</li>
+  <li>Make a copy of the original <code>machine.v</code> (and any other Verilog file that you change), so you can undo any changes that break everything. You have the <code>Reset</code> button on the workspace in the worst-case scenario</li>
+  <li><p>Run</p>
+    <pl-code>
+make regression
+make > regress
+</pl-code>
+<p> to create a file called <code>regress</code>. The regression tests will help you make sure that you didn't break the original functionality of the datapath.</p>
+  </li>
+  <li>modify <code>machine.v</code> to implement the changes you drew on paper. Don't modify any other files as your copy of those files will be replaced by our copies of them.</li>
+  <li><p>Run</p>
+<pl-code>
+make test
+make
+</pl-code>
+<p>to run your Verilog against the test input that has your instruction. If the results are not what you expected them to be from step 1, then we suggest firing up the vcd viewer (recommend just clicking to open (i.e., don't right click and choose waveform viewer) as there are too many signals for the waveform viewer to handle) to trace down your errors, especially if you are getting X's or Z's in register values.  Start by looking at the values going into the register file and trace them backward until you find the first spot where they go bad. It can be useful to compare your modified code with your original code using </p>
+<pl-code>
+diff machine.v orig_machine.v
+</pl-code>
+<p>(where <code>orig_machine.v</code> is whatever you called the copy you made earlier).</p>
+  </li>
+<li><p>when your test input is working, run:</p>
+<pl-code>
+make regression
+make > regress.new
+diff regress.new regress
+</pl-code>
+<p>like before, this will run the regression test, but in addition compare your new results to what they should be.  Fix any bugs.</p>
+</li>
+<li><p>If you want to write your own test cases, edit <code>custom.s</code> and then run</p>
+<pl-code>
+make custom
+make
+</pl-code>
+</li>
+<li>Celebrate!</li>
+</ol>
+
+
+  <h4>Workspace</h4>
+  <p>Test and debug your code in the workspace before submitting!</p>
+  <pl-workspace></pl-workspace>
+
+</pl-question-panel>
+
+<pl-submission-panel>
+  <p>You can find a solution for this problem <pl-file-download file-name="JALR_sol.zip" label="here"></pl-file-download></p>
+  <pl-file-preview></pl-file-preview>
+  <pl-external-grader-results></pl-external-grader-results>
+</pl-submission-panel>
+
+<pl-answer-panel>
+  You can find a solution for this problem <pl-file-download file-name="JALR_sol.zip" label="here"></pl-file-download>
+</pl-answer-panel>

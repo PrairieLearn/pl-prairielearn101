@@ -1,0 +1,7 @@
+{
+    "controller": "pl-hex-calculator.py",
+    "dependencies": {
+        "elementScripts": ["pl-hex-calculator.js"],
+        "elementStyles": ["pl-hex-calculator.css"]
+    }
+}

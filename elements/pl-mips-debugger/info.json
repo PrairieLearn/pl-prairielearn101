@@ -1,0 +1,17 @@
+{
+    "controller": "pl-mips-debugger.py",
+    "dependencies": {
+        "elementScripts": [
+            "pl-mips-debugger.js",
+            "jsspim/instruction.js",
+            "jsspim/memory-content.js",
+            "jsspim/memory.js",
+            "jsspim/register.js",
+            "jsspim/execution.js"
+        ],
+        "elementStyles": [
+            "pl-mips-debugger.css",
+            "jsspim/highlight.css"
+        ]
+    }
+}

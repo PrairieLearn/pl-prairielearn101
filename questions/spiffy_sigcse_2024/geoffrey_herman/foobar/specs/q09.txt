@@ -1,0 +1,3 @@
+  int temp = bar(A[x]) - 6;
+  int baz = 4 * bar(y);
+  A[x] += temp * baz;

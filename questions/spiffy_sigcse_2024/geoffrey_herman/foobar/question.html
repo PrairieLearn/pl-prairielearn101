@@ -1,0 +1,74 @@
+<pl-question-panel>
+<div id="instructions">
+<h4>Instructions</h4>
+  <p>
+    Translate the C code below to MIPS assembly. The <pl-file-download file-name="MIPS_reference.html" directory="clientFilesCourse" force-download="false" label = "MIPS Reference Guide"></pl-file-download>. Do your best to follow the <pl-file-download file-name="mipsstyle.html" directory="clientFilesCourse" force-download="false" label = "MIPS Style Guide"></pl-file-download>.
+  </p>
+  <p>
+    Follow register calling conventions to decide which registers to use. You may assume that functions (e.g., <code>bar()</code>) can be found at a corresponding label (e.g., <code>bar:</code>).
+  </p>
+
+<pl-code language="c++">
+void foo(int* A, int x, int y){
+{{{params.code}}}  
+}
+</pl-code>
+<div class="alert alert-danger" role="alert">
+Make sure you follow function calling conventions to access function arguments. Do NOT try to access the test cases directly from you code (i.e., don't use <code>la</code>) as you will fail the autograder. You can change the given test cases by changing the values in the test cases and not the labels if you want to more fully test your code.
+</div>
+</div><!-- end instructions -->
+
+<div id="mips_asm">
+  <!-- Be sure to change the file name to match the function -->
+  <!-- The MIPS code below is what the student will see to start -->
+  <pl-file-editor
+    file-name="foo.s" 
+    ace-mode="ace/mode/tcl"
+    >
+.data
+.align 2
+# Test case 0
+test0_array:    .word 0 13 3 -4
+test0_length:   .word 4
+test0_xVal:     .word 2
+test0_yVal:     .word 3
+# Test case 1
+test1_array:    .word 1 2 3 4 5 6 7 8 9
+test1_length:   .word 9
+test1_xVal:     .word 4
+test1_yVal:     .word 5
+
+.text
+.globl  foo
+foo:
+# Write your code below here
+  </pl-file-editor>
+</div>
+
+<div id="debugging">
+<pl-mips-debugger editor-id="mips_asm" show-data-panel=true show-stack-panel=true>
+</pl-mips-debugger>
+
+<div style="padding-top: 1.5rem">
+  <h4>Expected Output</h4>
+  <p>Expected output for the first two test cases. You can check your code with the debugger before submitting. You can also change the values for the two provided test cases to try out different test cases in the debugger.</p>
+<pl-code>
+{{params.test0}}
+{{params.test1}}
+</pl-code>
+</div>
+</div><!-- end debugging -->
+
+<pl-split-view left-ids="instructions debugging" right-ids="mips_asm"></pl-split-view>
+
+</pl-question-panel>
+<pl-submission-panel>
+  <pl-file-preview></pl-file-preview>
+  <pl-external-grader-results></pl-external-grader-results>
+</pl-submission-panel>
+
+<script>
+  $(document).ready(() => {
+    $('#split-button').prependTo('#mips_asm .card .card-footer');
+  });
+</script>

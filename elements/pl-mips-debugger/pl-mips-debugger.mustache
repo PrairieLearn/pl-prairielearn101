@@ -1,0 +1,404 @@
+{{#question}}
+<div class="pl-mips-debugger">
+
+<div id="mips-intro">
+{{#inner_html}}
+  {{{inner_html}}}
+{{/inner_html}}
+{{^inner_html}}
+  <h4>MIPS Debugger</h4>
+  <p>Use the Sync Code button to load your assembly code into the debugger, and
+  Reset to re-initialize execution. Use the <i class="fa fa-question-circle"></i>
+  (Help) button to learn more about how to use the
+  debugger.</p>
+{{/inner_html}}
+</div>
+
+<nav id="mips-navbar" class="navbar navbar-expand-sm navbar-light bg-light">
+  <ul class="nav nav-pills mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" id="mips-run-view" role="button">Run View</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="mips-col-view" role="button">Column View</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="mips-full-view" role="button">Full View</a>
+    </li>
+  </ul>
+  <button id="mips-help" type="button" class="btn btn-light" title="Help">
+    <i class="fa fa-question-circle"></i>
+  </button>
+</nav>
+
+<div id="mips-run-view-container">
+  <div id="mips-run-buttons" class="navbar navbar-expand-sm navbar-light bg-light"></div>
+  <div id="mips-run-panels"></div>
+</div>
+
+<div id="mips-col-view-container">
+  <div id="mips-col-main-panels">
+    <div id="regs-panel" class="card">
+      <div class="card-header">
+        <h5 class="float-left">Regs</h5>
+        <div class="float-right">
+          <input type="radio" name="reg-radix" id="reg-radix-hex" value="16" checked
+                 onchange="RegisterUtils.changeRadix(this.value)">
+          <label for="reg-radix-hex">Hex</label>
+          <input type="radio" name="reg-radix" id="reg-radix-dec" value="10"
+                 onchange="RegisterUtils.changeRadix(this.value)">
+          <label for="reg-radix-dec">Dec</label>
+          <input type="radio" name="reg-radix" id="reg-radix-bin" value="2"
+                 onchange="RegisterUtils.changeRadix(this.value)">
+          <label for="reg-radix-bin">Bin</label>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6>Special Registers</h6>
+        <pre id="special-int-regs" class="reg-lines"></pre>
+        <h6>General Registers</h6>
+        <pre id="general-regs" class="reg-lines"></pre>
+        <div id="float-regs-container" class="d-none">
+          <h6>Special Float Registers</h6>
+          <pre id="special-float-regs" class="reg-lines"></pre>
+          <h6>Single Precision</h6>
+          <pre id="float-regs" class="reg-lines"></pre>
+          <h6>Double Precision</h6>
+          <pre id="double-regs" class="reg-lines"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="text-panel" class="card">
+      <div class="card-header">
+        <h5 class="float-left">Text Segment</h5>
+        <div class="float-right">
+          <span class="d-none">
+            <input id="toggle-kernel-text" type="checkbox"
+                   onchange="InstructionUtils.toggleKernelText(this.checked)">
+            <label for="toggle-kernel-text"> Kernel text </label>
+            &nbsp
+          </span>
+          <input id="toggle-instruction-value" type="checkbox"
+                 onchange="InstructionUtils.toggleBinary(this.checked)">
+          <label for="toggle-instruction-value"> Instruction value </label>
+          &nbsp
+          <input id="toggle-comment" type="checkbox"
+                 onchange="InstructionUtils.toggleSourceCode(this.checked)">
+          <label for="toggle-comment"> Source code </label>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="user-text-container">
+          <pre class="segment-title">User Text Segment</pre>
+          <pre id="user-text-content" title="Click to toggle breakpoint"></pre>
+        </div>
+        <div id="kernel-text-container">
+          <pre class="segment-title">Kernel Text Segment</pre>
+          <pre id="kernel-text-content" title="Click to toggle breakpoint"></pre>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="form-inline">
+          <input id="toggle-text-scroll" type="checkbox" checked>
+          <label for="toggle-text-scroll">&nbsp;Scroll text during execution </label>
+        </div>
+        <div class="form-inline float-left" id="execution-fieldset">
+          <div class="form-group">
+            <label for="speed-selector" class="col-form-label">Execution speed: &nbsp</label>
+            <div>
+              <input type="range" id="speed-selector" class="custom-range" value="90" max="100"
+                     oninput="Execution.setSpeed(this.value)">
+            </div>
+          </div>
+          &nbsp&nbsp&nbsp
+          <div id="text-panel-buttons">
+            <button id="play-button" class="btn btn-primary btn-sm" style="width: 6rem;">Play</button>
+            <button id="step-button" class="btn btn-success btn-sm" style="width: 6rem;">Step</button>
+            <button id="reset-button" class="btn btn-danger btn-sm" style="width: 6rem;">Reset</button>
+            <button id="sync-button" class="btn btn-info btn-sm" style="width: 6rem;">Sync Code</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mips-col-more-panels">
+    <div id="data-panel" class="card">
+      <div class="card-header">
+          <h5 class="float-left">Data Segment</h5>
+          <div class="float-right">
+            <span class="d-none">
+              <input id="toggle-kernel-data" type="checkbox"
+                     onchange="MemoryUtils.toggleKernelData(this.checked)">
+              <label for="toggle-kernel-data"> Kernel data </label>
+              &nbsp
+            </span>
+            <input type="radio" name="data-radix" id="data-radix-hex" value="16" checked
+                   onchange="MemoryUtils.changeDataRadix(this.value)">
+            <label for="data-radix-hex">Hex</label>
+            &nbsp
+            <input type="radio" name="data-radix" id="data-radix-dec" value="10"
+                   onchange="MemoryUtils.changeDataRadix(this.value)">
+            <label for="data-radix-dec">Dec</label>
+          </div>
+      </div>
+      <div class="card-body">
+        <div id="user-data-container">
+          <pre class="segment-title">User Data Segment</pre>
+          <pre id="user-data-content"></pre>
+        </div>
+        <div id="kernel-data-container">
+          <pre class="segment-title">Kernel Data Segment</pre>
+          <pre id="kernel-data-content"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="stack-panel" class="card">
+      <div class="card-header">
+        <h5 class="float-left">User Stack</h5>
+        <div class="float-right">
+          <input type="radio" name="stack-radix" id="stack-radix-hex" value="16" checked
+                 onchange="MemoryUtils.changeStackRadix(this.value)">
+          <label for="stack-radix-hex">Hex</label>
+          &nbsp
+          <input type="radio" name="stack-radix" id="stack-radix-dec" value="10"
+                 onchange="MemoryUtils.changeStackRadix(this.value)">
+          <label for="stack-radix-dec">Dec</label>
+        </div>
+      </div>
+      <div id="stack-container" class="card-body">
+        <pre id="stack-content"></pre>
+      </div>
+    </div>
+
+    <div id="output-panel" class="card">
+      <h5 class="card-header">Output</h5>
+      <pre id="output-content" class="card-body"></pre>
+    </div>
+
+    <div id="log-panel" class="card">
+      <h5 class="card-header">Console Log</h5>
+      <pre id="log-content" class="card-body"></pre>
+    </div>
+  </div>
+</div>
+
+<div id="mips-full-modal" class="modal fade" tabindex="-1" aria-labelledby="mips-full-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="mips-full-modal-label" class="modal-title">MIPS Debugger Full View</h5>
+        <button id="mips-full-modal-close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="mips-full-view-container"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mips-help-modal" class="modal fade" tabindex="-1" aria-labelledby="mips-help-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="mips-help-modal-label" class="modal-title">MIPS Debugger Help</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>The MIPS Debugger uses the SPIM simulator to run MIPS code in the
+        browser. It exposes a user interface that allows typical debugging
+        functionalities, such as setting breakpoints and viewing values.</p>
+
+        <hr/>
+        <h4>Panels</h4>
+        <p>Major functionality in the debugger are grouped into different
+        "panels". Each panel is displayed as a box with a top header. Supported
+        panels are listed below (some panels might not be enabled for certain
+        questions):</p>
+
+        <h5>Text Panel</h5>
+        <p>This is the main panel in the debugger, where MIPS instructions in
+        instruction memory are displayed. This is where you can find your code
+        once it is loaded into the debugger. The debugger will load some code
+        to initialize the simulator, so your code will appear about 10 lines
+        down. Most questions will also load in code for setting up some sample
+        test cases for the question. These will appear after your code.</p>
+        <p>The number within brackets to the left of each instruction is the
+        address of the instruction. Use the <code>Source code</code> checkbox
+        to view the original source code for the instructions and which line
+        numbers they correspond to. You can also use the <code>Instruction
+        value</code> checkbox to see the 32-bit value (in hex) of each
+        instruction. At the bottom of the panel is a set of execution controls
+        (see section below). The next instruction to be executed will be
+        highlighted.</p>
+
+        <h5>Registers Panel</h5>
+        <p>This panel displays the register values. The value representation
+        can be changed to use hexadecimal (Hex), decimal (Dec), or binary
+        (Bin). During execution, if the register value changed, it will be
+        highlighted.</p>
+
+        <h5>Data Panel</h5>
+        <p>This panel shows values currently in data memory. The values can be
+        displayed in hexadecimal (Hex) or decimal (Dec). It organizes them into
+        rows, where each row contains 4 words (each word is 4 bytes). The
+        number in brackets to the left of each row is the address of the
+        starting word in the row. To the right of the row is the string
+        representation (if applicable) of the values.</p>
+
+        <h5>Stack Panel</h5>
+        <p>This panel shows values currently in the stack (another region of
+        memory). Like the data panel, values can be shown as hexadecimal (Hex)
+        or decimal (Dec). Values are organized in rows similar to the data
+        panel. Unlike the data panel, the rows sit at the bottom of the panel
+        and "grow" upwards, mimicking the behavior of a stack.</p>
+
+        <h5>Output Panel</h5>
+        <p>This panel displays any output produced by executing the
+        instructions. In most cases, the printing of values to output is
+        handled by the test cases provided by the question.</p>
+
+        <h5>Logs Panel</h5>
+        <p>This panel displays various debugger messages and information.
+        Common things seen in this console log panel are messages about
+        execution, reaching a breakpoint, etc. If your code contains syntax
+        errors, those messages will show up here.</p>
+
+        <hr/>
+        <h4>Breakpoints</h4>
+        <p>Breakpoints allow you to "pause" execution, letting you more easily
+        inspect values in registers or memory in the middle of execution. Once
+        you're done inspecting, you can "continue" execution, which will run
+        until the next breakpoint or until the program finishes.</p>
+        <p>You can add a breakpoint by clicking on a line of code in the text
+        panel. This will pause execution at the selected instruction. A
+        breakpoint's instruction line will be bolded so that it's distinguished
+        from other lines. To remove the breakpoint, click on the line
+        again.</p>
+
+        <hr/>
+        <h4>Controls</h4>
+        <p>There are several controls available for controlling the execution
+        of instructions in the text panel.<p>
+
+        <h5>Scroll Checkbox</h5>
+        <p>By default, the text panel will automatically scroll the highlighted
+        instruction into view during execution. You can disable this scrolling
+        behavior by unchecking this option.</p>
+
+        <h5>Speed Selector</h5>
+        <p>This allows you to control the speed of execution. Drag the selector
+        to the left to slow down, and drag to the right to speed up. When the
+        speed selector is all the way to the right, it will run at max speed.
+        If your code has bugs (e.g. an infinite loop) using max speed can
+        heavily slow down your browser or even cause crashes, so be careful
+        when using this speed setting.</p>
+
+        <h5><span class="text-white bg-info">Sync Code Button</span></h5>
+        <p>This button will load your code into the debugger. It will also
+        clear all the values, remove all the breakpoints, and re-initialize the
+        execution state so that the debugger effectively start with a clean
+        slate. Make sure to use this button whenever you change your code.</p>
+
+        <h5><span class="text-white bg-danger">Reset Button</span></h5>
+        <p>This button stops execution and re-initializes to a clean slate
+        without removing breakpoints. This allows you to more easily "start
+        over" without losing all your breakpoints. If you have edited your
+        code, use the Sync Code button instead.</p>
+
+        <h5><span class="text-white bg-primary">Play/Pause/Continue/Run Button</span></h5>
+        <p>This button is for running your code. Depending on the state of
+        execution, the button will say something different. When execution
+        hasn't started, it'll be "Play". When executing, it will say "Pause".
+        When a breakpoint is reached, it will be "Continue". And when using max
+        speed, it will say "Run".
+
+        <h5><span class="text-white bg-success">Step Button</span></h5>
+        <p>This button lets you execute a single instruction, so you can more
+        easily "step" through your code. This is especially useful when
+        combined with breakpoints: set a breakpoint before some code you're
+        unsure of, run your code up to the breakpoint, then use the step button
+        to carefully step through the instructions that follows.</p>
+
+        <hr/>
+        <h4>Views</h4>
+        <p>The debugger provides different "views" that exposes a select set of
+        functionalities.</p>
+
+        <h5>Run View</h5>
+        <p>This view allows you to more easily execute your code and view
+        its output at-a-glance, by exposing a minimal set of panels and
+        controls, and running at max speed.</p>
+
+        <h5>Column View</h5>
+        <p>To troubleshoot your code, use the Column View to get access to
+        the instruction text panel, setting breakpoints, and viewing register
+        values, among other functionalities (will vary depending on the
+        question).</p>
+
+        <h5>Full View</h5>
+        <p>The Full View opens a fullscreen window within the page to
+        provide a more immersive experience with the debugger. It provides
+        almost all the panels and functionalities in the debugger.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const Elements = Object.freeze({
+    output: document.getElementById('output-content'),
+    log: document.getElementById('log-content'),
+    sourceToggle: document.getElementById('toggle-comment'),
+    kernelTextToggle: document.getElementById('toggle-kernel-text'),
+    kernelDataToggle: document.getElementById('toggle-kernel-data'),
+    instrValueToggle: document.getElementById('toggle-instruction-value'),
+    textScrollToggle: document.getElementById('toggle-text-scroll'),
+    playButton: document.getElementById('play-button'),
+    resetButton: document.getElementById('reset-button'),
+    stepButton: document.getElementById('step-button'),
+    speedSelector: document.getElementById('speed-selector'),
+    userTextContent: document.getElementById('user-text-content'),
+    kernelTextContent: document.getElementById('kernel-text-content'),
+    kernelTextContainer: document.getElementById('kernel-text-container'),
+    userData: document.getElementById('user-data-content'),
+    kernelData: document.getElementById('kernel-data-content'),
+    kernelDataContainer: document.getElementById('kernel-data-container'),
+    stack: document.getElementById('stack-content'),
+    generalReg: document.getElementById('general-regs'),
+    specialIntReg: document.getElementById('special-int-regs'),
+    specialFloatReg: document.getElementById('special-float-regs'),
+    floatReg: document.getElementById('float-regs'),
+    doubleReg: document.getElementById('double-regs'),
+  });
+
+  PLMipsDebugger.init(
+    "{{element_files_url}}",
+    "{{question_files_url}}",
+    "{{question_main_file}}",
+    "{{editor_id}}",
+    {
+      "defaultView": "{{default_view}}",
+      "enableFloatRegs": {{enable_float_regs}},
+      "enableKernelToggles": {{enable_kernel_toggles}},
+      "enableDataPanel": {{enable_data_panel}},
+      "enableStackPanel": {{enable_stack_panel}},
+      "enableOutputPanel": {{enable_output_panel}},
+    }
+  );
+
+  PLMipsViews.init();
+  PLMipsViews.showDefaultView();
+</script>
+
+{{! Lastly, load the WASM module and initialize the simulator. }}
+<script async type="text/javascript" src="{{element_files_url}}/wasm.js"></script>
+
+</div>
+{{/question}}

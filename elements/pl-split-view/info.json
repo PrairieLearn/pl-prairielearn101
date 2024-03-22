@@ -1,0 +1,12 @@
+{
+  "controller": "pl-split-view.py",
+  "dependencies": {
+    "elementScripts": [
+      "pl-split-view.js",
+      "split.min.js"
+    ],
+    "elementStyles": [
+      "pl-split-view.css"
+    ]
+  }
+}

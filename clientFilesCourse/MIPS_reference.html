@@ -1,0 +1,546 @@
+<h2>Core Instruction Set</h2>
+<table style="border-collapse: collapse; width: 96.6667%; height: 304px;" border="1" cellspacing="0" cellpadding="0">
+    <caption>List of MIPS instructions for CS 233</caption>
+    <tbody>
+        <tr style="height: 52px;">
+            <th style="width: 17.5%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Name</th>
+            <th style="width: 7.5%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Mnemonic</th>
+            <th style="width: 20%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Assembly Format</th>
+            <th style="width: 35%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Operation (In Verilog)</th>
+            <th style="width: 5%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Format/<br>Notes</th>
+            <th style="width: 5%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Opcode/<br>Funct</th>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Add</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">add</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">add $rd, $rs, $rt</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rd]=R[rs]+R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">R / (1)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">0 / 20<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Add Immediate</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">addi</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">addi $rt, $rs, imm</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rt]=R[rs] + SignExtImm;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">I / (1,2)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">8<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Add Immediate Unsigned</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">addiu</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">addiu $rt, $rs, imm</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rt]=R[rs] + SignExtImm;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">9<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Add Unsigned</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">addu</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">addu $rd, $rs, $rt</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rd]=R[rs]+R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">R</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">0 / 21<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">And</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">and</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">and $rd, $rs, $rt</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rd]=R[rs] &amp; R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">R</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">0 / 24<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">And Immediate</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">andi</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">andi $rt, $rs, imm</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[rt]=R[rs] &amp; ZeroExtImm;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">I / (3)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">c<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Branch on Equal</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">beq</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">beq $rs, $rt, imm</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">if(R[rs] == R[rt])</code><br><code class="mips">&#xA0; PC=PC+4+BranchAddr</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;"><p>I / (4)</p></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">4<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Branch on Not Equal</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">bne</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">bne $rs, $rt, imm</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">if(R[rs] != R[rt])</code><br><code class="mips">&#xA0; PC=PC+4+BranchAddr</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+4</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">I / (4)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">5<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Jump</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">j</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">j address</code> or <code class="mips">j label</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">PC=JumpAddr</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">J / (5)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">2<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Jump and Link</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">jal</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">jal address</code> or <code class="mips">jal label</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">R[31]=PC+4;</code> <code class="mips">PC=JumpAddr</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">J / (5)</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">3<sub>hex</sub></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td style="width: 17.5%; height: 28px; vertical-align: middle;">Jump Register</td>
+            <td style="width: 7.5%; height: 28px; vertical-align: middle;"><code class="mips">jr</code></td>
+            <td style="width: 20%; height: 28px; vertical-align: middle;"><code class="mips">jr $rs</code></td>
+            <td style="width: 35%; height: 28px; vertical-align: middle;"><code class="mips">PC=R[rs]</code></td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">R</td>
+            <td style="width: 5%; height: 28px; vertical-align: middle;">0 / 08<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Byte&#xA0;</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lb</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lb $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]={ {24{M[R[rs]+SignExtImm](7)}}, M[R[rs]+SignExtImm](7:0)};</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">20<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Byte Unsigned</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lbu</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lbu $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]={24&#x2019;b0, M[R[rs]+SignExtImm](7:0)};</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">24<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Halfword&#xA0;</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lh</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lh $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]={ {26{M[R[rs]+SignExtImm](15)}}, M[R[rs]+SignExtImm](15:0)};</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">21<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Halfword Unsigned</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lhu</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lhu $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]={16&#x2019;b0,M[R[rs]+SignExtImm](15:0)};</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">25<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Upper Imm</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lui</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lui $rt, imm</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]={imm, 16'b0};</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I</td>
+            <td style="width: 5%; vertical-align: middle;">f<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Load Word</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">lw</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">lw $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=M[R[rs]+SignExtImm];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">23<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Move From Coprocessor 0</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">mfc0</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">mfc0 $rt, $rd</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=CPR[0,rd];</code> <code class="mips">PC=PC+4</code> (<code class="mips">$rs = 0</code>)&#xA0;</td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">10<sub>hex</sub> / 0</td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Move To Coprocessor 0</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">mtc0</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">mtc0 $rt, $rd</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">CPR[0,rd]=R[rt];</code> <code class="mips">PC=PC+4</code> (<code class="mips">$rs = 4</code>)</td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">10<sub>hex</sub> / 0</td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Nor</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">nor</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">nor $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=~(R[rs] | R[rt]);</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 27<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Or</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">or</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">or $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rs] | R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 25<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Or Immediate</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">ori</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">ori $rt, $rs, imm</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=R[rs] | ZeroExtImm;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (3)</td>
+            <td style="width: 5%; vertical-align: middle;">d<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Set if Less Than</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">slt</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">slt $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=(R[rs]&lt;R[rt]) ? 1 : 0;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 2a<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Set if Less Than Immediate</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">slti</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">slti $rt, $rs, imm</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=(R[rs]&lt;SignExtImm) ? 1 : 0;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">a<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Set if Less Than Immediate Unsigned</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sltiu</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sltiu $rt, $rs, imm</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=(R[rs]&lt;SignExtImm) ? 1 : 0;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2, 6)</td>
+            <td style="width: 5%; vertical-align: middle;">b<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Set if Less Than Unsigned</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sltu</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sltu $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=(R[rs]&lt;R[rt]) ? 1 : 0;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R / (6)</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 2b<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Shift Left Logical</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sll</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sll $rd, $rt, shamt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rt]&lt;&lt;shamt;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 00<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Shift Right Arithmetic</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sra</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sra $rd, $rt, shamt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rt]&gt;&gt;shamt;</code> (arithmetic) <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 03<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Shift Right Logical</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">srl</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">srl $rd, $rt, shamt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rt]&gt;&gt;shamt;</code> (logical) <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 02<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Store Byte</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sb</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sb $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">M[R[rs]+SignExtImm](7:0)=R[rt](7:0);</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">28<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Store Halfword</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sh</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sh $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">M[R[rs]+SignExtImm](15:0)=R[rt](15:0);</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">29<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Store Word</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sw</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sw $rt, imm($rs)</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">M[R[rs]+SignExtImm]=R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (2)</td>
+            <td style="width: 5%; vertical-align: middle;">2b<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Subtract</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">sub</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">sub $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rs]-R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R / (1)</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 22<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Subtract Unsigned</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">subu</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">subu $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rs]-R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 23<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Xor</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">xor</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">xor $rd, $rs, $rt</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rd]=R[rs]^R[rt];</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">R</td>
+            <td style="width: 5%; vertical-align: middle;">0 / 26<sub>hex</sub></td>
+        </tr>
+        <tr>
+            <td style="width: 17.5%; vertical-align: middle;">Xor Immediate</td>
+            <td style="width: 7.5%; vertical-align: middle;"><code class="mips">xori</code></td>
+            <td style="width: 20%; vertical-align: middle;"><code class="mips">xori $rt, $rs, imm</code></td>
+            <td style="width: 35%; vertical-align: middle;"><code class="mips">R[rt]=R[rs]^ZeroExtImm;</code> <code class="mips">PC=PC+4</code></td>
+            <td style="width: 5%; vertical-align: middle;">I / (3)</td>
+            <td style="width: 5%; vertical-align: middle;">e<sub>hex</sub></td>
+        </tr>
+    </tbody>
+</table>
+<ol>
+    <li>May cause overflow exception</li>
+    <li><code class="mips">SignExtImm = { {16{inst[15]}}, inst[15:0] }</code></li>
+    <li><code class="mips">ZeroExtImm = { {16{1'b0}}, inst[15:0] }</code></li>
+    <li><code class="mips">BranchAddr = { {14{immediate[15]}}, immediate, 2'b0 }</code></li>
+    <li><code class="mips">JumpAddr = { PC+4[31:28], address, 2'b0 }</code></li>
+    <li>Operands considered unsigned numbers (vs. 2's complement)</li>
+    <li>Atomic test &amp; set pair; <code class="mips">R[rt] = 1</code> if pair atomic, <code class="mips">0</code> if not atomic</li>
+</ol>
+
+<p>The NAME, MNEMONIC columns tell you a descriptive name (add or add immediate) and a short mnemonic that you will use in your assembly programs (<code class="mips">add</code> or <code class="mips">addi</code>).</p>
+<p>The FORMAT column tells you what basic instruction format the instruction uses for its machine code. See next section for more information on instruction formats.</p>
+<p>The OPERATION column provides a Verilog description of what the instruction should ultimately implement. Values on the right are taken from immediately before the positive clock edge and are assigned to the value on the left immediately after the next positive clock edge. <code class="mips">R[ ]</code> refers to the contents of a register in the register file. <code class="mips">M[ ]</code> refers to the contents of a memory address in the data memory. <code class="mips">PC</code> refers to the Program Counter&apos;s contents. All other signal names are explained in the footnotes indicated by the numbers in parentheses. Reminder: Curly braces (i.e., <code class="mips">{ }</code>) are used for concatenating wires into a bus.</p>
+<p>The OPCODE/FUNCT column has either one or two numbers represented in 6-bit hexadecimal (i.e., 0 means 00 0000 and 20<sub>hex&#xA0;</sub>means 10 0000). If the instruction format is R, then the first number is the 6-bit opcode and the second number is the 6-bit funct code. If the instruction format is I or J, then the number is the 6-bit opcode - these instruction formats do not have a funct code.</p>
+
+<h2>Basic Instruction Formats</h2>
+<div class="container-fluid">
+<p><img src="instruction_formats.png" alt="R fields: opcode, rs, rt, rd, shamt, funct. I fields: opcode, rs, rt, immediate. J fields: opcode, address." width="700" height="179"></img></p>
+</div>
+
+<p>You will need to know only these three basic instruction formats. All MIPS instructions are encoded as 32-bit pieces of data that can be parsed into smaller fields. The names of the fields and which bits are allocated to each field are shown in the figure. One important thing to notice is that the order of fields in the instruction formats do not match the order of fields in the Verilog or MIPS assembly. For example, if you had the instruction <code class="mips">add $5, $3, $8</code>, you would be assigning your data to <code class="mips">R[5]</code>. The <code class="mips">add</code> instruction&apos;s Verilog is <code class="mips">R[rd] = R[rs] + R[rt]</code>. Consequently, <code class="mips">$5</code> is <code class="mips">rd</code>, <code class="mips">$3</code> is <code class="mips">rs</code>, and <code class="mips">$8</code> is <code class="mips">rt</code>, so that the Verilog and assembly mnemonic match.</p>
+
+<h2>Notes on Assembly Format Norms</h2>
+<ul>
+    <li><code class="mips">$r<strong>s</strong></code> is a <strong>s</strong>ource register exclusively, <code class="mips">$r<strong>d</strong></code> is a <strong>d</strong>estination register exclusively, <code class="mips">$r<strong>t</strong></code> <strong>t</strong>ransitions between being a source and a destination register</li>
+    <li>Assignment generally goes to the left for instructions that do not use the data memory (e.g., <code class="mips">add $rd, $rs, $rt</code> is assigning to <code class="mips">$rd</code>. <code class="mips">lui $rt, imm</code> is assigning to <code class="mips">$rt</code>)</li>
+    <li>If multiple registers are used as sources, <code class="mips">$rs</code> is listed first, <code class="mips">$rt</code> is listed second (e.g., <code class="mips">or $rd, $rs, $rt</code> has two sources as does <code class="mips">beq $rs, $rt, imm</code>)</li>
+    <li>Any instruction that reads from (e.g., <code class="mips">lb</code> or <code class="mips">lw</code>), or writes to (e.g., <code class="mips">sb</code> or <code class="mips">sw</code>), data memory treats <code class="mips">R[rs]</code> as a base address pointer and <code class="mips">imm</code> as an offset from that base pointer. This <strong>base+offset</strong> behavior is indicated by the <code class="mips">imm($rs)</code> notation, where the address of the data to be read from or written to in data memory is always <code class="mips">R[rs]+SignExtImm</code>. Consequently, all data memory instructions use the <code class="mips">$rt, imm($rs)</code> format. <code class="mips">$rt</code> transitions from being a source or a destination.</li>
+</ul>
+<h2>Converting MIPS Assembly to Machine Code</h2>
+<ol>
+    <li>Find the MIPS assembly instruction in the Core Instruction Set table</li>
+    <li>Use the second-to-last column to identify the instruction&apos;s machine code format. The format will be either R, I, or J. Use the Basic Instruction Format figures to identify the fields you need for that instruction format.</li>
+    <li>If it&apos;s I-type or J-type format, use the last column to find the opcode (e.g., <code class="mips">andi</code> has opcode c<sub>hex</sub> and <code class="mips">jal</code> has opcode 3<sub>hex</sub>) and convert the hexadecimal opcode to 6-bit unsigned binary (e.g., e<sub>hex</sub> becomes 001110 and 23<sub>hex</sub> becomes 100011).&#xA0; If it&apos;s R-type format, use the last column to find the opcode (first number) and funct code (second number) (e.g., <code class="mips">jr</code> has opcode 0 and funct code 08<sub>hex</sub> and <code class="mips">mfc0</code> has opcode 10<sub>hex</sub> and funct code 0) and convert both to 6-bit unsigned binary.</li>
+    <li>If it&apos;s J-type format, take the 32-bit instruction memory address signified by the label, strip off the 4 most-significant bits (they will be added back in by <code class="mips">PC+4[31:28]</code>) and strip off the 2 least-significant bits (they will be added back in by <code class="mips">2&apos;b0</code>), leaving you with the 26-bit address field for the J-type instruction.</li>
+    <li>If it&apos;s I-type or R-type format, use the Assembly Format column to map the fields of the assembly code to the fields of the instruction format. Convert <code class="mips">$rs</code>, <code class="mips">$rt</code>, <code class="mips">$rd</code>, and <code class="mips">shamt</code> fields into 5-bit unsigned binary (e.g., <code class="mips">$rs</code> = <code class="mips">$6</code> becomes 00110 and <code class="mips">shamt</code> = 12 becomes 01100). Convert the immediate field into 16-bit 2&apos;s complement representation (e.g., imm = 24 becomes 0000 0000 0001 1000 and imm = -1 becomes 1111 1111 1111 1111). Any field that is not specified by the Assembly Format column should be all 0s (e.g., <code class="mips">shamt</code> should 00000 for <code class="mips">add</code> and <code class="mips">rs</code> should be 00000 for <code class="mips">lui</code>).</li>
+    <li>Concatenate all of the fields of your instruction format together as shown in the Basic Instruction Formats diagram. Example: <code class="mips">or $8, $15, $20</code> is an R-type instruction with opcode = 000000 (0<sub>hex</sub>), funct code = 100101 (25<sub>hex</sub>), <code class="mips">$rs</code> = <code class="mips">$15</code> = 01111, <code class="mips">$rt</code> = <code class="mips">$20</code> = 10100, <code class="mips">$rd</code> = <code class="mips">$8</code> = 01000, <code class="mips">shamt</code> = 00000, so the machine code would be 000000 01111 10100 01000 00000 100101.</li>
+</ol>
+
+<h4>Examples</h4>
+<p><code class="mips">add $5, $3, $8</code> maps to machine code 000000&#xA0; &#xA0;00011&#xA0; &#xA0; 01000&#xA0; &#xA0; 00101&#xA0; &#xA0;00000&#xA0; &#xA0;100000</p>
+<p><code class="mips">addi $5, $3, -8</code> maps to machine code 001000&#xA0; &#xA0;00011&#xA0; &#xA0; 00101&#xA0; &#xA0; 1111111111111000</p>
+<p><code class="mips">j 0x0000000c</code> maps to machine code 000010&#xA0; &#xA0;00000000000000000000000011</p>
+
+<h2>Pseudoinstructions</h2>
+<p>Instructions that you can use when writing assembly code but are not real instructions. These instructions will be converted into real instructions by the assembler. These instructions do not have opcodes or instruction formats because they cannot be translated directly into machine code.</p>
+<p>Note: How branch pseudoinstructions get turned into real machine code can vary based on which constants or registers are used. For example, <code class="mips">beq $5, 4, label</code> would assemble to <code class="mips">ori $1, $0, 4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0; beq $1, $5, label</code> but <code class="mips">beq $5, 0xdeadbeef, label</code>would assemble to <code class="mips">lui $1, $0, 0xdead &#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ori $1, $1, 0xbeef &#xA0;&#xA0;&#xA0;&#xA0;&#xA0; beq $1, $5, label</code>. Consequently, we cannot easily say how much <code class="mips">PC</code> should increment after branch pseudoinstructions. Rather than specifically indicate how much <code class="mips">PC</code> would increment, we write <code class="mips">PC=NextInstructionInProgram</code>, where <code class="mips">NextInstructionInProgram</code> is address of the instruction in your program that appears after the branch pseudoinstruction in the assembly.</p>
+<table style="border-collapse: collapse; width: 85.926%; height: 304px;" border="1" cellspacing="0" cellpadding="0">
+    <caption>List of MIPS instructions for CS 233</caption>
+    <tbody>
+        <tr style="height: 52px;">
+            <th scope="col">Name</th>
+            <th scope="col">Mnemonic</th>
+            <th scope="col">Assembly Format</th>
+            <th style="width: 35%; height: 52px; vertical-align: middle; text-align: left;" scope="col">Operation (In Verilog)</th>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Branch on Equal (Immediate)</td>
+            <td><code class="mips">beq</code></td>
+            <td><code class="mips">beq $rs, imm, label</code></td>
+            <td><code class="mips">if(R[rs] == SignExtImm)</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=NextInstructionInProgram</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Branch Less Than</td>
+            <td><code class="mips">blt</code></td>
+            <td><code class="mips">blt $rs, $rt, label</code><br>OR<br><code class="mips">blt $rs, imm, label</code></td>
+            <td><code class="mips">if(R[rs] &lt; R[rt])</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+8</code><br>OR<br><code class="mips">if(R[rs] &lt; SignExtImm)</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=NextInstructionInProgram</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Branch Greater Than</td>
+            <td><code class="mips">bgt</code></td>
+            <td><code class="mips">bgt $rs, $rt, label</code><br>OR<br><code class="mips">bgt $rs, imm, label</code></td>
+            <td><code class="mips">if(R[rs] &gt; R[rt])</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+8</code><br>OR<br><code class="mips">if(R[rs] &gt; SignExtImm)</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=NextInstructionInProgram</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Branch Less Than or Equal</td>
+            <td><code class="mips">ble</code></td>
+            <td><code class="mips">ble $rs, $rt, label</code><br>OR<br><code class="mips">ble $rs, imm, label</code></td>
+            <td><code class="mips">if(R[rs] &lt;= R[rt])</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+8</code><br>OR<br><code class="mips">if(R[rs] &lt;= SignExtImm)</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=NextInstructionInProgram</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Branch Greater Than or Equal</td>
+            <td><code class="mips">bge</code></td>
+            <td><code class="mips">bge $rs, $rt, label</code><br>OR<br><code class="mips">bge $rs, imm, label</code></td>
+            <td><code class="mips">if(R[rs] &gt;= R[rt])</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=PC+8</code><br>OR<br><code class="mips">if(R[rs] &gt;= SignExtImm)</code><br><code class="mips">&#xA0; PC=label</code><br><code class="mips">else</code><br><code class="mips">&#xA0; PC=NextInstructionInProgram</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Load Immediate</td>
+            <td><code class="mips">li</code></td>
+            <td><code class="mips">li $rt, imm</code></td>
+            <td><code class="mips">R[rt]=immediate;</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Move</td>
+            <td><code class="mips">move</code></td>
+            <td><code class="mips">move $rd, $rs</code></td>
+            <td><code class="mips">R[rd]=R[rs];</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Not</td>
+            <td><code class="mips">not</code></td>
+            <td><code class="mips">not $rd, $rs</code></td>
+            <td><code class="mips">R[rd]=~R[rs]</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Multiply</td>
+            <td><code class="mips">mul</code></td>
+            <td><code class="mips">mul $rd, $rs, $rt</code><br>OR<br><code class="mips">mul $rt, $rs, imm</code></td>
+            <td><code class="mips">R[rd]=R[rs]*R[rt];</code> <code class="mips">PC=PC+4</code><br>OR<br><code class="mips">R[rt]=R[rs]*SignExtImm;</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Divide (Integer division)</td>
+            <td><code class="mips">div</code></td>
+            <td><code class="mips">div $rd, $rs, $rt</code><br>OR<br><code class="mips">div $rt, $rs, imm</code></td>
+            <td><code class="mips">R[rd]=R[rs]/R[rt];</code> <code class="mips">PC=PC+4</code><br>OR<br><code class="mips">R[rt]=R[rs]/SignExtImm;</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+        <tr style="height: 28px;">
+            <td>Remainder (Modulus)</td>
+            <td><code class="mips">rem</code></td>
+            <td><code class="mips">rem $rd, $rs, $rt</code><br>OR<br><code class="mips">rem $rt, $rs, imm</code></td>
+            <td><code class="mips">R[rd]=R[rs]%R[rt];</code> <code class="mips">PC=PC+4</code><br>OR<br><code class="mips">R[rt]=R[rs]%SignExtImm;</code> <code class="mips">PC=PC+4</code></td>
+        </tr>
+    </tbody>
+</table>
+<h2>Register Name, Number, Use, Call Convention</h2>
+<ul>
+    <li>Register names indicates how registers are expected to be used by convention.</li>
+    <li>Number indicates the register number in the register file.</li>
+    <li>Use indicates the expected use of the register by convention.</li>
+    <li>If a register is not saved across a function call, use caller save conventions for function calls. If register is saved across a function call, use callee save conventions for functions calls.&#xA0;</li>
+</ul>
+<table style="border-collapse: collapse; width: 96.6667%;" border="1" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Use</th>
+            <th>Saved Across a Function Call?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code class="mips">$zero</code></td>
+            <td>0</td>
+            <td>The Constant Value 0 (cannot be written to)</td>
+            <td>Not Applicable</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$at</code></td>
+            <td>1</td>
+            <td>Assembler Temporary (Do not use, unless you know what you are doing)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$v0</code>-<code class="mips">$v1</code></td>
+            <td>2-3</td>
+            <td>Return Values for Functions: Use <code class="mips">$v0</code> for 32-bit return values, use both <code class="mips">$v0</code> and <code class="mips">$v1</code> for 64-bit return values</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$a0</code>-<code class="mips">$a3</code></td>
+            <td>4-7</td>
+            <td>Arguments for Functions: Use <code class="mips">$a0</code> for first argument, <code class="mips">$a1</code> for second argument, etc. or multiple registers for 64-bit arguments</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$t0</code>-<code class="mips">$t7</code></td>
+            <td>8-15</td>
+            <td>Temporaries: Use for any variables that are not covered by other conventions</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$s0</code>-<code class="mips">$s7</code></td>
+            <td>16-23</td>
+            <td>Saved Temporaries: Use for any variables that are not covered by other conventions</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$t8</code>-<code class="mips">$t9</code></td>
+            <td>24-25</td>
+            <td>Temporaries: Use for any variables that are not covered by other conventions</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$k0</code>-<code class="mips">$k1</code></td>
+            <td>26-27</td>
+            <td>OS/Kernel temporaries: Don&apos;t use except in kernel code</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$gp</code></td>
+            <td>28</td>
+            <td>Global Pointer: Points to a location in the global data segment</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$sp</code></td>
+            <td>29</td>
+            <td>Stack Pointer: Points to a location in the user stack</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$fp</code></td>
+            <td>30</td>
+            <td>Frame Pointer: Points to a location in the user heap</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><code class="mips">$ra</code></td>
+            <td>31</td>
+            <td>Return Address: <code class="mips">jal</code> stores the instruction memory address so that a function call can return using <code class="mips">jr $ra</code></td>
+            <td>No</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>The MIPS register file has 32 registers. We can access these registers by their addresses by invoking their numbers (e.g., <code class="mips">$5</code> or <code class="mips">$8</code>) or we can invoke them using special names that help us remember how other MIPS assembly programs will be using those registers. These register names signal conventions (or agreed upon behaviors) that will help your code play nicely with code written by other people.</p>
+<ul>
+    <li><code class="mips">$0</code> (<code class="mips">$zero</code>) is not really a register and always stores the value <strong>0</strong> and cannot be written to.</li>
+    <li><code class="mips">$1</code> (<code class="mips">$at</code>) <strong>A</strong>ssembler <strong>T</strong>emporary is a special reserved register that you should never use so that your assembler can use it when it needs an extra temporary register without messing up your code. This register may be overwritten by any function you call.</li>
+    <li><code class="mips">$2-3</code> (<code class="mips">$v0</code>-<code class="mips">$v1</code>) return <strong>V</strong>alue registers that we use to return 32-bit (just <code class="mips">$v0</code>) or 64-bit (<code class="mips">$v0</code> and <code class="mips">$v1</code> used in tandem) return values. These registers may be overwritten by any function you call.</li>
+    <li><code class="mips">$4-7</code> (<code class="mips">$a0-$a3</code>) <strong>A</strong>rgument registers that we use to pass arguments to functions. If you need more than 4 arguments, you can pass those values to the function on the stack. These registers may be overwritten by any function you call.</li>
+    <li><code class="mips">$8-15</code>, <code class="mips">24-25</code> (<code class="mips">$t0-t9</code>)&#xA0;<strong>T</strong>emporary registers that you can use however you want in your code. These registers may be overwritten by any function you call.</li>
+    <li><code class="mips">$16-23</code> (<code class="mips">$s0-$s7</code>)&#xA0;<strong>S</strong>aved temporary registers that you can use however you want in your code, but you must return them back to their original state before you return from your function. If everyone follows convention, then you can rest assured that these registers will always be returned with their original values after any function you call.</li>
+    <li><code class="mips">$26-27</code> (<code class="mips">$k0-$k1</code>) Kernel temporary registers that only the Operating System can use. These registers may be overwritten by any function you call.</li>
+    <li><code class="mips">$28</code> (<code class="mips">$gp</code>) <strong>G</strong>lobal&#xA0;<strong>P</strong>ointer provides a pointer to where we store global variables in data memory. If everyone follows convention, then you can rest assured that these registers will always be returned with their original values after any function you call.</li>
+    <li><code class="mips">$29</code> (<code class="mips">$sp</code>) <strong>S</strong>tack <strong>P</strong>ointer provides a pointer to where we store the user stack in data memory. If everyone follows convention, then you can rest assured that these registers will always be returned with their original values after any function you call.</li>
+    <li><code class="mips">$30</code> (<code class="mips">$fp</code>) <strong>F</strong>rame <strong>P</strong>ointer provides a pointer to where we store the heap in data memory. If everyone follows convention, then you can rest assured that these registers will always be returned with their original values after any function you call.</li>
+    <li><code class="mips">$31</code> (<code class="mips">$ra</code>) <strong>R</strong>eturn <strong>A</strong>ddress provides a pointer to the instruction after the function that called our current function in instruction memory. These registers may be overwritten by any function you call.</li>
+</ul>
+
+<h3>Conventions and Practices for Register Saving and Function Calls</h3>
+<p><strong>Caller Save Conventions</strong>: Registers that are not saved across a function call (e.g., <code class="mips">$a0</code>, <code class="mips">$v0</code>, <code class="mips">$t0</code>) by convention are considered caller-save registers. To uphold convention, the function that calls another function (the caller) must save the value of any caller-save register on the stack before a function call if the programmers wants to recover the value of those caller-save registers after the function call. The function that is called (the callee) is free to modify caller-save registers without breaking convention. The programmer must restore the value of caller-save registers from the stack after the function call when they wish to use those registers&apos; value again.</p>
+<p><strong>Callee Save Conventions</strong>: Registers that are saved across a function call (e.g., <code class="mips">$s0</code> and <code class="mips">$sp</code>) by convention are considered callee-save registers. The function that is called by another function (the callee) must restore callee-save registers to their original values by the end of the function call. To uphold convention, the programmer must save any callee-save registers they plan to use onto the stack before modifying them. The programmer must restore the value of those callee-save registers from the stack before returning from the function.</p>
+<p>&#xA0;</p>
+
+
+<style>
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+}
+</style>

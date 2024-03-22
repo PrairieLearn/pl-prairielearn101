@@ -1,0 +1,22 @@
+{
+    "all": true,
+    "cbtf": false,
+    "cross": true,
+    "directory": "out_soln/foo",
+    "example": false,
+    "function_name": "foo",
+    "question_name": "foo",
+    "second_chance": false,
+    "skip": false,
+    "soln": true,
+    "tests": [
+        {
+            "name": "test0",
+            "len": 5
+        },
+        {
+            "name": "test1",
+            "len": 0
+        }
+    ]
+}

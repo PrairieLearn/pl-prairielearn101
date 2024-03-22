@@ -1,0 +1,15 @@
+.pl-string-embed-popover {
+    width: 400px;
+    max-width: 100%;
+}
+
+.pl-string-embed-input {
+    height: auto;
+    padding: 0px 1px;
+    margin: 0px 0px;
+}
+
+.pl-string-embed-input::placeholder {
+color: red;
+opacity: .75;
+}
