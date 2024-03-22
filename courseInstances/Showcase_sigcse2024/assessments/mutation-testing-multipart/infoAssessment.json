@@ -1,0 +1,64 @@
+{
+  "uuid": "1e0d75db-d7cc-4584-9aa7-8b91b5be5678",
+  "type": "Homework",
+  "title": "CHIPS 8.5: Intro to RSpec",
+  "set": "CHIPS",
+  "number": "1",
+  "allowAccess": [
+    {
+      "mode": "Public",
+      "startDate": "2023-10-19T11:30:00",
+      "endDate": "2023-10-28T11:59:59"
+    }
+  ],
+  "shuffleQuestions": false,
+  "multipleInstance": false,
+  "zones": [
+    {
+      "title": "Intro to RSpec",
+      "advanceScorePerc": 100,
+      "questions": [
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_05",
+          "points": 1
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_1",
+          "points": 5
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_15",
+          "points": 1
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_17",
+          "points": 1
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_2",
+          "points": 5
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_25",
+          "points": 1
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_3",
+          "points": 5
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_35",
+          "points": 1
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_4",
+          "points": 5
+        },
+        {
+          "id": "spiffy_sigcse_2024/armando_fox/gift_card_5",
+          "points": 5
+        }
+      ]
+    }
+  ]
+}

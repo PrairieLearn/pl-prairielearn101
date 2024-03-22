@@ -1,0 +1,1 @@
+{"submission_file": "spec/giftcard_spec.rb", "submission_root": "", "pre-text": "describe GiftCard do\n", "post-text": "end\n", "grading_exclusions": {"wrong_withdraw_check": [], "initialize_balance_incorrectly": [], "non_nil_error_initialization": []}}

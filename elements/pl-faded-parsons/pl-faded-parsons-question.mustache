@@ -1,0 +1,46 @@
+{{! TBD: throughout, we should use answers_name to avoid ID collisions, but this also requires modifying pl-faded-parsons.js to keep multiple widget instances separate, etc }}
+
+{{! form field to be filled with order to save the current submission }}
+<input id="{{answers_name}}starter-code-order" name="{{answers-name}}starter-code-order" type="hidden" value=""/>
+<input id="{{answers_name}}parsons-solution-order" name="{{answers-name}}parsons-solution-order" type="hidden" value=""/>
+
+
+{{! the boxes for starter code and solution area}}
+
+{{! if not vertical (horizontal), keep half size boxes }}
+{{! if vertical (or no-code), full size boxes }}
+<div class="pl-faded-parsons row">
+
+    {{! note: by entering the {#scrambled} {/scrambled} section, the mustache renderer dereferences 
+          all tags as children of the `scrambled` node, which has a duplicate of the 
+          `answers_name` data dereferenced elsewhere }}
+
+    {{#scrambled}}
+    <div id="{{answers_name}}starter-code" class="col-sm-{{#narrow}}6{{/narrow}}{{#wide}}12{{/wide}} px-1 sortable-code">
+        <ul id="ul-{{answers_name}}starter-code" class="ui-sortable">
+            {{#lines}}
+                {{> pl-faded-parsons-code-line}}
+            {{/lines}}
+        </ul>
+    </div>
+    {{/scrambled}}
+
+    {{#pre_text}}
+    <pl-code language="{{{language}}}"> {{{text}}} </pl-code>
+    {{/pre_text}}
+
+    {{#given}}
+    <div id="{{answers_name}}parsons-solution" class="col-sm-{{#narrow}}6{{/narrow}}{{#wide}}12{{/wide}} {{^wide}}px-1{{/wide}} sortable-code">
+        <ul id="ul-{{answers_name}}parsons-solution" class="ui-sortable output">
+            {{#lines}}
+                {{> pl-faded-parsons-code-line}}
+            {{/lines}}
+        </ul>
+    </div>
+    {{/given}}
+
+    {{#post_text}}
+    <pl-code language="{{{language}}}"> {{{text}}} </pl-code>
+    {{/post_text}}
+</div>
+
