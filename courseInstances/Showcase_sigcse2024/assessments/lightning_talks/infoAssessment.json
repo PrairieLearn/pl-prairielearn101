@@ -48,11 +48,11 @@
     },
     {
       "title": "Zachary Kurmas - Linux Filesystem TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/tbd", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/dictionaries_codingbat", "points": 5 }]
     },
     {
       "title": "Geoffrey Herman - Code Debugging TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/tbd", "points": 5 }]
+      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/datapath_MIPS_data", "points": 5 }]
     },
     {
       "title": "Armando Fox - Unit Testing TBD",
