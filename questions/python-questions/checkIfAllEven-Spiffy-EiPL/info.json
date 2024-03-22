@@ -1,0 +1,23 @@
+{
+    "uuid": "90e0304c-0c38-45d7-97bc-d3ed7674965b",
+    "title": "Example 3: Python EiPL",
+    "topic": "prompt_engineering",
+    "tags": [
+        "CoffeePoweredComputers",
+        "chatGPT"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-python",
+        "entrypoint": "/grade/serverFilesCourse/gpt_python_autograder/run.sh",
+        "serverFilesCourse": [
+            "gpt_python_autograder/run.sh",
+            "gpt_python_autograder/make_code.py",
+            "gpt_python_autograder/pltest.py"
+        ],
+        "enableNetworking": true
+    }
+}
