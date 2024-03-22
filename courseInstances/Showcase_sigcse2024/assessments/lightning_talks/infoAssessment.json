@@ -30,7 +30,8 @@
     },
     {
       "title": "Ramon Lawrence - Database Systems - UML",
-      "questions": [{ "id": "intro_ml/linear_regression_compute_fitted_rand", "points": 10 }]
+      "questions": [{ "id": "er_design/randomUML", "points": 10 },
+                    {"id": "er_design/Fish_Store", "points": 10}]
     },
     {
       "title": "David Cooper - Polymorphism",
