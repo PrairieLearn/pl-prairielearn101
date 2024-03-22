@@ -14,7 +14,7 @@
   "zones": [
     {
       "title": "David Smith - Explain in Plain Language",
-      "questions": [{ "id": "@gpt-100/auckland-questions/lastZeroInList", "points": 5 } ]
+      "questions": [{ "id": "@gpt-100/auckland-questions/lastZeroInList", "points": 5 }]
     },
     {
       "title": "Ramon Lawrence - Database Systems - UML",
@@ -43,20 +43,16 @@
       "questions": [{ "id": "spiffy_sigcse_2024/jeff_erickson/hamiltonian_reduction", "points": 5 }]
     },
     {
-      "title": "Gary Dahl - Red-Black tree insertion",
-      "questions": [{ "id": "spiffy_sigcse_2024/gary_dahl/tbd", "points": 5 }]
+      "title": "Zachary Kurmas - Linux Filesystem",
+      "questions": [
+        { "id": "spiffy_sigcse_2024/zachary_kurmas/dictionaries_codingbat", "points": 5 },
+        { "id": "spiffy_sigcse_2024/zachary_kurmas/basic-filesystem-workspace", "points": 5 }
+      ]
     },
-    {
-      "title": "Zachary Kurmas - Linux Filesystem TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/dictionaries_codingbat", "points": 5 }]
-    },
+
     {
       "title": "Geoffrey Herman - Code Debugging TBD",
       "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/foobar", "points": 5 }]
-    },
-    {
-      "title": "Armando Fox - Unit Testing TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/armando_fox/tbd", "points": 5 }]
     }
   ]
 }
