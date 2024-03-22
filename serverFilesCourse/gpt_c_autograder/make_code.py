@@ -4,7 +4,7 @@ import openai
 import random
 
 # weighted random choice picking the first key more often
-openai.api_key = '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'
+openai.api_key = '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'
 
 data_path = '/grade/data/data.json'
 results_path = '/grade/results/results.json'
