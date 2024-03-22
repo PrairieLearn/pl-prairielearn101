@@ -41,22 +41,6 @@
     {
       "title": "Jeff Erickson - Hamiltonian reduction",
       "questions": [{ "id": "spiffy_sigcse_2024/hamiltonian_reduction", "points": 5 }]
-    },
-    {
-      "title": "Gary Dahl - Red-Black tree insertion",
-      "questions": [{ "id": "spiffy_sigcse_2024/gary_dahl/tbd", "points": 5 }]
-    },
-    {
-      "title": "Zachary Kurmas - Linux Filesystem TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/zachary_kurmas/tbd", "points": 5 }]
-    },
-    {
-      "title": "Geoffrey Herman - Code Debugging TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/geoffrey_herman/tbd", "points": 5 }]
-    },
-    {
-      "title": "Armando Fox - Unit Testing TBD",
-      "questions": [{ "id": "spiffy_sigcse_2024/armando_fox/tbd", "points": 5 }]
     }
   ]
 }
