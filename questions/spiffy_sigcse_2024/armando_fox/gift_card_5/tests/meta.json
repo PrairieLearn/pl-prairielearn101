@@ -1,0 +1,1 @@
+{"submission_file": "spec/customer_spec.rb", "submission_root": "", "pre-text": "describe Customer do\n  describe 'trying to buy' do\n", "post-text": "  end\nend\n", "grading_exclusions": {"var_1": [], "var_2": [], "var_3": []}}

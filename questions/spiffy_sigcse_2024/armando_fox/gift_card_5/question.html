@@ -1,0 +1,67 @@
+<!-- AUTO-GENERATED FILE -->
+<pl-question-panel>
+<markdown>
+
+# Part 5 of 5: Sad path for Customer#pay and DRYing out tests with common preconditions
+
+For our last step we will test the sad path of `Customer#pay` and factor out 
+common lines of test code to keep things DRY. We will use the same double, 
+but this time we will instruct it to always return a falsy value so we can test 
+the other code path in `#pay`. Since setting up the double (and the 
+`Customer` instance) are common to both test cases, we should move them into a 
+`before` block as we did with `GiftCard`, and group the related examples and 
+their `before` block in a `describe`.  
+  
+```ruby
+class Customer
+  attr_accessor :name, :gift_card
+  def initialize(name, gift_card=nil)
+    @gift_card = gift_card
+    @name = name
+  end
+  def pay(amount)
+    if gift_card.withdraw(amount)
+      self.notify("payment successful")
+    else
+      self.notify("purchase cannot be completed")
+    end
+  end
+end
+```
+
+In this question, construct tests that verify:
+* a payment from a Customer has a giftcard with sufficient balance notifies the customer of the successful transaction
+* a payment from a Customer has a giftcard with insufficient balance notifies the customer of the unsuccessful transaction
+---
+</markdown>
+
+</pl-question-panel>
+<!-- see README for where the various parts of question live -->
+
+<pl-faded-parsons format="no-code" language="ruby">
+<pre-text>
+describe Customer do
+  describe 'trying to buy' do
+</pre-text>
+<code-lines>
+  before(:!BLANK) do #0given
+  @loaded_gift_card = !BLANK('gift_card')
+  @customer = Customer.new('Student', @loaded_gift_card)
+  end
+  it 'notifies customer if balance covers payment' do
+  allow(@!BLANK).to receive(:withdraw).and_return(!BLANK)
+  expect(@customer).to receive(:notify).with("payment successful")
+  @customer.!BLANK(10)
+  end
+  it 'notifies customer if balance does not cover payment' do
+  allow(@!BLANK).to receive(:!BLANK).and_return(!BLANK)
+  expect(@customer).to receive(:!BLANK).with("purchase cannot be completed")
+  @customer.!BLANK(10)
+  end
+</code-lines>
+<post-text>
+  end
+end
+
+</post-text>
+</pl-faded-parsons>

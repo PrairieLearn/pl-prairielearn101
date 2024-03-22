@@ -1,0 +1,17 @@
+{
+  "uuid": "c7009a4d-952e-4b58-9985-c4896fa2c9b2",
+  "title": "Gift card: testing Customer#pay by stubbing out method dependencies",
+  "topic": "RSpec",
+  "tags": [
+
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "saasbook/pl-rspec-autograder",
+    "entrypoint": "/grader/run.py",
+    "timeout": 60
+  }
+}

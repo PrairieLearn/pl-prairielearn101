@@ -1,0 +1,25 @@
+<pl-question-panel>
+<markdown>
+Based on your answers to the previous questions, order the following steps correctly
+to follow the Arrange -- Act -- Assert pattern.
+Note that more than one ordering may be correct.
+</markdown>
+
+</pl-question-panel>
+
+<pl-order-blocks answers-name="a"
+                 grading-method="dag"
+                 source-blocks-order="random"
+                 feedback="first-wrong"
+                 solution-placement="right">
+  <pl-answer tag="h1">Happy path: Initialize valid gift card with non-negative balance</pl-answer>
+  <pl-answer tag="h2" depends="h1">Try a withdrawal that is less than or equal to the balance</pl-answer>
+  <pl-answer tag="h3" depends="h2">Verify withdrawal succeeds</pl-answer>
+  <pl-answer tag="h4" depends="h2">Verify that gift card balance is reduced by amount of withdrawal</pl-answer>
+  <pl-answer tag="s1">Sad path: Initialize valid gift card with non-negative balance</pl-answer>
+    <pl-answer tag="s2" depends="s1">Try a withdrawal that exceeds the balance</pl-answer>
+    <pl-answer tag="s3" depends="s2">Verify withdrawal fails</pl-answer>
+    <pl-answer tag="s4" depends="s2">Verify that gift card balance is not changed</pl-answer>
+  </pl-block-group>
+
+</pl-matching>

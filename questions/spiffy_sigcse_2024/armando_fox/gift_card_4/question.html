@@ -1,0 +1,71 @@
+<!-- AUTO-GENERATED FILE -->
+<pl-question-panel>
+<markdown>
+
+# Part 4 of 5: Using a double to handle a call to a helper method
+  
+Take a look `Customer` below and in particular at the `pay` method, which is the
+subject of the next set of tests that you will construct.
+
+```ruby
+class Customer
+  attr_accessor :name, :gift_card
+  def initialize(name, gift_card=nil)
+    @gift_card = gift_card
+    @name = name
+  end
+  def pay(amount)
+    if gift_card.withdraw(amount)
+      self.notify("payment successful")
+    else
+      self.notify("purchase cannot be completed")
+    end
+  end
+end
+```
+
+The new challenge in testing `#pay` is that it calls an instance method of another
+class (`GiftCard#withdraw`). In this case we know all about the behavior of that 
+method, but if we don't know the details of how it works, or -- even worse -- if it's
+temporarily broken, we don't want our tests to fail just because `#withdraw` is failing.
+So we use test doubles to isolate the `Customer` tests from the behavior of `GiftCard`.  
+  
+If you look at `Customer#pay`, the only behavior of `#withdraw` we really care about 
+is whether it returns a truthy value or falsy value, since that determines what happens next. 
+This challenge guides you through building a single test case in which we construct a 
+_test double_ for a gift card.  The `double` is an object that has no built-in behaviors,
+so it must be given just enough behavior to be useful for this test case. 
+
+We use `allow` to say "If the double gets a call to withdraw, it should return true". 
+Similarly, if `#pay` is working correctly, the result of a successful withdrawal should be
+a call to `Customer#notify` with a happy message.  Note that in this case, `Customer#notify`
+hasn't even been implemented!  By saying that we expect to receive a call to it with a
+particular argument, we basically "short-circuit" the real method call.  This further
+isolates our test case from other methods, even those in `Customer` itself.
+
+In this question, construct a test that verifies:
+* a payment from a Customer has a giftcard with sufficient balance notifies the customer of the successful transaction
+---
+</markdown>
+
+</pl-question-panel>
+<!-- see README for where the various parts of question live -->
+
+<pl-faded-parsons format="no-code" language="ruby">
+<pre-text>
+describe Customer do
+  it 'notifies the customer of a successful payment' do
+</pre-text>
+<code-lines>
+  @loaded_gift_card = double('gift_card') #0given
+  allow(@loaded_gift_card).to receive(:!BLANK).and_return(true)
+  @customer = !BLANK.new('Student', @loaded_gift_card)
+  expect(!BLANK).to receive(:!BLANK).with("payment successful")
+  @customer.!BLANK(10)
+</code-lines>
+<post-text>
+  end
+end
+
+</post-text>
+</pl-faded-parsons>

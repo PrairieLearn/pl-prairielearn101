@@ -1,0 +1,16 @@
+{
+    "name": "csxxx-fpp-devcontainer",
+	"build": { "dockerfile": "Dockerfile" },
+	"workspaceFolder": "/pl-ucb-csxxx",
+
+    "postCreateCommand": "sudo rm -rf /pl-ucb-csxx/elements/pl-faded-parsons; sudo cp -r /workspaces/pl-faded-parsons/ /pl-ucb-csxxx/elements/pl-faded-parsons/ && sudo chown -R codespace /pl-ucb-csxxx/elements/pl-faded-parsons/ && git config --global --add safe.directory /pl-ucb-csxxx/elements/pl-faded-parsons",
+    "postAttachCommand" : "export HOST_JOBS_DIR=/tmp/pl_jobqueue && sudo docker run -it --rm -p 3000:3000 -v $HOST_JOBS_DIR:/jobs -v /pl-ucb-csxxx/:/course -v /var/run/docker.sock:/var/run/docker.sock prairielearn/prairielearn:latest",
+    // This command runs the current deployment at Berkeley
+    // "postAttachCommand" : "export HOST_JOBS_DIR=/tmp/pl_jobqueue && sudo docker run -it --rm -p 4000:3000 -v $HOST_JOBS_DIR:/jobs -v /pl-ucb-csxxx/:/course -v /var/run/docker.sock:/var/run/docker.sock ucbcbt/ucb-prairielearn:latest",
+
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {},
+        // "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    }
+}
