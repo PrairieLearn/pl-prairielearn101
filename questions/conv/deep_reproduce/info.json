@@ -1,9 +1,9 @@
 {
     "uuid": "6aa36b4f-5d94-444b-b16e-3bb8daa49821",
-    "title": "Beauty coefficients in the 'Beauty in the Classroom' case study",
-    "topic": "Linear regression",
+    "title": "Deep Neural Nets: 33 years ago and 33 years from now",
+    "topic": "Convolutional neural networks",
     "tags": [
-        "mkahn",
+        "ffund",
         "sp24",
         "colab lesson",
         "extra credit quiz"
