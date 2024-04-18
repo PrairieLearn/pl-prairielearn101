@@ -1,0 +1,22 @@
+<pl-answer-panel>
+<p>In the "beauty in the classroom" case study, when we included all of the "beauty" features in the model, 
+<ul>
+    <li>each of the coefficients associated with an individual student's attractiveness ranking - <tt>'bty_f1lower', 'bty_f1upper', 'bty_f2upper', 
+    'bty_m1lower', 'bty_m1upper', 'bty_m2upper'</tt> - was approximately <b>7</b>,</li>
+    <li>while the coefficient associated with the average of the six attractiveness rankings was <b>-42</b>.</li>
+</ul>  </p>
+<p>With reference to the observation above, which of the following statements is true? Select all that apply.</p>
+</pl-answer-panel>
+
+<pl-hide-in-panel answer="true">
+
+<pl-checkbox number-answers="3" answers-name="tf" weight="1">
+  <pl-answer correct="true">The unusual coefficients are explained by collinearity of these features.</pl-answer>
+  <pl-answer correct="true">When we train the model with only <tt>bty_avg</tt> and none of the individual scores, the coefficient for <tt>bty_avg</tt> is a very small positive value, suggesting a very small positive association between physical attractiveness and teaching evaluation scores.</pl-answer>
+  <pl-answer>When we train the model with only <tt>bty_avg</tt> and none of the individual scores, the coefficient for <tt>bty_avg</tt> is still approximately -42.</pl-answer>
+  <pl-answer>The coefficient for <tt>bty_avg</tt> is very different from the coefficients for the individual attractiveness ratings because they are measured on different scales.</pl-answer>
+  <pl-answer>Overall, this suggests that increased physical attractiveness has a negative association with teaching evaluation scores - a more attractive instructor would have lower evaluation scores, on average.</pl-answer>
+  <pl-answer>These coefficients are a red flag suggesting possible data leakage - the model may be learning from data that would not be available to it at inference time.</pl-answer>
+</pl-checkbox>
+
+</pl-hide-in-panel>
