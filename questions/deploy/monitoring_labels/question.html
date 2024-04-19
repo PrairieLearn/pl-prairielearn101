@@ -7,7 +7,7 @@
 <pl-checkbox answers-name="monitor" hide-letter-keys="true" number-answers="3">
     {{#params.correct}}
   <pl-answer correct="true">{{.}}</pl-answer>
-    {{/params.incorrect}}
+    {{/params.correct}}
     {{#params.incorrect}}
   <pl-answer correct="false">{{.}}</pl-answer>
     {{/params.incorrect}}
