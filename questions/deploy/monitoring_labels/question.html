@@ -1,11 +1,12 @@
 <pl-question-panel>
-  <p>The following are ways to reduce prediction serving latency. Match each to approach to a disadvantage of that approach.</p>
+  <p>To monitor the performance of a model in production, we typically want to compare "true" labels to the label assigned by the model. What are some disadvantages of the methods we discussed for getting the "true" labels?</p>
 </pl-question-panel>
 
 <pl-matching answers-name="string_value">
-  <pl-statement match="Makes computation more costly">Use hardware acceleration e.g. GPU rather than CPU</pl-statement>
-  <pl-statement match="May have worse error performance">Use a smaller model, or reduce the size of a big model (e.g. by pruning or knowledge distillation)</pl-statement>
-  <pl-statement match="Not ideal for model privacy">Run inference on an edge device, rather than in a cloud</pl-statement>
+  <pl-statement match="Not available in production for many problems">Use "natural" ground truth labels (e.g. predict waiting time for a restaurant delivery, then measure the actual waiting time)</pl-statement>
+  <pl-statement match="Low response rate">Ask user for explicit feedback on the prediction (e.g. thumbs up or thumbs down on a translation)</pl-statement>
+  <pl-statement match="Low response rate">Look for implicit feedback on the prediction (e.g. thumbs up or thumbs down on a translation)</pl-statement>
+  <pl-statement match="Not ideal for model privacy">Use a "held out" set on which the model action is not applied, and look for </pl-statement>
   <pl-option>May be affected by the performance of the communication network over which data and results are transmitted</pl-option>
   <pl-option>Less preferred for user data privacy</pl-option>
 </pl-matching>
