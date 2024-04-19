@@ -1,11 +1,11 @@
 {
     "uuid": "bbc0f520-5749-4d4f-94f9-cec1146f0130",
-    "title": "Tradeoffs with reducing latency",
+    "title": "Getting labels for monitoring in production",
     "topic": "Deployment",
     "singleVariant": true,
     "tags": [
         "ffund",
-        "fa23",
+        "sp24",
         "matching",
         "real-world",
         "no-compute"
