@@ -1,7 +1,17 @@
 <pl-question-panel>
-  <p>To monitor the performance of a model in production, we typically want to compare "true" labels to the label assigned by the model. What are some disadvantages of the methods we discussed for getting the "true" labels?</p>
+    <p>You are working as part of a team that is developing a machine learning model to {{params.scenario}}.</p>
+    <p>To monitor the model performance in production, your team plans to {{params.approach}}.</p>
+    <p>What are some concerns you might raise with respect to this proposed approach?</p>
 </pl-question-panel>
 
+<pl-checkbox answers-name="monitor">
+    {{#params.correct}}
+  <pl-answer correct="true">{{.}}</pl-answer>
+    {{/params.incorrect}}
+    {{#params.incorrect}}
+  <pl-answer correct="false">{{.}}</pl-answer>
+    {{/params.incorrect}}
+</pl-checkbox>
 <pl-matching answers-name="string_value">
   <pl-statement match="Not available in production for many problems">Use "natural" ground truth labels (e.g. predict waiting time for a restaurant delivery, then measure the actual waiting time)</pl-statement>
   <pl-statement match="Low response rate">Ask user for explicit feedback on the prediction (e.g. thumbs up or thumbs down on a translation)</pl-statement>
