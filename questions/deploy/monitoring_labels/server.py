@@ -9,7 +9,7 @@ def generate(data):
         },
         {'scenario': "decide which applicants should be approved for a one year bank loan", 'approach': "check whether approved applicants have paid back the loan at the end of the one-year loan period",
         'correct': ["The proposed approach only applies to positive samples, no feedback is available for predicted negative samples", "The proposed approach only applies to those who accept the terms of the loan, no feedback is available for those who are approved but decline the offer"],
-        'incorrect': ["The response rate is likely to be low", "The inferred label is not a reliable indicator"]
+        'incorrect': ["The response rate is likely to be low", "The inferred label is not a reliable indicator of the quality of the prediction"]
         }
         
         
