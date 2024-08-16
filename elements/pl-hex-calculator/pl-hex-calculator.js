@@ -293,7 +293,7 @@ class OperationController {
         } else {
             window.addEventListener('DOMContentLoaded', (e) => {
                 new CalculatorController(uuid)
-            }, { once: true });
+            });
         }
     }
 }
@@ -590,7 +590,7 @@ class CalculatorController {
             // Initialize calculator as soon as everything we need is loaded
             window.addEventListener('DOMContentLoaded', (e) => {
                 new CalculatorController(uuid)
-            }, { once: true });
+            });
         }
     }
 }
@@ -601,4 +601,4 @@ var ready = false;
 
 window.addEventListener('DOMContentLoaded', (e) => {
     ready = true
-}, { once: true });
+});
