@@ -5,7 +5,8 @@
     "singleVariant": true,
     "tags": [
         "rlawrence",
-         "Demo"
+        "Demo"
     ],
-    "type": "v3"
+    "type": "v3",
+    "sharedPublicly": true
 }

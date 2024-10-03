@@ -2,6 +2,11 @@
     "uuid": "f8e21b63-8eb5-4b35-b8bd-d64989c50285",
     "title": "Media Playback Delay",
     "topic": "Multimedia",
-    "tags": ["multimedia", "voip", "jonatan"],
-    "type": "v3"
+    "tags": [
+        "multimedia",
+        "voip",
+        "jonatan"
+    ],
+    "type": "v3",
+    "sharedPublicly": true
 }

@@ -10,5 +10,6 @@
         "SIGCSE 2024"
     ],
     "type": "v3",
-    "singleVariant": true
+    "singleVariant": true,
+    "sharedPublicly": true
 }

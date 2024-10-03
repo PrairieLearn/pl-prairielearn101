@@ -3,7 +3,9 @@
     "title": "Position of Particle in Time",
     "topic": "C",
     "tags": [
-      "jonatan", "worksheet", "random"
+        "jonatan",
+        "worksheet",
+        "random"
     ],
     "type": "v3",
     "gradingMethod": "External",
@@ -12,5 +14,6 @@
         "image": "prairielearn/grader-c",
         "timeout": 100,
         "entrypoint": "python3 /grade/tests/lab1_test.py"
-    }
+    },
+    "sharedPublicly": true
 }
