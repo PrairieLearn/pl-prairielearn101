@@ -1,18 +1,20 @@
 {
-    "uuid": "456da511-1ce7-478a-9b9c-210a5dd21362",
-    "title": "Linked Lists - Remove element",
-    "topic": "Dynamic Memory",
-    "tags": [
-        "linkedlist",
-        "jonatan", "worksheet"
-    ],
-    "type": "v3",
-    "singleVariant": true,
-    "gradingMethod": "External",
-    "externalGradingOptions": {
-        "enabled": true,
-        "image": "prairielearn/grader-c",
-        "timeout": 100,
-        "entrypoint": "python3 /grade/tests/test.py"
-    }
+  "uuid": "456da511-1ce7-478a-9b9c-210a5dd21362",
+  "title": "Linked Lists - Remove element",
+  "topic": "Dynamic Memory",
+  "tags": [
+    "linkedlist",
+    "jonatan",
+    "worksheet"
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "prairielearn/grader-c",
+    "timeout": 100,
+    "entrypoint": "python3 /grade/tests/test.py"
+  },
+  "sharedPublicly": true
 }

@@ -3,7 +3,8 @@
   "title": "Finding information about PATH",
   "topic": "Linux",
   "tags": [
-    "jonatan", "linux"
+    "jonatan",
+    "linux"
   ],
   "type": "v3",
   "singleVariant": true,
@@ -13,5 +14,6 @@
     "image": "python:3.10",
     "entrypoint": "python /grade/tests/grade.py",
     "timeout": 2
-  }
+  },
+  "sharedPublicly": true
 }

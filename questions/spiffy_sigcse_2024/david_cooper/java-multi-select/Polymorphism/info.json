@@ -1,11 +1,12 @@
 {
-    "uuid": "9d75c2a8-5929-4ec7-897f-7c99d5e1d341",
-    "title": "Polymorphism",
-    "topic": "Inheritance",
-    "type": "v3",
-    "partialCredit": true,
-    "tags": [
-        "dcooper@wcupa.edu",
-        "inheritance"
-    ]
+  "uuid": "9d75c2a8-5929-4ec7-897f-7c99d5e1d341",
+  "title": "Polymorphism",
+  "topic": "Inheritance",
+  "type": "v3",
+  "partialCredit": true,
+  "tags": [
+    "dcooper@wcupa.edu",
+    "inheritance"
+  ],
+  "sharedPublicly": true
 }

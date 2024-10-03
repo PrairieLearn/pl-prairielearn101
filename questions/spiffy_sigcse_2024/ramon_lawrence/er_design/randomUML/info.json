@@ -1,8 +1,8 @@
 {
-    "uuid": "6f700aa7-604c-412e-b815-9c5a15799ad5",
-    "title": "Random UML Generation",
-    "topic": "ER",
-    "tags": [
-    ],
-    "type": "v3"
+  "uuid": "6f700aa7-604c-412e-b815-9c5a15799ad5",
+  "title": "Random UML Generation",
+  "topic": "ER",
+  "tags": [],
+  "type": "v3",
+  "sharedPublicly": true
 }

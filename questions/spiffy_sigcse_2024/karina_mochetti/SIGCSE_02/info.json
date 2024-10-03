@@ -1,9 +1,10 @@
 {
-    "uuid": "879d79ef-7955-4888-88d2-84c5f082765e",
-    "title": "Proof an Argument is a Contradiction",
-    "topic": "",
-    "tags": [
-        "sigcse"
-    ],
-    "type": "v3"
+  "uuid": "879d79ef-7955-4888-88d2-84c5f082765e",
+  "title": "Proof an Argument is a Contradiction",
+  "topic": "",
+  "tags": [
+    "sigcse"
+  ],
+  "type": "v3",
+  "sharedPublicly": true
 }

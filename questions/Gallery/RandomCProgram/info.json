@@ -1,16 +1,19 @@
 {
-    "uuid": "45d6da79-f053-41c6-9bc9-72dd7fd19057",
-    "title": "Position of Particle in Time",
-    "topic": "C",
-    "tags": [
-      "jonatan", "worksheet", "random"
-    ],
-    "type": "v3",
-    "gradingMethod": "External",
-    "externalGradingOptions": {
-        "enabled": true,
-        "image": "prairielearn/grader-c",
-        "timeout": 100,
-        "entrypoint": "python3 /grade/tests/lab1_test.py"
-    }
+  "uuid": "45d6da79-f053-41c6-9bc9-72dd7fd19057",
+  "title": "Position of Particle in Time",
+  "topic": "C",
+  "tags": [
+    "jonatan",
+    "worksheet",
+    "random"
+  ],
+  "type": "v3",
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "prairielearn/grader-c",
+    "timeout": 100,
+    "entrypoint": "python3 /grade/tests/lab1_test.py"
+  },
+  "sharedPublicly": true
 }
