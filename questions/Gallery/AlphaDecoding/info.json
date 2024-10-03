@@ -2,6 +2,11 @@
     "uuid": "824248c2-cbec-4e9c-b369-42479f2838ba",
     "title": "Monoalphabetic Cipher Decryption",
     "topic": "Security",
-    "tags": ["security", "cryptography", "jonatan"],
-    "type": "v3"
+    "tags": [
+        "security",
+        "cryptography",
+        "jonatan"
+    ],
+    "type": "v3",
+    "sharedPublicly": true
 }

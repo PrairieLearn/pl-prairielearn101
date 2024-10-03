@@ -1,17 +1,19 @@
 {
-  "uuid": "164fe9f4-66e9-4e07-b097-8fb642a24a0f",
-  "title": "Finding information about PATH",
-  "topic": "Linux",
-  "tags": [
-    "jonatan", "linux"
-  ],
-  "type": "v3",
-  "singleVariant": true,
-  "gradingMethod": "External",
-  "externalGradingOptions": {
-    "enabled": true,
-    "image": "python:3.10",
-    "entrypoint": "python /grade/tests/grade.py",
-    "timeout": 2
-  }
+    "uuid": "164fe9f4-66e9-4e07-b097-8fb642a24a0f",
+    "title": "Finding information about PATH",
+    "topic": "Linux",
+    "tags": [
+        "jonatan",
+        "linux"
+    ],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "python:3.10",
+        "entrypoint": "python /grade/tests/grade.py",
+        "timeout": 2
+    },
+    "sharedPublicly": true
 }

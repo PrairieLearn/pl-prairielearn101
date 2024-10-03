@@ -2,6 +2,11 @@
     "uuid": "9e8afc54-70ca-47e9-b35d-27e186b53898",
     "title": "Caesar-Cipher Statistical Analysis",
     "topic": "Security",
-    "tags": ["security", "cryptography", "jonatan"],
-    "type": "v3"
+    "tags": [
+        "security",
+        "cryptography",
+        "jonatan"
+    ],
+    "type": "v3",
+    "sharedPublicly": true
 }
