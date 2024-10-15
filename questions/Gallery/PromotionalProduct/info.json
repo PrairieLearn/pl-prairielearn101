@@ -18,5 +18,5 @@
         "timeout": 100,
         "entrypoint": "autograder.sh"
     },
-    "sharedPublicly": true
+    "sharePublicly": true
 }

@@ -15,5 +15,5 @@
         "timeout": 100,
         "entrypoint": "python3 /grade/tests/lab1_test.py"
     },
-    "sharedPublicly": true
+    "sharePublicly": true
 }

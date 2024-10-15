@@ -15,5 +15,5 @@
         "entrypoint": "python /grade/tests/grade.py",
         "timeout": 2
     },
-    "sharedPublicly": true
+    "sharePublicly": true
 }

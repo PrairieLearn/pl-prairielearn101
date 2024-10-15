@@ -20,5 +20,5 @@
         ],
         "enableNetworking": true
     },
-    "sharedPublicly": true
+    "sharePublicly": true
 }
