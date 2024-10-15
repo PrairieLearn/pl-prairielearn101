@@ -4,8 +4,8 @@
     "topic": "ER",
     "singleVariant": true,
     "tags": [
-         "Demo"
+        "Demo"
     ],
-    "type": "v3"
+    "type": "v3",
+    "sharePublicly": true
 }
-

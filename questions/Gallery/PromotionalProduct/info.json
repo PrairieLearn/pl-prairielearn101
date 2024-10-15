@@ -4,7 +4,11 @@
     "title": "Overriding Methods",
     "topic": "Polymorphism",
     "tags": [
-        "jonatan", "york", "polymorphism", "java", "autograder"
+        "jonatan",
+        "york",
+        "polymorphism",
+        "java",
+        "autograder"
     ],
     "singleVariant": true,
     "gradingMethod": "External",
@@ -13,5 +17,6 @@
         "image": "prairielearn/grader-java",
         "timeout": 100,
         "entrypoint": "autograder.sh"
-    }
+    },
+    "sharePublicly": true
 }

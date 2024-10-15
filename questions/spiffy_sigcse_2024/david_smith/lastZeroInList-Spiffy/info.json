@@ -17,5 +17,6 @@
             "gpt_c_autograder/"
         ],
         "enableNetworking": true
-    }
+    },
+    "sharePublicly": true
 }

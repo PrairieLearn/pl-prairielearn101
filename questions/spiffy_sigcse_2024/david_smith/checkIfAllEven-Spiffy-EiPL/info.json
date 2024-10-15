@@ -19,5 +19,6 @@
             "gpt_python_autograder/pltest.py"
         ],
         "enableNetworking": true
-    }
+    },
+    "sharePublicly": true
 }
