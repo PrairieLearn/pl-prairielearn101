@@ -1,11 +1,11 @@
 import sys
-sys.path.insert(0, '/course/serverFilesCourse')
-import scratch
 
 def generate(data):
     pass
 
 def parse(data):
+    sys.path.insert(0, data['options']['server_files_course_path'])
+    import scratch
     scratch.parse(data, 'scratch3.sb3')
 
 def grade(data):
