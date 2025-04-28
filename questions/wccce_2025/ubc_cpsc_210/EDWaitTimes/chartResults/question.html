@@ -1,0 +1,27 @@
+<pl-question-panel>
+    <p>
+        Now, before we begin on the next stage, let's walk through how we can run the tool we have built so far.
+        First, go to the <code>src/main/ui</code> directory and open the <code>Main</code> class.
+        Run the main method from there, and you should see a new folder be created called <code>charts</code>.
+        Open the folder and open the image file. You should now be able to see the chart produced for average
+        wait times by day of week - cool, right?
+    </p>
+
+    <p>
+        This tool can be really helpful! On the <a href="https://edwaittimes.ca/">edwaittimes.ca</a> website, they say: "Most Emergency Departments are about 10% busier on Mondays.
+        This may be due to the inability for people to get in touch with their physicians over the weekend." Let's compare with
+        the results our tool has produced.
+    </p>
+</pl-question-panel>
+
+<p>Which day of the week has the highest average wait times?</p>
+
+<pl-multiple-choice answers-name="chart-results" fixed-order="true">
+    <pl-answer correct="false">Sunday</pl-answer>
+    <pl-answer correct="false">Monday</pl-answer>
+    <pl-answer correct="true">Tuesday</pl-answer>
+    <pl-answer correct="false">Wednesday</pl-answer>
+    <pl-answer correct="false">Thursday</pl-answer>
+    <pl-answer correct="false">Friday</pl-answer>
+    <pl-answer correct="false">Saturday</pl-answer>
+</pl-multiple-choice>

@@ -1,0 +1,33 @@
+{
+  "uuid": "64f4b02d-1bf5-4ec8-8005-4c07aeb673e6",
+  "title": "Puppy Game - Testing and Implementation",
+  "topic": "Abstraction",
+  "tags": [
+    "Lab"
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "workspaceOptions": {
+    "image": "ubcpl/cpsc210:latest",
+    "port": 8080,
+    "args": "--disable-getting-started-override --disable-file-downloads --disable-telemetry",
+    "home": "/home/coder/prairielearn/project/JavaProject/src",
+    "enableNetworking": true,
+    "gradedFiles": [
+        "main/model/Game.java",
+        "main/model/GameLevel.java",
+        "main/model/Player.java",
+        "main/model/Puppy.java",
+        "main/model/PuppyCaller.java",
+        "main/model/WordList.java",
+        "test/model/PuppyCallerTest.java"
+    ]
+  },
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "ubcpl/cpsc210:grader_latest",
+    "entrypoint": "/javagrader/scripts/shell/autograder-pl.sh",
+    "timeout": 120
+  }
+}

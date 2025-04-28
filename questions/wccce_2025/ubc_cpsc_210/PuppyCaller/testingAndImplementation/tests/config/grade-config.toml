@@ -1,0 +1,51 @@
+# Grader Configuration File
+
+debug = false
+
+[checkstyle]
+active = true
+must-pass = true
+
+[student-code]
+application-code-required = true
+tests-required = true
+
+	[student-code.code-coverage]
+	active = true
+	weight = 0.1
+	branch-sub-weight = 0.3
+
+[reference-tests]
+available = true
+max-hints = 3
+weight = 0.5
+
+[bug-detection]
+active = true
+weight = 0.4
+hints = true
+jar-prefix = "PuppyCaller-"
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-callPuppyNoReset"
+    weight = 0.165
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-constructorCreatesDefault"
+    weight = 0.165
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-findPuppyMultipleFail"
+    weight = 0.165
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-findPuppyOnlyChecksFirst"
+    weight = 0.165
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-handleInputCurrentPuppyNotUpdated"
+    weight = 0.165
+
+    [[bug-detection.sub-weights]]
+    jar = "PuppyCaller-handleInputNoCallOnFirstMatch"
+    weight = 0.175

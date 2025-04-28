@@ -1,0 +1,24 @@
+# Grader Configuration File
+
+debug = false
+
+[checkstyle]
+active = true
+must-pass = true
+
+[student-code]
+application-code-required = true
+tests-required = true
+
+	[student-code.code-coverage]
+	active = true
+	weight = 0.3
+	branch-sub-weight = 0.3
+
+[reference-tests]
+available = true
+max-hints = 3
+weight = 0.7
+
+[bug-detection]
+active = false

@@ -1,0 +1,76 @@
+<pl-question-panel>
+    <h4>Growth</h4>
+
+    <p><i>The below section is for extra practice, is not required, and is <b>not</b> graded.</i></p>
+
+    <p>
+        Did you have fun, want to take this project further, or get more practice with CPSC 210 material? In software development,
+        a project is rarely ever 'done' - there's almost always more to improve or add, and this project is no exception. See
+        below for some extra <b>ungraded</b> activities for this question:
+    </p>
+
+    <ul>
+        <li>
+            After a closer look at the wait time records, we found that we want to exclude some data from our analysis. After March 20th,
+            a bug was introduced to our data scraper, causing the wait times to be malformed. Specifically, we only want to look at
+            any wait times before March 20th, 2024. Can you update the project to exclude this data and report whether any of the trends
+            you found before changed? (This is just a hypothetical. We didn't really introduce a bug on that day! 😄)
+
+            <ul>
+                <li><b>Difficulty:</b> Easy</li>
+                <li><b>Time:</b> ~10-30min</li>
+                <li><b>Related Concepts:</b> Dates, Code Reading, Conditional Logic</li>
+                <li><b>Useful References:</b> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html#after-java.util.Date-">Date.after(Date) reference</a></li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            We presented the results, but our grant funders are only interested in UBC Hospital's data (shocking)! Can we only
+            look at wait times recorded at UBC (where the hospital's name is "UBCH") and report whether any of the trends you found changed?
+
+            <ul>
+                <li><b>Difficulty:</b> Easy</li>
+                <li><b>Time:</b> ~10-30min</li>
+                <li><b>Related Concepts:</b> Conditional Logic</li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            We just made two changes to filter data, and it looks like we may get more requests for filtering. Can you come up with a good design to improve the
+            cohesion of the calculator class and extract filtering? Try implementing the new design with a type hierarchy and
+            support both the date-based and UBC hospital filters above.
+
+            <ul>
+                <li><b>Difficulty:</b> Medium</li>
+                <li><b>Time:</b> ~30-45min</li>
+                <li><b>Related Concepts:</b> Design, Cohesion, Predicates, Type Hierarchies, Refactoring</li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            A statistician gave us feedback that our bar chart is oversimplified, reducing the wait times to averages without
+            showing their distribution. Can you update our project to use a BoxPlot instead and report any new findings?
+
+            <ul>
+                <li><b>Difficulty:</b> Hard</li>
+                <li><b>Time:</b> 45min+</li>
+                <li><b>Related Concepts:</b> Lists, Using Libraries, Code Reading, Modifying existing code</li>
+                <li><b>Useful References:</b> <a href="https://github.com/knowm/XChart?tab=readme-ov-file#boxchart">XChart's documentation</a></li>
+            </ul>
+
+            <br />
+        </li>
+    </ul>
+
+    <p>
+        If you implement any of these extras (or anything else!), please share your results with us on the discussion forum!
+        We'd love to see what you come up with. If possible, create a short video/screencast. This will help us a lot in making
+        this question better in the future!
+    </p>
+</pl-question-panel>
