@@ -12,7 +12,7 @@
     "allowAccess": [
         {
             "credit": 100,
-            "mode": "Public",
+            "mode": "Public"
         },
         {
             "comment": "show in schedule and avoid accidental release of info",
