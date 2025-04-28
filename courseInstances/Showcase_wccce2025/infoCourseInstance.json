@@ -1,5 +1,12 @@
 {
     "uuid": "c6ff15ad-7dc3-430d-88a7-abe2327a45f4",
     "longName": "Showcase - WCCCE 2025",
-    "allowAccess": []
+    "hideInEnrollPage": true,
+    "allowAccess": [
+	{
+            "startDate": "2025-04-26T00:00:01",
+	    "endDate": "2400-05-13T23:59:59",
+	    "institution": "Any"
+	}
+    ]
 }
