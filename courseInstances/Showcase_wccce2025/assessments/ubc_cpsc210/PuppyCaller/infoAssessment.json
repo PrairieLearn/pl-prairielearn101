@@ -25,16 +25,16 @@
         {
             "questions": [
                 {
-                    "id": "labs/lab5-PuppyGame/introduction",
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/introduction",
                     "points": 0
                 },
                 {
-                    "id": "labs/lab5-PuppyGame/testingAndImplementation",
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/testingAndImplementation",
                     "autoPoints": 75,
                     "manualPoints": 25
                 },
                 {
-                    "id": "labs/lab5-PuppyGame/growth",
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/growth",
                     "points": 0
                 }
             ]

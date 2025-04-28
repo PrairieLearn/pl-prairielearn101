@@ -26,23 +26,23 @@
             "title": "Code reading exercise",
             "questions": [
                 {
-                    "id": "labs/lab8-WaitTimes/introduction",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/introduction",
                     "points": 0
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/responsibilities",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/responsibilities",
                     "points": 6
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/newGroupingA",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/newGroupingA",
                     "points": 4
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/newGroupingB",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/newGroupingB",
                     "points": 4
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/testing",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/testing",
                     "points": 4
                 }
             ]
@@ -51,16 +51,16 @@
             "title": "Testing and Implementation",
             "questions": [
                 {
-                    "id": "labs/lab8-WaitTimes/chartResults",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/chartResults",
                     "points": 2
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/testingAndImplementation",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/testingAndImplementation",
                     "autoPoints": 55,
                     "manualPoints": 25
                 },
                 {
-                    "id": "labs/lab8-WaitTimes/growth",
+                    "id": "wccce_2025/ubc_cpsc_210/EDWaitTimes/growth",
                     "points": 0
                 }
             ]
