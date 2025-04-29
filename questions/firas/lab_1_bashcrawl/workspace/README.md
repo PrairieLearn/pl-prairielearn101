@@ -5,8 +5,8 @@ This is the file you'll be editing to practice Terminal Commands!
 Here are some useful Terminal Commands
 
 - [`cd`](https://man7.org/linux/man-pages/man1/cd.1p.html) : change directory
-- [`pwd`](https://man7.org/linux/man-pages/man1/pwd.1.html) : print working directory
 - [`cat`](https://man7.org/linux/man-pages/man1/cat.1.html) : display contents of a file
+- [`pwd`](https://man7.org/linux/man-pages/man1/pwd.1.html) : print working directory
 - [`mkdir`](https://man7.org/linux/man-pages/man1/mkdir.1.html): make directory
 - [`mkdir -p`](https://man7.org/linux/man-pages/man1/mkdir.1.html): make directory and create (p)arent directories if they do not exist
 - [`ls`](https://man7.org/linux/man-pages/man1/ls.1.html): list directory contents
