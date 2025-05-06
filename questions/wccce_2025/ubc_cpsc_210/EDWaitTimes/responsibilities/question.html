@@ -1,0 +1,99 @@
+<p>
+    We'll start with comparing how the list of responsibilities we devised at the start
+    are divided between classes in Design A vs Design B. In answering these questions,
+    use the UML diagrams as well as the code for your reference.
+</p>
+
+<div class="card card-body">
+    <p>
+        Looking back at the list of responsibilities, in Design A, which responsibilities does
+        WaitTimesCalculatorA handle?
+    </p>
+
+    <pl-checkbox answers-name="design-a-responsibilities-1" fixed-order="true">
+        <pl-answer correct="false">Representing all the factors</pl-answer>
+        <pl-answer correct="true">Getting information about factors</pl-answer>
+        <pl-answer correct="true">Getting all the possible groups for a given factor</pl-answer>
+        <pl-answer correct="true">Finding the group for a given wait time record</pl-answer>
+        <pl-answer correct="true">Putting a wait time record into its group</pl-answer>
+        <pl-answer correct="true">Finding the average of these groups of wait times</pl-answer>
+    </pl-checkbox>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        In Design A, which responsibilities does WaitTimesGrouping handle?
+    </p>
+
+    <pl-checkbox answers-name="design-a-responsibilities-2" fixed-order="true">
+        <pl-answer correct="true">Representing all the factors</pl-answer>
+        <pl-answer correct="false">Getting information about factors</pl-answer>
+        <pl-answer correct="false">Getting all the possible groups for a given factor</pl-answer>
+        <pl-answer correct="false">Finding the group for a given wait time record</pl-answer>
+        <pl-answer correct="false">Putting a wait time record into its group</pl-answer>
+        <pl-answer correct="false">Finding the average of these groups of wait times</pl-answer>
+    </pl-checkbox>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        In Design B, which responsibilities does WaitTimesCalculatorB handle?
+    </p>
+
+    <pl-checkbox answers-name="design-b-responsibilities-1" fixed-order="true">
+        <pl-answer correct="false">Representing all the factors</pl-answer>
+        <pl-answer correct="false">Getting information about factors</pl-answer>
+        <pl-answer correct="false">Getting all the possible groups for a given factor</pl-answer>
+        <pl-answer correct="false">Finding the group for a given wait time record</pl-answer>
+        <pl-answer correct="true">Putting a wait time record into its group</pl-answer>
+        <pl-answer correct="true">Finding the average of these groups of wait times</pl-answer>
+    </pl-checkbox>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        In Design B, which responsibilities does the GroupingMechanism type hierarchy handle?
+    </p>
+
+    <pl-checkbox answers-name="design-b-responsibilities-2" fixed-order="true">
+        <pl-answer correct="true">Representing all the factors</pl-answer>
+        <pl-answer correct="true">Getting information about factors</pl-answer>
+        <pl-answer correct="true">Getting all the possible groups for a given factor</pl-answer>
+        <pl-answer correct="true">Finding the group for a given wait time record</pl-answer>
+        <pl-answer correct="false">Putting a wait time record into its group</pl-answer>
+        <pl-answer correct="false">Finding the average of these groups of wait times</pl-answer>
+    </pl-checkbox>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        Between these two designs, in your opinion, which of these seem more cohesive? Any answer here will
+        receive full credit.
+    </p>
+
+    <pl-multiple-choice answers-name="cohesive" fixed-order="true">
+        <pl-answer correct="false">Design A</pl-answer>
+        <pl-answer correct="true">Design B</pl-answer>
+        <pl-answer correct="false">No difference between the two</pl-answer>
+    </pl-multiple-choice>
+
+    <pl-hide-in-panel question="true">
+        <p>
+            <b>
+                Although this type of question requires some interpretation of what cohesion means in this context,
+                we can think about how many responsibilities are placed on any single class. Design A gives
+                WaitTimesCalculatorA many responsibilities outside its purpose of being a calculator - such as
+                getting information about factors. Design B, on the other hand, limits its responsibilities as much as
+                possible, being more focused and cohesive.
+            </b>
+        </p>
+    </pl-hide-in-panel>
+</div>

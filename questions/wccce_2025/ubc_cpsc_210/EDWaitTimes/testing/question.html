@@ -1,0 +1,42 @@
+<p>
+    If there were a bug where wait times on Sunday were put into the group for Mondays,
+    which tests would fail in Design A?
+</p>
+
+<pl-checkbox answers-name="failing-tests-design-a">
+    <pl-answer correct="true">WaitTimesCalculatorATest.testWaitTimeGroupingSunday</pl-answer>
+    <pl-answer correct="false">WaitTimesCalculatorATest.testWaitTimeGroupingMonday</pl-answer>
+    <pl-answer correct="true">WaitTimesCalculatorATest.testAddMultipleGroups</pl-answer>
+    <pl-answer correct="true">WaitTimesCalculatorATest.testGetAverageWithGroup</pl-answer>
+    <pl-answer correct="false">WaitTimesCalculatorATest.testRequiredGroupsDayOfWeek</pl-answer>
+    <pl-answer correct="false">None of the tests listed</pl-answer>
+</pl-checkbox>
+
+<hr />
+
+<p>
+    If there were a bug where wait times on Sunday were put into the group for Mondays,
+    which tests would fail in Design B?
+</p>
+
+<pl-checkbox answers-name="failing-tests-design-b">
+    <pl-answer correct="true">DayOfWeekGroupingTest.testSundayGroup</pl-answer>
+    <pl-answer correct="false">DayOfWeekGroupingTest.testMondayGroup</pl-answer>
+    <pl-answer correct="false">WaitTimesCalculatorBTest.testAddWaitMultipleGroups</pl-answer>
+    <pl-answer correct="false">WaitTimesCalculatorBTest.testGetAverageWithGroup</pl-answer>
+    <pl-answer correct="false">DayOfWeekGroupingTest.testRequiredGroupsDayOfWeek</pl-answer>
+    <pl-answer correct="false">None of the tests listed</pl-answer>
+</pl-checkbox>
+
+<hr />
+
+<p>
+    If you were debugging this issue, which design, if any, gives you a clearer indication of
+    what the bug is?
+</p>
+
+<pl-multiple-choice answers-name="debug-insight">
+    <pl-answer correct="false">Design A</pl-answer>
+    <pl-answer correct="true">Design B</pl-answer>
+    <pl-answer correct="false">No difference between the two designs</pl-answer>
+</pl-multiple-choice>

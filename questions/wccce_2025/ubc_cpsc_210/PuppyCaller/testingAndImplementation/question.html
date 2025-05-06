@@ -1,0 +1,209 @@
+<style>
+  .card {
+    margin: 10px 0;
+  }
+
+  hr {
+      margin: 25px 0 20px;
+  }
+
+  .subtitle {
+      color: grey;
+  }
+  div details.pl-hidden-hint { /* Make hints on bug detection stand out more - need strong CSS selector */
+      margin-bottom: 25px;
+      font-size: 1.3rem;
+      background: #f2f2bb;
+      border: 5px solid #ebd86b;
+      display: none; /* Only show hint box when there are test results */
+  }
+
+  /* Only show hint box when there are test results */
+  .pl-external-grader-results + div .pl-hidden-hint {
+      display: block;
+  }
+</style>
+
+<pl-question-panel>
+    <p>The code for this lab is available in the following workspace.</p>
+    <pl-workspace></pl-workspace>
+    <p></p>
+    <p><b>You must not attempt to make any changes to the workspace settings or to install any workspace extensions.</b></p>
+    <h4>Testing</h4>
+    <p>
+        Use the <code>PuppyCallerTest</code> class to design unit tests for the methods in the <code>PuppyCaller</code> class
+        The methods are already roughly ordered from easiest to test to hardest to test. <code>handleInput</code>
+        relies on helpers; so, it is the most complicated to test! Some tips:
+    </p>
+
+    <ul>
+        <li>Consider setting up one or more lists of puppies for tests in your <code>BeforeEach</code> method.</li>
+        <li>Some methods have many cases to consider based on: the state of the selected puppy (whether one is selected and how much typing progress has been made),
+            the length and content of puppy names, and how many puppies there are to choose from!</li>
+        <li>As always, work systematically, draft cases on pen and paper, and ask for help if you're stuck!</li>
+    </ul>
+
+    <p>
+        When you are done, run the tests in the <code>PuppyCallerTest</code> class. Some tests
+        may pass because stubs happen to produce the right value, but many should fail because the game is not yet functional!
+    </p>
+
+    <h4>Manual Testing / Playing the Game</h4>
+
+    <p>
+        Manual testing or "playtesting" is essential in video game development!
+	Playtesting means having a human play the game. Playtesting may focus on players' experience, behaviours that emerge, frustrations, 
+        or even trying to break the game by systematically putting it into "edge cases". This process may reveal new test cases and design insights
+	that update the whole design.
+        In CPSC 210, we often go through the software development process (design, testing, development) and afterwards do only brief manually testing.
+	During this lab, it can be helpful (and fun!)
+        to playtest your work alongside your unit tests as your implementation progresses to see your work in action.
+    </p>
+
+    <p>
+        Play the game by pressing the 'play' button (▶️) on the top right of the workspace editor, across from the file names at the top.
+        If you do not immediately see it when you open the workspace, wait around 45 seconds for the editor to load the project and try opening
+        the <code>Main</code> class in the <code>ui</code> package. If you encounter issues playing the game, verify:
+    </p>
+
+    <ul>
+        <li>Your code compiles - otherwise, the build will close with no error message</li>
+        <li>You selected the window in the editor to type into it, otherwise your input won't be registered</li>
+        <li>You gave enough space to the window/editor to display the game, otherwise the puppies will overlap each other.</li>
+    </ul>
+
+    <h4>Implementation</h4>
+
+    <p>
+        Right now you can play the game, but as the puppies run across the screen, typing their names
+        does nothing. Let's fix that! Complete the implementation of the <code>PuppyCaller</code> class.
+        As you implement methods, more and more of your tests will pass. Try playtesting
+        to see how your code is making the game increasingly playable!
+    </p>
+
+    <p>
+        <b>Note:</b> the rest of the game accesses the <code>PuppyCaller</code> class through the <code>handleInput</code> method.
+        If that method is not implemented, the game remains nonfunctional. So, consider
+        implementing it early! As you do, think about where and how the other methods might be helpful.
+    </p>
+
+    <p>Once you have implemented the whole <code>PuppyCaller</code> class, you should see:</p>
+
+    <ul>
+        <li>All your tests passing - if a test fails, the bug could be in the test or your implementation</li>
+        <li>Your jacoco report has full code coverage for the <code>PuppyCaller</code> class</li>
+        <li>The game is functional - emphasis on the fun!</li>
+    </ul>
+
+    <p>
+        This part can feel difficult, and that's ok! You're solving a challenging problem.
+        Take your time through each method and experiment; use the game as your reference! As always, reach out to the teaching staff for help when you are stuck
+        - we're here to help your learning!
+    </p>
+
+    <h4>Submit to AutoGrader</h4>
+    <p>Ensure that your code passes the checkstyle test before submitting to the auto-grader. When you are satisfied that you have a complete solution to the problem, click
+      the "Save & Grade" button below.</p>
+
+    <p>Your grade will comprise a score from running our reference tests (weighted 50%), a score based on the number of bugs identified when your tests are run against incorrect implementations
+      (weighted 40%) and a score from code coverage (weighted 10%). The code coverage score will be determined from measures of line coverage and branch coverage.</p>
+
+    <p>The grader will provide hints for up to three failing reference tests. These hints may not be that helpful if you haven't already thoroughly explored your own test suite!</p>
+
+</pl-question-panel>
+
+<pl-submission-panel>
+    <pl-external-grader-results></pl-external-grader-results>
+    <pl-hidden-hints>
+        <pl-hint hint-name="Show hints on the bugs in our buggy versions">
+            <p>
+                We are using <em><a href="https://en.wikipedia.org/wiki/Mutation_testing" target="_blank">mutation testing</a></em> as in CPSC 110 in this lab.
+                This means that we run your tests against several flawed implementation of this lab's specification, called mutants.
+                A mutant run against a thorough and correct test suite should cause at least one test to fail.
+                <br>
+                Since we're still new to mutation testing in CPSC 210, here are some tips on what each mutant does wrong.
+                Future labs will likely expect you to build a thorough test suite yourself without these types of hints.
+            </p>
+<markdown>
+- **callPuppyNoReset:** `typeNameForCurrentPuppy` does not update `currentPuppy` after a puppy is called
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/530e95869fb0d7050d00c0f7cd439f33807343f8/src/main/java/model/PuppyCaller.java#L71
+
+This mutant violates the specification of `typeNameForCurrentPuppy`:
+"If the puppy has been called after typing that character, current puppy will be null"
+In the mutated code, `currentPuppy` isn't set to null.
+To catch this bug, students must use `assertEquals` or `assertNull` on the value of `getCurrentPuppy()`
+after calling `typeNameForCurrentPuppy`.
+
+The current hint might be too direct. An alternative that's more vague is:
+- **callPuppyNoReset:** `currentPuppy` is not reset after a puppy is called
+
+By omitting the name of the buggy function, students will have to find it themselves.
+{{/COMMENT}}
+- **constructorCreatesDefault:** constructor initializes `currentPuppy` to an incorrect value
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/ed8fd8a5803669ab5379da62ea04bf62f9db03ac/src/main/java/model/PuppyCaller.java#L34
+
+This mutant violates the specification of `PuppyCaller`'s constructor:
+"creates an instance of this class with no current puppy selected."
+
+Instead, the buggy test sets `currentPuppy` to a bogus value.
+A simple test for the constructor will catch this bug.
+
+I've intentionally left the hint ambiguous as to *which* constructor is incorrect.
+Still, I don't think anyone will struggle with this mutant.
+{{/COMMENT}}
+- **findPuppyMultipleFail:** `findPuppy` produces incorrect output when multiple puppies match the input
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/690ad5a8e40a4865f047824147a9c88738952835/src/main/java/model/PuppyCaller.java#L92
+
+This is a convoluted mutant that exists to make sure students test `findPuppy` in the case where
+multiple puppies match the typed letter.
+It violates the specification of `findPuppy`:
+"returns any puppy in the list whose next character is c"
+
+Students can eliminate this mutant by testing the case where multiple puppies start with the same
+letter.
+{{/COMMENT}}
+- **findPuppyOnlyChecksFirst:** another mutant where `findPuppy` produces incorrect output when there are multiple puppies
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/01d478bbede43f426a57cae5a04ecd2c84be37aa/src/main/java/model/PuppyCaller.java#L83
+
+Similarly to the previous bug, this mutant ensures students test `findPuppy` in cases where there
+is more than one puppy.
+It also violates the specification of `findPuppy`:
+"returns any puppy in the list whose next character is c"
+since it will only check the first.
+
+Students can eliminate this mutant by testing the case where a puppy other than the first matches the
+input letter.
+{{/COMMENT}}
+- **handleInputCurrentPuppyNotUpdated:** `handleInput` does not update `currentPuppy` after a puppy is first selected
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/27db633cdcd6458d703f87ea4eb240c02aa5e009/src/main/java/model/PuppyCaller.java#L136
+
+When no puppy is selected, `handleInput` searches for the next puppy to select and stores it in `currentPuppy`.
+In this bug, the next puppy isn't saved, so `currentPuppy` remains `null`.
+This violates the precondition of `typeNameForCurrentPuppy`, causing a `NullPointerException`.
+Because of the unchecked exception, any student who tests `handleInput` will catch this bug.
+
+The hint is probably redundant, since this bug is so easy to catch.
+Still, I've included it for consistency.
+{{/COMMENT}}
+- **handleInputNoCallOnFirstMatch:** `handleInput` does not "type" a letter when a puppy is first selected
+{{#COMMENT}}
+https://github.students.cs.ubc.ca/CPSC210/Lab4-PuppyCaller/blob/ce9f9fdb069a2edd4d0ba099c4ba4c5a8f49d132/src/main/java/model/PuppyCaller.java#L136
+
+The previous mutant didn't set `currentPuppy`, and called `typeNameForCurrentPuppy`.
+This mutant sets `currentPuppy` when a puppy is initially selected, but doesn't call `typeNameForCurrentPuppy`.
+
+Students can catch this bug by making assertions about the state of the puppy that should have
+been typed, e.g. whether or not it's been called, or what its next letter is.
+
+I think in this case an explicit hint is fine—this is one of the trickier mutants to catch.
+{{/COMMENT}}
+</markdown>
+        </pl-hint>
+    </pl-hidden-hints>
+    <pl-file-preview></pl-file-preview>
+</pl-submission-panel>
