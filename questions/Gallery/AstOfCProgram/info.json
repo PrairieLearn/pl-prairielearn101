@@ -9,7 +9,6 @@
     "externalGradingOptions": {
         "enabled": true,
         "image": "prairielearn/grader-c",
-        "entrypoint": "/grade/tests/test.sh",
-        "serverFilesCourse": ["clang/"]
+        "entrypoint": "/grade/tests/test.py",
     }
 }
