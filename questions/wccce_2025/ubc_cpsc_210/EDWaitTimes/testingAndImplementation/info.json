@@ -1,0 +1,29 @@
+{
+  "uuid": "9fe4a015-d451-4900-89ab-3e0292f0e5fe",
+  "title": "WaitTimes - Testing and Implementation",
+  "topic": "Design",
+  "tags": [
+    "Lab",
+    "Lab 8 WaitTimes"
+  ],
+  "type": "v3",
+  "singleVariant": true,
+  "workspaceOptions": {
+    "image": "ubcpl/cpsc210:latest",
+    "port": 8080,
+    "args": "--disable-getting-started-override --disable-file-downloads --disable-telemetry",
+    "home": "/home/coder/prairielearn/project/JavaProject/src",
+    "enableNetworking": false,
+    "gradedFiles": [
+      "main/model/**",
+      "test/**"
+    ]
+  },
+  "gradingMethod": "External",
+  "externalGradingOptions": {
+    "enabled": true,
+    "image": "ubcpl/cpsc210:grader_latest",
+    "entrypoint": "/javagrader/scripts/shell/autograder-pl.sh",
+    "timeout": 120
+  }
+}

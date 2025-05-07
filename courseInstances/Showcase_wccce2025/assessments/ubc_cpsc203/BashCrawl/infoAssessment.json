@@ -1,0 +1,35 @@
+{
+    "uuid": "52df6d7b-5726-4e8f-9ea4-0b10d8e2d4de",
+    "type": "Homework",
+    "title": "Bashcrawl!",
+    "set": "Activity",
+    "number": "UBC_CPSC203_1",
+    "allowRealTimeGrading": true,
+    "multipleInstance": false,
+    "autoClose": false,
+    "requireHonorCode": false,
+    "allowIssueReporting": false,
+    "allowAccess": [
+        {
+            "credit": 100,
+            "mode": "Public"
+        },
+        {
+            "comment": "show in schedule and avoid accidental release of info",
+            "showClosedAssessment": false,
+            "showClosedAssessmentScore": false,
+            "active": false
+        }
+    ],
+    "zones": [
+        {
+            "title": "Bashcrawl",
+            "questions": [
+                {
+                    "id": "firas/lab_1_bashcrawl",
+                    "points": 0
+                }
+            ]
+        }
+    ]
+}

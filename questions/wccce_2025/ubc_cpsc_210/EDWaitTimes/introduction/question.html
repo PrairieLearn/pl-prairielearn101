@@ -1,0 +1,101 @@
+<pl-question-panel>
+    <p>
+        In this lab, you will be working on an analysis tool that will help us
+        find some interesting trends in emergency room wait times. In British
+        Columbia, many emergency rooms publish wait time information every 5
+        minutes on <a href="https://edwaittimes.ca/">edwaittimes.ca</a>, and 
+        we collected a sample of several weeks of this data to analyse. With this data, you will create
+        a tool that will help us explore how wait times are affected by
+        different factors. An example of question we want to answer is
+        "How are wait times affected by the day of the week?" where the factor is
+        the day of the week.
+    </p>
+
+    <p>
+        We'll do this by grouping the wait times records by
+        some factor. An example group for day of the week would be "Sunday".
+        We will then compare the averages across all groups by producing a bar chart.
+        So far, we are only interested in seeing how wait times differ
+        by day of the week, but we may want to add more in the future.
+    </p>
+
+    <h4>List of Responsibilities</h4>
+
+    <p>
+        In terms of things we need our code to do, we can break it down into a few responsibilities:
+        <ol>
+            <li>
+                Representing all the factors that this tool can group wait times by
+
+                <ul>
+                    <li>For example: by day of week, hour of day, etc.</li>
+                </ul>
+            </li>
+            <li>
+                Getting information about factors
+
+                <ul>
+                    <li>For example: finding the name/label of a factor (e.g. <code>"Day of week"</code>)</li>
+                </ul>
+            </li>
+            <li>
+                Getting all the possible groups for a given factor
+
+                <ul>
+                    <li>
+                        For example, for our first factor (day of week),
+                        all the possible groups are the days of the week: Sunday, Monday, Tuesday, Wednesday, etc.
+                    </li>
+                </ul>
+            </li>
+            <li>Finding the group for a given wait time record</li>
+            <li>Putting a wait time record into its group</li>
+            <li>Finding the average of these groups of wait times</li>
+        </ol>
+    </p>
+
+    <p>
+        We have come up with two designs for this project, and we want to compare them based on how they will
+        support our plans going forward. You can see the UML diagrams for both of these designs below:
+    </p>
+
+    <h4>UML Diagrams</h4>
+
+    <p>
+        <b>Design A:</b>
+        <pl-figure file-name="DesignA.png" directory="clientFilesQuestion"></pl-figure>
+    </p>
+
+    <p>
+        <b>Design B:</b>
+        <pl-figure file-name="DesignB.png" directory="clientFilesQuestion"></pl-figure>
+    </p>
+
+    <p>
+        Both of these designs accomplish the responsibilities we set out above, but these responsibilities are
+        divided into different classes between the two of them. In this lab, we want to work with these two designs, and
+        to be able to compare them.
+    </p>
+
+    <h4>Setup</h4>
+
+    <p>
+        This lab takes some organization and methodological thinking. To get set up to work on this lab, you should have
+        these pages open to easily go between:
+
+        <ul>
+            <li>This page, containing the responsibilities and the UML diagrams for the two designs</li>
+            <li>The question you are working on (next few pages)</li>
+            <li>
+                The workspace on the "Testing and Implementation" question
+
+                <ul>
+                    <li>
+                        On this workspace, you'll find we already implemented these designs and one of the factors!
+                        Make sure to reference the code and specifications to better understand these designs.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </p>
+</pl-question-panel>

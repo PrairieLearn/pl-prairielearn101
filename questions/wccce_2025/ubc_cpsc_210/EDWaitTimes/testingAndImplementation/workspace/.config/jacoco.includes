@@ -1,0 +1,6 @@
+model/designa/WaitTimesCalculatorA.class
+model/designa/WaitTimesGrouping.class
+model/designb/DayOfWeekGrouping.class
+model/designb/GroupingMechanism.class
+model/designb/HourOfDayGrouping.class
+model/designb/WaitTimesCalculatorB.class

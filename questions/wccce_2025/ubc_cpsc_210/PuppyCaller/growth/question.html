@@ -1,0 +1,109 @@
+<style>
+  .card {
+    margin: 10px 0;
+  }
+
+  hr {
+      margin: 25px 0 20px;
+  }
+
+  .subtitle {
+      color: grey;
+  }
+</style>
+
+<pl-question-panel>
+    <h4>Growth</h4>
+
+    <p><i class="subtitle">The below section is for extra practice, is not required, and is <b>not</b> graded.</i></p>
+
+    <p>
+        Did you have fun, want to take this project further, or get more practice with CPSC 210 material? In software development,
+        a project is rarely ever 'done' - there's almost always more to improve or add, and this game is no exception. See
+        below for some extra <b>ungraded</b> activities for the lab:
+    </p>
+
+    <ul>
+        <li>
+            After some playtesting, we found that players often felt confused or frustrated by the case sensitivity in the game.
+            Can you update the game to accept a player's input as correct, even if they enter the wrong case of the expected character?
+            (e.g. typing 'A' instead of 'a' or the other way around)
+
+            <ul>
+                <li><b>Difficulty:</b> Easy</li>
+                <li><b>Time:</b> ~10-30min</li>
+                <li><b>Related Concepts:</b> Conditional Logic</li>
+                <li><b>Useful References:</b> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#toLowerCase-char-">Character.toLowerCase(char)</a></li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            Some players seem to think the game is too easy, and want to make the puppy's progress reset if you type the incorrect character.
+            Can you update the game to require the player to type the name correctly without mistakes to call it?
+
+            <ul>
+                <li><b>Difficulty:</b> Easy</li>
+                <li><b>Time:</b> ~10-30min</li>
+                <li><b>Related Concepts:</b> Control Flow</li>
+                <li><b>Useful References:</b> Puppy's <code>resetProgress</code> method</li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            Players seem to be frustrated by the current behaviour when there are multiple puppies that start with the
+            same character - there does not seem to be a reliable way of knowing which puppy you'll end up selecting!
+            Can you update the game to, when there are multiple puppies with the same character, select the
+            puppy that is closest to the fence?
+
+            <ul>
+                <li><b>Difficulty:</b> Medium</li>
+                <li><b>Time:</b> ~15-45min</li>
+                <li><b>Related Concepts:</b> Control Flow, For-each loops, Conditional Logic</li>
+                <li><b>Useful References:</b> Puppy's <code>getX</code> method</li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            Marketing seems to think the names we chose for the puppies are too dull and would like to see a variety of
+            name lengths in each round. Can you figure out how puppy names are selected,
+            change the names that are selected as well as diversify the name lengths?
+
+            <ul>
+                <li><b>Difficulty:</b> Medium</li>
+                <li><b>Time:</b> ~30-45min</li>
+                <li><b>Related Concepts:</b> Code Comprehension, Lists, File Reading</li>
+            </ul>
+
+            <br />
+        </li>
+
+        <li>
+            We updated the game to select the puppy closest to the fence when there are ties, but players still seem to
+            be getting confused. Our game designer thinks that players should type freely, and only once they exactly match
+            a puppy's name will it be called and the 'typing box' be reset. For example, if there are puppies Alpha, Alcho,
+            and Alfred, I start by typing 'A' and all three puppies are selected. If I continue with 'l', all match and remain selected.
+            Only once I type the third differentiating character will the individual puppy be selected. This will require significant work
+            outside the PuppyCaller class too. Can you make these changes?
+
+            <ul>
+                <li><b>Difficulty:</b> Hard</li>
+                <li><b>Time:</b> 45min or more</li>
+                <li><b>Related Concepts:</b> Refactoring, Conditional Logic, Lists, Code Comprehension</li>
+            </ul>
+
+            <br />
+        </li>
+    </ul>
+
+    <p>
+        If you implement any of these extras (or anything else!), please share your results with us on the discussion forum!
+        We'd love to see what you come up with. If possible, create a short video/screencast. This will help us a lot making
+        this lab better in the future!
+    </p>
+</pl-question-panel>

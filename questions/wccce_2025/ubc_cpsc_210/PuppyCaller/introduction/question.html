@@ -1,0 +1,72 @@
+<style>
+  .card {
+    margin: 10px 0;
+  }
+
+  hr {
+    margin: 25px 0 20px;
+  }
+
+  .subtitle {
+    color: grey;
+  }
+</style>
+
+<pl-question-panel>
+  <h2>Lab 5: PuppyCaller</h2>
+  <h4>Learning Goals</h4>
+  <ul>
+    <li>Given a specification of a moderately complex abstraction,</li>
+    <ul>
+      <li>test the abstraction using jUnit</li>
+      <li>implement the specification</li>
+    </ul>
+    <li>Use appropriate control flow operators (if, for, while, return) in Java</li>
+    <li>Decompose a complex specification into its key test cases</li>
+  </ul>
+
+  <p><strong>To begin, access the lab's source code by opening the workspace in the "Testing and Implementation" question, which you can find by clicking 'Next Question' on the right.</strong></p>
+
+  <h4>Overview</h4>
+
+  <p>
+    In this lab, we are working on a fun typing game "PuppyCaller" that is already in progress. In the game,
+    a farmer is at work with the help of their puppies. Suddenly a loud truck startles the puppies, and they start running away.
+    The farmer must call each puppy by name before they hop the fence! Players play as the farmer,
+    and type puppies' names to call them. Specifically, the game follows this sequence:
+  </p>
+
+  <ol>
+    <li>The player starts calling a puppy by typing the first letter of its name. This 'selects' the puppy.</li>
+    <li>The player must type the rest of its name to call it. Any incorrect input (e.g. typing 'a' when the next letter is 'c' is ignored)</li>
+    <li>Once the player has typed the last character, the puppy is now 'called' and will stop running away. This also unselects the puppy, returning back to step 1.</li>
+  </ol>
+
+  <pl-figure file-name="game-demo.gif" directory="clientFilesQuestion">
+  </pl-figure>
+
+  <br/>
+
+  <p>
+    The game already has a completed console-based user interface and some other functionality, but it is missing a key
+    element: the input handler! In a game, an input handler receives the key(s) the
+    player presses and takes the appropriate action. This is where you come in! You finish the design of the input handler class <code>PuppyCaller</code> based on its
+    specification. Specifically, this includes methods to:
+  </p>
+
+  <ul>
+    <li>Get and set the current selected puppy (useful for tests!)</li>
+    <li>Type the name for the current puppy - corresponding to step 2 and 3 above.</li>
+    <li>Find a puppy whose next character starts with an input character <code>c</code> - helpful for step 1.</li>
+  </ul>
+
+  <p>
+    These pieces come together in the <code>handleInput</code> method, which receives the input from the player's
+    keyboard, and uses the other methods to implement the logic of the game. Take time to
+    understand the specs of the <code>PuppyCaller</code> and the <code>Puppy</code> class before starting! In the <code>model</code> package,
+    you <b>only</b> need to understand these two classes to complete the lab.
+  </p>
+
+  <p>Note that, as usual, you will have to wait 15 minutes between each request for feedback from the auto-grader and that you will not receive a grade if your code fails the checkstyle test.</p>
+  <p></p>
+</pl-question-panel>

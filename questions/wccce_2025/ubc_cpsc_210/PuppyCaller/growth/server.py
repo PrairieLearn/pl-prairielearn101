@@ -1,0 +1,1 @@
+from auto_full_credit import grade

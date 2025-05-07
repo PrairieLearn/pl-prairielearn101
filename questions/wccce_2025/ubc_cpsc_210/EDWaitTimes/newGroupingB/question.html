@@ -1,0 +1,43 @@
+<div class="card card-body">
+    <p>
+        Let's say we wanted to support a new factor to this project, for example supporting grouping by hour of day.
+        Which steps would we <i>have to</i> complete in Design B, and in what order?
+    </p>
+
+    <pl-order-blocks answers-name="new-grouping-steps" grading-method="ranking">
+        <pl-answer correct="true" ranking="1">Create a new class that implements GroupingMechanism</pl-answer>
+        <pl-answer correct="true" ranking="2">Add stubs to the new class</pl-answer>
+        <pl-answer correct="true" ranking="2">Add tests for the new class</pl-answer>
+        <pl-answer correct="true" ranking="3">Implement methods for that new class</pl-answer>
+
+        <pl-answer correct="false">Create a new class that extends WaitTimesCalculatorB</pl-answer>
+        <pl-answer correct="false">Add new tests for WaitTimesCalculatorB</pl-answer>
+        <pl-answer correct="false">Add new exceptions to WaitTimesCalculatorB</pl-answer>
+        <pl-answer correct="false">Skip the final exam</pl-answer>
+    </pl-order-blocks>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        After the first step of this process in Design B, which classes would fail to compile?
+    </p>
+
+    <pl-checkbox answers-name="fail-to-compile">
+        <pl-answer correct="false">WaitTimesCalculatorB</pl-answer>
+        <pl-answer correct="true">The new class we created</pl-answer>
+        <pl-answer correct="false">GroupingMechanism</pl-answer>
+        <pl-answer correct="false">HourOfDayGrouping</pl-answer>
+        <pl-answer correct="false">None of the classes listed</pl-answer>
+    </pl-checkbox>
+
+    <pl-hide-in-panel question="true">
+        <p>
+            <b>
+                Point to think about: Without the stubs, will the new class be able to compile? Is it a good or
+                bad thing that this class will (or will not) be able to compile without filling out these methods?
+            </b>
+        </p>
+    </pl-hide-in-panel>
+</div>

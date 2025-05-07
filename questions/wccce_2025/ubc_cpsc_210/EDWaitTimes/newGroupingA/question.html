@@ -1,0 +1,61 @@
+<div class="card card-body">
+    <p>
+        Let's say we wanted to support a new factor to this project, for example supporting grouping by hour of day.
+        Which steps would we <i>have to</i> complete in Design A, and in what order?
+    </p>
+
+    <pl-order-blocks answers-name="new-grouping-steps" grading-method="ranking">
+        <pl-answer correct="true" ranking="1">Add a new grouping to the enum</pl-answer>
+        <pl-answer correct="true" ranking="2">Add new tests for WaitTimesCalculatorA</pl-answer>
+        <pl-answer correct="true" ranking="2">Modify switch cases and add new code in WaitTimesCalculatorA</pl-answer>
+
+        <pl-answer correct="false">Add new tests for WaitTimesGrouping</pl-answer>
+        <pl-answer correct="false">Add new exceptions to WaitTimesCalculatorA</pl-answer>
+        <pl-answer correct="false">Refactor WaitTimesCalculatorA</pl-answer>
+        <pl-answer correct="false">Skip lecture</pl-answer>
+    </pl-order-blocks>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <p>
+        After the first step of this process in Design A, which classes would fail to compile?
+    </p>
+
+    <pl-checkbox answers-name="fail-to-compile">
+        <pl-answer correct="false">WaitTimesCalculatorA</pl-answer>
+        <pl-answer correct="false">WaitTimesGrouping</pl-answer>
+        <pl-answer correct="false">WaitTimesCalculatorATest</pl-answer>
+        <pl-answer correct="true">None of the classes listed</pl-answer>
+    </pl-checkbox>
+
+    <pl-hide-in-panel question="true">
+        <p>
+            <b>
+                A point to think about: Design A uses an enum to represent the grouping type, and this enum is used
+                in WaitTimesCalculatorA. Will the code that uses this enum stop compiling if a new enum value is added?
+            </b>
+        </p>
+    </pl-hide-in-panel>
+</div>
+
+<br />
+
+<div class="card card-body">
+    <h5 class="card-title">A note on switch statements and code coverage</h5>
+    <markdown>
+In CPSC 110, you were taught to exhaustively cover all values of an enumeration when writing a `cond`. So why is it that in design A, we use the `default:` case
+in a switch statement to handle `HOUR_OF_DAY` instead of `case HOUR_OF_DAY:`?
+
+Although this is generally considered to be **bad design** (imagine if added another `WaitTimesGrouping` in the future),
+it is necessary in the specific context of the Jacoco code coverage tool's behaviour and of our lab to make it possible to achieve 100% code coverage.
+
+If we were to explicitly handle both `DAY_OF_WEEK` and `HOUR_OF_DAY` in the `switch`, the Java compiler would require us to add a `default` case,
+which would be unreachable (and thus untestable).
+
+In larger projects, full code coverage is often not realistic. A threshold is chosen, and new code must meet that threshold.
+However, because of how code coverage impacts your autograder score, any untestable code would make it impossible for you to get 100%,
+which wouldn't be ideal!
+    </markdown>
+</div>

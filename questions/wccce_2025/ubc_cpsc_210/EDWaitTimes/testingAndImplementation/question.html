@@ -1,0 +1,187 @@
+<pl-question-panel>
+    <p>
+        <b>
+            Warning: Working on the implementation before completing the code reading
+            exercise is not recommended as you'll find your work much more guided after understanding
+            the answers to the questions in the exercise.
+        </b>
+    </p>
+
+    <p>
+        Now that you have a grip on the design, you can begin supporting new types of grouping.
+        Start by opening the workspace below:
+    </p>
+
+    <pl-workspace></pl-workspace>
+
+    <p></p>
+    <p><b>You must not attempt to make any changes to the workspace settings or to install any workspace extensions.</b></p>
+
+    <h4>Grouping by Hour of Day</h4>
+    <h5>Testing</h5>
+
+    <p>
+        You will first be supporting grouping by hour of the day for wait times for <b>both</b> designs.
+        This will enable us to see if, on average, there are some hours of the day that have higher
+        wait times than others. Let's start with testing.
+    </p>
+
+    <p>
+        For Design A, we already added the new value to the enum for hour of day (<code>HOUR_OF_DAY</code>)
+        and you should be ready to design tests for this new feature. Design new tests for this new feature.
+    </p>
+
+    <p>
+        For Design B, we already added a new class (<code>HourOfDayGrouping</code> with stubs and <code>HourOfDayGroupingTest</code>)
+        for you to work in. Write new tests for this feature in Design B. After implementing these
+        new tests, you should find most (if not all!) of your tests failing with these stubs.
+    </p>
+
+    <p>
+        Some tips:
+
+        <ol>
+            <li>
+                Look back at your answers to the previous questions - you should be adding tests for classes that have
+                responsibilities relating to <b>factors</b>.
+            </li>
+
+            <li>
+                Unlike <code>Calendar.DAY_OF_WEEK</code>, the value of <code>Calendar.HOUR_OF_DAY</code> goes from 0 to 23 for a 24-hour clock.
+            </li>
+
+            <li>
+                You might want to group your test cases into: midnight (12AM), AM hours (1AM-11AM), noon (12PM), and PM hours (1PM-11PM)
+                to reduce repetition.
+            </li>
+
+            <li>
+                Look at how the day of week functionality was implemented in both designs. Your tests will end up
+                looking very similar!
+            </li>
+        </ol>
+    </p>
+
+    <h5>Implementation</h5>
+
+    <p>
+        Now you have a test suite ready, you can get started confidently implementing the new grouping! Implement the new
+        functionality until all your tests pass. Pick one design to start with and complete it start to finish until your
+        tests for that design pass; then, you can move on to the other design.
+    </p>
+
+    <p>
+        Some tips:
+        <ol>
+            <li>
+                You'll find that most of the code will look awfully similar to the day of week functionality - take
+                advantage of it as a reference!
+            </li>
+
+            <li>
+                The code specific to the hour of the day should be almost the same between the two designs -
+                after all, they implement the same functionality!
+            </li>
+
+            <li>
+                Focus on one class at a time - now that we want to implement this feature, which methods in
+                this class relate to this new feature?
+            </li>
+        </ol>
+    </p>
+
+
+    <h5>Design A: Testing your work visually</h5>
+    <p>
+        To test your work for design A, go to VisualizationGeneratorA and uncomment the line below the comment "UNCOMMENT BELOW". Then, run Main as you did
+        in the code reading exercise. You should now see a new file generated called "Average Wait Times by hour of day.png"
+        - take a look and verify that it makes sense! You should be able to make a clear trend about wait times in the mornings
+        vs noon vs midday. Interesting!
+    </p>
+
+    <h5>Design B: Testing your work visually</h5>
+    <p>
+        To test your work for design B, go to VisualizationGeneratorB and uncomment the line below the comment "UNCOMMENT BELOW". Additionally, update line 21
+        in Main to use VisualizationGeneratorB instead. Now you can follow the same steps as above!
+    </p>
+    <p>Note that achieving an auto-grader score of 100% <i>does not</i> mean your grade for the lab is 100%. Make sure to complete all steps of the lab, as you will receive manual grading from your TA on parts that are not covered by the auto-grader!</p>
+
+    <p><b>Once the auto-grader score shows an overall score of 100%, you have completed the <i>first</i> part of the lab. For full marks, you must complete the next part of the lab!</b></p>
+    <hr >
+
+    <h4>Grouping by Dealer's Choice</h4>
+    <p>
+        You have gained experience with both designs. In this part, we imagine that we will be exploring many new factors to
+        group by, though you'll only actually choose and design one. Your first step, however, is to decide which design you
+        would rather use if you'll be adding many new factors beyond the two already completed. Is Design A or Design B better
+        suited to manage change on this design dimension? Reflect on some of the answers to the code reading exercise, then
+        pick the one you prefer and proceed with it. Be ready to justify your choice!
+    </p>
+
+    <p>
+        Next, choose a factor you'd like to group by - you of course have all the information about the dates
+        available, but you also have the hospital name at your disposal. You should have an idea on what you want your final
+        chart to look like. You'll be sharing this work during manual grading with your TA, so come prepared!
+    </p>
+    <p>
+        If you can't think of a grouping factor, try starting with a question you'd like to answer. Examples include:
+        <ul>
+            <li>Which hospitals have the longest/shortest wait times?</li>
+            <li>Are hospitals busier during the morning, afternoon, evening, or night?</li>
+            <li>Do hospitals have longer wait times on weekdays or on weekends?</li>
+        </ul>
+        Once you've come up with a question, think about how you can solve it by creating a new factor.
+    </p>
+
+    <h5>Testing and Implementation</h5>
+    <p>
+        Design unit tests for this new factor you chose, much like you did for hour-of-day. Make sure to cover sufficient
+        test cases for the various possibilities of your new factor - you will need full code coverage from your tests!
+        Following that, implement the new functionality in the design you chose.
+    </p>
+
+    <h5>If you chose Design A: Testing your work visually</h5>
+    <p>
+        You can now test your new feature visually by adding a line that looks like this to <code>VisualizationGeneratorA</code>
+        in the generateVisualizations method:
+
+    <p>
+        <code>generateVisualizations(recordStream, WaitTimesGrouping.YOUR_NEW_GROUPING_NAME);</code>
+    </p>
+
+    </p>
+
+    <h5>If you chose Design B: Testing your work visually</h5>
+    <p>
+        You can now test your new feature visually by adding a line that looks like this to <code>VisualizationGeneratorB</code>
+        in the generateVisualizations method:
+
+    <p>
+        <code>generateVisualizations(recordStream, new YourNewGroupingClass());</code>
+    </p>
+
+    As you did previously, run Main and check the charts folder. If all goes well, you should see your new chart there!
+    </p>
+
+    <h4>Submit to Autograder</h4>
+    <p>
+        Ensure that your code passes the checkstyle test before submitting to the auto-grader. When you are satisfied that
+        you have a complete solution to the problem, click the "Save & Grade" button below.
+    </p>
+
+    <p>
+        The auto-graded portion of your grade will comprise a score from running our reference tests (weighted 75%) and a score from code coverage
+        (weighted 25%). The code coverage score will be determined from measures of line coverage and branch coverage.
+    </p>
+
+    <p>
+        <b>
+            In order to achieve full marks on this lab, you must complete "Grouping by Dealer's Choice". Be ready to demonstrate your grouping factor to a TA during manual grading.
+        </b>
+    </p>
+</pl-question-panel>
+
+<pl-submission-panel>
+    <pl-external-grader-results></pl-external-grader-results>
+    <pl-file-preview></pl-file-preview>
+</pl-submission-panel>

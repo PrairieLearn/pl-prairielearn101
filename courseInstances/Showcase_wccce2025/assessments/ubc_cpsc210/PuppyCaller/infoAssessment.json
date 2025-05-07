@@ -1,0 +1,43 @@
+{
+    "uuid": "3149428b-f9e1-444c-ba64-c13173f4b663",
+    "type": "Homework",
+    "title": "Puppy Caller",
+    "set": "Activity",
+    "number": "UBC_CPSC210_1",
+    "allowRealTimeGrading": true,
+    "multipleInstance": false,
+    "autoClose": false,
+    "requireHonorCode": false,
+    "allowIssueReporting": false,
+    "allowAccess": [
+        {
+            "credit": 100,
+            "mode": "Public"
+        },
+        {
+            "comment": "show in schedule and avoid accidental release of info",
+            "showClosedAssessment": false,
+            "showClosedAssessmentScore": false,
+            "active": false
+        }
+    ],
+    "zones": [
+        {
+            "questions": [
+                {
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/introduction",
+                    "points": 0
+                },
+                {
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/testingAndImplementation",
+                    "autoPoints": 75,
+                    "manualPoints": 25
+                },
+                {
+                    "id": "wccce_2025/ubc_cpsc_210/PuppyCaller/growth",
+                    "points": 0
+                }
+            ]
+        }
+    ]
+}
