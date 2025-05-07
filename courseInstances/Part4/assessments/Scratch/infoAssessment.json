@@ -1,0 +1,197 @@
+{
+  "uuid": "9d4d7173-7227-4e0a-9175-83c87865d444",
+  "set": "Sample",
+  "type": "Homework",
+  "title": "Scratch: Harvard CS50",
+  "number": "5",
+  "allowAccess": [
+    {
+      "startDate": "2025-05-06T00:00:01",
+      "credit": 100
+    }
+  ],
+  "text": "This assessment follows CS50's Introduction to Programming with Scratch, OpenCouraseWare from Harvard University (https://cs50.harvard.edu/scratch/2024/).",
+  "zones": [
+    {
+      "title": "Units 1-3",
+      "questions": [
+        {
+          "id": "Scratch/scratch_editor",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/stage_position",
+          "points": 1,
+          "maxPoints": 10
+        },
+        {
+          "id": "Scratch/what_is_a_costume",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_a_function",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_an_event",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_an_input",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_a_script",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_a_sprite",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/project_1",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_2",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_3",
+          "points": 5,
+          "maxPoints": 5
+        }
+      ]
+    },
+    {
+      "title": "Units 4-6",
+      "questions": [
+        {
+          "id": "Scratch/block_position_1",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/block_position_2",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/category_for_conditionals",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/category_for_input",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/category_for_loops",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/category_for_say",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_a_value",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_join",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_round",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/loop_choice",
+          "points": 1,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/what_is_a_handler",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_an_object",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/what_is_Boolean",
+          "points": 1,
+          "maxPoints": 1
+        },
+        {
+          "id": "Scratch/project_4",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_5",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_6",
+          "points": 5,
+          "maxPoints": 5
+        }
+      ]
+    },
+    {
+      "title": "Units 7-9",
+      "questions": [
+        {
+          "id": "Scratch/what_is_a_global",
+          "points": 1
+        },
+        {
+          "id": "Scratch/what_is_a_local",
+          "points": 1
+        },
+        {
+          "id": "Scratch/what_is_broadcasting",
+          "points": 1
+        },
+        {
+          "id": "Scratch/what_is_a_variable",
+          "points": 1
+        },
+        {
+          "id": "Scratch/project_7",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_8",
+          "points": 5,
+          "maxPoints": 5
+        },
+        {
+          "id": "Scratch/project_9",
+          "points": 5,
+          "maxPoints": 5
+        }
+      ]
+    }
+  ]
+}
