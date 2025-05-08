@@ -1,0 +1,14 @@
+{
+    "uuid": "34292487-5019-47ab-8175-49e9dada8790",
+    "title": "Sale Price",
+    "topic": "Variables",
+    "singleVariant": true,
+    "tags": [ "jgfoster" ],
+    "type": "v3",
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+        "enabled": true,
+        "image": "prairielearn/grader-c",
+        "entrypoint": "/grade/tests/test.py",
+    }
+}

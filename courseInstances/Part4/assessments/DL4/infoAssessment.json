@@ -19,6 +19,7 @@
         { "id": "Gallery/PromotionalProduct", "points": 10 },
         { "id": "Gallery/Invoice", "points": 10 },
         { "id": "Gallery/RandomCProgram", "points": 10 },
+        { "id": "Gallery/AstOfCProgram", "points": 10 },
         { "id": "Gallery/LinkedListRemove", "points": 10 }
       ],
       "comment": "This zone contains questions demonstrating the basic functionality of external autograder, as well as official autograders for Java and C. For more info, contact: Jonatan Schroeder jonatan@yorku.ca"
