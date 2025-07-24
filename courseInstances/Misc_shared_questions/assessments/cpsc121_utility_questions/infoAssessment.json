@@ -1,0 +1,42 @@
+{
+    "uuid": "deb9a8c5-93e5-42cd-b3a1-b8488aa85e79",
+    "type": "Exam",
+    "title": "Sample CPSC 121 Utility Questions",
+    "set": "Sample",
+    "number": "1",
+    "allowRealTimeGrading": true,
+    "requireHonorCode": false,
+    "allowIssueReporting": false,
+    "allowAccess": [
+        {
+            "credit": 100,
+            "mode": "Public"
+        },
+        {
+            "comment": "show in schedule and avoid accidental release of info",
+            "showClosedAssessment": false,
+            "showClosedAssessmentScore": false,
+            "active": false
+        }
+    ],
+    "zones": [
+        {
+            "title": "Attendance",
+            "questions": [
+                {
+                    "id": "steve/ubc_cpsc_121/Discussion_Attendance",
+                    "points": [10, 10]
+                }
+            ]
+        },
+        {
+            "title": "Optional Scratch Work Area",
+            "questions": [
+                {
+                    "id": "steve/ubc_cpsc_121/Notes_Area",
+                    "points": 0
+                }
+            ]
+        }
+    ]
+}

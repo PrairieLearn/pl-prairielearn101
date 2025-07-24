@@ -1,0 +1,12 @@
+{
+    "uuid": "d7e74a02-4586-4baf-8978-6ea23476d070",
+    "longName": "Sharing with no associated event",
+    "hideInEnrollPage": true,
+    "allowAccess": [
+	    {
+            "startDate": "2025-04-26T00:00:01",
+    	    "endDate": "2400-05-13T23:59:59",
+	        "institution": "Any"
+    	}
+    ]
+}
