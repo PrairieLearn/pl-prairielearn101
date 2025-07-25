@@ -1,4 +1,4 @@
-# This problem was developed by Steven Wolfman at UBC, 2025.
+# This problem was developed by Steven Wolfman, Karina Mochetti, Jordon Johnson, and Ricky Lau at UBC, 2025.
 # It is available for use via a CC-BY-4.0 license: https://creativecommons.org/licenses/by/4.0/.
 #
 # The wordlist used below is based on Wikipedia work and so is available

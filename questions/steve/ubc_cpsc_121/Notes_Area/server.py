@@ -1,4 +1,4 @@
-# This problem was developed by Steven Wolfman at UBC, 2025.
+# This problem was developed by Steven Wolfman and Karina Mochetti at UBC, 2025.
 # It is available for use via a CC-BY-4.0 license: https://creativecommons.org/licenses/by/4.0/.
 import random
 
