@@ -4,5 +4,7 @@
     "topic": "notes",
     "showCorrectAnswer": false,
     "tags": [],
+    "sharePublicly": true,
+    "shareSourcePublicly": true,
     "type": "v3"
 }

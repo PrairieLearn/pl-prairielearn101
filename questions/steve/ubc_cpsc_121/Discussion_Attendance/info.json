@@ -4,6 +4,8 @@
   "title": "Attendance",
   "topic": "attendance",
   "tags": ["attendance"],
+  "sharePublicly": true,
+  "shareSourcePublicly": true,
   "singleVariant": true,
   "showCorrectAnswer": false
 }
