@@ -16,16 +16,16 @@ def generate(data):
     data['params']['gw']['ip'] = "10.%d.%d.1" % (sub[0], sub[1])
     
     data['params']['dnsport'] = random.randint(49152,65535)
-    data['params']['dnstrans'] = random.randint(10e3, 60e3)
+    data['params']['dnstrans'] = random.randint(int(10e3), int(60e3))
     
     data['params']['ids']    = random.sample(range(10000,65535), k=5) 
     data['params']['id-dnsack']  = data['params']['ids'][2] + 1
     data['params']['id-httpget'] = data['params']['ids'][0] + 1
     data['params']['xid'] = f"0x{random.randint(0, 0xFFFFFFFF):08x}"
 
-    data['params']['isn1'] = random.randint(1e9, 4294967295)
+    data['params']['isn1'] = random.randint(int(1e9), 4294967295)
     data['params']['ack1'] = data['params']['isn1'] + 1
-    data['params']['isn2'] = random.randint(1e9, 4294967295)
+    data['params']['isn2'] = random.randint(int(1e9), 4294967295)
     data['params']['ack2'] = data['params']['isn2'] + 1
     data['params']['seq3'] = data['params']['ack1']
     data['params']['ack3'] = data['params']['seq3'] + 138

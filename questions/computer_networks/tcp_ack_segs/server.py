@@ -7,8 +7,8 @@ def generate(data):
     data['params']['client'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
     data['params']['server'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
     
-    data['params']['isn'] = random.randint(1e9, 2e9)
-    data['params']['isn2'] = random.randint(3e9, 4294967295)
+    data['params']['isn'] = random.randint(int(1e9), int(2e9))
+    data['params']['isn2'] = random.randint(int(3e9), 4294967295)
     data['params']['segs'] = [{'start': data['params']['isn'] + i*1448, 'end': data['params']['isn'] + (i+1)*1448} for i in range(8)]
     data['params']['ack'] = data['params']['isn'] + random.choice([1,2,3,4,5])*1448
 

@@ -7,7 +7,7 @@ def generate(data):
     data['params']['client'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
     data['params']['server'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
 
-    x = [random.randint(1e9, 2e9), random.randint(3e9, 4294967295)]
+    x = [random.randint(int(1e9), int(2e9)), random.randint(int(3e9), 4294967295)]
     random.shuffle(x)
     data['params']['sn1'] = x[0] 
     data['params']['sn2'] = x[1]

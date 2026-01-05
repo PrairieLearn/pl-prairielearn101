@@ -6,8 +6,8 @@ def generate(data):
     data['params']['sport'] = random.randint(1000,4000)
     data['params']['client'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
     data['params']['server'] = "10.%d.%d.%d" % (random.randint(1, 254), random.randint(1, 254), random.randint(1, 254)) 
-    data['params']['isn1'] = random.randint(1e9, 4294967295)
-    data['params']['isn2'] = random.randint(1e9, 4294967295)
+    data['params']['isn1'] = random.randint(int(1e9), 4294967295)
+    data['params']['isn2'] = random.randint(int(1e9), 4294967295)
     data['params']['l1'] = len("Hello ECE-GY 6353")
     data['params']['ack1'] = data['params']['isn1']+1
     data['params']['ack2'] = data['params']['isn2']+1
