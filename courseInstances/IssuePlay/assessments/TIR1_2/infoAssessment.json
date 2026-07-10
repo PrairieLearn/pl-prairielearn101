@@ -5,5 +5,7 @@
   "set": "Sample",
   "number": "2",
   "accessControl": [],
-  "zones": []
+  "zones": [
+    { "questions": [{ "id": "steve/ubc_cpsc_121/Discussion_Attendance", "autoPoints": 1 }] }
+  ]
 }
