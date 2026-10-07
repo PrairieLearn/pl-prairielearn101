@@ -1,0 +1,18 @@
+<pl-question-panel>
+  <p> Simplify the following expression as much as possible:
+    \[
+    {{params.expression}}.
+    \]
+  </p>
+</pl-question-panel>
+<pl-hide-in-panel submission ="true">
+<pl-symbolic-input
+  answers-name="expr"
+  variables="x"
+  label="Answer$\ =$"
+>
+</pl-symbolic-input>
+</pl-hide-in-panel>
+<pl-submission-panel>
+  {{feedback.expr}}
+</pl-submission-panel>
